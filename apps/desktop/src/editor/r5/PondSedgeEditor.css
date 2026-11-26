@@ -1,0 +1,10 @@
+.pond-sedge__bank { background: #bbd7b2; color: #203c31; font-weight: 650; }
+.pond-sedge__bank[data-pond-sedge-id] { background: #608b66; color: #fff; }
+.pond-sedge__bank[data-pond-sedge-selected] { outline: 2px solid #effff1; outline-offset: -3px; }
+.pond-sedge-readout { display: grid; gap: 3px; }
+.pond-sedge-icon { position: relative; display: block; width: 44px; height: 32px; }
+.pond-sedge-icon i { position: absolute; left: 21px; bottom: 3px; width: 4px; height: 26px; background: linear-gradient(#a6b68a, #638469); clip-path: polygon(45% 0, 76% 15%, 100% 100%, 0 100%); transform-origin: center bottom; }
+.pond-sedge-icon i:nth-child(1) { height: 18px; transform: rotate(-43deg); }
+.pond-sedge-icon i:nth-child(2) { transform: rotate(-21deg); }
+.pond-sedge-icon i:nth-child(4) { transform: rotate(20deg); }
+.pond-sedge-icon i:nth-child(5) { height: 19px; transform: rotate(42deg); }

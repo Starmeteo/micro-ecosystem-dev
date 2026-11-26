@@ -1,0 +1,23 @@
+{
+  "logicalProcessors": 24,
+  "gpu": [
+    {
+      "Name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+      "DriverVersion": "32.0.15.9186"
+    },
+    {
+      "Name": "Intel(R) Graphics",
+      "DriverVersion": "32.0.101.8332"
+    }
+  ],
+  "cpu": [
+    "Intel(R) Core(TM) Ultra 9 275HX"
+  ],
+  "powerPlan": "电源方案 GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (平衡)",
+  "ramMiB": 32189.0,
+  "os": {
+    "Caption": "Microsoft Windows 11 家庭版 中文版",
+    "Version": "10.0.26200",
+    "BuildNumber": "26200"
+  }
+}

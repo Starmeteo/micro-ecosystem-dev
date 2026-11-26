@@ -1,0 +1,5 @@
+{"case":"owned-installed-process","pid":74128,"bootGeneration":"7f62ce19-dcb5-443b-83bc-2d8b62f14213"}
+{"case":"native-merge-preview","regions":[{"area":4900,"capacity":58.8,"water":36}],"realBasins":2,"ordinaryStrokeRejected":true,"multiStrokeKeyboard":true,"readOnly":true}
+{"case":"native-wood-feeding-active","basinId":"pond-2","probedTicks":1740,"amounts":[{"id":"pond-2-shrimp-1","mgC":0.000024913307598020335}]}
+{"case":"native-split-preview","regions":[{"area":400,"capacity":4.8,"water":2.5714285714285716},{"area":2400,"capacity":28.8,"water":15.428571428571429}],"originalWetCells":29,"readOnly":true}
+{"case":"native-wood-feeding-inactive","count":0,"scenario":"paused fixture without a feeding tick"}

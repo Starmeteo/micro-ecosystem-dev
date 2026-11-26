@@ -1,0 +1,458 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1421",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-forest-r5-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "add-independent-second-stone",
+      "via": "content drawer and native canvas pointer, Rust snapshot",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "1",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.2787312535322738
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.2186919843030482
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "cancel-placement",
+      "via": "native Escape, Rust snapshot",
+      "result": {
+        "editRevision": "1",
+        "rockIds": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "check": "drag-one-stone-without-moving-the-other",
+      "via": "native pointer drag, Rust snapshot",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "2",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.19999998506606115,
+              "y": 0.6189999723577568
+            },
+            "mirrored": false
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24676074760421274,
+          0.24096360054181026
+        ],
+        "shelterFraction": [
+          0.16047797714792156,
+          0.14945306284125945
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "mirror-stone",
+      "via": "properties UI, Rust snapshot",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "3",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.19999998506606115,
+              "y": 0.6189999723577568
+            },
+            "mirrored": true
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24676074760421274,
+          0.24096360054181026
+        ],
+        "shelterFraction": [
+          0.16047797714792156,
+          0.14945306284125945
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "remove-undo-redo-restore-same-ids",
+      "via": "properties and history UI, Rust snapshots",
+      "result": {
+        "removed": {
+          "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+          "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+          "definition": "forest-understory-r5/1",
+          "modelVersion": 5,
+          "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+          "editRevision": "4",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.19999998506606115,
+                "y": 0.6189999723577568
+              },
+              "mirrored": true
+            }
+          ],
+          "shadeFraction": [
+            0.24676074760421274,
+            0.12000000000000004
+          ],
+          "shelterFraction": [
+            0.16047797714792156,
+            0
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        },
+        "undone": {
+          "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+          "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+          "definition": "forest-understory-r5/1",
+          "modelVersion": 5,
+          "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+          "editRevision": "5",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.19999998506606115,
+                "y": 0.6189999723577568
+              },
+              "mirrored": true
+            },
+            {
+              "id": 2,
+              "position": {
+                "x": 0.8199999723282898,
+                "y": 0.6159999706398773
+              },
+              "mirrored": false
+            }
+          ],
+          "shadeFraction": [
+            0.24676074760421274,
+            0.24096360054181026
+          ],
+          "shelterFraction": [
+            0.16047797714792156,
+            0.14945306284125945
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        },
+        "redone": {
+          "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+          "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+          "definition": "forest-understory-r5/1",
+          "modelVersion": 5,
+          "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+          "editRevision": "6",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.19999998506606115,
+                "y": 0.6189999723577568
+              },
+              "mirrored": true
+            }
+          ],
+          "shadeFraction": [
+            0.24676074760421274,
+            0.12000000000000004
+          ],
+          "shelterFraction": [
+            0.16047797714792156,
+            0
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        },
+        "restored": {
+          "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+          "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+          "definition": "forest-understory-r5/1",
+          "modelVersion": 5,
+          "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+          "editRevision": "7",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.19999998506606115,
+                "y": 0.6189999723577568
+              },
+              "mirrored": true
+            },
+            {
+              "id": 2,
+              "position": {
+                "x": 0.8199999723282898,
+                "y": 0.6159999706398773
+              },
+              "mirrored": false
+            }
+          ],
+          "shadeFraction": [
+            0.24676074760421274,
+            0.24096360054181026
+          ],
+          "shelterFraction": [
+            0.16047797714792156,
+            0.14945306284125945
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        }
+      }
+    },
+    {
+      "check": "reject-out-of-ground-without-changing-world",
+      "via": "direct invalid IPC and Rust snapshot",
+      "result": {
+        "code": "invalid_fixture_input",
+        "message": "请将石块放在场景前方的可用地面，留出边缘空间。"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "trial-removed-second-stone.png"
+      }
+    },
+    {
+      "check": "trial-only-remove-and-discard",
+      "via": "trial toolbar and canvas IDs, formal Rust snapshots",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "7",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.19999998506606115,
+              "y": 0.6189999723577568
+            },
+            "mirrored": true
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24676074760421274,
+          0.24096360054181026
+        ],
+        "shelterFraction": [
+          0.16047797714792156,
+          0.14945306284125945
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "two-stones-saved-editor.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "observe",
+        "file": "two-stones-saved-observe.png"
+      }
+    },
+    {
+      "check": "save-world-for-reopen",
+      "via": "save button, Rust receipt, same-world observation canvas",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "bccb0772-2535-4fd3-9eee-482ff4efd3de",
+        "editRevision": "7",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.19999998506606115,
+              "y": 0.6189999723577568
+            },
+            "mirrored": true
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24676074760421274,
+          0.24096360054181026
+        ],
+        "shelterFraction": [
+          0.16047797714792156,
+          0.14945306284125945
+        ],
+        "lastSaveMessage": "已保存第 0 步"
+      }
+    }
+  ]
+}

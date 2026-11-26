@@ -1,0 +1,58 @@
+{
+  "dpr": 1.5,
+  "size": [
+    576,
+    324
+  ],
+  "sameTick": true,
+  "sameWholeStock": true,
+  "changed": {
+    "count": 2415,
+    "bounds": [
+      109,
+      234,
+      548,
+      319
+    ]
+  },
+  "recovered": {
+    "count": 2194,
+    "bounds": [
+      109,
+      234,
+      548,
+      319
+    ]
+  },
+  "rockChanges": {
+    "bounds": [
+      294,
+      213,
+      429,
+      273
+    ],
+    "depletedDelta": 41855,
+    "recoveredDelta": 28752
+  },
+  "enabledResult": {
+    "exact": 3.12345678,
+    "text": "3.12345678 mg C",
+    "calls": [
+      {
+        "worldId": "pond-v13-browser",
+        "commandId": "217683ae-008b-4921-98f1-9d13d469e909",
+        "expectedGeneration": "4",
+        "expectedRevision": "1",
+        "edit": {
+          "type": "enableStoneBiofilm",
+          "basinId": "basin-main"
+        }
+      }
+    ]
+  },
+  "topology": {
+    "zero": true,
+    "positive": false
+  },
+  "errors": []
+}

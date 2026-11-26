@@ -1,0 +1,182 @@
+<div id="eco-editor-concept">
+  <style>
+    #eco-editor-concept{--eco-bg:light-dark(#f5f5ef,#1c2320);--eco-panel:light-dark(#ffffff,#242d28);--eco-ink:light-dark(#27372e,#edf2e8);--eco-muted:light-dark(#58695d,#b9c7bc);--eco-line:light-dark(#d7dfd6,#455148);--eco-active:light-dark(#315d45,#c2e0b5);--eco-onactive:light-dark(#fff,#172b1d);--eco-soft:light-dark(#e8efe3,#344337);font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.5;color:var(--eco-ink);background:var(--eco-bg);border:1px solid var(--eco-line);border-radius:16px;overflow:hidden;color-scheme:light dark}
+    #eco-editor-concept *{box-sizing:border-box}
+    #eco-editor-concept button,#eco-editor-concept input,#eco-editor-concept select{font:inherit}
+    #eco-editor-concept button{min-height:40px;padding:8px 12px;border:1px solid var(--eco-line);border-radius:8px;background:var(--eco-panel);color:var(--eco-ink)}
+    #eco-editor-concept button:hover:not(:disabled){background:var(--eco-soft)}
+    #eco-editor-concept button[aria-pressed="true"]{background:var(--eco-active);color:var(--eco-onactive);border-color:var(--eco-active)}
+    #eco-editor-concept button:disabled{opacity:.45}
+    #eco-editor-concept .eco-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:16px 112px 14px 18px;background:var(--eco-panel);border-bottom:1px solid var(--eco-line)}
+    #eco-editor-concept .eco-title{font-size:17px;font-weight:600;letter-spacing:.02em}
+    #eco-editor-concept .eco-tag{font-size:12px;color:var(--eco-muted);padding:3px 8px;background:var(--eco-soft);border-radius:5px}
+    #eco-editor-concept .eco-worlds{display:flex;gap:6px;margin-left:auto}
+    #eco-editor-concept .eco-workspace{display:grid;grid-template-columns:minmax(0,1fr) 205px}
+    #eco-editor-concept .eco-main{min-width:0;padding:14px}
+    #eco-editor-concept .eco-toolbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+    #eco-editor-concept .eco-toolbar button{flex:1 1 auto;white-space:nowrap;padding:8px 10px}
+    #eco-editor-concept .eco-canvas{position:relative;border-radius:10px;overflow:hidden;background:#263c34;line-height:0}
+    #eco-editor-concept .eco-scene{display:block;width:100%;height:auto;touch-action:none;user-select:none;aspect-ratio:8/5}
+    #eco-editor-concept .eco-scene[data-mode="select"]{cursor:default}
+    #eco-editor-concept .eco-scene[data-mode="patch"]{cursor:crosshair}
+    #eco-editor-concept .eco-actions{display:flex;flex-wrap:wrap;align-items:center;gap:7px;padding-top:12px}
+    #eco-editor-concept .eco-actions button{min-width:64px}
+    #eco-editor-concept .eco-draft{margin-left:auto;color:var(--eco-muted);font-size:12px}
+    #eco-editor-concept .eco-status{min-height:42px;padding-top:9px;color:var(--eco-muted);font-size:13px;line-height:1.55}
+    #eco-editor-concept .eco-inspector{padding:16px 14px;border-left:1px solid var(--eco-line);background:var(--eco-panel);min-width:0}
+    #eco-editor-concept .eco-kicker{font-size:12px;color:var(--eco-muted);margin-bottom:6px}
+    #eco-editor-concept .eco-current{font-size:16px;font-weight:600;margin-bottom:8px}
+    #eco-editor-concept .eco-help{color:var(--eco-muted);font-size:13px;margin:0 0 16px}
+    #eco-editor-concept .eco-field{display:block;margin:10px 0 18px}
+    #eco-editor-concept .eco-field span{display:flex;justify-content:space-between;margin-bottom:6px}
+    #eco-editor-concept input[type="range"]{width:100%;accent-color:var(--eco-active);min-height:32px}
+    #eco-editor-concept .eco-list-label{display:block;font-size:12px;color:var(--eco-muted);margin:18px 0 6px}
+    #eco-editor-concept select{width:100%;min-height:44px;border:1px solid var(--eco-line);border-radius:8px;padding:8px;background:var(--eco-panel);color:var(--eco-ink);font-size:16px}
+    #eco-editor-concept .eco-selection{font-size:13px;margin-top:9px;color:var(--eco-muted)}
+    #eco-editor-concept .eco-footer{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 16px;border-top:1px solid var(--eco-line);color:var(--eco-muted);font-size:12px;background:var(--eco-panel)}
+    #eco-editor-concept [hidden]{display:none!important}
+    @media(max-width:700px){#eco-editor-concept .eco-head{padding:14px 112px 12px 14px}#eco-editor-concept .eco-worlds{margin-left:0}#eco-editor-concept .eco-workspace{grid-template-columns:1fr}#eco-editor-concept .eco-inspector{border-left:0;border-top:1px solid var(--eco-line);display:grid;grid-template-columns:1fr 1fr;gap:0 18px}#eco-editor-concept .eco-help{margin-bottom:8px}#eco-editor-concept .eco-list-label{margin-top:0}#eco-editor-concept .eco-field{margin-bottom:0}#eco-editor-concept .eco-main{padding:12px}}
+    @media(max-width:390px){#eco-editor-concept .eco-head{padding-right:96px}#eco-editor-concept .eco-title{font-size:16px}#eco-editor-concept .eco-worlds{width:100%}#eco-editor-concept .eco-worlds button{flex:1}#eco-editor-concept .eco-inspector{grid-template-columns:1fr}#eco-editor-concept .eco-list-label{margin-top:14px}#eco-editor-concept .eco-draft{width:100%;margin-left:0}}
+    @media(pointer:coarse){#eco-editor-concept button{min-height:44px}}
+  </style>
+  <header class="eco-head">
+    <span class="eco-title">生态场景编辑</span><span class="eco-tag">操作草图</span>
+    <div class="eco-worlds" aria-label="选择场景">
+      <button type="button" data-world="forest" aria-pressed="true">林下</button>
+      <button type="button" data-world="pond" aria-pressed="false">浅塘</button>
+    </div>
+  </header>
+  <div class="eco-workspace">
+    <main class="eco-main">
+      <div class="eco-toolbar" aria-label="编辑工具">
+        <button type="button" data-tool="select" aria-pressed="false">选择</button>
+        <button type="button" data-tool="patch" aria-pressed="true">涂苔藓</button>
+        <button type="button" data-tool="rock" aria-pressed="false">放石头</button>
+        <button type="button" data-tool="plant" aria-pressed="false">种蕨类</button>
+        <button type="button" data-tool="animal" aria-pressed="false">投鼠妇</button>
+      </div>
+      <div class="eco-canvas">
+        <svg class="eco-scene" viewBox="0 0 800 500" role="img" aria-label="林下场景操作画布，可用上方工具添加物件，用对象列表选择和删除" data-mode="patch">
+          <g class="eco-background"></g><g class="eco-objects"></g><g class="eco-highlight" pointer-events="none"></g>
+        </svg>
+      </div>
+      <div class="eco-actions">
+        <button type="button" data-action="undo" disabled>撤销</button>
+        <button type="button" data-action="redo" disabled>重做</button>
+        <button type="button" data-action="delete" disabled>删除选中</button>
+        <span class="eco-draft">草稿 · 生态未运行</span>
+      </div>
+      <div class="eco-status" aria-live="polite">点按涂一小片，按住拖动涂一整片。</div>
+    </main>
+    <aside class="eco-inspector" aria-label="当前工具与对象">
+      <div>
+        <div class="eco-kicker">当前操作</div><div class="eco-current">涂苔藓</div>
+        <p class="eco-help">点按或拖动场景，松开后记为一次操作。</p>
+        <label class="eco-field"><span>笔刷大小 <output class="eco-brush-value">中</output></span><input aria-label="笔刷大小" type="range" min="1" max="3" step="1" value="2"></label>
+      </div>
+      <div>
+        <label class="eco-list-label" for="eco-object-select">场景对象 · 可从这里选中</label>
+        <select id="eco-object-select"><option value="">未选中对象</option></select>
+        <div class="eco-selection">选中后可拖动位置，或点击删除。</div>
+      </div>
+    </aside>
+  </div>
+  <footer class="eco-footer"><span>固定主视角</span><span>两个场景分别保留草稿与撤销记录</span></footer>
+  <script>
+  (() => {
+    const root = document.getElementById('eco-editor-concept');
+    const $ = selector => root.querySelector(selector), $$ = selector => [...root.querySelectorAll(selector)];
+    const svg = $('.eco-scene'), objectLayer = $('.eco-objects'), backdrop = $('.eco-background');
+    const highlight = $('.eco-highlight'), picker = $('select'), status = $('.eco-status');
+    const names = {forest:{patch:'苔藓区域',rock:'石头',plant:'蕨类',animal:'鼠妇'},pond:{patch:'水草区域',rock:'石头',plant:'岸草',animal:'米虾'}};
+    const toolNames = {forest:{select:'选择',patch:'涂苔藓',rock:'放石头',plant:'种蕨类',animal:'投鼠妇'},pond:{select:'选择',patch:'涂水草',rock:'放石头',plant:'种岸草',animal:'投米虾'}};
+    const copy = value => JSON.parse(JSON.stringify(value));
+    const makeWorld = items => ({items,history:[copy(items)],step:0,selected:null});
+    const worlds = {
+      forest:makeWorld([{id:1,type:'rock',x:490,y:337},{id:2,type:'plant',x:220,y:350},{id:3,type:'animal',x:372,y:402}]),
+      pond:makeWorld([{id:4,type:'rock',x:585,y:353},{id:5,type:'plant',x:686,y:315},{id:6,type:'animal',x:318,y:350}])
+    };
+    let worldKey='forest', tool='patch', brush=27, serial=7, gesture=null;
+    const current = () => worlds[worldKey];
+    const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
+    const point = e => { const b=svg.getBoundingClientRect(); return {x:clamp((e.clientX-b.left)*800/b.width,25,775),y:clamp((e.clientY-b.top)*500/b.height,145,465)}; };
+    function background(){
+      backdrop.innerHTML=worldKey==='forest' ?
+        '<rect width="800" height="500" fill="#142d25"/><path d="M0 155H90V115H200V145H300V95H430V130H580V82H690V120H800V500H0Z" fill="#284c35"/><path d="M0 300L800 225V500H0Z" fill="#455a38"/><path d="M0 400L160 377L335 420L570 373L800 405V500H0Z" fill="#4b3f2c"/><path d="M43 0H105V100H96V205L161 278L145 295L73 241L25 282L11 263L52 204Z" fill="#493e2a"/><path d="M63 0H81V205L129 268L116 270L64 219Z" fill="#75613b"/><path d="M0 65H100V43H182V12H310V0H0Z" fill="#3b633c"/><path d="M800 18H682V54H608V83H735V111H800Z" fill="#557944"/><path d="M500 228L706 192L725 222L516 262Z" fill="#746044"/><path d="M511 233L702 201L710 211L516 246Z" fill="#9a8258"/><path d="M0 326H95V316H125V338H196V350H84V343H0Z M536 380H614V368H652V383H733V394H554Z" fill="#71934d"/><path d="M70 433h17v8H70z M161 391h24v9h-24z M593 445h22v8h-22z M680 418h16v10h-16z M439 472h20v6h-20z" fill="#a18a55"/>' :
+        '<rect width="800" height="500" fill="#23504f"/><path d="M0 80H105V60H220V105H375V72H500V110H650V65H800V220H0Z" fill="#51764d"/><path d="M0 142L800 177V500H0Z" fill="#416f69"/><path d="M0 205L390 174L800 235V500H0Z" fill="#528c83"/><path d="M600 172L800 137V500H651L687 416L570 356L643 290Z" fill="#a2a16d"/><path d="M639 184L800 157V255L699 271L666 249Z" fill="#7a945b"/><path d="M0 410L210 390L398 430L610 412L651 500H0Z" fill="#74968a"/><path d="M34 268h155v5H34z M302 223h103v5H302z M185 323h71v5h-71z M428 313h70v5h-70z M72 378h65v5H72z" fill="#a3c9ac" opacity=".65"/><path d="M107 443h22v10h-22z M460 463h25v8h-25z M544 405h14v7h-14z" fill="#b5b58b"/>';
+    }
+    function shape(item){
+      const pond=worldKey==='pond';
+      if(item.type==='patch') return item.points.map((p,i)=>{const r=item.size;return pond ? `<path d="M${p.x-r} ${p.y+6}l${r*.25} -${r}l${r*.25} ${r*.65}l${r*.3} -${r*1.6}l${r*.25} ${r*1.4}l${r*.55} -${r*.9}l-${r*.2} ${r*1.35}Z" fill="${i%2?'#80ad65':'#62894c'}"/>` : `<path d="M${p.x-r} ${p.y-r*.2}h${r*.3}v-${r*.35}h${r*.65}v-${r*.15}h${r*.6}v${r*.3}h${r*.45}v${r*.6}h-${r*.35}v${r*.2}h-${r*1.3}v-${r*.2}h-${r*.35}Z" fill="${i%2?'#84a84e':'#709044'}"/>`;}).join('');
+      if(item.type==='rock') return '<ellipse cy="10" rx="48" ry="12" fill="#183129" opacity=".4"/><path d="M-44 8L-36-20L-13-38L20-33L43-8L47 10L13 22L-21 20Z" fill="#78867a"/><path d="M-36-20L-13-38L20-33L4-7L-25 0Z" fill="#aab29a"/><path d="M4-7L20-33L43-8L47 10L13 22Z" fill="#596e66"/>';
+      if(item.type==='plant') return pond ? '<path d="M-6 10L-12-92L-7-99L0 6L13-119L19-116L7 7L37-77L43-74L15 14Z" fill="#395f37"/><path d="M0 8L-34-67L-29-72L6 7L26-93L31-89L11 12Z" fill="#9caf5f"/><path d="M13-102h8v-30h-8z M-15-79h7v-24h-7z" fill="#7e5737"/>' : '<path d="M0 8L-4-79H2L5 8Z" fill="#a4ba65"/><path d="M-3-72L-22-80L-16-66L-4-61L-37-66L-29-50L-4-48L-47-49L-33-32L-3-35L-42-27L-27-14L0-24L-20-2L0-9Z" fill="#709a4d"/><path d="M1-71L20-78L15-64L2-59L32-65L26-49L3-46L43-47L31-30L4-33L39-24L25-11L4-21L22 1L4-7Z" fill="#a3bf65"/>';
+      return pond ? '<path d="M-30 1L-18-9H6L23-2L29 10L14 16H-3L-22 8L-37 13L-31 4Z" fill="#c4715a"/><path d="M-15-7H-4V9H-15Z M6-5h7v16H6Z" fill="#f0d8b0"/><path d="M-20 7l-7 13 M-9 12l-4 11 M5 13l7 11 M23 2l18-13 M24 6l20-2" stroke="#e5bd8b" stroke-width="2" fill="none"/><rect x="20" y="-1" width="4" height="4" fill="#243f39"/>' : '<path d="M-24-2L-18-12H13L24-4V8L15 16H-14L-24 8Z" fill="#93968b"/><path d="M-14-11V13 M-5-12V15 M5-12V15 M14-10V12" stroke="#505e56" stroke-width="4"/><path d="M-16 13v8 M-5 15v7 M7 15v7 M17 12v8 M20-5l10-10" stroke="#a1ad95" stroke-width="3"/>';
+    }
+    function render(){
+      const w=current();
+      objectLayer.innerHTML=[...w.items].sort((a,b)=>(a.type==='patch'?0:1)-(b.type==='patch'?0:1)||a.y-b.y).map(item=>`<g data-id="${item.id}" transform="translate(${item.x} ${item.y})">${shape(item)}<rect x="-40" y="${item.type==='plant'?-118:-40}" width="80" height="${item.type==='plant'?145:80}" fill="transparent"/></g>`).join('');
+      const selected=w.items.find(i=>i.id===w.selected);
+      highlight.innerHTML=selected?`<ellipse cx="${selected.x}" cy="${selected.y+13}" rx="${selected.type==='rock'?54:40}" ry="16" fill="none" stroke="#f9eab0" stroke-width="3" stroke-dasharray="7 5"/>`:'';
+      picker.innerHTML='<option value="">未选中对象</option>'+w.items.map((i,n)=>`<option value="${i.id}">${names[worldKey][i.type]} · ${n+1}</option>`).join('');
+      picker.value=w.selected||'';
+      $('[data-action="undo"]').disabled=w.step===0;
+      $('[data-action="redo"]').disabled=w.step>=w.history.length-1;
+      $('[data-action="delete"]').disabled=!selected;
+      $('.eco-selection').textContent=selected?`已选中${names[worldKey][selected.type]}。切到「选择」后拖动，或直接删除。`:'选中后可拖动位置，或点击删除。';
+    }
+    function commit(){const w=current();w.history=w.history.slice(0,w.step+1);w.history.push(copy(w.items));w.step++;render();}
+    function setTool(next){
+      tool=next;svg.dataset.mode=tool;
+      $$('[data-tool]').forEach(b=>{b.setAttribute('aria-pressed',String(b.dataset.tool===tool));b.textContent=toolNames[worldKey][b.dataset.tool];});
+      $('.eco-current').textContent=toolNames[worldKey][tool];
+      $('.eco-field').hidden=tool!=='patch';
+      const help=tool==='patch'?'点按或拖动场景，松开后记为一次操作。':tool==='select'?'点选对象并拖动。遮挡时可用下方对象列表。':'点按场景放置一个，再用「选择」调整位置。';
+      $('.eco-help').textContent=help;status.textContent=help;
+    }
+    function finish(){
+      if(!gesture)return;
+      const g=gesture;gesture=null;
+      if(g.changed)commit();else render();
+      status.textContent=g.changed?(g.kind==='move'?'位置已调整。':g.kind==='patch'?'这一笔已完成，可一次撤销。':`已放置${names[worldKey][g.item.type]}。`):'已选中，可拖动或删除。';
+    }
+    svg.addEventListener('pointerdown',e=>{
+      if(e.button!==0||gesture)return;
+      e.preventDefault();const p=point(e),w=current();svg.setPointerCapture(e.pointerId);
+      if(tool==='select'){
+        const hit=e.target.closest('[data-id]');w.selected=hit?Number(hit.dataset.id):null;
+        const item=w.items.find(i=>i.id===w.selected);
+        if(item)gesture={kind:'move',item,start:p,origin:{x:item.x,y:item.y},changed:false};
+        render();return;
+      }
+      const item={id:serial++,type:tool,x:p.x,y:p.y};
+      if(tool==='patch'){item.size=brush;item.points=[{x:0,y:0}];}
+      w.items.push(item);w.selected=item.id;
+      gesture={kind:tool==='patch'?'patch':'place',item,last:p,changed:true};render();
+    });
+    svg.addEventListener('pointermove',e=>{
+      if(!gesture)return;const p=point(e),g=gesture;
+      if(g.kind==='move'){g.item.x=clamp(g.origin.x+p.x-g.start.x,25,775);g.item.y=clamp(g.origin.y+p.y-g.start.y,145,465);g.changed=g.item.x!==g.origin.x||g.item.y!==g.origin.y;render();}
+      if(g.kind==='patch'){
+        const distance=Math.hypot(p.x-g.last.x,p.y-g.last.y);
+        if(distance>brush*.45){const steps=Math.ceil(distance/(brush*.45));for(let k=1;k<=steps;k++)g.item.points.push({x:g.last.x+(p.x-g.last.x)*k/steps-g.item.x,y:g.last.y+(p.y-g.last.y)*k/steps-g.item.y});g.last=p;render();}
+      }
+    });
+    svg.addEventListener('pointerup',finish);svg.addEventListener('pointercancel',finish);svg.addEventListener('lostpointercapture',finish);
+    $$('[data-tool]').forEach(b=>b.addEventListener('click',()=>{finish();setTool(b.dataset.tool);}));
+    $$('[data-world]').forEach(b=>b.addEventListener('click',()=>{
+      finish();worldKey=b.dataset.world;$$('[data-world]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+      svg.setAttribute('aria-label',`${worldKey==='forest'?'林下':'浅塘'}场景操作画布，可用上方工具添加物件，用对象列表选择和删除`);
+      background();setTool(tool);render();status.textContent='已切换场景；原场景的草稿和撤销记录已保留。';
+    }));
+    $('input').addEventListener('input',e=>{brush=[16,27,42][Number(e.target.value)-1];$('.eco-brush-value').textContent=['小','中','大'][Number(e.target.value)-1];});
+    picker.addEventListener('change',()=>{current().selected=Number(picker.value)||null;setTool('select');render();status.textContent=current().selected?'已选中对象，可在场景中拖动或点击删除。':'已取消选择。';});
+    $$('[data-action]').forEach(b=>b.addEventListener('click',()=>{
+      finish();const w=current(),action=b.dataset.action;
+      if(action==='delete'&&w.selected){w.items=w.items.filter(i=>i.id!==w.selected);w.selected=null;commit();status.textContent='已删除选中对象，可撤销。';}
+      if(action==='undo'&&w.step>0){w.step--;w.items=copy(w.history[w.step]);w.selected=null;render();status.textContent='已撤销一步。';}
+      if(action==='redo'&&w.step<w.history.length-1){w.step++;w.items=copy(w.history[w.step]);w.selected=null;render();status.textContent='已重做一步。';}
+    }));
+    background();setTool('patch');render();
+  })();
+  </script>
+</div>

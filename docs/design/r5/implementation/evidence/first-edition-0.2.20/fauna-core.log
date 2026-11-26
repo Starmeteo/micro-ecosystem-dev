@@ -1,0 +1,11 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.79s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 3 tests
+test pond::tests::r5_take_out_daphnia_exports_the_population_share ... ok
+test pond::shrimp_rows::tests::r5_take_out_shrimp_is_section_scoped_and_clears_its_contact ... ok
+test forest::tests::r5_take_out_woodlouse_exports_body_reserve_and_brood_without_death ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 113 filtered out; finished in 0.00s
+

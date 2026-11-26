@@ -1,0 +1,123 @@
+{
+  "version": "0.1",
+  "order": "用户在对话中的发送顺序",
+  "references": [
+    {
+      "reference_id": "REF-01",
+      "original_filename": "1000065069.jpg",
+      "file": "originals/ref-01-shrimp-moss-closeup.jpg",
+      "width": 1536,
+      "height": 948,
+      "bytes": 237787,
+      "sha256": "994b43f936c3165dcf374b8168cc7100af4695c9ab595e6b32331dd64fe32036",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-02",
+      "original_filename": "1000065074.jpg",
+      "file": "originals/ref-02-shrimp-moss-driftwood.jpg",
+      "width": 1536,
+      "height": 1124,
+      "bytes": 321973,
+      "sha256": "317f7df0d9ea9148781dff5857fdc6814d59279c0155298ccdd24723448d1554",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-03",
+      "original_filename": "1000065075.jpg",
+      "file": "originals/ref-03-streambed-catfish.jpg",
+      "width": 1536,
+      "height": 855,
+      "bytes": 213861,
+      "sha256": "4b40d84e629df8b00078706d74043276a6cae10341b115400cd706a13d1914f5",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-04",
+      "original_filename": "1000065076.jpg",
+      "file": "originals/ref-04-aquarium-room-depth.jpg",
+      "width": 1530,
+      "height": 1536,
+      "bytes": 349649,
+      "sha256": "2183d962d6cffc0a287146cf3aac9dc6806b671f9b5772a81f7c28bb6bbfb778",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-05",
+      "original_filename": "1000065077.jpg",
+      "file": "originals/ref-05-ocean-wide-atmosphere.jpg",
+      "width": 608,
+      "height": 1536,
+      "bytes": 161173,
+      "sha256": "c32c2c2884453636e4b065a1fedf8d3068f59610ebcdf9e1ea75ba9b51f63dc4",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-06",
+      "original_filename": "1000065078.jpg",
+      "file": "originals/ref-06-lily-pond-surface.jpg",
+      "width": 607,
+      "height": 1536,
+      "bytes": 277294,
+      "sha256": "d40d1be73eb33292305655895bf9c4aeb4ceecfe542f069e568ccf2c4619a519",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-07",
+      "original_filename": "1000065080.jpg",
+      "file": "originals/ref-07-aquarium-tunnel-light.jpg",
+      "width": 1536,
+      "height": 859,
+      "bytes": 225615,
+      "sha256": "883c02aecea62e1cf7bd8a71ca7827ff71e3d21288c7ea639d62d6b748f832b6",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-08",
+      "original_filename": "1000065081.jpg",
+      "file": "originals/ref-08-aquarium-deep-blue.jpg",
+      "width": 1536,
+      "height": 868,
+      "bytes": 139536,
+      "sha256": "d19d397692d214021545c3cef1939ec3e824d5f7255dd56f1899f52a9debc15a",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    },
+    {
+      "reference_id": "REF-09",
+      "original_filename": "1000065082.jpg",
+      "file": "originals/ref-09-aquarium-window-contrast.jpg",
+      "width": 1536,
+      "height": 865,
+      "bytes": 178128,
+      "sha256": "72d746bebafe1e0cfca789b13dee0c07f4fb774a093be3b5a8a7393f72e620bb",
+      "source": "本次对话中用户上传的风格参考图",
+      "artist": "用户未提供可核实的作者姓名或主页",
+      "role": "视觉参考，不是已获授权的产品素材",
+      "original_bytes_preserved": true
+    }
+  ]
+}

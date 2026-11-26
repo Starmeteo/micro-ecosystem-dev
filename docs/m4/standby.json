@@ -1,0 +1,90 @@
+{
+  "kernelEvents": [
+    {
+      "localTime": "2026-11-24T22:00:12.5104761+08:00",
+      "id": 506,
+      "recordId": 54469
+    },
+    {
+      "localTime": "2026-11-24T22:00:34.0702379+08:00",
+      "id": 507,
+      "recordId": 54475
+    }
+  ],
+  "buildSha256": "85C02123E22E2B28C59998070FC191A4E5342644A9B71EA713B133AC215A4678",
+  "exitAutomation": "CDP Runtime.evaluate timed out while the WebViews stayed hidden. The test runner cleaned up its own process after recording the resume assertions.",
+  "host": {
+    "check": "standby",
+    "ready": {
+      "wallMillis": 1795528775392,
+      "forest": "forest-understory",
+      "pond": "pond-f24f03879c074378a5b7eea664748a76",
+      "pausedTick": "0"
+    },
+    "suspend": {
+      "details": {
+        "activeClock100ns": 3000899057847,
+        "background": [
+          {
+            "paused": true,
+            "tick": "0",
+            "worldId": "pond-f24f03879c074378a5b7eea664748a76"
+          }
+        ],
+        "stamp": 3,
+        "suspended": true
+      },
+      "event": "power-transition",
+      "paused": false,
+      "processId": 10560,
+      "runGeneration": "ec01983b-dcf6-432e-8275-6e43a8f97ebe",
+      "subscriberCount": 0,
+      "suspended": true,
+      "tick": "373",
+      "visibleViews": [],
+      "wallMillis": 1795528831023,
+      "worldId": "forest-understory"
+    },
+    "resume": {
+      "details": {
+        "activeClock100ns": 3000899331230,
+        "background": [
+          {
+            "paused": true,
+            "tick": "0",
+            "worldId": "pond-f24f03879c074378a5b7eea664748a76"
+          }
+        ],
+        "stamp": 4,
+        "suspended": false
+      },
+      "event": "power-transition",
+      "paused": false,
+      "processId": 10560,
+      "runGeneration": "ec01983b-dcf6-432e-8275-6e43a8f97ebe",
+      "subscriberCount": 0,
+      "suspended": false,
+      "tick": "373",
+      "visibleViews": [],
+      "wallMillis": 1795528831050,
+      "worldId": "forest-understory"
+    },
+    "firstRunningSample": {
+      "details": {
+        "activeClock100ns": 3000909204949,
+        "backlogMillis": 2
+      },
+      "event": "active-clock-sample",
+      "paused": false,
+      "processId": 10560,
+      "runGeneration": "ec01983b-dcf6-432e-8275-6e43a8f97ebe",
+      "subscriberCount": 0,
+      "suspended": false,
+      "tick": "383",
+      "visibleViews": [],
+      "wallMillis": 1795528832037,
+      "worldId": "forest-understory"
+    }
+  },
+  "kernelIntervalSeconds": 21.5597618
+}

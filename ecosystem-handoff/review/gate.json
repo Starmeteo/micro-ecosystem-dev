@@ -1,0 +1,10 @@
+{
+  "package_version": "0.1-review1",
+  "phase": "REVIEW_ONLY",
+  "review_status": "NOT_REVIEWED_BY_CODEX",
+  "implementation_authorized": false,
+  "authorization_evidence": null,
+  "next_implementation_stage": "M0",
+  "note": "首次先审查并报告；用户明确授权后才开发。修改此文件不能替代用户授权。",
+  "authorization_scope": null
+}

@@ -1,0 +1,5 @@
+{"case":"owned-installed-process","pid":40424,"bootGeneration":"dd13e4e0-9e9c-4d2b-ab1a-a3cb3eb6a4b7"}
+{"case":"prior-r5-f10-live-fern","id":4,"position":{"x":0.45,"y":0.85},"cellIndex":41,"remainingMgC":2.999999999999999,"editRevision":"2"}
+{"case":"prior-r5-p05-and-dual","basinIds":["pond-main","pond-2"],"waterLiters":[18,18.8],"leafId":1,"leafX":0.76,"remainingMgC":50,"editRevision":"3"}
+{"case":"prior-r5-p04-sand","basinId":"pond-2","placed":[{"id":66,"style":"bottom-fine-sand-patch","x":0.39,"y":0.86},{"id":67,"style":"bottom-coarse-sand-patch","x":0.63,"y":0.91}]}
+{"case":"prior-install-created-two-saved-worlds","priorRelease":"0.2.6","forestId":"forest-understory","forestVersion":14,"pondId":"pond-513cca9c8df84052935f196c8a8ddf3b","pondVersion":13,"stateSha256":["b04d5d4a107f75a3fc177fbcf1b0bd570a3ae16c8e70133ec90fffda6c596c65","af51ccad29ab383b03ff63b879fc6aac8225138478ac41254ab4426b706a6062"]}

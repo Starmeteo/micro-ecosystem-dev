@@ -1,0 +1,15 @@
+{
+  "standalone": "6 painted measurement lines with endpoint caps, ticks and guides",
+  "interactive": "6 painted measurement lines",
+  "lengths": [
+    120,
+    15,
+    60,
+    200,
+    20,
+    80
+  ],
+  "oldStandaloneStroke": "none",
+  "galleryReturn": "clicked and loaded local interactive R5 preview",
+  "referenceOriginalsSha256Matched": 9
+}

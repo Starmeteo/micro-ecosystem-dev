@@ -1,0 +1,76 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.03s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 68 tests
+test pond::tests::lower_oxygen_and_parental_investment_change_pond_populations_without_creating_matter ... ok
+test pond::tests::edible_resources_are_disjoint_and_the_same_biofilm_is_allocated_once ... ok
+test pond::tests::drying_retains_nonvolatile_residue_accounts_for_oxygen_and_never_spawns_replacements ... ok
+test pond::tests::pond_geometry_reshapes_without_changing_volume_or_stocks_and_rejects_overflow ... ok
+test pond::tests::evaporation_drainage_and_refill_have_distinct_water_and_matter_flows ... ok
+test pond::tests::r5_moss_add_move_trim_and_both_removal_paths_conserve_each_element ... ok
+test pond::tests::r5_pond_edit_history_preserves_daylight_and_does_not_reuse_stone_ids ... ok
+test pond::tests::r5_contact_food_caps_each_typed_source_and_shares_scarcity_proportionally ... ok
+test pond::tests::r5_persistent_stone_film_recolonizes_from_real_stock_and_grows_under_shared_limits ... ok
+test pond::tests::r5_persistent_stone_film_spends_only_accessible_stock_and_shares_the_remainder ... ok
+test pond::tests::r5_floating_leaf_shades_water_producers_without_aerial_oxygen_credit ... ok
+test pond::tests::r5_pond_leaf_deposit_checks_bounds_and_supports_a_dry_bed ... ok
+test pond::tests::r5_floating_leaf_save_dry_refill_and_history_keep_basin_boundaries ... ok
+test pond::tests::r5_floating_leaf_canopy_unions_overlaps_and_clips_the_real_footprint ... ok
+test pond::tests::r5_pond_stocking_checks_sites_counts_and_elemental_inputs_atomically ... ok
+test pond::tests::r5_ribbon_uses_shared_nutrients_and_oxygen_but_applies_growth_to_its_own_stock ... ok
+test pond::shrimp_rows::tests::r5_shrimp_contacts_share_food_once_across_observation_rows ... ok
+test pond::tests::r5_biofilm_projection_uses_the_existing_visual_shares_and_keeps_one_stock ... ok
+test pond::tests::r5_rooted_plants_in_two_sections_share_minerals_and_oxygen ... ok
+test pond::tests::r5_pond_shape_rejects_splits_merges_and_capacity_atomically ... ok
+test pond::tests::r5_pond_structures_keep_real_routes_across_deep_and_shallow_water ... ok
+test pond::tests::r5_stone_contact_handles_moved_removed_and_shallow_surfaces ... ok
+test pond::tests::r5_attached_sections_share_growth_respiration_and_colonization ... ok
+test pond::tests::r5_submerged_moss_competes_for_minerals_and_shares_limited_oxygen ... ok
+test pond::tests::r5_main_stone_contact_persists_without_retrospectively_attributing_food ... ok
+test pond::tests::r5_pond_shape_validates_checkpoints_and_rejects_old_model_edits ... ok
+test pond::tests::r5_stone_edits_are_atomic_and_inert_while_water_level_changes ... ok
+test pond::tests::r5_water_plant_exposure_and_initial_presets_keep_their_stock_boundaries ... ok
+test pond::tests::r5_ribbon_edit_save_and_dry_restore_keep_stock_and_type ... ok
+test pond::tests::r5_wood_and_stone_reserve_common_routes_and_wood_ids_survive_history ... ok
+test pond::tests::r5_pond_shape_changes_area_and_depth_without_moving_stock ... ok
+test pond::tests::r5_pond_leaf_deposit_uses_the_original_detritus_and_oxygen_processes_once ... ok
+test pond::tests::single_aerobic_budget_is_shared_under_oxygen_scarcity ... ok
+test pond::tests::r5_legacy_composed_stone_rest_is_explicit_and_basin_local ... ok
+test pond::tests::r5_wood_supports_autonomous_rest_and_carried_or_released_shrimp ... ok
+test pond::topology::tests::r5_full_leaf_layouts_merge_without_increasing_the_per_section_limit ... ok
+test pond::tests::r5_topology_rejects_unrepresentable_results_atomically ... ok
+test pond::tests::r5_topology_conserves_stocks_and_keeps_independent_identifiers ... ok
+test pond::topology::tests::r5_topology_rejects_a_fifth_observation_section_atomically ... ok
+test pond::topology::tests::r5_section_routing_keeps_secondary_layers_and_never_reuses_allocated_ids ... ok
+test pond::topology::tests::r5_pond_authored_structures_remain_editable_on_a_promoted_section_after_save ... ok
+test pond::topology::tests::r5_topology_rejects_excess_population_without_changing_either_basin ... ok
+test pond_leaf::tests::r5_pond_leaf_deposit_stages_report_retained_carbon_and_retire_visuals_only ... ok
+test pond::topology::tests::r5_deposits_keep_both_rows_and_share_one_detritus_pool_and_decomposition ... ok
+test pond_scenery::tests::rejects_cycles_or_dangling_parents_and_removes_all_nested_children ... ok
+test pond_stones::tests::authored_gaps_allow_crossing_without_allowing_solid_contacts ... ok
+test pond::topology::tests::r5_topology_preserves_incoming_shrimp_and_rejects_a_cut_through_a_floating_anchor_atomically ... ok
+test pond::topology::tests::r5_topology_preserves_local_moss_film_and_shrimp_across_edit_and_promotion ... ok
+test pond::topology::tests::r5_topology_retains_empty_row_once_its_shrimp_ids_have_been_used ... ok
+test pond_stones::tests::ground_objects_fit_under_the_limb_but_cannot_overlap_the_wood_feet ... ok
+test pond::tests::r5_wood_contact_reports_consumed_parcels_and_excludes_new_or_released_contacts ... ok
+test pond_stones::tests::receding_water_checks_the_whole_layout_before_relocating_a_blocked_swimmer ... ok
+test pond_wood::tests::slope_landing_height_depends_on_which_part_is_submerged ... ok
+test pond_stones::tests::slope_keeps_the_underpass_open_and_blocks_a_crossing_through_wood ... ok
+test pond::tests::r5_shrimp_stage_reads_existing_state_across_maturity_and_drainage ... ok
+test pond::topology::tests::r5_rooted_plant_rows_keep_stocks_anchors_and_shared_inputs_across_fusion_and_split ... ok
+test pond::topology::tests::r5_topology_moves_floating_plants_and_daphnia_while_retaining_the_selected_living_section ... ok
+test pond::topology::tests::r5_topology_retains_static_layout_on_the_original_section_only ... ok
+test pond::topology::tests::r5_static_section_survives_merge_edit_reload_and_split_without_extra_stocks ... ok
+test pond::tests::r5_shrimp_swims_clear_of_a_main_stone_and_passes_after_removal ... ok
+test pond::tests::r5_persistent_stone_film_survives_edits_dry_water_and_checkpoint_replay ... ok
+test pond::tests::r5_moss_survives_emergence_without_treating_it_as_submerged_growth ... ok
+test pond::tests::r5_water_plant_roots_share_one_pool_and_return_trimmings_to_detritus ... ok
+test pond::tests::pond_replay_batches_match_and_other_basins_keep_their_own_random_history ... ok
+test pond::tests::empty_r5_stone_basin_preserves_the_legacy_trajectory ... ok
+test pond::tests::r5_empty_wood_layout_retains_the_complete_stone_pond_trajectory ... ok
+test pond::tests::r5_pond_with_empty_moss_sites_replays_the_previous_wood_definition ... ok
+test pond::tests::light_organic_load_temperature_and_supersaturation_have_the_expected_directions ... ok
+
+test result: ok. 68 passed; 0 failed; 0 ignored; 0 measured; 41 filtered out; finished in 0.29s
+

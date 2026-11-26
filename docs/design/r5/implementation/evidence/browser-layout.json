@@ -1,0 +1,197 @@
+{
+  "workbenchWide": {
+    ".r5-titlebar": {
+      "x": 1,
+      "y": 1,
+      "w": 1058,
+      "h": 54,
+      "b": 55,
+      "right": 1059,
+      "visible": true
+    },
+    ".r5-tool-rail": {
+      "x": 1,
+      "y": 55,
+      "w": 64,
+      "h": 643.609375,
+      "b": 698.609375,
+      "right": 65,
+      "visible": true
+    },
+    ".r5-scene-area": {
+      "x": 78,
+      "y": 67,
+      "w": 713.609375,
+      "h": 456.375,
+      "b": 523.375,
+      "right": 791.609375,
+      "visible": true
+    },
+    ".r5-viewport__controls": {
+      "x": 78,
+      "y": 531.375,
+      "w": 713.609375,
+      "h": 36,
+      "b": 567.375,
+      "right": 791.609375,
+      "visible": true
+    },
+    ".r5-inspector": {
+      "x": 804.609375,
+      "y": 55,
+      "w": 254.390625,
+      "h": 643.609375,
+      "b": 698.609375,
+      "right": 1059,
+      "visible": true
+    },
+    ".r5-drawer": {
+      "x": 65,
+      "y": 583.375,
+      "w": 739.609375,
+      "h": 115.234375,
+      "b": 698.609375,
+      "right": 804.609375,
+      "visible": true
+    },
+    ".r5-footer": {
+      "x": 1,
+      "y": 698.609375,
+      "w": 1058,
+      "h": 30.390625,
+      "b": 729,
+      "right": 1059,
+      "visible": true
+    }
+  },
+  "placement": {
+    "anchor": "335,193",
+    "moved": "337,193",
+    "reset": "335,193"
+  },
+  "workbenchCompact": {
+    ".r5-titlebar": {
+      "x": 1,
+      "y": 1,
+      "w": 578,
+      "h": 54,
+      "b": 55,
+      "right": 579,
+      "visible": true
+    },
+    ".r5-tool-rail": {
+      "x": 1,
+      "y": 55,
+      "w": 578,
+      "h": 42,
+      "b": 97,
+      "right": 579,
+      "visible": true
+    },
+    ".r5-scene-area": {
+      "x": 14,
+      "y": 109,
+      "w": 552,
+      "h": 239.609375,
+      "b": 348.609375,
+      "right": 566,
+      "visible": true
+    },
+    ".r5-viewport__controls": {
+      "x": 14,
+      "y": 356.609375,
+      "w": 552,
+      "h": 36,
+      "b": 392.609375,
+      "right": 566,
+      "visible": true
+    },
+    ".r5-inspector": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "b": 0,
+      "right": 0,
+      "visible": false
+    },
+    ".r5-drawer": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0,
+      "b": 0,
+      "right": 0,
+      "visible": false
+    },
+    ".r5-footer": {
+      "x": 1,
+      "y": 408.609375,
+      "w": 578,
+      "h": 30.390625,
+      "b": 439,
+      "right": 579,
+      "visible": true
+    }
+  },
+  "waterline": {
+    "before": "46",
+    "after": "85"
+  },
+  "observeMinimum": {
+    ".r5-titlebar": {
+      "x": 1,
+      "y": 1,
+      "w": 398,
+      "h": 47,
+      "b": 48,
+      "right": 399,
+      "visible": true
+    },
+    ".r5-scene-area": {
+      "x": 10,
+      "y": 56,
+      "w": 380,
+      "h": 136.609375,
+      "b": 192.609375,
+      "right": 390,
+      "visible": true
+    },
+    ".r5-viewport__controls": {
+      "x": 10,
+      "y": 198.609375,
+      "w": 380,
+      "h": 36,
+      "b": 234.609375,
+      "right": 390,
+      "visible": true
+    },
+    ".r5-view-controls": {
+      "x": 10,
+      "y": 198.609375,
+      "w": 280.484375,
+      "h": 36,
+      "b": 234.609375,
+      "right": 290.484375,
+      "visible": true
+    },
+    ".r5-density": {
+      "x": 306,
+      "y": 199.609375,
+      "w": 84,
+      "h": 34,
+      "b": 233.609375,
+      "right": 390,
+      "visible": true
+    },
+    ".r5-footer": {
+      "x": 1,
+      "y": 240.609375,
+      "w": 398,
+      "h": 26.390625,
+      "b": 267,
+      "right": 399,
+      "visible": true
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1423",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-legacy-v3.png"
+      }
+    },
+    {
+      "check": "legacy-pond-v3-keeps-its-view-and-model",
+      "via": "world library switching and original basin snapshot",
+      "result": {
+        "worldId": "pond-c3c52b44a32443abb6547b66e55e3feb",
+        "worldName": "R5 旧浅塘验收 2026-11-25T09:27:12.300Z",
+        "definition": "pond-shallow/1",
+        "modelVersion": 3,
+        "runGeneration": "9f888d5a-6566-4b13-b5cb-e24ccddee504",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 18,
+              "capacityLiters": 28.8,
+              "depthCm": 7.5,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 21,
+              "oxygenMgPerLiter": 7.400000000000001,
+              "availableNitrogenMgPerLiter": 0.35,
+              "availablePhosphorusMgPerLiter": 0.05,
+              "algaeMgC": 30,
+              "biofilmMgC": 24,
+              "plantMgC": 150,
+              "detritusMgC": 120,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607,
+                  "heading": 3.599703082040347,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662,
+                  "heading": 4.211306076783676,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766,
+                  "heading": 1.0764718033320413,
+                  "activity": "resting"
+                }
+              ],
+              "turbidityIndex": 0.25
+            }
+          ]
+        },
+        "lastSaveMessage": "已切换世界"
+      }
+    }
+  ]
+}

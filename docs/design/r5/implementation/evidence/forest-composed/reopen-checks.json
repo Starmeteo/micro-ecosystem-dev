@@ -1,0 +1,60 @@
+[
+  {
+    "check": "isolated WebView2",
+    "result": {
+      "labels": [
+        "layout",
+        "panel",
+        "observe",
+        "editor"
+      ],
+      "appPort": "1427",
+      "browser": "Edg/158.0.4370.33"
+    }
+  },
+  {
+    "check": "private profile ownership",
+    "result": {
+      "processId": 63660,
+      "bootGeneration": "9799d4d5-84fb-40f3-8321-3069739a3980"
+    }
+  },
+  {
+    "check": "exact forest v14 state after full native restart",
+    "result": {
+      "worldId": "forest-fe409b0827e94c17be27573ee97207eb",
+      "definition": "forest-r5-composed/1",
+      "dimensions": {
+        "editor": [
+          1042,
+          586
+        ],
+        "observe": [
+          951,
+          535
+        ],
+        "panel": [
+          576,
+          324
+        ],
+        "panelNative": [
+          576,
+          324
+        ]
+      },
+      "initialPid": 64076,
+      "processId": 63660,
+      "previousRun": "a7af5776-8a4a-429b-b7a0-1580cd2acd19",
+      "run": "9799d4d5-84fb-40f3-8321-3069739a3980",
+      "revision": "17"
+    }
+  },
+  {
+    "check": "owned instance exited through save-and-exit",
+    "result": {
+      "processId": 63660,
+      "appPort": "1427",
+      "webViewPort": "43948"
+    }
+  }
+]

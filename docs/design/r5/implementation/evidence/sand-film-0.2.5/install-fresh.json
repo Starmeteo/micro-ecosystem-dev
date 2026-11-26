@@ -1,0 +1,42 @@
+{
+  "evidence": "D:\\Github Projects\\micro-ecosystem-dev\\.local\\r5-installer-evidence\\342115f29aac4376ab7a2fb101350d62",
+  "scenario": "R5",
+  "version": "0.2.5",
+  "installerSha256": "284790F179FDED2737E8352A568530F454E5B0DB9313BDA3BE8C7C34444C0E60",
+  "installerBytes": 74509277,
+  "signature": "NotSigned",
+  "windowsBuild": "10.0.26200.0",
+  "installMode": "currentUser",
+  "noShortcuts": true,
+  "registrationVerified": true,
+  "expectedPayloadSha256": "F463311313B016FE4467412521D81127578626C453A13260655D155788F3B094",
+  "releaseExeSha256": "24BCBF39BA9BED6D7D3ADF12E581E77F38F4716FE61692C098F973EFF82F8BC4",
+  "payloadHashMatches": true,
+  "installedAppVerified": true,
+  "uninstalled": true,
+  "currentInstall": {
+    "exitCode": 0,
+    "version": "0.2.5",
+    "registeredVersion": "0.2.5",
+    "payloadSha256": "F463311313B016FE4467412521D81127578626C453A13260655D155788F3B094"
+  },
+  "installExitCode": 0,
+  "installedExeSha256": "F463311313B016FE4467412521D81127578626C453A13260655D155788F3B094",
+  "currentRun": {
+    "processId": 76440,
+    "exitCode": 0,
+    "checkpointCount": 4
+  },
+  "appExitCode": 0,
+  "checkpointCount": 4,
+  "reopen": {
+    "processId": 74672,
+    "exitCode": 0,
+    "checkpointCount": 8
+  },
+  "uninstallExitCode": 0,
+  "installDirectoryRemoved": true,
+  "vendorMetadataRemoved": true,
+  "sampleDataPreserved": true,
+  "uninstallKeptDataByteIdentical": true
+}

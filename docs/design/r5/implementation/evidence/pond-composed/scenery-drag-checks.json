@@ -1,0 +1,70 @@
+[
+  {
+    "check": "isolated WebView2",
+    "result": {
+      "labels": [
+        "layout",
+        "panel",
+        "observe",
+        "editor"
+      ],
+      "appPort": "1426",
+      "browser": "Edg/158.0.4370.33"
+    }
+  },
+  {
+    "check": "private profile ownership",
+    "result": {
+      "processId": 62396,
+      "bootGeneration": "039eb4a6-6383-4a2b-8eb9-0faf7d945291"
+    }
+  },
+  {
+    "check": "native scenery two-axis drag and first exact undo",
+    "result": {
+      "id": 67,
+      "before": [
+        447.0000271495145,
+        293.0000077335497
+      ],
+      "after": [
+        476.0000103677759,
+        274.9999950786502
+      ],
+      "normalizedBefore": [
+        0.7760417138012404,
+        0.9043210115233016
+      ],
+      "normalizedAfter": [
+        0.8263889068884998,
+        0.8487654169094142
+      ],
+      "revision": "10"
+    }
+  },
+  {
+    "check": "native scenery select add undo",
+    "result": {
+      "child": 48,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      },
+      "added": {
+        "id": 67,
+        "style": "wide-leaf",
+        "x": 0.7760417138012404,
+        "y": 0.9043210115233016
+      },
+      "revision": "11"
+    }
+  },
+  {
+    "check": "owned instance exited through save-and-exit",
+    "result": {
+      "processId": 62396,
+      "appPort": "1426",
+      "webViewPort": "43947"
+    }
+  }
+]

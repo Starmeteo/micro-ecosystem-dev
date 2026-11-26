@@ -1,0 +1,4 @@
+{"case":"owned-installed-process","pid":74844,"bootGeneration":"f38a12bc-71db-4f30-b7ae-aa9c4ce6928a"}
+{"case":"prior-r5-f07-stock-preserved","cells":[11,23],"substrate":"fineSoil","editRevision":"1","waterMl":[439.90287122585016,436.84614530903326]}
+{"case":"prior-r5-pond-volume-preserved","cells":[41,53],"editRevision":"1","areaCm2":2600,"waterLiters":18,"depthCm":6.923076923076923}
+{"case":"prior-install-created-two-saved-worlds","priorRelease":"0.2.2","forestId":"forest-understory","forestVersion":14,"pondId":"pond-978cd42dea5e47b1a6851e6b3dd188d4","pondVersion":13,"stateSha256":["0428ea6fd7b6e06a2aa264740518ecb2db44421feb59ca5a76d09c7d21578f4c","9b9458ffd871f40cd0cf1e170097c141dbcfa37b4d7993b026316fa9a547717c"]}

@@ -1,0 +1,176 @@
+{
+  "dpr": 1.5,
+  "size": [
+    576,
+    324
+  ],
+  "dayPhase": 0.5,
+  "shares": {
+    "full": {
+      "bedMgC": 13.036683729197701,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 2.17278062153295
+        },
+        {
+          "kind": "wood",
+          "id": 1,
+          "mgC": 8.790535649269348
+        }
+      ]
+    },
+    "partial": {
+      "bedMgC": 20.24250406064494,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 1.9528201141678858
+        },
+        {
+          "kind": "wood",
+          "id": 1,
+          "mgC": 1.8046758251871755
+        }
+      ]
+    },
+    "zero": {
+      "bedMgC": 0,
+      "inactiveMgC": 0,
+      "surfaces": []
+    },
+    "dry": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "moved": {
+      "bedMgC": 13.004567737349877,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 2.167427956224979
+        },
+        {
+          "kind": "wood",
+          "id": 1,
+          "mgC": 8.828004306425143
+        }
+      ]
+    },
+    "bedOnly": {
+      "bedMgC": 24,
+      "inactiveMgC": 0,
+      "surfaces": []
+    },
+    "second": {
+      "bedMgC": 3.9381648765284725,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 0.6563608127547452
+        },
+        {
+          "kind": "wood",
+          "id": 1,
+          "mgC": 2.6554743107167824
+        }
+      ]
+    },
+    "noWood": {
+      "bedMgC": 20.571428571428573,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 3.4285714285714284
+        }
+      ]
+    }
+  },
+  "comparisons": {
+    "wet": {
+      "count": 15709,
+      "bounds": [
+        0,
+        66,
+        550,
+        319
+      ]
+    },
+    "moved": {
+      "count": 14427,
+      "bounds": [
+        54,
+        69,
+        575,
+        319
+      ]
+    },
+    "shallow": {
+      "count": 5704,
+      "bounds": [
+        0,
+        181,
+        553,
+        285
+      ]
+    },
+    "dry": {
+      "count": 0,
+      "bounds": null
+    },
+    "restored": {
+      "count": 0,
+      "bounds": null
+    }
+  },
+  "masks": [
+    [
+      {
+        "kind": "stone",
+        "id": 1,
+        "count": 1971,
+        "outside": 0,
+        "minX": 299,
+        "maxX": 423
+      },
+      {
+        "kind": "wood",
+        "id": 1,
+        "count": 12890,
+        "outside": 0,
+        "minX": 0,
+        "maxX": 540
+      }
+    ],
+    [
+      {
+        "kind": "stone",
+        "id": 1,
+        "count": 1969,
+        "outside": 0,
+        "minX": 381,
+        "maxX": 505
+      },
+      {
+        "kind": "wood",
+        "id": 1,
+        "count": 12544,
+        "outside": 0,
+        "minX": 55,
+        "maxX": 575
+      }
+    ]
+  ],
+  "errors": []
+}

@@ -1,0 +1,42 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1421",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "library-preview-before-explicit-open",
+      "via": "world library UI and Rust state",
+      "result": {
+        "legacyDefinition": "forest-understory-seasonal/1"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-live-2x-editor.png"
+      }
+    },
+    {
+      "check": "pond-live-zoom-is-display-only",
+      "via": "real pond viewport and exact Rust basin snapshots",
+      "result": {
+        "worldId": "pond-f1c33525897140ee8503cf0acd1ae31a",
+        "tick": "0"
+      }
+    }
+  ]
+}

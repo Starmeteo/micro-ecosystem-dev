@@ -1,0 +1,19 @@
+    Blocking waiting for file lock on build directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.25s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 11 tests
+test pond::topology::tests::r5_topology_rejects_a_fifth_observation_section_atomically ... ok
+test pond::topology::tests::r5_full_leaf_layouts_merge_without_increasing_the_per_section_limit ... ok
+test pond::topology::tests::r5_topology_preserves_incoming_shrimp_and_rejects_a_cut_through_a_floating_anchor_atomically ... ok
+test pond::topology::tests::r5_topology_rejects_excess_population_without_changing_either_basin ... ok
+test pond::topology::tests::r5_section_routing_keeps_secondary_layers_and_never_reuses_allocated_ids ... ok
+test pond::topology::tests::r5_topology_preserves_local_moss_film_and_shrimp_across_edit_and_promotion ... ok
+test pond::topology::tests::r5_topology_moves_floating_plants_and_daphnia_while_retaining_the_selected_living_section ... ok
+test pond::topology::tests::r5_rooted_plant_rows_keep_stocks_anchors_and_shared_inputs_across_fusion_and_split ... ok
+test pond::topology::tests::r5_topology_retains_static_layout_on_the_original_section_only ... ok
+test pond::topology::tests::r5_static_section_survives_merge_edit_reload_and_split_without_extra_stocks ... ok
+test pond::topology::tests::r5_deposits_keep_both_rows_and_share_one_detritus_pool_and_decomposition ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 92 filtered out; finished in 0.00s
+

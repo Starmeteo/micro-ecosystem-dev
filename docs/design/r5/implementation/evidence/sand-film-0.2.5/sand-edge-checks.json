@@ -1,0 +1,66 @@
+{
+  "fixture": "WorldEditor with mock authority and actual R5 Canvas",
+  "dpr": 1.5,
+  "artwork": [
+    {
+      "name": "sand-fine-100",
+      "size": [
+        400,
+        104
+      ],
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "center": 207
+    },
+    {
+      "name": "sand-coarse-100",
+      "size": [
+        400,
+        104
+      ],
+      "corners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "center": 207
+    }
+  ],
+  "outOfBedReleaseRejected": true,
+  "independentPicking": true,
+  "wet": [
+    {
+      "id": 66,
+      "style": "bottom-fine-sand-patch",
+      "x": 0.3300000119712665,
+      "y": 0.9099999953130002
+    },
+    {
+      "id": 67,
+      "style": "bottom-coarse-sand-patch",
+      "x": 0.6400000216361422,
+      "y": 0.9099999953130002
+    }
+  ],
+  "dry": [
+    {
+      "id": 66,
+      "style": "bottom-fine-sand-patch",
+      "x": 0.3300000119712665,
+      "y": 0.9099999953130002
+    },
+    {
+      "id": 67,
+      "style": "bottom-coarse-sand-patch",
+      "x": 0.6834027818719265,
+      "y": 0.9223457481021947
+    }
+  ],
+  "errors": [],
+  "resourceErrors": []
+}

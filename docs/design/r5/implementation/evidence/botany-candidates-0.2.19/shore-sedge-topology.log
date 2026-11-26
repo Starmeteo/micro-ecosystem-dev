@@ -1,0 +1,17 @@
+     Locking 12 packages to highest compatible versions
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.27
+   Compiling quote v1.0.47
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling serde_json v1.0.154
+   Compiling serde v1.0.229
+   Compiling memchr v2.8.3
+   Compiling itoa v1.0.19
+   Compiling syn v3.0.10
+   Compiling serde_derive v1.0.229
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+   Compiling verify-r5-shore-topology v0.1.0 (D:\Github Projects\micro-ecosystem-dev\.local\r5-sedge\topology)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 7.69s
+     Running `.local\r5-sedge\topology\target\debug\verify-r5-shore-topology.exe`
+Two shore plants retain C/N/P, anchors and basin routing through merge/split; a merge through an occupied bank is rejected atomically.

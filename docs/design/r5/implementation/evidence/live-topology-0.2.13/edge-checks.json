@@ -1,0 +1,41 @@
+{
+  "merge": {
+    "canApply": true,
+    "counts": [
+      [
+        1,
+        5,
+        2
+      ]
+    ]
+  },
+  "split": {
+    "canApply": true,
+    "counts": [
+      [
+        1,
+        3,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ]
+    ],
+    "waterLiters": [
+      6,
+      6
+    ]
+  },
+  "rejectsIncomingSection": true,
+  "rejectsLostAnchor": true,
+  "rejectsPopulationLimits": true,
+  "unequalAreaDaphnia": [
+    2,
+    3
+  ],
+  "actualReact": true,
+  "mockedSubmit": true,
+  "keyboardAndButtonControls": true
+}

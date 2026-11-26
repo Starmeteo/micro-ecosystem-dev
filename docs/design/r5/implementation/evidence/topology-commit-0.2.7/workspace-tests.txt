@@ -1,0 +1,31 @@
+Windows x64 workspace tests, 2026-11-26 (Beijing time).
+cargo test --locked --workspace -- --skip paired_seeds_show_water_and_woodlouse_feedback_after_the_same_elapsed_time
+
+     Running unittests src\lib.rs (target\debug\build\eco-core/ac23112934c164c1\out\eco_core-ac23112934c164c1.exe)
+running 75 tests
+test pond::tests::r5_topology_rejects_unrepresentable_or_occupied_results_atomically ... ok
+test pond::tests::r5_topology_conserves_stocks_and_keeps_independent_identifiers ... ok
+test result: ok. 75 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.31s
+     Running unittests src\main.rs (target\debug\build\micro-ecosystem-desktop/bc70f591cb0f70df\out\micro_ecosystem_desktop-bc70f591cb0f70df.exe)
+running 20 tests
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+     Running unittests src\lib.rs (target\debug\build\world-runtime/2aac44e7939eb78f\out\world_runtime-2aac44e7939eb78f.exe)
+running 53 tests
+test tests::empty_r5_pond_topology_survives_history_trials_and_checkpoint_restore ... ok
+test result: ok. 53 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s
+     Running unittests src\bin\m0-headless.rs (target\debug\build\world-runtime/79b7af6ab9f7e898\out\m0_headless-79b7af6ab9f7e898.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m1-forest-replay.rs (target\debug\build\world-runtime/8ea988cb1676f719\out\m1_forest_replay-8ea988cb1676f719.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m2-pond-replay.rs (target\debug\build\world-runtime/ec0582a2bfaed183\out\m2_pond_replay-ec0582a2bfaed183.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m4-long-run.rs (target\debug\build\world-runtime/6e31187fb235c7f8\out\m4_long_run-6e31187fb235c7f8.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

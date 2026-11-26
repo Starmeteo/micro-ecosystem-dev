@@ -1,0 +1,52 @@
+{
+  "actualEditorAndComposedCanvas": true,
+  "mockHost": true,
+  "A": {
+    "id": 4,
+    "style": "back-3",
+    "x": 0.18229166666666666,
+    "y": 0.7253086419753086
+  },
+  "B": {
+    "id": 43,
+    "style": "leaf-front",
+    "x": 0.6979166666666666,
+    "y": 0.9537037037037037
+  },
+  "abortedSwitchWithoutIPC": true,
+  "returnedWithoutRevival": true,
+  "exactBCommand": {
+    "command": "edit_pond",
+    "worldId": "pond-v13-browser",
+    "commandId": "b6df6533-36fa-4c7b-8b65-e5ce76ff3e36",
+    "expectedGeneration": "4",
+    "expectedRevision": "1",
+    "edit": {
+      "type": "moveScenery",
+      "basinId": "basin-main",
+      "id": 43,
+      "x": 0.6979166666666666,
+      "y": 0.9577037037037037
+    }
+  },
+  "undoRestoredBasin": true,
+  "newerRevisionInvalidated": true,
+  "controlledPointerCapture": true,
+  "pointerSelectionInvalidated": true,
+  "pointerEdit": {
+    "type": "moveScenery",
+    "basinId": "basin-main",
+    "id": 43,
+    "x": 0.7204861111111112,
+    "y": 0.9814814814814815
+  },
+  "attachedEdit": {
+    "type": "moveScenery",
+    "basinId": "basin-main",
+    "id": 49,
+    "x": 0.109,
+    "y": 0.634
+  },
+  "drySurfaceDiscarded": true,
+  "errors": []
+}

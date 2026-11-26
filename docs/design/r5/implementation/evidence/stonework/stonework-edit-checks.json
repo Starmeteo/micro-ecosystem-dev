@@ -1,0 +1,311 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-forest-r5-stonework-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "forest-42502776a0b84a6bb4234fe4a8fdf9be",
+        "worldName": "R5 扁石验收 2026-11-25T08:42:44.673Z",
+        "definition": "forest-understory-r5-stonework/1",
+        "modelVersion": 7,
+        "runGeneration": "d218cbfe-b75b-4c9a-ac38-1a51230d83b2",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "stonework-open-gap.png"
+      }
+    },
+    {
+      "check": "pair-leaves-placeable-gap",
+      "via": "native place actions and Rust cell count",
+      "result": {
+        "source": 47,
+        "afterPair": 45,
+        "afterGapStone": 44,
+        "groupId": 2,
+        "previewCells": [
+          4,
+          7
+        ],
+        "inserted": {
+          "id": 3,
+          "position": {
+            "x": 0.5000000109808374,
+            "y": 0.6150000085893976
+          },
+          "mirrored": false
+        }
+      }
+    },
+    {
+      "check": "three-authored-stonework-presets",
+      "via": "native canvas, exact model fixtures",
+      "result": {
+        "worldId": "forest-42502776a0b84a6bb4234fe4a8fdf9be",
+        "worldName": "R5 扁石验收 2026-11-25T08:42:44.673Z",
+        "definition": "forest-understory-r5-stonework/1",
+        "modelVersion": 7,
+        "runGeneration": "d218cbfe-b75b-4c9a-ac38-1a51230d83b2",
+        "editRevision": "5",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "pair"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0.4700000118593044,
+              "y": 0.8799999469019057
+            },
+            "mirrored": false,
+            "preset": "cluster"
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "slab"
+          }
+        ],
+        "shadeFraction": [
+          0.3670423063395331,
+          0.3612488644261166
+        ],
+        "shelterFraction": [
+          0.21648109065068527,
+          0.2510756044182721
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界",
+        "dpr": 1.5,
+        "canvas": [
+          1042,
+          586
+        ],
+        "cells": 41
+      }
+    },
+    {
+      "check": "conflict-and-cancel-do-not-mutate",
+      "via": "authoritative invalid command plus native Escape",
+      "result": {
+        "code": "invalid_fixture_input",
+        "message": "这个落点的接地格与已有石木重叠，请选择其他落点。"
+      }
+    },
+    {
+      "check": "whole-group-edit-history",
+      "via": "native drag and property/history buttons",
+      "result": {
+        "worldId": "forest-42502776a0b84a6bb4234fe4a8fdf9be",
+        "worldName": "R5 扁石验收 2026-11-25T08:42:44.673Z",
+        "definition": "forest-understory-r5-stonework/1",
+        "modelVersion": 7,
+        "runGeneration": "d218cbfe-b75b-4c9a-ac38-1a51230d83b2",
+        "editRevision": "11",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "pair"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0.5600000092239035,
+              "y": 0.8869999155115619
+            },
+            "mirrored": true,
+            "preset": "cluster"
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "slab"
+          }
+        ],
+        "shadeFraction": [
+          0.3242429089756449,
+          0.4032445385207375
+        ],
+        "shelterFraction": [
+          0.19371087847095747,
+          0.2720063752725826
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "stonework-trial.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "stonework-saved-editor.png"
+      }
+    },
+    {
+      "check": "trial-isolation-and-save",
+      "via": "native buttons, formal Rust snapshot",
+      "result": {
+        "worldId": "forest-42502776a0b84a6bb4234fe4a8fdf9be",
+        "worldName": "R5 扁石验收 2026-11-25T08:42:44.673Z",
+        "definition": "forest-understory-r5-stonework/1",
+        "modelVersion": 7,
+        "runGeneration": "d218cbfe-b75b-4c9a-ac38-1a51230d83b2",
+        "editRevision": "11",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "pair"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0.5600000092239035,
+              "y": 0.8869999155115619
+            },
+            "mirrored": true,
+            "preset": "cluster"
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "slab"
+          }
+        ],
+        "shadeFraction": [
+          0.3242429089756449,
+          0.4032445385207375
+        ],
+        "shelterFraction": [
+          0.19371087847095747,
+          0.2720063752725826
+        ],
+        "lastSaveMessage": "已保存第 0 步"
+      }
+    }
+  ]
+}

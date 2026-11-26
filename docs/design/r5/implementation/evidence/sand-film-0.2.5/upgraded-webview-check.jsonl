@@ -1,0 +1,4 @@
+{"case":"owned-installed-process","pid":73988,"bootGeneration":"78f02d8b-7fc2-4f4b-b9e1-2c8895994710"}
+{"case":"upgraded-r5-rendered-gravel","basinId":"pond-2","gravelId":66,"style":"bottom-gravel-patch","stagePoint":[305.28000000000003,291.6]}
+{"case":"upgraded-r5-rendered-second-basin","basinIds":["pond-main","pond-2"],"leafId":1,"x":0.76,"stage":"whole"}
+{"case":"upgrade-reopens-both-old-worlds-exactly","priorRelease":"0.2.4","priorPid":67576,"pid":73988,"worlds":[{"worldId":"forest-understory","modelVersion":14,"definition":"forest-r5-composed/1","tick":"17","stateSha256":"b04d5d4a107f75a3fc177fbcf1b0bd570a3ae16c8e70133ec90fffda6c596c65","verifiedDerivedFields":[],"component":[576,324]},{"worldId":"pond-e51db036a591405ebe8c0df4676ab88d","modelVersion":13,"definition":"pond-shallow-r5-composed/1","tick":"0","stateSha256":"7ab5b42548fcf7640925906b788790162a7f3ca445d3e468953f580e0f7eacdb","verifiedDerivedFields":[],"component":[576,324]}]}

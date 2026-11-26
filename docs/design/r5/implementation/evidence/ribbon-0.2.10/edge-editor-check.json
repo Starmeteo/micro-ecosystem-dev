@@ -1,0 +1,132 @@
+{
+  "actualEditorAndCanvas": true,
+  "mockHost": true,
+  "palette": {
+    "selected": "medium",
+    "options": [
+      [
+        "small",
+        "叶片弧长 120 mm"
+      ],
+      [
+        "medium",
+        "叶片弧长 180 mm"
+      ],
+      [
+        "large",
+        "叶片弧长 240 mm"
+      ]
+    ],
+    "whorled": true
+  },
+  "display": {
+    "properties": [
+      "株型带状叶水草",
+      "规格叶片弧长240 mm",
+      "规格叶宽6 mm",
+      "规格丛宽100 mm",
+      "水中透光72%",
+      "沿池底位置42%",
+      "状态浸没",
+      "投放量75 mg C · 4.5 mg N · 0.525 mg P",
+      "当前库存75 mg C · 4.5 mg N · 0.525 mg P"
+    ],
+    "transmission": 0.72,
+    "task": "inspector"
+  },
+  "added": {
+    "id": 1,
+    "x": 0.41999999999999993,
+    "ribbonPreset": "large",
+    "ribbonLightTransmission": 0.72,
+    "initialMgCnp": [
+      75,
+      4.5,
+      0.525
+    ],
+    "stockMgCnp": [
+      75,
+      4.5,
+      0.525
+    ],
+    "submerged": true
+  },
+  "moved": {
+    "id": 1,
+    "x": 0.4159999999999999,
+    "ribbonPreset": "large",
+    "ribbonLightTransmission": 0.72,
+    "initialMgCnp": [
+      75,
+      4.5,
+      0.525
+    ],
+    "stockMgCnp": [
+      75,
+      4.5,
+      0.525
+    ],
+    "submerged": true
+  },
+  "trimmed": {
+    "id": 1,
+    "x": 0.4159999999999999,
+    "ribbonPreset": "large",
+    "ribbonLightTransmission": 0.72,
+    "initialMgCnp": [
+      75,
+      4.5,
+      0.525
+    ],
+    "stockMgCnp": [
+      45,
+      2.6999999999999997,
+      0.315
+    ],
+    "submerged": true
+  },
+  "blockedStoneAndWhorled": true,
+  "undoExact": true,
+  "calls": [
+    {
+      "edit": {
+        "type": "placeRibbonPlant",
+        "basinId": "basin-main",
+        "x": 0.41999999999999993,
+        "preset": "large"
+      },
+      "expectedRevision": "1"
+    },
+    {
+      "edit": {
+        "type": "moveWaterPlant",
+        "basinId": "basin-main",
+        "id": 1,
+        "x": 0.4159999999999999
+      },
+      "expectedRevision": "2"
+    },
+    {
+      "edit": {
+        "type": "trimWaterPlant",
+        "basinId": "basin-main",
+        "id": 1,
+        "mgC": 30
+      },
+      "expectedRevision": "3"
+    },
+    {
+      "edit": {
+        "type": "removeWaterPlant",
+        "basinId": "basin-main",
+        "id": 1
+      },
+      "expectedRevision": "4"
+    },
+    {
+      "redo": false,
+      "expectedRevision": "5"
+    }
+  ],
+  "errors": []
+}

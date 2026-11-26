@@ -1,0 +1,160 @@
+{
+  "main": {
+    "row": null,
+    "anchors": "1:178.88,242",
+    "frame": "1:growing",
+    "ribbon": null,
+    "selected": null,
+    "stock": null,
+    "light": null,
+    "waterline": "112"
+  },
+  "secondary": {
+    "row": "3",
+    "anchors": "1:282.56,242",
+    "frame": "1:growing",
+    "ribbon": null,
+    "selected": null,
+    "stock": null,
+    "light": null,
+    "waterline": "112"
+  },
+  "prior": {
+    "row": "3",
+    "anchors": "1:282.56,242",
+    "frame": "1:growing",
+    "ribbon": null,
+    "selected": "1",
+    "stock": "70,4.2,0.49",
+    "light": "0.84",
+    "waterline": "112"
+  },
+  "moved": {
+    "row": "3",
+    "anchors": "1:276.79999999999995,242",
+    "frame": "1:growing",
+    "ribbon": null,
+    "selected": "1",
+    "stock": "70,4.2,0.49",
+    "light": "0.84",
+    "waterline": "112"
+  },
+  "placed": {
+    "row": "3",
+    "anchors": "1:276.79999999999995,242;2:253.76,242",
+    "frame": "1:growing;2:full",
+    "ribbon": null,
+    "selected": "2",
+    "stock": "50,3,0.35",
+    "light": "0.78",
+    "waterline": "112"
+  },
+  "trimmed": {
+    "row": "3",
+    "anchors": "1:276.79999999999995,242;2:253.76,242",
+    "frame": "1:growing;2:growing",
+    "ribbon": null,
+    "selected": "2",
+    "stock": "43,2.58,0.301",
+    "light": "0.78",
+    "waterline": "112"
+  },
+  "primaryAfter": {
+    "row": null,
+    "anchors": "1:178.88,242",
+    "frame": "1:growing",
+    "ribbon": null,
+    "selected": null,
+    "stock": null,
+    "light": null,
+    "waterline": "112"
+  },
+  "historyCommands": [
+    "edit_pond",
+    "edit_pond_history",
+    "edit_pond_history",
+    "edit_pond",
+    "edit_pond",
+    "edit_pond"
+  ],
+  "request": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "33cca9f7-cf00-4504-8102-1f748853bb2c",
+      "expectedGeneration": "4",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "moveWaterPlant",
+          "basinId": "pond-main",
+          "id": 1,
+          "x": 0.6
+        }
+      }
+    }
+  },
+  "add": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "ed4d93f1-29a9-425f-a6d8-75415036e224",
+      "expectedGeneration": "4",
+      "expectedRevision": "4",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "placeRibbonPlant",
+          "basinId": "pond-main",
+          "x": 0.52,
+          "preset": "medium"
+        }
+      }
+    }
+  },
+  "trim": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "9174c59e-2f3f-4d7c-8824-d3003265e9cf",
+      "expectedGeneration": "4",
+      "expectedRevision": "5",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "trimWaterPlant",
+          "basinId": "pond-main",
+          "id": 2,
+          "mgC": 7
+        }
+      }
+    }
+  },
+  "removed": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "562d0e7b-0750-4ac1-ad90-1bdff9c7e15f",
+      "expectedGeneration": "4",
+      "expectedRevision": "6",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "removeWaterPlant",
+          "basinId": "pond-main",
+          "id": 2
+        }
+      }
+    }
+  },
+  "mockedReceipts": true
+}

@@ -1,0 +1,19 @@
+.pond-floating__map { position: relative; overflow: hidden; }
+.pond-floating__map span.pond-shape__cell { cursor: default; }
+.pond-floating__map button[aria-disabled="true"] { cursor: default; }
+.pond-floating__marker {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #bfd3a7d4;
+  box-shadow: inset 0 0 0 1px #314b37;
+}
+.pond-floating__marker[data-selected] {
+  outline: 2px solid #f2fff7;
+  outline-offset: 1px;
+  z-index: 3;
+}
+.pond-floating__marker[data-stranded] { background: #d6b98c; }
+.pond-floating__remove { justify-self: start; }

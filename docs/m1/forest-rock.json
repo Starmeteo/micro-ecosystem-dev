@@ -1,0 +1,252 @@
+{
+  "afterRock": {
+    "x": 0.74,
+    "y": 0.65
+  },
+  "beforeEdit": {
+    "evaporationMlPerHour": [
+      256.0778159540424,
+      277.98604487303476
+    ],
+    "feedingWoodliceBySide": [
+      0,
+      0
+    ],
+    "litterMgC": 2515.8,
+    "rockCell": 17,
+    "shadeFraction": [
+      0.24886147394553954,
+      0.15776765299046366
+    ],
+    "shelterFraction": [
+      0.16469705584474478,
+      0.07786767471772543
+    ],
+    "shelteredWoodliceBySide": [
+      0,
+      0
+    ],
+    "soilNitrogenMg": 168.0,
+    "soilPhosphorusMg": 27.839999999999964,
+    "walkableCells": [
+      23,
+      24
+    ],
+    "waterCapacityMl": [
+      720.0,
+      720.0
+    ],
+    "waterMl": [
+      439.9200000000001,
+      436.8600000000001
+    ],
+    "woodliceBySide": [
+      2,
+      2
+    ]
+  },
+  "beforeRock": {
+    "x": 0.44,
+    "y": 0.68
+  },
+  "controlAfterRun": {
+    "evaporationMlPerHour": [
+      232.03671718821602,
+      250.61650162789357
+    ],
+    "feedingWoodliceBySide": [
+      2,
+      2
+    ],
+    "litterMgC": 2469.511247773972,
+    "rockCell": 17,
+    "shadeFraction": [
+      0.24886147394553954,
+      0.15776765299046366
+    ],
+    "shelterFraction": [
+      0.16469705584474478,
+      0.07786767471772543
+    ],
+    "shelteredWoodliceBySide": [
+      0,
+      0
+    ],
+    "soilNitrogenMg": 167.81674661570452,
+    "soilPhosphorusMg": 27.74947316554317,
+    "walkableCells": [
+      23,
+      24
+    ],
+    "waterCapacityMl": [
+      720.0,
+      720.0
+    ],
+    "waterMl": [
+      400.8748854545467,
+      394.44654364059267
+    ],
+    "woodliceBySide": [
+      2,
+      2
+    ]
+  },
+  "controlLedger": {
+    "currentMatterMgCnp": [
+      3076.0748824924335,
+      310.5394000000033,
+      43.96110000000052
+    ],
+    "currentWaterMl": 795.3214290951393,
+    "decomposedMgC": 39.42391151012407,
+    "fedMgC": 7.2167999999994885,
+    "initialMatterMgCnp": [
+      3073.400000000003,
+      310.5393999999997,
+      43.96109999999992
+    ],
+    "initialWaterMl": 876.7800000000002,
+    "matterInputMgCnp": [
+      39.80248993070128,
+      0.0,
+      0.0
+    ],
+    "matterOutputMgCnp": [
+      37.12760743829348,
+      0.0,
+      0.0
+    ],
+    "matterResidualMgCnp": [
+      -2.319211489520967e-11,
+      -3.581135388230905e-12,
+      -6.039613253960852e-13
+    ],
+    "photosynthesizedMgC": 39.80248993070128,
+    "waterInputMl": 3.2000000000129916,
+    "waterOutputMl": 84.65857090462738,
+    "waterResidualMl": 2.4658675101818517e-10
+  },
+  "elapsedSimulatedSeconds": 600.0,
+  "immediateAfterEdit": {
+    "evaporationMlPerHour": [
+      290.4762432,
+      248.97232382881126
+    ],
+    "feedingWoodliceBySide": [
+      0,
+      0
+    ],
+    "litterMgC": 2515.8,
+    "rockCell": 9,
+    "shadeFraction": [
+      0.12000000000000004,
+      0.2671852719267269
+    ],
+    "shelterFraction": [
+      0.0,
+      0.21402198544808207
+    ],
+    "shelteredWoodliceBySide": [
+      0,
+      0
+    ],
+    "soilNitrogenMg": 168.0,
+    "soilPhosphorusMg": 27.839999999999964,
+    "walkableCells": [
+      24,
+      23
+    ],
+    "waterCapacityMl": [
+      720.0,
+      720.0
+    ],
+    "waterMl": [
+      439.9200000000001,
+      436.8600000000001
+    ],
+    "woodliceBySide": [
+      2,
+      2
+    ]
+  },
+  "movedAfterRun": {
+    "evaporationMlPerHour": [
+      261.0622522002167,
+      226.0047774910735
+    ],
+    "feedingWoodliceBySide": [
+      0,
+      3
+    ],
+    "litterMgC": 2465.706767525847,
+    "rockCell": 9,
+    "shadeFraction": [
+      0.12000000000000004,
+      0.2671852719267269
+    ],
+    "shelterFraction": [
+      0.0,
+      0.21402198544808207
+    ],
+    "shelteredWoodliceBySide": [
+      0,
+      0
+    ],
+    "soilNitrogenMg": 167.79881756416813,
+    "soilPhosphorusMg": 27.746699359925017,
+    "walkableCells": [
+      24,
+      23
+    ],
+    "waterCapacityMl": [
+      720.0,
+      720.0
+    ],
+    "waterMl": [
+      395.5990591600221,
+      398.9077619741154
+    ],
+    "woodliceBySide": [
+      1,
+      3
+    ]
+  },
+  "movedLedger": {
+    "currentMatterMgCnp": [
+      3076.516916674226,
+      310.5394000000033,
+      43.961100000000535
+    ],
+    "currentWaterMl": 794.5068211341373,
+    "decomposedMgC": 39.47862652055134,
+    "fedMgC": 11.083200000001344,
+    "initialMatterMgCnp": [
+      3073.400000000003,
+      310.5393999999997,
+      43.96109999999992
+    ],
+    "initialWaterMl": 876.7800000000002,
+    "matterInputMgCnp": [
+      40.28939042104622,
+      0.0,
+      0.0
+    ],
+    "matterOutputMgCnp": [
+      37.172473746842286,
+      0.0,
+      0.0
+    ],
+    "matterResidualMgCnp": [
+      -1.9099388737231493e-11,
+      -3.581135388230905e-12,
+      -6.181721801112872e-13
+    ],
+    "photosynthesizedMgC": 40.28939042104622,
+    "waterInputMl": 3.2000000000129916,
+    "waterOutputMl": 85.47317886562767,
+    "waterResidualMl": 2.481783667462878e-10
+  },
+  "scenario": "FOREST-ROCK",
+  "scope": "林下功能型实验预设。结果用于模型验证，参数待物种与情景校准。",
+  "seed": 1206
+}

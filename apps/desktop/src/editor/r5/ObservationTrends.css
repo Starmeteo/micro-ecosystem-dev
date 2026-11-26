@@ -1,0 +1,13 @@
+.observation-trends__body { display: grid; gap: 8px; }
+.observation-trends__body p { margin: 0; }
+.observation-trends__controls { display: flex; flex-wrap: wrap; gap: 6px; }
+.observation-trends__controls label { display: grid; flex: 1; gap: 3px; min-width: 95px; font-size: 11px; }
+.observation-trends__controls select { min-width: 0; width: 100%; }
+.observation-trends__latest, .observation-trends__axis { display: flex; justify-content: space-between; gap: 4px; }
+.observation-trends__latest span, .observation-trends__axis { color: var(--glass-muted); font-size: 11px; }
+.observation-trends__latest strong, .observation-trends__table { font-variant-numeric: tabular-nums; }
+.observation-trends canvas { display: block; width: 100%; height: auto; border-radius: 8px; background: #e7f0f5; }
+.observation-trends__records summary { padding-block: 5px; }
+.observation-trends__table { max-height: 13rem; overflow: auto; }
+.observation-trends table { width: 100%; border-collapse: collapse; text-align: start; font-size: 11px; }
+.observation-trends :is(th, td) { text-align: start; padding: 4px; border-bottom: 1px solid var(--glass-edge); }

@@ -1,0 +1,82 @@
+{
+  "dpr": 1.5,
+  "size": [
+    576,
+    324
+  ],
+  "event": {
+    "shrimpId": "shrimp-1",
+    "woodId": 1,
+    "offset": 0,
+    "biofilmMgC": 0.000051472
+  },
+  "sameTickAndRevision": true,
+  "locations": [
+    {
+      "anchor": {
+        "x": 244.73903999999996,
+        "y": 135.91780000000006
+      },
+      "waterline": 1.3600000000000196
+    },
+    {
+      "anchor": {
+        "x": 243.76559999999998,
+        "y": 200.07300000000004
+      },
+      "waterline": 192.33280000000002
+    }
+  ],
+  "comparisons": {
+    "active": {
+      "count": 8,
+      "bounds": [
+        257,
+        127,
+        261,
+        129
+      ]
+    },
+    "cleared": {
+      "count": 0,
+      "bounds": null
+    },
+    "stale": {
+      "count": 0,
+      "bounds": null
+    },
+    "mismatch": {
+      "count": 0,
+      "bounds": null
+    },
+    "dry": {
+      "count": 0,
+      "bounds": null
+    },
+    "shallow": {
+      "count": 4,
+      "bounds": [
+        258,
+        193,
+        261,
+        195
+      ]
+    },
+    "zoom": {
+      "count": 72,
+      "bounds": [
+        329,
+        135,
+        345,
+        146
+      ]
+    }
+  },
+  "readout": {
+    "body": "接触沉木时的摄食 · 1 只沉木 10.0000515 mg C显示米虾接触沉木期间从整池生物膜库存获得的食物量。",
+    "amount": 0.000051472,
+    "reading": "0.0000515 mg C",
+    "shrimp": "shrimp-1"
+  },
+  "errors": []
+}

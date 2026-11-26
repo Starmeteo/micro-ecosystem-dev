@@ -1,0 +1,336 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-forest-r5-terrain-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+        "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+        "definition": "forest-understory-r5-terrain/1",
+        "modelVersion": 6,
+        "runGeneration": "590dcc21-c9f7-4a3f-b387-066f9c52535a",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "two-logs-and-stone",
+      "via": "native canvas, separate stable IDs, authoritative ground state",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+        "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+        "definition": "forest-understory-r5-terrain/1",
+        "modelVersion": 6,
+        "runGeneration": "590dcc21-c9f7-4a3f-b387-066f9c52535a",
+        "editRevision": "2",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.8799999469019057
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.6417891746419179,
+          0.6160960391140674
+        ],
+        "shelterFraction": [
+          0.33777710063335303,
+          0.3513725419879009
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界",
+        "viewport": [
+          694.7916870117188,
+          390.82293701171875
+        ],
+        "dpr": 1.5,
+        "walkableBefore": [
+          23,
+          24
+        ],
+        "walkableAfter": [
+          15,
+          16
+        ]
+      }
+    },
+    {
+      "check": "overlap-is-rejected",
+      "via": "direct IPC and unchanged world",
+      "result": {
+        "revision": "2",
+        "code": "invalid_fixture_input",
+        "message": "落点与其他石块或木段占用的地表格重叠，请选择其他落点。"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "terrain-clean-ground.png"
+      }
+    },
+    {
+      "check": "move-mirror-remove-history-clean-ground",
+      "via": "native pointer, history controls, exact canvas fingerprint",
+      "result": {
+        "moved": {
+          "id": 3,
+          "position": {
+            "x": 0.5750000087846698,
+            "y": 0.8870000716824271
+          },
+          "mirrored": false
+        },
+        "clearGround": [
+          1042,
+          586,
+          1217271801
+        ],
+        "restored": {
+          "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+          "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+          "definition": "forest-understory-r5-terrain/1",
+          "modelVersion": 6,
+          "runGeneration": "590dcc21-c9f7-4a3f-b387-066f9c52535a",
+          "editRevision": "10",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.44,
+                "y": 0.68
+              },
+              "mirrored": false
+            }
+          ],
+          "logs": [
+            {
+              "id": 2,
+              "position": {
+                "x": 0.5000000109808374,
+                "y": 0.6150000085893976
+              },
+              "mirrored": false
+            },
+            {
+              "id": 3,
+              "position": {
+                "x": 0.5750000087846698,
+                "y": 0.8870000716824271
+              },
+              "mirrored": true
+            }
+          ],
+          "shadeFraction": [
+            0.5861274298787555,
+            0.6419199625485356
+          ],
+          "shelterFraction": [
+            0.3167641528070371,
+            0.334175139567566
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        }
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "terrain-trial.png"
+      }
+    },
+    {
+      "check": "trial-wood-isolation",
+      "via": "trial UI, canvas IDs and formal snapshot",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+        "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+        "definition": "forest-understory-r5-terrain/1",
+        "modelVersion": 6,
+        "runGeneration": "590dcc21-c9f7-4a3f-b387-066f9c52535a",
+        "editRevision": "10",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.5750000087846698,
+              "y": 0.8870000716824271
+            },
+            "mirrored": true
+          }
+        ],
+        "shadeFraction": [
+          0.5861274298787555,
+          0.6419199625485356
+        ],
+        "shelterFraction": [
+          0.3167641528070371,
+          0.334175139567566
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "terrain-saved-editor.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "observe",
+        "file": "terrain-saved-observe.png"
+      }
+    },
+    {
+      "check": "save-terrain-for-restart",
+      "via": "save button and observation display",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+        "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+        "definition": "forest-understory-r5-terrain/1",
+        "modelVersion": 6,
+        "runGeneration": "590dcc21-c9f7-4a3f-b387-066f9c52535a",
+        "editRevision": "10",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.5750000087846698,
+              "y": 0.8870000716824271
+            },
+            "mirrored": true
+          }
+        ],
+        "shadeFraction": [
+          0.5861274298787555,
+          0.6419199625485356
+        ],
+        "shelterFraction": [
+          0.3167641528070371,
+          0.334175139567566
+        ],
+        "lastSaveMessage": "已保存第 0 步"
+      }
+    }
+  ]
+}

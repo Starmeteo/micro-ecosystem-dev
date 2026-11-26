@@ -1,0 +1,52 @@
+{
+  "evidence": "D:\\Github Projects\\micro-ecosystem-dev\\.local\\r5-installer-evidence\\657a02258ffc444bb46ad85828f07a79",
+  "scenario": "Upgrade",
+  "version": "0.2.7",
+  "installerSha256": "90CEC533C3D05F2286A92930ABBC28B894638ED5199B6138AF43A45BB8E6CC50",
+  "installerBytes": 74519999,
+  "signature": "NotSigned",
+  "windowsBuild": "10.0.26200.0",
+  "installMode": "currentUser",
+  "noShortcuts": true,
+  "registrationVerified": true,
+  "expectedPayloadSha256": "07647634C11B3185AF5FBCCEF9F060550FC19BF93DCFE2871B756BE712172526",
+  "releaseExeSha256": "FA38E05D5F38EE40A3B16B0740C93DA437BF738C10B5DCFCE50897DE40E9E75A",
+  "payloadHashMatches": true,
+  "installedAppVerified": true,
+  "uninstalled": true,
+  "priorVersion": "0.2.6",
+  "priorInstallerSha256": "CB9593B11FAF49F328762D4531A84E6267A1A127B1079DADA3CCA8ED5C703D8E",
+  "priorReleaseExeSha256": "7FFCCA5135BDE3350AFBCDD1C63AA2983C3BA02F6B1B245DE020196768C789BD",
+  "priorInstall": {
+    "exitCode": 0,
+    "version": "0.2.6",
+    "registeredVersion": "0.2.6",
+    "payloadSha256": "532148C405664B5C79865B3E53F3ECA05D239286676D88C94831B65AD8947106"
+  },
+  "priorRun": {
+    "processId": 40424,
+    "exitCode": 0,
+    "checkpointCount": 4
+  },
+  "currentInstall": {
+    "exitCode": 0,
+    "version": "0.2.7",
+    "registeredVersion": "0.2.7",
+    "payloadSha256": "07647634C11B3185AF5FBCCEF9F060550FC19BF93DCFE2871B756BE712172526"
+  },
+  "installExitCode": 0,
+  "installedExeSha256": "07647634C11B3185AF5FBCCEF9F060550FC19BF93DCFE2871B756BE712172526",
+  "upgradeKeptDataByteIdentical": true,
+  "currentRun": {
+    "processId": 64740,
+    "exitCode": 0,
+    "checkpointCount": 8
+  },
+  "appExitCode": 0,
+  "checkpointCount": 8,
+  "uninstallExitCode": 0,
+  "installDirectoryRemoved": true,
+  "vendorMetadataRemoved": true,
+  "sampleDataPreserved": true,
+  "uninstallKeptDataByteIdentical": true
+}

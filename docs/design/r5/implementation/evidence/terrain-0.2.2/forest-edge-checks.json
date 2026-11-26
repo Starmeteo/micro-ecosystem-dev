@@ -1,0 +1,55 @@
+{
+  "dpr": 1.5,
+  "conflictPreview": "15:0,16:0,17:overflow,18:0,19:0",
+  "fineAndHumusChangedPixels": true,
+  "historyExactDraw": true,
+  "keyboardRestore": true,
+  "cancellationNoCommand": true,
+  "sameMaterialNoCommand": true,
+  "calls": [
+    {
+      "action": "change",
+      "edit": {
+        "kind": "setSubstrate",
+        "substrate": "fineSoil",
+        "cells": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      }
+    },
+    {
+      "action": "undo"
+    },
+    {
+      "action": "redo"
+    },
+    {
+      "action": "change",
+      "edit": {
+        "kind": "setSubstrate",
+        "substrate": "native",
+        "cells": [
+          17
+        ]
+      }
+    },
+    {
+      "action": "change",
+      "edit": {
+        "kind": "setSubstrate",
+        "substrate": "coarseHumus",
+        "cells": [
+          26,
+          27,
+          28
+        ]
+      }
+    }
+  ],
+  "reading": "水量／容量\n11.5／36 mL\n基础蒸发倍率\n×0.85",
+  "errors": []
+}

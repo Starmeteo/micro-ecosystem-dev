@@ -1,0 +1,70 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1421",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "two-stones-reopened-editor.png"
+      }
+    },
+    {
+      "check": "reopen-persisted-r5-world",
+      "via": "read-only Rust subscription and live editor canvas",
+      "result": {
+        "worldId": "forest-aa0da9e7487742b4b0ab7d8fa1c8f8bd",
+        "worldName": "R5 双石验收 2026-11-25T08:12:35.751Z",
+        "definition": "forest-understory-r5/1",
+        "modelVersion": 5,
+        "runGeneration": "7bbb263a-4cdf-47b1-983a-2c88872d0061",
+        "editRevision": "7",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.19999998506606115,
+              "y": 0.6189999723577568
+            },
+            "mirrored": true
+          },
+          {
+            "id": 2,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6159999706398773
+            },
+            "mirrored": false
+          }
+        ],
+        "shadeFraction": [
+          0.24676074760421274,
+          0.24096360054181026
+        ],
+        "shelterFraction": [
+          0.16047797714792156,
+          0.14945306284125945
+        ],
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

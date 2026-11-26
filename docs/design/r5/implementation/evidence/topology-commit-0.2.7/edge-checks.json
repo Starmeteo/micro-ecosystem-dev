@@ -1,0 +1,17 @@
+{
+  "eligibleMerge": true,
+  "eligibleSplit": true,
+  "pointerDraw": true,
+  "explicitSubmit": true,
+  "rejectionRetainsDraft": true,
+  "retrySucceeds": true,
+  "occupiedBlocks": true,
+  "missingSectionBlocks": true,
+  "minimumWater": true,
+  "capacity": true,
+  "scale": true,
+  "protected": true,
+  "detachedAndRemoval": true,
+  "dpr": 1.5,
+  "errors": []
+}

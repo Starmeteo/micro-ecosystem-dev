@@ -1,0 +1,36 @@
+{
+  "dpr": 1.5,
+  "zero": {
+    "left": 0,
+    "right": 0
+  },
+  "left": {
+    "left": 35,
+    "right": 0
+  },
+  "right": {
+    "left": 0,
+    "right": 27
+  },
+  "both": {
+    "left": 35,
+    "right": 27
+  },
+  "leftCrop": [
+    152.64000000000001,
+    234.89999999999998,
+    144,
+    81
+  ],
+  "rightCrop": [
+    308.16,
+    234.89999999999998,
+    144,
+    81
+  ],
+  "fourTimesClear": true,
+  "missingDistinct": true,
+  "restoredExact": true,
+  "calls": [],
+  "errors": []
+}

@@ -1,0 +1,78 @@
+{
+  "editor": {
+    "canvas": [
+      960,
+      540
+    ],
+    "filter": "none",
+    "covered": false,
+    "time": "17:00:50",
+    "dpr": 1.5,
+    "viewport": [
+      1060,
+      730
+    ]
+  },
+  "observe": {
+    "canvas": [
+      1204,
+      677
+    ],
+    "filter": "none",
+    "covered": false,
+    "time": "17:00:51",
+    "dpr": 1.5,
+    "viewport": [
+      820,
+      550
+    ]
+  },
+  "panel": {
+    "canvas": [
+      480,
+      270
+    ],
+    "filter": "none",
+    "covered": false,
+    "time": "17:00:52",
+    "dpr": 1.5,
+    "viewport": [
+      384,
+      270
+    ]
+  },
+  "overlay": {
+    "canvas": [
+      480,
+      270
+    ],
+    "filter": "blur(2.14277px)",
+    "covered": true,
+    "time": "17:00:55",
+    "dpr": 1.5,
+    "viewport": [
+      384,
+      270
+    ]
+  },
+  "afterFocus": {
+    "canvas": [
+      480,
+      270
+    ],
+    "filter": "none",
+    "covered": false,
+    "time": "17:00:55",
+    "dpr": 1.5,
+    "viewport": [
+      384,
+      270
+    ]
+  },
+  "pausedCommandRoundTripMs": {
+    "sampleCount": 25,
+    "median": 1.100000023841858,
+    "p95": 2.100000023841858,
+    "max": 2.600000023841858
+  }
+}

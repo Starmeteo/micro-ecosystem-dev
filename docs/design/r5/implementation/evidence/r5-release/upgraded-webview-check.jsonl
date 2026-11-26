@@ -1,0 +1,2 @@
+{"case":"owned-installed-process","pid":62980,"bootGeneration":"875c3f67-7c76-487a-9398-dd144524b9e8"}
+{"case":"upgrade-reopens-both-old-worlds-exactly","priorPid":63788,"pid":62980,"worlds":[{"worldId":"forest-understory","modelVersion":4,"definition":"forest-understory-seasonal/1","tick":"13"},{"worldId":"pond-2e26d2afa7f645df8957460cf394f2b8","modelVersion":3,"definition":"pond-shallow/1","tick":"0"}]}

@@ -1,0 +1,36 @@
+Windows x64 Rust workspace test, 2026-11-26 (Beijing time).
+Workspace unit tests with the existing paired-seed scenario filtered out.
+
+     Running unittests src\lib.rs (target\debug\build\eco-core/ac23112934c164c1\out\eco_core-ac23112934c164c1.exe)
+running 72 tests
+test forest::tests::r5_living_fern_canopy_composes_by_maximum_and_reaches_the_actual_water_cycle ... ok
+test forest::tests::r5_living_fern_moves_only_its_share_and_keeps_stock_in_the_existing_cell ... ok
+test pond::tests::r5_pond_leaf_deposit_checks_bounds_and_supports_a_dry_bed ... ok
+test pond::tests::r5_pond_leaf_deposit_uses_the_original_detritus_and_oxygen_processes_once ... ok
+test pond_leaf::tests::r5_pond_leaf_deposit_stages_report_retained_carbon_and_retire_visuals_only ... ok
+test result: ok. 72 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.41s
+     Running unittests src\main.rs (target\debug\build\micro-ecosystem-desktop/fc82924dd21e0683\out\micro_ecosystem_desktop-fc82924dd21e0683.exe)
+running 20 tests
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+     Running unittests src\lib.rs (target\debug\build\world-runtime/2aac44e7939eb78f\out\world_runtime-2aac44e7939eb78f.exe)
+running 50 tests
+test tests::dual_pond_preset_keeps_water_and_shoreline_edits_independent ... ok
+test tests::r5_living_fern_edit_history_retains_shade_and_stock_on_checkpoint ... ok
+test tests::r5_pond_leaf_deposit_survives_history_trial_presets_and_readback ... ok
+test result: ok. 50 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+     Running unittests src\bin\m0-headless.rs (target\debug\build\world-runtime/79b7af6ab9f7e898\out\m0_headless-79b7af6ab9f7e898.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m1-forest-replay.rs (target\debug\build\world-runtime/8ea988cb1676f719\out\m1_forest_replay-8ea988cb1676f719.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m2-pond-replay.rs (target\debug\build\world-runtime/ec0582a2bfaed183\out\m2_pond_replay-ec0582a2bfaed183.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m4-long-run.rs (target\debug\build\world-runtime/6e31187fb235c7f8\out\m4_long_run-6e31187fb235c7f8.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

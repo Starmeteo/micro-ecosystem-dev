@@ -1,0 +1,9 @@
+/.local/
+/target/
+/apps/desktop/node_modules/
+/apps/desktop/dist/
+/apps/desktop/src-tauri/gen/
+/ui-ux-current-state.zip
+/ecosystem-handoff/references/originals/
+/ecosystem-handoff/references/gallery.html
+/docs/design/r5/references/original-nine/

@@ -1,0 +1,30 @@
+.editor-context [data-pond-daphnia-observation] dt {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.editor-context [data-pond-daphnia-observation] dd {
+  min-width: 0;
+  text-align: end;
+  white-space: normal;
+}
+
+.pond-daphnia-profile {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.pond-daphnia-profile canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #163841;
+  border-radius: 8px;
+}
+
+.pond-daphnia-profile figcaption {
+  color: var(--glass-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}

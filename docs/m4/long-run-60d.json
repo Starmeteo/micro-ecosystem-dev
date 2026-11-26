@@ -1,0 +1,3864 @@
+{
+  "forest": {
+    "definition": "forest-understory-seasonal/1",
+    "firstObservedDryHour": null,
+    "firstObservedNoDaphniaHour": null,
+    "firstObservedNoShrimpHour": null,
+    "firstObservedNoWoodliceHour": null,
+    "initialState": {
+      "animals": [
+        {
+          "activity": "resting",
+          "heading": 2.385114167408954,
+          "id": "isopod-1",
+          "x": 0.18,
+          "y": 0.7300000056591608
+        },
+        {
+          "activity": "resting",
+          "heading": 1.2613400802173487,
+          "id": "isopod-2",
+          "x": 0.35,
+          "y": 0.7850929962259232
+        },
+        {
+          "activity": "resting",
+          "heading": 2.095971655089236,
+          "id": "isopod-3",
+          "x": 0.52,
+          "y": 0.7910078200614008
+        },
+        {
+          "activity": "resting",
+          "heading": 0.12819439724346127,
+          "id": "isopod-4",
+          "x": 0.69,
+          "y": 0.8065578040008375
+        }
+      ],
+      "daylight": {
+        "phase": 0.5,
+        "target": null
+      },
+      "fixtureDefinition": "forest-understory-seasonal/1",
+      "forest": {
+        "balance": {
+          "decomposedMgC": 0.0,
+          "fedMgC": 0.0,
+          "initial": {
+            "matter": {
+              "mgC": 3284.1699999999987,
+              "mgN": 319.66489999999897,
+              "mgP": 45.29189999999997
+            },
+            "waterMl": 876.7800000000002
+          },
+          "inputs": {
+            "matter": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 0.0
+          },
+          "outputs": {
+            "matter": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 0.0
+          },
+          "photosynthesizedMgC": 0.0
+        },
+        "seasonal": {
+          "born": 0,
+          "died": 0,
+          "nextNumber": 5,
+          "soil": [
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 15.0,
+                "mgN": 0.54,
+                "mgP": 0.075
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            },
+            {
+              "fern": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "fernStress": 0.0,
+              "mossStress": 0.0,
+              "springtails": {
+                "mgC": 0.85,
+                "mgN": 0.085,
+                "mgP": 0.012
+              }
+            }
+          ],
+          "woodlice": [
+            {
+              "ageTicks": 30240000,
+              "brood": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "broodProgress": 0.0,
+              "cooldownTicks": 0,
+              "dryTicks": 0,
+              "hungryTicks": 0,
+              "number": 1,
+              "stage": "adult"
+            },
+            {
+              "ageTicks": 44928000,
+              "brood": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "broodProgress": 0.0,
+              "cooldownTicks": 0,
+              "dryTicks": 0,
+              "hungryTicks": 0,
+              "number": 2,
+              "stage": "adult"
+            },
+            {
+              "ageTicks": 59616000,
+              "brood": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "broodProgress": 0.0,
+              "cooldownTicks": 0,
+              "dryTicks": 0,
+              "hungryTicks": 0,
+              "number": 3,
+              "stage": "adult"
+            },
+            {
+              "ageTicks": 4320000,
+              "brood": {
+                "mgC": 0.0,
+                "mgN": 0.0,
+                "mgP": 0.0
+              },
+              "broodProgress": 0.0,
+              "cooldownTicks": 0,
+              "dryTicks": 0,
+              "hungryTicks": 0,
+              "number": 4,
+              "stage": "juvenile"
+            }
+          ]
+        },
+        "soil": [
+          {
+            "litter": {
+              "mgC": 42.0,
+              "mgN": 1.8059999999999998,
+              "mgP": 0.18899999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 56.7,
+              "mgN": 2.4381,
+              "mgP": 0.25515
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 48.3,
+              "mgN": 2.0768999999999997,
+              "mgP": 0.21734999999999996
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 63.0,
+              "mgN": 2.7089999999999996,
+              "mgP": 0.2835
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 54.6,
+              "mgN": 2.3478,
+              "mgP": 0.24569999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 46.2,
+              "mgN": 1.9866,
+              "mgP": 0.2079
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 60.900000000000006,
+              "mgN": 2.6187,
+              "mgP": 0.27405
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 52.5,
+              "mgN": 2.2575,
+              "mgP": 0.23625
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 44.1,
+              "mgN": 1.8962999999999999,
+              "mgP": 0.19845
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 58.8,
+              "mgN": 2.5283999999999995,
+              "mgP": 0.26459999999999995
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 50.4,
+              "mgN": 2.1672,
+              "mgP": 0.22679999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 42.0,
+              "mgN": 1.8059999999999998,
+              "mgP": 0.18899999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 48.3,
+              "mgN": 2.0768999999999997,
+              "mgP": 0.21734999999999996
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 63.0,
+              "mgN": 2.7089999999999996,
+              "mgP": 0.2835
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 54.6,
+              "mgN": 2.3478,
+              "mgP": 0.24569999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 46.2,
+              "mgN": 1.9866,
+              "mgP": 0.2079
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 60.900000000000006,
+              "mgN": 2.6187,
+              "mgP": 0.27405
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 52.5,
+              "mgN": 2.2575,
+              "mgP": 0.23625
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 44.1,
+              "mgN": 1.8962999999999999,
+              "mgP": 0.19845
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 58.8,
+              "mgN": 2.5283999999999995,
+              "mgP": 0.26459999999999995
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 50.4,
+              "mgN": 2.1672,
+              "mgP": 0.22679999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 42.0,
+              "mgN": 1.8059999999999998,
+              "mgP": 0.18899999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 56.7,
+              "mgN": 2.4381,
+              "mgP": 0.25515
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 48.3,
+              "mgN": 2.0768999999999997,
+              "mgP": 0.21734999999999996
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 54.6,
+              "mgN": 2.3478,
+              "mgP": 0.24569999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 46.2,
+              "mgN": 1.9866,
+              "mgP": 0.2079
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 60.900000000000006,
+              "mgN": 2.6187,
+              "mgP": 0.27405
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 52.5,
+              "mgN": 2.2575,
+              "mgP": 0.23625
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 44.1,
+              "mgN": 1.8962999999999999,
+              "mgP": 0.19845
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 58.8,
+              "mgN": 2.5283999999999995,
+              "mgP": 0.26459999999999995
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 50.4,
+              "mgN": 2.1672,
+              "mgP": 0.22679999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 42.0,
+              "mgN": 1.8059999999999998,
+              "mgP": 0.18899999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 56.7,
+              "mgN": 2.4381,
+              "mgP": 0.25515
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 48.3,
+              "mgN": 2.0768999999999997,
+              "mgP": 0.21734999999999996
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 63.0,
+              "mgN": 2.7089999999999996,
+              "mgP": 0.2835
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 54.6,
+              "mgN": 2.3478,
+              "mgP": 0.24569999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 60.900000000000006,
+              "mgN": 2.6187,
+              "mgP": 0.27405
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 52.5,
+              "mgN": 2.2575,
+              "mgP": 0.23625
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 44.1,
+              "mgN": 1.8962999999999999,
+              "mgP": 0.19845
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 58.8,
+              "mgN": 2.5283999999999995,
+              "mgP": 0.26459999999999995
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 50.4,
+              "mgN": 2.1672,
+              "mgP": 0.22679999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          },
+          {
+            "litter": {
+              "mgC": 42.0,
+              "mgN": 1.8059999999999998,
+              "mgP": 0.18899999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.86
+          },
+          {
+            "litter": {
+              "mgC": 56.7,
+              "mgN": 2.4381,
+              "mgP": 0.25515
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.310000000000002
+          },
+          {
+            "litter": {
+              "mgC": 48.3,
+              "mgN": 2.0768999999999997,
+              "mgP": 0.21734999999999996
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.330000000000002
+          },
+          {
+            "litter": {
+              "mgC": 63.0,
+              "mgN": 2.7089999999999996,
+              "mgP": 0.2835
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 19.35
+          },
+          {
+            "litter": {
+              "mgC": 54.6,
+              "mgN": 2.3478,
+              "mgP": 0.24569999999999997
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 16.8
+          },
+          {
+            "litter": {
+              "mgC": 46.2,
+              "mgN": 1.9866,
+              "mgP": 0.2079
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 17.820000000000004
+          },
+          {
+            "litter": {
+              "mgC": 60.900000000000006,
+              "mgN": 2.6187,
+              "mgP": 0.27405
+            },
+            "microbes": {
+              "mgC": 2.4,
+              "mgN": 0.23,
+              "mgP": 0.035
+            },
+            "mineralNMg": 3.5,
+            "mineralPMg": 0.58,
+            "moss": {
+              "mgC": 8.0,
+              "mgN": 0.32,
+              "mgP": 0.048
+            },
+            "waste": {
+              "mgC": 0.0,
+              "mgN": 0.0,
+              "mgP": 0.0
+            },
+            "waterMl": 18.840000000000003
+          }
+        ],
+        "woodlice": [
+          {
+            "body": {
+              "mgC": 12.0,
+              "mgN": 1.8,
+              "mgP": 0.18
+            },
+            "decisionRemaining": 0,
+            "nextCell": 0,
+            "reserve": {
+              "mgC": 2.6,
+              "mgN": 0.19,
+              "mgP": 0.024
+            }
+          },
+          {
+            "body": {
+              "mgC": 12.0,
+              "mgN": 1.8,
+              "mgP": 0.18
+            },
+            "decisionRemaining": 0,
+            "nextCell": 0,
+            "reserve": {
+              "mgC": 2.6,
+              "mgN": 0.19,
+              "mgP": 0.024
+            }
+          },
+          {
+            "body": {
+              "mgC": 12.0,
+              "mgN": 1.8,
+              "mgP": 0.18
+            },
+            "decisionRemaining": 0,
+            "nextCell": 0,
+            "reserve": {
+              "mgC": 2.6,
+              "mgN": 0.19,
+              "mgP": 0.024
+            }
+          },
+          {
+            "body": {
+              "mgC": 2.88,
+              "mgN": 0.432,
+              "mgP": 0.043199999999999995
+            },
+            "decisionRemaining": 0,
+            "nextCell": 0,
+            "reserve": {
+              "mgC": 1.6900000000000002,
+              "mgN": 0.12350000000000001,
+              "mgP": 0.015600000000000001
+            }
+          }
+        ]
+      },
+      "modelVersion": 4,
+      "moisture": [
+        0.61,
+        0.52
+      ],
+      "rng": {
+        "algorithm": "xorshift64_v1",
+        "state": 376364713441039495
+      },
+      "rock": {
+        "x": 0.44,
+        "y": 0.68
+      },
+      "tick": 0
+    },
+    "maximumAbsoluteMatterResidualMgCnp": [
+      3.533433073243941e-6,
+      1.368705397908343e-7,
+      2.0043906090450037e-8
+    ],
+    "maximumAbsoluteOxygenResidualMg": null,
+    "maximumAbsoluteWaterResidual": 1.3886085525882663e-6,
+    "modelVersion": 4,
+    "replayedFromSerializedStateEndingAtHours": [
+      6,
+      1440
+    ],
+    "samples": [
+      {
+        "observations": {
+          "fernMgC": 180.0,
+          "ledger": {
+            "currentMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "currentWaterMl": 876.7800000000002,
+            "decomposedMgC": 0.0,
+            "fedMgC": 0.0,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "photosynthesizedMgC": 0.0,
+            "waterInputMl": 0.0,
+            "waterOutputMl": 0.0,
+            "waterResidualMl": 0.0
+          },
+          "litterMgC": 2515.8,
+          "mossMgC": 384.0,
+          "springtailMgC": 40.800000000000004,
+          "waterMl": [
+            439.9200000000001,
+            436.8600000000001
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.440491353343619,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6831875447315322,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 0,
+        "tick": 0
+      },
+      {
+        "observations": {
+          "fernMgC": 220.80632079823815,
+          "ledger": {
+            "currentMatterMgCnp": [
+              3414.2228322195674,
+              319.66490000030063,
+              45.29190000004413
+            ],
+            "currentWaterMl": 833.482420867486,
+            "decomposedMgC": 95.6843169350692,
+            "fedMgC": 63.614399999940844,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              226.04426330137963,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              95.99143108979494,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -7.98399923951365e-9,
+              -3.0166802389430813e-10,
+              -4.4160231027490227e-11
+            ],
+            "photosynthesizedMgC": 226.04426330137963,
+            "waterInputMl": 923.6453207834405,
+            "waterOutputMl": 966.9428999151004,
+            "waterResidualMl": 8.544702723156661e-10
+          },
+          "litterMgC": 2415.689231954886,
+          "mossMgC": 553.9276091013332,
+          "springtailMgC": 39.816941247059205,
+          "waterMl": [
+            432.8947335715685,
+            400.5876872959176
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.428601818426424,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6835880184959762,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 6,
+        "tick": 216000
+      },
+      {
+        "observations": {
+          "fernMgC": 216.08804486083892,
+          "ledger": {
+            "currentMatterMgCnp": [
+              3280.060589487744,
+              319.66490000061987,
+              45.291900000091154
+            ],
+            "currentWaterMl": 1117.5613345505792,
+            "decomposedMgC": 237.9267001065269,
+            "fedMgC": 114.08519999982322,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              226.04426330137963,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              230.1536738301242,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -1.6490048437844962e-8,
+              -6.209006642166059e-10,
+              -9.118394928009366e-11
+            ],
+            "photosynthesizedMgC": 226.04426330137963,
+            "waterInputMl": 1848.2141114215055,
+            "waterOutputMl": 1607.4327768697622,
+            "waterResidualMl": 1.1643805919447914e-9
+          },
+          "litterMgC": 2316.3173891478077,
+          "mossMgC": 542.0910670148862,
+          "springtailMgC": 39.90376099637413,
+          "waterMl": [
+            573.8938732402157,
+            543.6674613103631
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.416871030325989,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6839891666295294,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 12,
+        "tick": 432000
+      },
+      {
+        "observations": {
+          "fernMgC": 268.3008333600759,
+          "ledger": {
+            "currentMatterMgCnp": [
+              3216.027569764896,
+              319.6649000012764,
+              45.291900000186764
+            ],
+            "currentWaterMl": 859.0270765796238,
+            "decomposedMgC": 523.8897474767216,
+            "fedMgC": 214.9752000006181,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              431.5278776221951,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              499.6703078909665,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -3.3668129617581144e-8,
+              -1.2774421520589385e-9,
+              -1.8679457980397274e-10
+            ],
+            "photosynthesizedMgC": 431.5278776221951,
+            "waterInputMl": 3700.1282658956925,
+            "waterOutputMl": 3717.8811893103025,
+            "waterResidualMl": 5.765969035564922e-9
+          },
+          "litterMgC": 2107.2696491615147,
+          "mossMgC": 661.5725387276686,
+          "springtailMgC": 40.04799255288215,
+          "waterMl": [
+            451.85163154633847,
+            407.1754450332852
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.3938865606728505,
+          "dayOfYear": 2,
+          "relativeHumidity": 0.6847934562737106,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 24,
+        "tick": 864000
+      },
+      {
+        "observations": {
+          "fernMgC": 358.53223431639583,
+          "ledger": {
+            "currentMatterMgCnp": [
+              2848.9457238914115,
+              319.6649000049665,
+              45.29190000073077
+            ],
+            "currentWaterMl": 873.2489531792526,
+            "decomposedMgC": 1332.422276182943,
+            "fedMgC": 574.804799999465,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              867.296699260579,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              1302.5209754992795,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -1.30112766782986e-7,
+              -4.9675463742460124e-9,
+              -7.308003091566206e-10
+            ],
+            "photosynthesizedMgC": 867.296699260579,
+            "waterInputMl": 11145.024299307197,
+            "waterOutputMl": 11148.555346123603,
+            "waterResidualMl": 4.341927706263959e-9
+          },
+          "litterMgC": 1535.8865219539575,
+          "mossMgC": 822.5391037928935,
+          "springtailMgC": 31.274459432739537,
+          "waterMl": [
+            458.79624399924285,
+            414.4527091800097
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.308340561106306,
+          "dayOfYear": 4,
+          "relativeHumidity": 0.6880360977766331,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 72,
+        "tick": 2592000
+      },
+      {
+        "observations": {
+          "fernMgC": 422.5906261122007,
+          "ledger": {
+            "currentMatterMgCnp": [
+              2163.7643158500196,
+              319.6649000136079,
+              45.291900001997604
+            ],
+            "currentWaterMl": 903.2333366846922,
+            "decomposedMgC": 2473.971468814232,
+            "fedMgC": 1289.2754629599592,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              1396.829801084686,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              2517.2354855891213,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -3.5445600587991066e-7,
+              -1.3608939752884908e-8,
+              -1.997634058170661e-9
+            ],
+            "photosynthesizedMgC": 1396.829801084686,
+            "waterInputMl": 26215.849195752256,
+            "waterOutputMl": 26189.395859036733,
+            "waterResidualMl": 3.0830278774374165e-8
+          },
+          "litterMgC": 764.0106213772392,
+          "mossMgC": 860.6884640058021,
+          "springtailMgC": 18.70018848780843,
+          "waterMl": [
+            472.97072774944127,
+            430.2626089352512
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.168241767555516,
+          "dayOfYear": 8,
+          "relativeHumidity": 0.6946311434178976,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 168,
+        "tick": 6048000
+      },
+      {
+        "observations": {
+          "fernMgC": 448.4542183737119,
+          "ledger": {
+            "currentMatterMgCnp": [
+              1509.6515753265028,
+              319.664900029452,
+              45.2919000043178
+            ],
+            "currentWaterMl": 953.3393362867291,
+            "decomposedMgC": 3695.5407157283585,
+            "fedMgC": 2455.956555574858,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              2206.3266522393574,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              3980.8450776758477,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -7.629944320797222e-7,
+              -2.9453019578795647e-8,
+              -4.317833202094334e-9
+            ],
+            "photosynthesizedMgC": 2206.3266522393574,
+            "waterInputMl": 53182.72420993718,
+            "waterOutputMl": 53106.16487356781,
+            "waterResidualMl": 8.263941708719358e-8
+          },
+          "litterMgC": 109.81672993234116,
+          "mossMgC": 862.7291436459466,
+          "springtailMgC": 9.357501947106801,
+          "waterMl": [
+            496.2088477596211,
+            457.1304885271089
+          ],
+          "woodlice": 4,
+          "woodliceBorn": 0,
+          "woodliceDied": 0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.024075242026601,
+          "dayOfYear": 15,
+          "relativeHumidity": 0.7064426553442762,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 336,
+        "tick": 12096000
+      },
+      {
+        "observations": {
+          "fernMgC": 464.04194083868333,
+          "ledger": {
+            "currentMatterMgCnp": [
+              1603.2064960355087,
+              319.6649000663169,
+              45.291900009714226
+            ],
+            "currentWaterMl": 1045.556014155561,
+            "decomposedMgC": 5160.917407434853,
+            "fedMgC": 3828.8803960342557,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              4040.467463289634,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              5721.4309689858,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -1.731675638438901e-6,
+              -6.631790938627091e-8,
+              -9.714256066217786e-9
+            ],
+            "photosynthesizedMgC": 4040.467463289634,
+            "waterInputMl": 117720.02756724515,
+            "waterOutputMl": 117551.25155245836,
+            "waterResidualMl": 6.312336608971236e-7
+          },
+          "litterMgC": 225.57407033232786,
+          "mossMgC": 864.9177720557095,
+          "springtailMgC": 3.628936711765951,
+          "waterMl": [
+            539.5232940551301,
+            506.03272010043
+          ],
+          "woodlice": 2,
+          "woodliceBorn": 0,
+          "woodliceDied": 2
+        },
+        "season": {
+          "airTemperatureCelsius": 5.18347677519059,
+          "dayOfYear": 31,
+          "relativeHumidity": 0.7338983690872718,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 720,
+        "tick": 25920000
+      },
+      {
+        "observations": {
+          "fernMgC": 485.72010928653066,
+          "ledger": {
+            "currentMatterMgCnp": [
+              1648.0196165928903,
+              319.66490013211046,
+              45.29190001934495
+            ],
+            "currentWaterMl": 1097.9030806437213,
+            "decomposedMgC": 7990.234386714149,
+            "fedMgC": 6171.603966667398,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              7322.648503791903,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              8958.798890602917,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -3.403906021048897e-6,
+              -1.3211149507696973e-7,
+              -1.9344980728419614e-8
+            ],
+            "photosynthesizedMgC": 7322.648503791903,
+            "waterInputMl": 240105.4700346981,
+            "waterOutputMl": 239884.346955106,
+            "waterResidualMl": -1.0516223483136855e-6
+          },
+          "litterMgC": 243.69750362140485,
+          "mossMgC": 881.7128300421693,
+          "springtailMgC": 6.716869804680286,
+          "waterMl": [
+            564.5359567200195,
+            533.367123923702
+          ],
+          "woodlice": 2,
+          "woodliceBorn": 0,
+          "woodliceDied": 2
+        },
+        "season": {
+          "airTemperatureCelsius": 7.026043627696632,
+          "dayOfYear": 59,
+          "relativeHumidity": 0.778220072796325,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 1392,
+        "tick": 50112000
+      },
+      {
+        "observations": {
+          "fernMgC": 486.5330175767099,
+          "ledger": {
+            "currentMatterMgCnp": [
+              1639.4289127456002,
+              319.6649001344919,
+              45.29190001969428
+            ],
+            "currentWaterMl": 1098.2752839309312,
+            "decomposedMgC": 8101.9014399564485,
+            "fedMgC": 6275.340696186655,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              7441.878972385683,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              9086.620063105884,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -3.4658030472201062e-6,
+              -1.3449295011014328e-7,
+              -1.969431195902871e-8
+            ],
+            "photosynthesizedMgC": 7441.878972385683,
+            "waterInputMl": 244680.44889727197,
+            "waterOutputMl": 244458.953614432,
+            "waterResidualMl": -1.0909486718446715e-6
+          },
+          "litterMgC": 224.1570012422435,
+          "mossMgC": 882.4741303973568,
+          "springtailMgC": 6.636839140665137,
+          "waterMl": [
+            564.7174809463713,
+            533.5578029845595
+          ],
+          "woodlice": 2,
+          "woodliceBorn": 0,
+          "woodliceDied": 2
+        },
+        "season": {
+          "airTemperatureCelsius": 7.125002484885116,
+          "dayOfYear": 60,
+          "relativeHumidity": 0.7796109703284201,
+          "season": "spring",
+          "year": 1
+        },
+        "simulatedHour": 1416,
+        "tick": 50976000
+      },
+      {
+        "observations": {
+          "fernMgC": 487.3436400344416,
+          "ledger": {
+            "currentMatterMgCnp": [
+              1642.1546574388638,
+              319.6649001368695,
+              45.291900020043876
+            ],
+            "currentWaterMl": 1098.548318890982,
+            "decomposedMgC": 8203.402918096423,
+            "fedMgC": 6356.057480848688,
+            "initialMatterMgCnp": [
+              3284.1699999999987,
+              319.66489999999897,
+              45.29189999999997
+            ],
+            "initialWaterMl": 876.7800000000002,
+            "matterInputMgCnp": [
+              7561.240712075819,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              9203.256058170387,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -3.533433073243941e-6,
+              -1.368705397908343e-7,
+              -2.0043906090450037e-8
+            ],
+            "photosynthesizedMgC": 7561.240712075819,
+            "waterInputMl": 249268.16519014546,
+            "waterOutputMl": 249046.3968724916,
+            "waterResidualMl": -1.2371274351608008e-6
+          },
+          "litterMgC": 228.4825903113294,
+          "mossMgC": 883.2378096748848,
+          "springtailMgC": 6.949366664060298,
+          "waterMl": [
+            564.852322633935,
+            533.6959962570475
+          ],
+          "woodlice": 2,
+          "woodliceBorn": 0,
+          "woodliceDied": 2
+        },
+        "season": {
+          "airTemperatureCelsius": 7.225998552211925,
+          "dayOfYear": 61,
+          "relativeHumidity": 0.7809842038434969,
+          "season": "spring",
+          "year": 1
+        },
+        "simulatedHour": 1440,
+        "tick": 51840000
+      }
+    ],
+    "seed": 1206,
+    "stepCount": 51840000,
+    "validationSamples": 241,
+    "wallSeconds": 94.4831776
+  },
+  "pond": {
+    "definition": "pond-shallow/1",
+    "firstObservedDryHour": null,
+    "firstObservedNoDaphniaHour": null,
+    "firstObservedNoShrimpHour": 84,
+    "firstObservedNoWoodliceHour": null,
+    "initialState": {
+      "animals": [],
+      "daylight": {
+        "phase": 0.5,
+        "target": null
+      },
+      "fixtureDefinition": "pond-shallow/1",
+      "modelVersion": 3,
+      "moisture": [
+        0.0,
+        0.0
+      ],
+      "pond": {
+        "basins": [
+          {
+            "algae": [
+              30.0,
+              2.6399999999999997,
+              0.36
+            ],
+            "balance": {
+              "animalRespirationOxygenMg": 0.0,
+              "daphniaFoodMgC": 0.0,
+              "decomposedMgC": 0.0,
+              "gasExportOxygenMg": 0.0,
+              "gasImportOxygenMg": 0.0,
+              "initial": {
+                "cnP": [
+                  398.6,
+                  33.373000000000005,
+                  4.3656
+                ],
+                "oxygenMg": 133.20000000000002,
+                "waterLiters": 18.0
+              },
+              "inputs": {
+                "cnP": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "oxygenMg": 0.0,
+                "waterLiters": 0.0
+              },
+              "microbialRespirationOxygenMg": 0.0,
+              "outputs": {
+                "cnP": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "oxygenMg": 0.0,
+                "waterLiters": 0.0
+              },
+              "photosynthesisOxygenMg": 0.0,
+              "producerRespirationOxygenMg": 0.0,
+              "shrimpFoodMgC": 0.0
+            },
+            "biofilm": [
+              24.0,
+              1.8479999999999999,
+              0.24
+            ],
+            "daphnia": {
+              "birthCredit": 0.0,
+              "body": [
+                10.8,
+                1.5120000000000002,
+                0.1836
+              ],
+              "count": 48,
+              "mortalityCredit": 0.0,
+              "reserve": [
+                2.8,
+                0.308,
+                0.041999999999999996
+              ]
+            },
+            "detritus": [
+              120.0,
+              4.08,
+              0.6
+            ],
+            "id": "pond-main",
+            "microbes": [
+              10.0,
+              1.0,
+              0.12
+            ],
+            "minerals": [
+              0.0,
+              6.3,
+              0.9
+            ],
+            "nextShrimpId": 4,
+            "oxygenMg": 133.20000000000002,
+            "plants": [
+              150.0,
+              9.0,
+              1.05
+            ],
+            "random": {
+              "algorithm": "xorshift64_v1",
+              "state": 3160403344453390840
+            },
+            "shrimp": [
+              {
+                "ageSeconds": 129600.0,
+                "birthCredit": 0.0,
+                "body": [
+                  18.0,
+                  2.43,
+                  0.32399999999999995
+                ],
+                "oxygenStressSeconds": 0.0,
+                "reserve": [
+                  3.5,
+                  0.385,
+                  0.042
+                ],
+                "starvationSeconds": 0.0,
+                "view": {
+                  "activity": "resting",
+                  "heading": 3.599703082040347,
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607
+                }
+              },
+              {
+                "ageSeconds": 0.0,
+                "birthCredit": 0.0,
+                "body": [
+                  7.0,
+                  0.9450000000000001,
+                  0.126
+                ],
+                "oxygenStressSeconds": 0.0,
+                "reserve": [
+                  1.0,
+                  0.11,
+                  0.012
+                ],
+                "starvationSeconds": 0.0,
+                "view": {
+                  "activity": "resting",
+                  "heading": 4.211306076783676,
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662
+                }
+              },
+              {
+                "ageSeconds": 129600.0,
+                "birthCredit": 0.0,
+                "body": [
+                  18.0,
+                  2.43,
+                  0.32399999999999995
+                ],
+                "oxygenStressSeconds": 0.0,
+                "reserve": [
+                  3.5,
+                  0.385,
+                  0.042
+                ],
+                "starvationSeconds": 0.0,
+                "view": {
+                  "activity": "resting",
+                  "heading": 1.0764718033320413,
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766
+                }
+              }
+            ],
+            "surfaceAreaCm2": 2400.0,
+            "temperatureCelsius": 21.0,
+            "waterLiters": 18.0
+          }
+        ]
+      },
+      "rng": {
+        "algorithm": "xorshift64_v1",
+        "state": 10093176926385780643
+      },
+      "rock": {
+        "x": 0.44,
+        "y": 0.68
+      },
+      "tick": 0
+    },
+    "maximumAbsoluteMatterResidualMgCnp": [
+      3.949480742448941e-10,
+      8.064660050877137e-12,
+      1.3296030942910875e-12
+    ],
+    "maximumAbsoluteOxygenResidualMg": 1.1070540040236665e-9,
+    "maximumAbsoluteWaterResidual": 1.3320899938662478e-11,
+    "modelVersion": 3,
+    "replayedFromSerializedStateEndingAtHours": [
+      6,
+      1440
+    ],
+    "samples": [
+      {
+        "observations": {
+          "daphnia": 48,
+          "detritusMgC": 120.0,
+          "dissolvedOxygenMgPerLiter": 7.400000000000001,
+          "ledger": {
+            "animalRespirationOxygenMg": 0.0,
+            "currentMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "currentOxygenMg": 133.20000000000002,
+            "currentWaterLiters": 18.0,
+            "daphniaFoodMgC": 0.0,
+            "decomposedMgC": 0.0,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 0.0,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "microbialRespirationOxygenMg": 0.0,
+            "oxygenInputMg": 0.0,
+            "oxygenOutputMg": 0.0,
+            "oxygenResidualMg": 0.0,
+            "photosynthesisOxygenMg": 0.0,
+            "producerRespirationOxygenMg": 0.0,
+            "shrimpFoodMgC": 0.0,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.0,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 3,
+          "waterLiters": 18.0
+        },
+        "season": {
+          "airTemperatureCelsius": 5.440491353343619,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6831875447315322,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 0,
+        "tick": 0
+      },
+      {
+        "observations": {
+          "daphnia": 49,
+          "detritusMgC": 115.88281414053274,
+          "dissolvedOxygenMgPerLiter": 10.079453578535986,
+          "ledger": {
+            "animalRespirationOxygenMg": 11.719335412864451,
+            "currentMatterMgCnp": [
+              396.8868654808484,
+              33.37300000000071,
+              4.36560000000004
+            ],
+            "currentOxygenMg": 180.54704142160793,
+            "currentWaterLiters": 17.912383842520946,
+            "daphniaFoodMgC": 2.6006534151018825,
+            "decomposedMgC": 8.631179955696165,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 51.91540013933694,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              12.62647360237506,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              14.339608121523643,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              3.0127011996228248e-12,
+              -7.034373084024992e-13,
+              -3.9968028886505635e-14
+            ],
+            "microbialRespirationOxygenMg": 19.70324592821668,
+            "oxygenInputMg": 85.58599641233464,
+            "oxygenOutputMg": 38.238954990729674,
+            "oxygenResidualMg": -2.9274360713316128e-12,
+            "photosynthesisOxygenMg": 33.67059627299943,
+            "producerRespirationOxygenMg": 6.816373649649092,
+            "shrimpFoodMgC": 7.957487585775413,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.08761615747905438,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 3,
+          "waterLiters": 17.912383842520946
+        },
+        "season": {
+          "airTemperatureCelsius": 5.428601818426424,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6835880184959762,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 6,
+        "tick": 216000
+      },
+      {
+        "observations": {
+          "daphnia": 50,
+          "detritusMgC": 113.35863904457838,
+          "dissolvedOxygenMgPerLiter": 11.362676983383745,
+          "ledger": {
+            "animalRespirationOxygenMg": 19.158626083873976,
+            "currentMatterMgCnp": [
+              388.0180556062402,
+              33.37300000000092,
+              4.365600000000121
+            ],
+            "currentOxygenMg": 203.16053557395915,
+            "currentWaterLiters": 17.87963662709516,
+            "daphniaFoodMgC": 4.31944002850801,
+            "decomposedMgC": 13.896734609807215,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 98.17905395727304,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              12.62647360237506,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              23.208417996120293,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              1.460875864722766e-11,
+              -9.166001291305292e-13,
+              -1.2168044349891716e-13
+            ],
+            "microbialRespirationOxygenMg": 31.78632831739937,
+            "oxygenInputMg": 131.8496502302735,
+            "oxygenOutputMg": 61.88911465631852,
+            "oxygenResidualMg": -4.149569576838985e-12,
+            "photosynthesisOxygenMg": 33.67059627299943,
+            "producerRespirationOxygenMg": 10.944160255046137,
+            "shrimpFoodMgC": 12.653974052130705,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.12036337290484056,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 3,
+          "waterLiters": 17.87963662709516
+        },
+        "season": {
+          "airTemperatureCelsius": 5.416871030325989,
+          "dayOfYear": 1,
+          "relativeHumidity": 0.6839891666295294,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 12,
+        "tick": 432000
+      },
+      {
+        "observations": {
+          "daphnia": 52,
+          "detritusMgC": 108.53175582581348,
+          "dissolvedOxygenMgPerLiter": 11.926940785142932,
+          "ledger": {
+            "animalRespirationOxygenMg": 34.299773167555145,
+            "currentMatterMgCnp": [
+              377.38945655638366,
+              33.37299999999977,
+              4.365600000000079
+            ],
+            "currentOxygenMg": 212.24150135484925,
+            "currentWaterLiters": 17.795133318615346,
+            "daphniaFoodMgC": 7.962505555589482,
+            "decomposedMgC": 24.12811800617173,
+            "gasExportOxygenMg": 1.3145877538424688,
+            "gasImportOxygenMg": 136.91753829165177,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              19.439519650688133,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              40.650063094296,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              8.469669410260394e-12,
+              2.3447910280083306e-13,
+              -7.904787935331115e-14
+            ],
+            "microbialRespirationOxygenMg": 55.40608607226735,
+            "oxygenInputMg": 188.75625736014658,
+            "oxygenOutputMg": 109.71475600530047,
+            "oxygenResidualMg": -3.126388037344441e-12,
+            "photosynthesisOxygenMg": 51.83871906850038,
+            "producerRespirationOxygenMg": 18.69430901163504,
+            "shrimpFoodMgC": 21.664236043361694,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.20486668138465447,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 3,
+          "waterLiters": 17.795133318615346
+        },
+        "season": {
+          "airTemperatureCelsius": 5.3938865606728505,
+          "dayOfYear": 2,
+          "relativeHumidity": 0.6847934562737106,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 24,
+        "tick": 864000
+      },
+      {
+        "observations": {
+          "daphnia": 60,
+          "detritusMgC": 89.88547539544474,
+          "dissolvedOxygenMgPerLiter": 12.162486461701551,
+          "ledger": {
+            "animalRespirationOxygenMg": 87.79536501078603,
+            "currentMatterMgCnp": [
+              340.8968559001728,
+              33.37299999999772,
+              4.365599999999967
+            ],
+            "currentOxygenMg": 212.1891361878336,
+            "currentWaterLiters": 17.446197112407557,
+            "daphniaFoodMgC": 25.14398555087362,
+            "decomposedMgC": 60.49951991546808,
+            "gasExportOxygenMg": 15.332260274982447,
+            "gasImportOxygenMg": 248.1964473956602,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              46.55477451338909,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              104.25791861320982,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              6.480149750132114e-12,
+              2.2879476091475226e-12,
+              3.2862601528904634e-14
+            ],
+            "microbialRespirationOxygenMg": 141.29807031416422,
+            "oxygenInputMg": 372.3425127647099,
+            "oxygenOutputMg": 293.3533765768561,
+            "oxygenResidualMg": 2.0264678823878057e-11,
+            "photosynthesisOxygenMg": 124.14606536904277,
+            "producerRespirationOxygenMg": 48.92768097693435,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.5538028875924432,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 2,
+          "waterLiters": 17.446197112407557
+        },
+        "season": {
+          "airTemperatureCelsius": 5.308340561106306,
+          "dayOfYear": 4,
+          "relativeHumidity": 0.6880360977766331,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 72,
+        "tick": 2592000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 64.53872471393892,
+          "dissolvedOxygenMgPerLiter": 12.362235033710565,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              294.3132518621186,
+              33.37299999999839,
+              4.365599999999866
+            ],
+            "currentOxygenMg": 207.1342326534871,
+            "currentWaterLiters": 16.755403217027744,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 129.75669690672416,
+            "gasExportOxygenMg": 64.02102033329973,
+            "gasImportOxygenMg": 416.05324802104366,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              95.7005617274051,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              199.9873098652982,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -1.1652900866465643e-11,
+              1.6129320101754274e-12,
+              1.341149413747189e-13
+            ],
+            "microbialRespirationOxygenMg": 309.8849644551351,
+            "oxygenInputMg": 671.2547459608431,
+            "oxygenOutputMg": 597.3205133074191,
+            "oxygenResidualMg": -6.301092980720568e-11,
+            "photosynthesisOxygenMg": 255.20149793976347,
+            "producerRespirationOxygenMg": 104.81510243369775,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 1.2445967829722555,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 0,
+          "waterLiters": 16.755403217027744
+        },
+        "season": {
+          "airTemperatureCelsius": 5.168241767555516,
+          "dayOfYear": 8,
+          "relativeHumidity": 0.6946311434178976,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 168,
+        "tick": 6048000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 17.390785857097597,
+          "dissolvedOxygenMgPerLiter": 12.712602736301903,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              301.3394271046892,
+              33.37299999999835,
+              4.365599999999572
+            ],
+            "currentOxygenMg": 197.87295709754235,
+            "currentWaterLiters": 15.565101907298615,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 176.90463576356166,
+            "gasExportOxygenMg": 248.46376263758097,
+            "gasImportOxygenMg": 572.4982474555937,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              196.24155860440425,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              293.50213149965447,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              6.065192792448215e-11,
+              1.6555645743210334e-12,
+              4.2810199829546036e-13
+            ],
+            "microbialRespirationOxygenMg": 444.60116319326227,
+            "oxygenInputMg": 1095.8090704006522,
+            "oxygenOutputMg": 1031.1361133034895,
+            "oxygenResidualMg": -3.7962877286190633e-10,
+            "photosynthesisOxygenMg": 523.3108229451047,
+            "producerRespirationOxygenMg": 219.47176138726778,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 2.434898092701385,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 0,
+          "waterLiters": 15.565101907298615
+        },
+        "season": {
+          "airTemperatureCelsius": 5.024075242026601,
+          "dayOfYear": 15,
+          "relativeHumidity": 0.7064426553442762,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 336,
+        "tick": 12096000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 0.874896392661816,
+          "dissolvedOxygenMgPerLiter": 13.30591206501708,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              478.9049757264438,
+              33.372999999999934,
+              4.365599999999433
+            ],
+            "currentOxygenMg": 171.59716189285515,
+            "currentWaterLiters": 12.896309629462058,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 193.42052522801097,
+            "gasExportOxygenMg": 987.5057425241181,
+            "gasImportOxygenMg": 811.756302479476,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              556.2576490115846,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              475.95267328510783,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              3.296918293926865e-11,
+              7.105427357601002e-14,
+              5.666578317686799e-13
+            ],
+            "microbialRespirationOxygenMg": 522.6715127971319,
+            "oxygenInputMg": 2295.1100331768757,
+            "oxygenOutputMg": 2256.7128712847575,
+            "oxygenResidualMg": -7.371170340775279e-10,
+            "photosynthesisOxygenMg": 1483.3537306973121,
+            "producerRespirationOxygenMg": 627.9361898780141,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 5.103690370537942,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 0,
+          "waterLiters": 12.896309629462058
+        },
+        "season": {
+          "airTemperatureCelsius": 5.18347677519059,
+          "dayOfYear": 31,
+          "relativeHumidity": 0.7338983690872718,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 720,
+        "tick": 25920000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 0.003319661874535369,
+          "dissolvedOxygenMgPerLiter": 11.874400647993287,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              539.1324598800013,
+              33.373000000000275,
+              4.365599999999217
+            ],
+            "currentOxygenMg": 96.63778780186743,
+            "currentWaterLiters": 8.138329728515496,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 194.29210195880947,
+            "gasExportOxygenMg": 1900.4456504191594,
+            "gasImportOxygenMg": 1489.130211873231,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              1053.5949068486038,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              913.0624469682527,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              3.497007128316909e-10,
+              -2.7000623958883807e-13,
+              7.824851877558103e-13
+            ],
+            "microbialRespirationOxygenMg": 542.5784068105127,
+            "oxygenInputMg": 4298.716630136879,
+            "oxygenOutputMg": 4335.278842335643,
+            "oxygenResidualMg": -6.320419743133243e-10,
+            "photosynthesisOxygenMg": 2809.586418263378,
+            "producerRespirationOxygenMg": 1773.6553590193284,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 9.861670271484504,
+            "waterResidualLiters": 0.0
+          },
+          "shrimp": 0,
+          "waterLiters": 8.138329728515496
+        },
+        "season": {
+          "airTemperatureCelsius": 7.026043627696632,
+          "dayOfYear": 59,
+          "relativeHumidity": 0.778220072796325,
+          "season": "winter",
+          "year": 1
+        },
+        "simulatedHour": 1392,
+        "tick": 50112000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 0.0026770290613310037,
+          "dissolvedOxygenMgPerLiter": 11.836553850950262,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              539.1697612138394,
+              33.37300000000045,
+              4.365599999999045
+            ],
+            "currentOxygenMg": 94.21327979212597,
+            "currentWaterLiters": 7.959519381949363,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 194.29274459163008,
+            "gasExportOxygenMg": 1928.4372553094208,
+            "gasImportOxygenMg": 1514.5978385300975,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              1070.4883269798258,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              929.9185657656636,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              3.2298430596711114e-10,
+              -4.476419235288631e-13,
+              9.547918011776346e-13
+            ],
+            "microbialRespirationOxygenMg": 542.7612873261317,
+            "oxygenInputMg": 4369.233377143707,
+            "oxygenOutputMg": 4408.220097352289,
+            "oxygenResidualMg": -7.077289865264902e-10,
+            "photosynthesisOxygenMg": 2854.635538613438,
+            "producerRespirationOxygenMg": 1818.4221286300028,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 10.040480618050964,
+            "waterResidualLiters": -3.268496584496461e-13
+          },
+          "shrimp": 0,
+          "waterLiters": 7.959519381949363
+        },
+        "season": {
+          "airTemperatureCelsius": 7.125002484885116,
+          "dayOfYear": 60,
+          "relativeHumidity": 0.7796109703284201,
+          "season": "spring",
+          "year": 1
+        },
+        "simulatedHour": 1416,
+        "tick": 50976000
+      },
+      {
+        "observations": {
+          "daphnia": 73,
+          "detritusMgC": 0.0021555628618879965,
+          "dissolvedOxygenMgPerLiter": 11.7978282021142,
+          "ledger": {
+            "animalRespirationOxygenMg": 118.599426085249,
+            "currentMatterMgCnp": [
+              539.2041797644803,
+              33.37300000000082,
+              4.36559999999901
+            ],
+            "currentOxygenMg": 91.78349698710377,
+            "currentWaterLiters": 7.7796943144718735,
+            "daphniaFoodMgC": 43.978333907437225,
+            "decomposedMgC": 194.2932660578137,
+            "gasExportOxygenMg": 1956.4561459100285,
+            "gasImportOxygenMg": 1540.0951635241317,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              1087.4933826205681,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              946.8892028557088,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              3.7914560380158946e-10,
+              -8.171241461241152e-13,
+              9.894307595459395e-13
+            ],
+            "microbialRespirationOxygenMg": 542.9300726208938,
+            "oxygenInputMg": 4440.077517179716,
+            "oxygenOutputMg": 4481.494020192822,
+            "oxygenResidualMg": -2.1015011952840723e-10,
+            "photosynthesisOxygenMg": 2899.9823536552035,
+            "producerRespirationOxygenMg": 1863.5083755756064,
+            "shrimpFoodMgC": 25.49187249521183,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 10.220305685541447,
+            "waterResidualLiters": -1.3320899938662478e-11
+          },
+          "shrimp": 0,
+          "waterLiters": 7.7796943144718735
+        },
+        "season": {
+          "airTemperatureCelsius": 7.225998552211925,
+          "dayOfYear": 61,
+          "relativeHumidity": 0.7809842038434969,
+          "season": "spring",
+          "year": 1
+        },
+        "simulatedHour": 1440,
+        "tick": 51840000
+      }
+    ],
+    "seed": 2729,
+    "stepCount": 51840000,
+    "validationSamples": 241,
+    "wallSeconds": 5.0344726
+  },
+  "pondIntervention": {
+    "addedDetritusMgC": 2500.0,
+    "dry": {
+      "algaeMgC": 0.0,
+      "availableNitrogenMgPerLiter": null,
+      "availablePhosphorusMgPerLiter": null,
+      "biofilmMgC": 22.728443156376024,
+      "capacityLiters": 28.8,
+      "daphniaCount": 0,
+      "depthCm": 0.0,
+      "detritusMgC": 2176.7150780029183,
+      "id": "pond-main",
+      "label": "主水域",
+      "maxDepthCm": 12.0,
+      "oxygenMgPerLiter": null,
+      "plantMgC": 155.7449211511535,
+      "shrimp": [],
+      "surfaceAreaCm2": 2400.0,
+      "temperatureCelsius": null,
+      "turbidityIndex": 0.0,
+      "waterLiters": 0.0,
+      "wet": false
+    },
+    "ledger": {
+      "basins": [
+        {
+          "animalRespirationOxygenMg": 5.773502468758291,
+          "currentMatterMgCnp": [
+            2452.2837516802006,
+            94.8028084435779,
+            13.467193472545409
+          ],
+          "currentOxygenMg": 8.60639512513852,
+          "currentWaterLiters": 0.8,
+          "daphniaFoodMgC": 1.0595966269413222,
+          "decomposedMgC": 509.98341067674016,
+          "gasExportOxygenMg": 0.0,
+          "gasImportOxygenMg": 1040.447000846757,
+          "id": "pond-main",
+          "initialMatterMgCnp": [
+            398.6,
+            33.373000000000005,
+            4.3656
+          ],
+          "initialOxygenMg": 133.20000000000002,
+          "initialWaterLiters": 18.0,
+          "matterInputMgCnp": [
+            2520.6770862049375,
+            85.096,
+            12.5176
+          ],
+          "matterOutputMgCnp": [
+            466.99333452466595,
+            23.666191556414983,
+            3.416006527455295
+          ],
+          "matterResidualMgCnp": [
+            7.09405867382884e-11,
+            7.119638212316204e-12,
+            -7.052136652418994e-13
+          ],
+          "microbialRespirationOxygenMg": 1127.7016034853468,
+          "oxygenInputMg": 1104.192292518434,
+          "oxygenOutputMg": 1228.7858973933035,
+          "oxygenResidualMg": -7.94386778579792e-12,
+          "photosynthesisOxygenMg": 55.13889654653651,
+          "producerRespirationOxygenMg": 20.023931164682132,
+          "shrimpFoodMgC": 3.2039554785705864,
+          "waterInputLiters": 0.8,
+          "waterOutputLiters": 18.0,
+          "waterResidualLiters": 6.661338147750939e-16
+        },
+        {
+          "animalRespirationOxygenMg": 66.49107161969644,
+          "currentMatterMgCnp": [
+            356.3263452741505,
+            33.37299999999964,
+            4.365600000000244
+          ],
+          "currentOxygenMg": 210.76998145874182,
+          "currentWaterLiters": 17.6203480991417,
+          "daphniaFoodMgC": 16.190604433389574,
+          "decomposedMgC": 43.56898084141032,
+          "gasExportOxygenMg": 6.982538801102896,
+          "gasImportOxygenMg": 197.2822661954022,
+          "id": "pond-2",
+          "initialMatterMgCnp": [
+            398.6,
+            33.373000000000005,
+            4.3656
+          ],
+          "initialOxygenMg": 133.20000000000002,
+          "initialWaterLiters": 18.0,
+          "matterInputMgCnp": [
+            33.253041186116405,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            75.52669591195352,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            1.2391865311656147e-11,
+            3.623767952376511e-13,
+            -2.4424906541753444e-13
+          ],
+          "microbialRespirationOxygenMg": 100.89272518141459,
+          "oxygenInputMg": 285.95704269172046,
+          "oxygenOutputMg": 208.38706123296,
+          "oxygenResidualMg": 1.8616219676914625e-11,
+          "photosynthesisOxygenMg": 88.6747764963142,
+          "producerRespirationOxygenMg": 34.02072563075498,
+          "shrimpFoodMgC": 25.49187249521183,
+          "waterInputLiters": 0.0,
+          "waterOutputLiters": 0.37965190085829903,
+          "waterResidualLiters": 0.0
+        }
+      ]
+    },
+    "refilled": {
+      "algaeMgC": 0.0,
+      "availableNitrogenMgPerLiter": 0.12,
+      "availablePhosphorusMgPerLiter": 0.022,
+      "biofilmMgC": 22.728443156376024,
+      "capacityLiters": 28.8,
+      "daphniaCount": 0,
+      "depthCm": 0.3333333333333333,
+      "detritusMgC": 2176.7150780029183,
+      "id": "pond-main",
+      "label": "主水域",
+      "maxDepthCm": 12.0,
+      "oxygenMgPerLiter": 10.757993906423149,
+      "plantMgC": 155.7449211511535,
+      "shrimp": [],
+      "surfaceAreaCm2": 2400.0,
+      "temperatureCelsius": 5.349831945149294,
+      "turbidityIndex": 0.0,
+      "waterLiters": 0.8,
+      "wet": true
+    },
+    "seed": 2729,
+    "stepCount": 1728000,
+    "treatmentBeforeDraining": {
+      "algaeMgC": 34.431195605134064,
+      "availableNitrogenMgPerLiter": 1.1596567428677753,
+      "availablePhosphorusMgPerLiter": 0.1687445733858279,
+      "biofilmMgC": 22.728443156376024,
+      "capacityLiters": 28.8,
+      "daphniaCount": 0,
+      "depthCm": 7.414638882756394,
+      "detritusMgC": 2176.7150780029183,
+      "id": "pond-main",
+      "label": "主水域",
+      "maxDepthCm": 12.0,
+      "oxygenMgPerLiter": 4.2307556187700435,
+      "plantMgC": 155.7449211511535,
+      "shrimp": [],
+      "surfaceAreaCm2": 2400.0,
+      "temperatureCelsius": 8.630086654142156,
+      "turbidityIndex": 0.2790055187517219,
+      "waterLiters": 17.795133318615346,
+      "wet": true
+    },
+    "untouchedBasinExactIncludingRng": true,
+    "waterRefillLiters": 0.8
+  },
+  "scenario": "M4-FIXED-LONG-RUN",
+  "simulatedDaysPerBaseline": 60,
+  "stepMillis": 100,
+  "wallSeconds": 100.4885382,
+  "worldIsolation": {
+    "forestTick": "9600",
+    "pausedSnapshotsAndInventoriesExact": true,
+    "pondTick": "4800"
+  }
+}

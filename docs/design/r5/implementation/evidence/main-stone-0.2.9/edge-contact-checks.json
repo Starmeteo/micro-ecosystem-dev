@@ -1,0 +1,236 @@
+{
+  "dpr": 1.5,
+  "size": [
+    576,
+    324
+  ],
+  "event": {
+    "shrimpId": "shrimp-1",
+    "stoneId": 1,
+    "offset": 0.25,
+    "biofilmMgC": 0.00005,
+    "stoneBiofilmMgC": 0.00002,
+    "sharedBiofilmMgC": 0.00003
+  },
+  "position": {
+    "x": 373,
+    "logicalY": 209.73700000000002,
+    "ridge": [
+      224,
+      224,
+      225,
+      225,
+      225,
+      225,
+      225,
+      225,
+      225,
+      225,
+      225
+    ],
+    "waterline": 1.3600000000000196
+  },
+  "seatVerification": [
+    {
+      "label": "left",
+      "offset": -1,
+      "stage": "adult",
+      "rock": {
+        "x": 312,
+        "logicalY": 209.73700000000002,
+        "ridge": [
+          235,
+          234,
+          233,
+          232,
+          231,
+          230,
+          230,
+          229,
+          229,
+          229,
+          228
+        ],
+        "waterline": 1.3600000000000196
+      },
+      "raster": {
+        "atEdge": 15,
+        "above": 116,
+        "below": 0,
+        "minGap": 0
+      }
+    },
+    {
+      "label": "center",
+      "offset": 0,
+      "stage": "adult",
+      "rock": {
+        "x": 361,
+        "logicalY": 209.73700000000002,
+        "ridge": [
+          223,
+          223,
+          223,
+          223,
+          224,
+          224,
+          224,
+          224,
+          224,
+          224,
+          224
+        ],
+        "waterline": 1.3600000000000196
+      },
+      "raster": {
+        "atEdge": 19,
+        "above": 105,
+        "below": 0,
+        "minGap": 0
+      }
+    },
+    {
+      "label": "right",
+      "offset": 1,
+      "stage": "adult",
+      "rock": {
+        "x": 409,
+        "logicalY": 209.73700000000002,
+        "ridge": [
+          233,
+          233,
+          234,
+          234,
+          234,
+          235,
+          235,
+          236,
+          236,
+          237,
+          237
+        ],
+        "waterline": 1.3600000000000196
+      },
+      "raster": {
+        "atEdge": 14,
+        "above": 116,
+        "below": 0,
+        "minGap": 0
+      }
+    },
+    {
+      "label": "juvenile",
+      "offset": 0.75,
+      "stage": "juvenile",
+      "rock": {
+        "x": 397,
+        "logicalY": 209.73700000000002,
+        "ridge": [
+          229,
+          229,
+          230,
+          230,
+          230,
+          230,
+          231,
+          232,
+          232,
+          232,
+          232
+        ],
+        "waterline": 1.3600000000000196
+      },
+      "raster": {
+        "atEdge": 23,
+        "above": 37,
+        "below": 0,
+        "minGap": 1
+      }
+    }
+  ],
+  "sameTickAndRevision": true,
+  "comparisons": {
+    "marker": {
+      "count": 18,
+      "bounds": [
+        385,
+        219,
+        389,
+        223
+      ]
+    },
+    "zoomMarker": {
+      "count": 132,
+      "bounds": [
+        328,
+        192,
+        343,
+        206
+      ]
+    },
+    "localSource": {
+      "count": 18,
+      "bounds": [
+        385,
+        219,
+        389,
+        223
+      ]
+    },
+    "cleared": {
+      "count": 0,
+      "bounds": null
+    },
+    "invalidSum": {
+      "count": 0,
+      "bounds": null
+    },
+    "invalidSource": {
+      "count": 0,
+      "bounds": null
+    },
+    "staleEvent": {
+      "count": 0,
+      "bounds": null
+    },
+    "duplicateEvent": {
+      "count": 0,
+      "bounds": null
+    },
+    "duplicateContact": {
+      "count": 0,
+      "bounds": null
+    },
+    "optedOut": {
+      "count": 0,
+      "bounds": null
+    }
+  },
+  "authorityReadout": {
+    "body": "主石停靠与摄食 · 1 只停靠主石 1 · 当步摄入0.00005 mg C来自主石表面0.00002 mg C来自整池共用份额0.00003 mg C两份摄入都来自同一份整池生物膜库存。",
+    "total": 0.00005,
+    "stone": 0.00002,
+    "shared": 0.00003,
+    "shrimpId": "shrimp-1"
+  },
+  "optIn": {
+    "disabled": true,
+    "body": "主石停靠与摄食旧存档沿用原有米虾行为。启用后，米虾可在当前水域的主石上停靠与摄食。启用主石停靠进入环境编辑后可启用。"
+  },
+  "editReceipt": {
+    "calls": [
+      {
+        "worldId": "pond-v13-browser",
+        "commandId": "0b2f1924-1bd0-4db4-8e21-cefaf31946f9",
+        "expectedGeneration": "4",
+        "expectedRevision": "1",
+        "edit": {
+          "type": "enableStoneRest",
+          "basinId": "basin-main"
+        }
+      }
+    ],
+    "body": "主石停靠与摄食当前快照无摄食记录。两份摄入都来自同一份整池生物膜库存。"
+  },
+  "errors": []
+}

@@ -1,0 +1,524 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1425",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-pond-r5-wood-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "pond-8293a564b2cb4f8e81eef80cab200de3",
+        "worldName": "R5 沉木验收 2026-11-25T11:14:17.198Z",
+        "definition": "pond-shallow-r5-wood/1",
+        "modelVersion": 11,
+        "runGeneration": "d6bf4f5f-91de-499e-be1c-719cebb24a54",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 18,
+              "capacityLiters": 28.8,
+              "depthCm": 7.5,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 21,
+              "oxygenMgPerLiter": 7.400000000000001,
+              "availableNitrogenMgPerLiter": 0.35,
+              "availablePhosphorusMgPerLiter": 0.05,
+              "algaeMgC": 30,
+              "biofilmMgC": 24,
+              "plantMgC": 150,
+              "detritusMgC": 120,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607,
+                  "heading": 3.599703082040347,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662,
+                  "heading": 4.211306076783676,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766,
+                  "heading": 1.0764718033320413,
+                  "activity": "resting"
+                }
+              ],
+              "turbidityIndex": 0.25,
+              "stones": [],
+              "woods": [],
+              "shrimpAttachments": []
+            }
+          ]
+        },
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "create-from-pond-r5-moss-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "pond-6e3e6154ebc9466a8d900bdd85fa5486",
+        "worldName": "R5 附着验收 2026-11-25T11:14:17.813Z",
+        "definition": "pond-shallow-r5-moss/1",
+        "modelVersion": 12,
+        "runGeneration": "298ddf04-2918-4328-a90a-1cb58fc71abb",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 18,
+              "capacityLiters": 28.8,
+              "depthCm": 7.5,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 21,
+              "oxygenMgPerLiter": 7.400000000000001,
+              "availableNitrogenMgPerLiter": 0.35,
+              "availablePhosphorusMgPerLiter": 0.05,
+              "algaeMgC": 30,
+              "biofilmMgC": 24,
+              "plantMgC": 150,
+              "detritusMgC": 120,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607,
+                  "heading": 3.599703082040347,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662,
+                  "heading": 4.211306076783676,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766,
+                  "heading": 1.0764718033320413,
+                  "activity": "resting"
+                }
+              ],
+              "turbidityIndex": 0.25,
+              "stones": [],
+              "woods": [],
+              "shrimpAttachments": [],
+              "mossPatches": [],
+              "mossPresets": [
+                {
+                  "preset": "mat",
+                  "initialMgCnp": [
+                    3,
+                    0.186,
+                    0.024
+                  ]
+                },
+                {
+                  "preset": "frond",
+                  "initialMgCnp": [
+                    7.5,
+                    0.46499999999999997,
+                    0.06
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-moss-placement.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-moss-two-carriers.png"
+      }
+    },
+    {
+      "check": "live-patches-on-two-distinct-carriers",
+      "via": "native drawer, preview and authoritative capacity/stock",
+      "result": {
+        "draft": "210.56000593123144,215",
+        "first": {
+          "id": 1,
+          "parent": {
+            "kind": "stone",
+            "id": 1
+          },
+          "offset": 0,
+          "preset": "mat",
+          "stockMgCnp": [
+            3,
+            0.186,
+            0.024
+          ],
+          "x": 0.3700000205945536,
+          "surfaceHeightPx": 27,
+          "submerged": true
+        },
+        "mat": {
+          "id": 1,
+          "parent": {
+            "kind": "stone",
+            "id": 1
+          },
+          "offset": 0,
+          "preset": "mat",
+          "stockMgCnp": [
+            3,
+            0.186,
+            0.024
+          ],
+          "x": 0.3700000205945536,
+          "surfaceHeightPx": 27,
+          "submerged": true
+        },
+        "frond": {
+          "id": 2,
+          "parent": {
+            "kind": "wood",
+            "id": 1
+          },
+          "offset": 0.2,
+          "preset": "frond",
+          "stockMgCnp": [
+            7.5,
+            0.46499999999999997,
+            0.06
+          ],
+          "x": 0.7573612230634952,
+          "surfaceHeightPx": 15,
+          "submerged": true
+        }
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-moss-trimmed.png"
+      }
+    },
+    {
+      "check": "moves-and-removal-account-for-the-same-living-stock",
+      "via": "real native placement, trim, remove/undo and kind-scoped parent transfer",
+      "result": {
+        "trimmedC": 2,
+        "trimDetritus": 121,
+        "removeDetritus": 123,
+        "stoneRemovalDetritus": 123,
+        "woodRemovalDetritus": 128.5
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-moss-exposed.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-moss-grown.png"
+      }
+    },
+    {
+      "check": "growth-and-water-exposure-are-model-driven",
+      "via": "1200 real steps in isolated trial, consistent adoption and native model",
+      "result": {
+        "exposed": [
+          {
+            "id": 1,
+            "parent": {
+              "kind": "stone",
+              "id": 1
+            },
+            "offset": 0.4,
+            "preset": "mat",
+            "stockMgCnp": [
+              2,
+              0.12400000000000001,
+              0.016000000000000004
+            ],
+            "x": 0.3838889094834425,
+            "surfaceHeightPx": 27,
+            "submerged": false
+          },
+          {
+            "id": 2,
+            "parent": {
+              "kind": "wood",
+              "id": 1
+            },
+            "offset": 0.2,
+            "preset": "frond",
+            "stockMgCnp": [
+              7.5,
+              0.46499999999999997,
+              0.06
+            ],
+            "x": 0.7473611111111111,
+            "surfaceHeightPx": 15,
+            "submerged": false
+          }
+        ],
+        "initial": [
+          {
+            "id": 1,
+            "parent": {
+              "kind": "stone",
+              "id": 1
+            },
+            "offset": 0.4,
+            "preset": "mat",
+            "stockMgCnp": [
+              2,
+              0.12400000000000001,
+              0.016000000000000004
+            ],
+            "x": 0.3838889094834425,
+            "surfaceHeightPx": 27,
+            "submerged": true
+          },
+          {
+            "id": 2,
+            "parent": {
+              "kind": "wood",
+              "id": 1
+            },
+            "offset": 0.2,
+            "preset": "frond",
+            "stockMgCnp": [
+              7.5,
+              0.46499999999999997,
+              0.06
+            ],
+            "x": 0.7473611111111111,
+            "surfaceHeightPx": 15,
+            "submerged": true
+          }
+        ],
+        "grown": [
+          {
+            "id": 1,
+            "parent": {
+              "kind": "stone",
+              "id": 1
+            },
+            "offset": 0.4,
+            "preset": "mat",
+            "stockMgCnp": [
+              2.0022994570311297,
+              0.12414256633593036,
+              0.016018395656249
+            ],
+            "x": 0.3838889094834425,
+            "surfaceHeightPx": 27,
+            "submerged": true
+          },
+          {
+            "id": 2,
+            "parent": {
+              "kind": "wood",
+              "id": 1
+            },
+            "offset": 0.2,
+            "preset": "frond",
+            "stockMgCnp": [
+              7.506832715596793,
+              0.46542362836700085,
+              0.06005466172477426
+            ],
+            "x": 0.7473611111111111,
+            "surfaceHeightPx": 15,
+            "submerged": true
+          }
+        ],
+        "saved": {
+          "worldId": "pond-6e3e6154ebc9466a8d900bdd85fa5486",
+          "worldName": "R5 附着验收 2026-11-25T11:14:17.813Z",
+          "definition": "pond-shallow-r5-moss/1",
+          "modelVersion": 12,
+          "runGeneration": "953e5a01-fe54-415f-8f6a-a55701993c3f",
+          "editRevision": "16",
+          "simulationTick": "1200",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "pond": {
+            "basins": [
+              {
+                "id": "pond-main",
+                "label": "主水域",
+                "wet": true,
+                "waterLiters": 17.999059775201733,
+                "capacityLiters": 28.8,
+                "depthCm": 7.499608239667389,
+                "maxDepthCm": 12,
+                "surfaceAreaCm2": 2400,
+                "temperatureCelsius": 20.808930456000915,
+                "oxygenMgPerLiter": 7.4202524865148725,
+                "availableNitrogenMgPerLiter": 0.34953520207661165,
+                "availablePhosphorusMgPerLiter": 0.04994356121961457,
+                "algaeMgC": 30.027673064701354,
+                "biofilmMgC": 23.942083303836537,
+                "plantMgC": 150.07320728235112,
+                "detritusMgC": 120.95990358741119,
+                "daphniaCount": 48,
+                "shrimp": [
+                  {
+                    "id": "pond-main-shrimp-1",
+                    "x": 0.09224193300984637,
+                    "y": 0.2748372925992135,
+                    "heading": 3.437743894330439,
+                    "activity": "foraging"
+                  },
+                  {
+                    "id": "pond-main-shrimp-2",
+                    "x": 0.2864692094468729,
+                    "y": 0.6742085230416025,
+                    "heading": 6.055080919701439,
+                    "activity": "foraging"
+                  },
+                  {
+                    "id": "pond-main-shrimp-3",
+                    "x": 0.15789098561332715,
+                    "y": 0.46591093095906266,
+                    "heading": 2.8196290064957346,
+                    "activity": "foraging"
+                  }
+                ],
+                "turbidityIndex": 0.2501827156849164,
+                "stones": [
+                  {
+                    "id": 1,
+                    "x": 0.3700000205945536,
+                    "preset": "main"
+                  }
+                ],
+                "woods": [
+                  {
+                    "id": 1,
+                    "x": 0.73,
+                    "preset": "root"
+                  }
+                ],
+                "shrimpAttachments": [],
+                "mossPatches": [
+                  {
+                    "id": 1,
+                    "parent": {
+                      "kind": "stone",
+                      "id": 1
+                    },
+                    "offset": 0.4,
+                    "preset": "mat",
+                    "stockMgCnp": [
+                      2.0022994570311297,
+                      0.12414256633593036,
+                      0.016018395656249
+                    ],
+                    "x": 0.3838889094834425,
+                    "surfaceHeightPx": 27,
+                    "submerged": true
+                  },
+                  {
+                    "id": 2,
+                    "parent": {
+                      "kind": "wood",
+                      "id": 1
+                    },
+                    "offset": 0.2,
+                    "preset": "frond",
+                    "stockMgCnp": [
+                      7.506832715596793,
+                      0.46542362836700085,
+                      0.06005466172477426
+                    ],
+                    "x": 0.7473611111111111,
+                    "surfaceHeightPx": 15,
+                    "submerged": true
+                  }
+                ],
+                "mossPresets": [
+                  {
+                    "preset": "mat",
+                    "initialMgCnp": [
+                      3,
+                      0.186,
+                      0.024
+                    ]
+                  },
+                  {
+                    "preset": "frond",
+                    "initialMgCnp": [
+                      7.5,
+                      0.46499999999999997,
+                      0.06
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "lastSaveMessage": "已保存第 1200 步"
+        }
+      }
+    }
+  ]
+}

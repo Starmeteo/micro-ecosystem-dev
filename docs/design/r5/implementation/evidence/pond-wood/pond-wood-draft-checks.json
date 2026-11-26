@@ -1,0 +1,50 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1424",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-wood-valid-draft.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-wood-invalid-draft.png"
+      }
+    },
+    {
+      "check": "wood-drag-previews-preserve-authority",
+      "via": "native valid and invalid pointer previews with exact unchanged snapshot",
+      "result": {
+        "anchors": "3:253.76001773747407,242",
+        "riders": [
+          {
+            "shrimpId": "pond-main-shrimp-2",
+            "woodId": 3,
+            "offset": -0.3841663762524428,
+            "restTicks": 31
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+{"case":"owned-installed-process","pid":55388,"bootGeneration":"e46a058e-12b2-488b-98fb-aee4d41cc9a8"}
+{"case":"native-leaf-brush","preview":"25:1,26:0,27:0,28:0,29:0,30:0,31:1,32:0,33:0","added":[{"id":4,"cellIndex":26},{"id":5,"cellIndex":27},{"id":6,"cellIndex":28},{"id":7,"cellIndex":29},{"id":8,"cellIndex":30},{"id":9,"cellIndex":32},{"id":10,"cellIndex":33}],"totalAddedMgC":168,"revisionDelta":1,"escapedGestureCancelled":true,"exactUndoRedo":true}

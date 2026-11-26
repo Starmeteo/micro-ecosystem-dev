@@ -1,0 +1,344 @@
+{
+  "summary": [
+    {
+      "name": "single-hidden",
+      "seconds": 8.014,
+      "cpuMachinePercent": {
+        "samples": 5,
+        "median": 0.04748662776562121,
+        "p95": 0.14329603815113717,
+        "maximum": 0.14329603815113717
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 5,
+        "median": 0,
+        "p95": 0,
+        "maximum": 0
+      },
+      "privateMiB": {
+        "samples": 5,
+        "median": 446.94140625,
+        "p95": 447.30078125,
+        "maximum": 447.30078125
+      },
+      "workingSetMiB": {
+        "samples": 5,
+        "median": 796.21484375,
+        "p95": 796.765625,
+        "maximum": 796.765625
+      },
+      "privateMiBFirstAndLast": [
+        446.94140625,
+        422.953125
+      ]
+    },
+    {
+      "name": "single-live-panel",
+      "seconds": 8.007,
+      "cpuMachinePercent": {
+        "samples": 6,
+        "median": 0.2429259950248756,
+        "p95": 0.9841899722852104,
+        "maximum": 0.9841899722852104
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 6,
+        "median": 4,
+        "p95": 5,
+        "maximum": 5
+      },
+      "privateMiB": {
+        "samples": 6,
+        "median": 424.390625,
+        "p95": 426.2890625,
+        "maximum": 426.2890625
+      },
+      "workingSetMiB": {
+        "samples": 6,
+        "median": 774.33984375,
+        "p95": 777.23828125,
+        "maximum": 777.23828125
+      },
+      "privateMiBFirstAndLast": [
+        424.390625,
+        383.57421875
+      ]
+    },
+    {
+      "name": "single-observe",
+      "seconds": 8.006,
+      "cpuMachinePercent": {
+        "samples": 5,
+        "median": 0.27431530898876405,
+        "p95": 0.9335691823899371,
+        "maximum": 0.9335691823899371
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 5,
+        "median": 7,
+        "p95": 9,
+        "maximum": 9
+      },
+      "privateMiB": {
+        "samples": 5,
+        "median": 451.5234375,
+        "p95": 453.1640625,
+        "maximum": 453.1640625
+      },
+      "workingSetMiB": {
+        "samples": 5,
+        "median": 815.11328125,
+        "p95": 817.30859375,
+        "maximum": 817.30859375
+      },
+      "privateMiBFirstAndLast": [
+        451.5234375,
+        450.36328125
+      ]
+    },
+    {
+      "name": "single-two-views",
+      "seconds": 8.005,
+      "cpuMachinePercent": {
+        "samples": 5,
+        "median": 0.3355884879725086,
+        "p95": 0.5869646882043577,
+        "maximum": 0.5869646882043577
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 5,
+        "median": 10,
+        "p95": 10,
+        "maximum": 10
+      },
+      "privateMiB": {
+        "samples": 5,
+        "median": 439.90625,
+        "p95": 441.5859375,
+        "maximum": 441.5859375
+      },
+      "workingSetMiB": {
+        "samples": 5,
+        "median": 817.35546875,
+        "p95": 818.7265625,
+        "maximum": 818.7265625
+      },
+      "privateMiBFirstAndLast": [
+        433.5234375,
+        441.5859375
+      ]
+    },
+    {
+      "name": "single-covered",
+      "seconds": 8.011,
+      "cpuMachinePercent": {
+        "samples": 5,
+        "median": 0.19434079601990048,
+        "p95": 0.250400641025641,
+        "maximum": 0.250400641025641
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 5,
+        "median": 0,
+        "p95": 0,
+        "maximum": 0
+      },
+      "privateMiB": {
+        "samples": 5,
+        "median": 457.07421875,
+        "p95": 457.953125,
+        "maximum": 457.953125
+      },
+      "workingSetMiB": {
+        "samples": 5,
+        "median": 835.9765625,
+        "p95": 837.24609375,
+        "maximum": 837.24609375
+      },
+      "privateMiBFirstAndLast": [
+        456.203125,
+        457.953125
+      ]
+    },
+    {
+      "name": "dual-hidden",
+      "seconds": 8.009,
+      "cpuMachinePercent": {
+        "samples": 6,
+        "median": 0,
+        "p95": 0.3966742828128967,
+        "maximum": 0.3966742828128967
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 6,
+        "median": 0,
+        "p95": 1,
+        "maximum": 1
+      },
+      "privateMiB": {
+        "samples": 6,
+        "median": 464.44921875,
+        "p95": 464.7578125,
+        "maximum": 464.7578125
+      },
+      "workingSetMiB": {
+        "samples": 6,
+        "median": 843.45703125,
+        "p95": 843.98046875,
+        "maximum": 843.98046875
+      },
+      "privateMiBFirstAndLast": [
+        464.21875,
+        441.81640625
+      ]
+    },
+    {
+      "name": "dual-two-views",
+      "seconds": 8.011,
+      "cpuMachinePercent": {
+        "samples": 5,
+        "median": 0.4395630157539385,
+        "p95": 1.0075073691967575,
+        "maximum": 1.0075073691967575
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 5,
+        "median": 5,
+        "p95": 6,
+        "maximum": 6
+      },
+      "privateMiB": {
+        "samples": 5,
+        "median": 466.99609375,
+        "p95": 471.90625,
+        "maximum": 471.90625
+      },
+      "workingSetMiB": {
+        "samples": 5,
+        "median": 854.37109375,
+        "p95": 856.94140625,
+        "maximum": 856.94140625
+      },
+      "privateMiBFirstAndLast": [
+        471.90625,
+        448.6015625
+      ]
+    },
+    {
+      "name": "dual-visible-soak",
+      "seconds": 60.002,
+      "cpuMachinePercent": {
+        "samples": 44,
+        "median": 0.44255098187311176,
+        "p95": 1.0625309099901086,
+        "maximum": 1.3573118859333813
+      },
+      "gpuBusiestEnginePercent": {
+        "samples": 44,
+        "median": 5,
+        "p95": 6,
+        "maximum": 6
+      },
+      "privateMiB": {
+        "samples": 44,
+        "median": 452.1171875,
+        "p95": 464.0546875,
+        "maximum": 470.54296875
+      },
+      "workingSetMiB": {
+        "samples": 44,
+        "median": 860.64453125,
+        "p95": 869.7578125,
+        "maximum": 875.3515625
+      },
+      "privateMiBFirstAndLast": [
+        470.54296875,
+        452.01953125
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "check": "phase",
+      "name": "single-hidden",
+      "started": 1795529153433,
+      "ended": 1795529161447
+    },
+    {
+      "check": "phase",
+      "name": "single-live-panel",
+      "started": 1795529162128,
+      "ended": 1795529170135
+    },
+    {
+      "check": "phase",
+      "name": "single-observe",
+      "started": 1795529170837,
+      "ended": 1795529178843
+    },
+    {
+      "check": "frame-and-ipc",
+      "view": "observe",
+      "rafIntervalsMs": {
+        "samples": 108,
+        "median": 16.700000000000728,
+        "p95": 16.899999999997817,
+        "maximum": 17
+      },
+      "payloadBytes": 2642,
+      "roundTripMs": {
+        "samples": 32,
+        "median": 0.7999999523162842,
+        "p95": 1.2999999523162842,
+        "maximum": 1.399999976158142
+      },
+      "devicePixelRatio": 1.5,
+      "width": 720,
+      "height": 450
+    },
+    {
+      "check": "phase",
+      "name": "single-two-views",
+      "started": 1795529181386,
+      "ended": 1795529189391
+    },
+    {
+      "check": "phase",
+      "name": "single-covered",
+      "started": 1795529193711,
+      "ended": 1795529201722
+    },
+    {
+      "check": "phase",
+      "name": "dual-hidden",
+      "started": 1795529202450,
+      "ended": 1795529210459
+    },
+    {
+      "check": "phase",
+      "name": "dual-two-views",
+      "started": 1795529211143,
+      "ended": 1795529219154
+    },
+    {
+      "check": "view-cycle",
+      "cycles": 24,
+      "subscribersAfterHide": 0
+    },
+    {
+      "check": "phase",
+      "name": "dual-visible-soak",
+      "started": 1795529231277,
+      "ended": 1795529291279
+    },
+    {
+      "check": "dual-world-ticks",
+      "forestId": "forest-understory",
+      "pondId": "pond-1a187eb93c7a4d94aa9f3a4c91bc5e0b",
+      "deltas": {
+        "forest": 895,
+        "pond": 895
+      }
+    }
+  ]
+}

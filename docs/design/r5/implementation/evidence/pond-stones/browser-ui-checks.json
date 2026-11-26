@@ -1,0 +1,83 @@
+{
+  "backend": "UI fixture, no Rust/Tauri",
+  "v3": [
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "ee4af8a4-e657-4155-8fa7-dfd6b913a01e",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "0",
+      "edit": {
+        "type": "addWater",
+        "basinId": "pond-main",
+        "liters": 0.8
+      }
+    }
+  ],
+  "edits": [
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "d6be80b2-f6c2-4858-8bef-6a443526fd89",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "0",
+      "edit": {
+        "type": "addStone",
+        "basinId": "pond-main",
+        "x": 0.45000000292806974,
+        "preset": "main"
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "913868f5-8d15-4ede-a33c-abc814cbf59a",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "moveStone",
+        "basinId": "pond-main",
+        "id": 1,
+        "x": 0.45400000292806975
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-trial",
+      "commandId": "406b71af-4e86-4c99-94e1-c94ef4defd90",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "2",
+      "edit": {
+        "type": "addWater",
+        "basinId": "pond-main",
+        "liters": 0.8
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-trial",
+      "commandId": "19ee723d-4d45-4e88-ba8e-adf536718ccd",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "3",
+      "edit": {
+        "type": "removeStone",
+        "basinId": "pond-main",
+        "id": 1
+      }
+    },
+    {
+      "command": "edit_pond_history",
+      "worldId": "pond-trial",
+      "commandId": "4474f5a6-be2f-49e0-8fea-7c319e11466f",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "4",
+      "redo": false
+    }
+  ],
+  "original": 0.45000000292806974,
+  "moved": 0.45400000292806975,
+  "choices": [
+    "放置主石",
+    "放置卵石"
+  ]
+}

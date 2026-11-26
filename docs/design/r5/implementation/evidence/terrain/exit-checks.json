@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "exit-request",
+      "via": "native command for the recorded isolated world",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7"
+      }
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "actualEditorAndCanvas": true,
+  "mockHost": true,
+  "palette": [
+    [
+      "small",
+      "叶径 30 mm"
+    ],
+    [
+      "medium",
+      "叶径 45 mm"
+    ],
+    [
+      "large",
+      "叶径 60 mm"
+    ]
+  ],
+  "keyboardInitial": "78",
+  "overlap": [
+    {
+      "x": 0.625,
+      "y": 0.5416666666666666
+    },
+    {
+      "x": 0.625,
+      "y": 0.5416666666666666
+    }
+  ],
+  "before": {
+    "coveredAreaCm2": 28.274333882308138,
+    "coverage": 0.011780972450961723,
+    "lightTransmission": 0.9882190275490382
+  },
+  "after": {
+    "coveredAreaCm2": 56.548667764616276,
+    "coverage": 0.023561944901923447,
+    "lightTransmission": 0.9764380550980766
+  },
+  "undoExact": true,
+  "calls": [
+    {
+      "edit": {
+        "type": "addFloatingPlant",
+        "basinId": "basin-main",
+        "preset": "large",
+        "position": {
+          "x": 0.625,
+          "y": 0.5416666666666666
+        }
+      },
+      "expectedRevision": "1"
+    },
+    {
+      "edit": {
+        "type": "addFloatingPlant",
+        "basinId": "basin-main",
+        "preset": "large",
+        "position": {
+          "x": 0.625,
+          "y": 0.5416666666666666
+        }
+      },
+      "expectedRevision": "2"
+    },
+    {
+      "edit": {
+        "type": "moveFloatingPlant",
+        "basinId": "basin-main",
+        "id": 2,
+        "position": {
+          "x": 0.041666666666666664,
+          "y": 0.5416666666666666
+        }
+      },
+      "expectedRevision": "3"
+    },
+    {
+      "edit": {
+        "type": "removeFloatingPlant",
+        "basinId": "basin-main",
+        "id": 2
+      },
+      "expectedRevision": "4"
+    },
+    {
+      "redo": false,
+      "expectedRevision": "5"
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,78 @@
+{
+  "backend": "UI fixture, no Rust/Tauri",
+  "oldChoices": [
+    "放置主石",
+    "放置卵石"
+  ],
+  "choices": [
+    "放置主石",
+    "放置卵石",
+    "放置主枝沉木",
+    "放置短根沉木"
+  ],
+  "edits": [
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "0a29b299-8549-4590-be84-4e96a344763f",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "0",
+      "edit": {
+        "type": "addStone",
+        "basinId": "pond-main",
+        "x": 0.15000000585613943,
+        "preset": "pebble"
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "ca5db7f1-47c9-4ffb-aa60-92bb7bfaa2f9",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "addWood",
+        "basinId": "pond-main",
+        "x": 0.5999999648631632,
+        "preset": "branch"
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "fab054fc-b3e4-40b8-b85e-c994412869bb",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "2",
+      "edit": {
+        "type": "moveWood",
+        "basinId": "pond-main",
+        "id": 1,
+        "x": 0.6039999648631632
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-trial",
+      "commandId": "2a97a82a-cc9e-40e0-acd2-4c3241a4a8e8",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "3",
+      "edit": {
+        "type": "removeWood",
+        "basinId": "pond-main",
+        "id": 1
+      }
+    },
+    {
+      "command": "edit_pond_history",
+      "worldId": "pond-trial",
+      "commandId": "e9f34bfe-a65b-41a8-afc3-3166976d81a7",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "4",
+      "redo": false
+    }
+  ],
+  "sameIds": {
+    "stone": 1,
+    "wood": 1
+  }
+}

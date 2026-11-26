@@ -1,0 +1,90 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "微缩生态",
+  "version": "0.2.20",
+  "identifier": "local.micro-ecosystem.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build:web",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "editor",
+        "title": "微缩生态 · 编辑器",
+        "width": 1060,
+        "height": 730,
+        "minWidth": 580,
+        "minHeight": 440,
+        "center": true,
+        "decorations": false,
+        "theme": "Dark",
+        "transparent": true,
+        "windowEffects": { "effects": ["acrylic"], "color": [24, 26, 28, 178] },
+        "resizable": true,
+        "visible": false
+      },
+      {
+        "label": "observe",
+        "title": "微缩生态 · 观赏",
+        "width": 720,
+        "height": 450,
+        "minWidth": 400,
+        "minHeight": 268,
+        "center": true,
+        "decorations": false,
+        "theme": "Dark",
+        "transparent": true,
+        "windowEffects": { "effects": ["acrylic"], "color": [24, 26, 28, 178] },
+        "resizable": true,
+        "visible": false
+      },
+      {
+        "label": "panel",
+        "title": "微缩生态 · 组件面板",
+        "width": 384,
+        "height": 216,
+        "decorations": false,
+        "resizable": false,
+        "minimizable": false,
+        "maximizable": false,
+        "transparent": true,
+        "shadow": false,
+        "skipTaskbar": true,
+        "visible": false
+      },
+      {
+        "label": "layout",
+        "title": "微缩生态 · 组件设置",
+        "width": 420,
+        "height": 410,
+        "minWidth": 365,
+        "minHeight": 350,
+        "center": true,
+        "decorations": false,
+        "minimizable": false,
+        "maximizable": false,
+        "theme": "Dark",
+        "transparent": true,
+        "windowEffects": { "effects": ["acrylic"], "color": [24, 26, 28, 178] },
+        "resizable": true,
+        "visible": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' ipc: http://ipc.localhost",
+      "devCsp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' ipc: http://ipc.localhost ws://localhost:1420"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper", "silent": true },
+      "nsis": { "installMode": "currentUser", "languages": ["SimpChinese"] }
+    }
+  }
+}

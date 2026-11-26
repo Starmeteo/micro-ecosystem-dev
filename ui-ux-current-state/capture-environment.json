@@ -1,0 +1,282 @@
+{
+  "captureDate": "2026-11-25",
+  "timezone": "Asia/Shanghai",
+  "captureRangeUtc": [
+    "2026-11-25T02:13:50.617Z",
+    "2026-11-25T02:25:54.094Z"
+  ],
+  "project": {
+    "release": {
+      "bytes": 11091968,
+      "sha256": "85C02123E22E2B28C59998070FC191A4E5342644A9B71EA713B133AC215A4678",
+      "productVersion": "0.1.0"
+    },
+    "git": {
+      "repository": false,
+      "branch": "unknown",
+      "commit": "unknown",
+      "uncommittedChanges": "unknown",
+      "reason": "Git 在工作区根目录和父路径找不到仓库。"
+    },
+    "productionSourceChangedForCapture": false,
+    "comparison": "发行版 SHA256 与已记录的 M4 独立发布程序相同。锁定依赖为工作区读取值。"
+  },
+  "startup": {
+    "actual": "target/release/micro-ecosystem-desktop.exe",
+    "developmentDocumented": ".\\scripts\\windows.ps1 -Mode dev",
+    "buildDocumented": ".\\scripts\\windows.ps1 -Mode build",
+    "releasePackageDocumented": ".\\scripts\\windows.ps1 -Mode package",
+    "dependencyInstall": false,
+    "rebuiltForCapture": false,
+    "isolatedData": true,
+    "separateWebViewProfileForReopen": true
+  },
+  "stack": {
+    "tauriRust": "2.12.7",
+    "tauriJS": "2.12.5",
+    "tauriCLI": "2.12.6",
+    "react": "19.3.1",
+    "reactDom": "19.3.1",
+    "typescript": "7.0.2",
+    "pixiJS": "8.23.0",
+    "vite": "8.3.8",
+    "rustPinned": "1.100.0 x86_64-pc-windows-msvc",
+    "node": "v26.1.0",
+    "npm": "11.13.0",
+    "webview2Actual": "158.0.4370.33"
+  },
+  "system": {
+    "windows": {
+      "edition": "25H2",
+      "caption": "Microsoft Windows 11 家庭版 中文版",
+      "build": "26200.9457"
+    },
+    "displayAdapters": [
+      {
+        "Name": "NVIDIA GeForce RTX 5060 Laptop GPU",
+        "CurrentHorizontalResolution": 2560,
+        "CurrentVerticalResolution": 1600,
+        "CurrentRefreshRate": 240,
+        "DriverVersion": "32.0.15.9186"
+      },
+      {
+        "Name": "Intel(R) Graphics",
+        "CurrentHorizontalResolution": 2560,
+        "CurrentVerticalResolution": 1600,
+        "CurrentRefreshRate": 60,
+        "DriverVersion": "32.0.101.8332"
+      }
+    ]
+  },
+  "displays": {
+    "count": 1,
+    "primaryPhysicalPixels": [
+      2560,
+      1600
+    ],
+    "workAreaPhysicalPixels": [
+      2560,
+      1528
+    ],
+    "registryAppliedDpi": 144,
+    "systemScalePercent": 150,
+    "actualWebViewDevicePixelRatio": 1.5,
+    "appZoom": "unknown",
+    "note": "显示器尺寸为 PerMonitorV2 的 Screen.AllScreens 读数；显卡的刷新率字段只表示各自报告值。应用内像素密度选项改变林下画布资源，非系统缩放。"
+  },
+  "windows": [
+    {
+      "label": "editor",
+      "title": "微缩生态 · 编辑器",
+      "defaultLogicalSize": [
+        1060,
+        730
+      ],
+      "minimumLogicalSize": [
+        580,
+        440
+      ],
+      "resizable": true,
+      "actualRepresentative": {
+        "clientCss": [
+          1060,
+          730
+        ],
+        "fullClientPngPixels": [
+          1590,
+          1095
+        ],
+        "nativeCaptureToolLogicalBounds": [
+          1063,
+          733
+        ],
+        "physicalWindowOuterSize": "unknown",
+        "appZoom": "unknown",
+        "devicePixelRatio": 1.5,
+        "clientImage": "screenshots/UI-002_editor-idle.png",
+        "additionalNativeImage": "screenshots/UI-082_editor-windows.jpg"
+      }
+    },
+    {
+      "label": "observe",
+      "title": "微缩生态 · 观赏",
+      "defaultLogicalSize": [
+        720,
+        450
+      ],
+      "minimumLogicalSize": [
+        400,
+        268
+      ],
+      "resizable": true,
+      "actualRepresentative": {
+        "clientCss": [
+          720,
+          450
+        ],
+        "fullClientPngPixels": [
+          1080,
+          675
+        ],
+        "nativeCaptureToolLogicalBounds": [
+          723,
+          453
+        ],
+        "physicalWindowOuterSize": "unknown",
+        "appZoom": "unknown",
+        "devicePixelRatio": 1.5,
+        "clientImage": "screenshots/UI-007_observe-forest.png",
+        "additionalNativeImage": "screenshots/UI-083_observe-windows.jpg"
+      }
+    },
+    {
+      "label": "panel",
+      "title": "微缩生态 · 组件面板",
+      "defaultLogicalSize": [
+        384,
+        216
+      ],
+      "minimumLogicalSize": "unknown",
+      "resizable": false,
+      "actualRepresentative": {
+        "clientCss": [
+          384,
+          216
+        ],
+        "fullClientPngPixels": [
+          576,
+          324
+        ],
+        "nativeCaptureToolLogicalBounds": [
+          384,
+          216
+        ],
+        "physicalWindowOuterSize": "unknown",
+        "appZoom": "unknown",
+        "devicePixelRatio": 1.5,
+        "clientImage": "screenshots/UI-001_startup-panel.png",
+        "additionalNativeImage": "screenshots/UI-081_panel-windows.jpg"
+      }
+    },
+    {
+      "label": "layout",
+      "title": "微缩生态 · 组件设置",
+      "defaultLogicalSize": [
+        420,
+        410
+      ],
+      "minimumLogicalSize": [
+        365,
+        350
+      ],
+      "resizable": true,
+      "actualRepresentative": {
+        "clientCss": [
+          420,
+          410
+        ],
+        "fullClientPngPixels": [
+          630,
+          615
+        ],
+        "nativeCaptureToolLogicalBounds": [
+          423,
+          413
+        ],
+        "physicalWindowOuterSize": "unknown",
+        "appZoom": "unknown",
+        "devicePixelRatio": 1.5,
+        "clientImage": "screenshots/UI-008_layout-settings.png",
+        "additionalNativeImage": "screenshots/UI-084_layout-windows.jpg"
+      }
+    }
+  ],
+  "smallEditor": {
+    "clientCss": [
+      783,
+      730
+    ],
+    "pngPixels": [
+      1175,
+      1095
+    ],
+    "method": "Windows Alt+Space → 大小，按键调整真实窗口；未改 CSS、DPI 或应用缩放。"
+  },
+  "testWorlds": [
+    {
+      "id": "W01",
+      "name": "林下切片",
+      "theme": "林下",
+      "source": "干净数据启动的内置新世界",
+      "modelVersion": 4,
+      "states": "自然运行 → 编辑暂停 → 试运行丢弃 → 手动暂停 → 保存和冷重开",
+      "daylight": "使用默认北京示例设置，曾在编辑器临时切换夜间预览。早段有自然推进，暂停后的同一状态用于对照。"
+    },
+    {
+      "id": "W02",
+      "name": "采集 W02 浅塘",
+      "theme": "浅水池塘",
+      "source": "内置浅塘",
+      "modelVersion": 3,
+      "states": "新建即编辑暂停 → 补水与验证 → 保存、归档与恢复 → 观赏",
+      "daylight": "世界光照（未使用光照预览）"
+    },
+    {
+      "id": "W03",
+      "name": "采集 W03 空白浅塘",
+      "theme": "浅水池塘",
+      "source": "空白浅塘",
+      "modelVersion": 3,
+      "states": "干涸、暂停 → 补水 18 L → 放入初始生物 → 采用推进 60 秒的试运行",
+      "daylight": "世界光照（未使用光照预览）"
+    },
+    {
+      "id": "W04",
+      "name": "采集 W04 空白林下",
+      "theme": "林下",
+      "source": "空白林下",
+      "modelVersion": 4,
+      "states": "编辑暂停 → 放入初始生物 → 保存后切回 W01",
+      "daylight": "世界光照（未使用光照预览）"
+    },
+    {
+      "id": "W01-T1 / W03-T1",
+      "source": "隔离正式世界试运行分支",
+      "states": "W01 分支推进后丢弃，W03 分支推进后采用",
+      "daylight": "副本内模拟光相位；原世界显示与试运行为不同对象"
+    }
+  ],
+  "evidence": {
+    "clientPngCount": 65,
+    "wgcJpegCount": 5,
+    "browserStandaloneCount": 0,
+    "sequence": "原始有序截图，没有视频。",
+    "timeField": "账本 observedTick 是当时正式活动世界的 100 ms 刻度。试运行用 trial 表示副本额外进度；固定面板、预设或库选行可能与该正式活动世界不同。无法逐图确认的当前世界实际光相位为 unknown。"
+  },
+  "privacy": {
+    "savedUserFilesTouched": false,
+    "unrelatedDesktopCaptured": false,
+    "exportedWholeRepository": false,
+    "includedAppErrorMayNameIsolatedProjectPath": true
+  }
+}

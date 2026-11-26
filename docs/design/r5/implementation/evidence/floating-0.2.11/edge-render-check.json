@@ -1,0 +1,350 @@
+{
+  "dimensions": [
+    576,
+    324
+  ],
+  "dpr": 1.5,
+  "independentEdge": true,
+  "fixtureSnapshots": true,
+  "legacyIdentical": true,
+  "refloodIdentical": true,
+  "dryIdentical": true,
+  "opticalDifference": {
+    "count": 36544,
+    "bounds": [
+      93,
+      3,
+      475,
+      323
+    ]
+  },
+  "measurements": {
+    "legacy-no-float": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [],
+      "dataset": {
+        "anchors": null,
+        "coverage": null,
+        "light": null,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-in-default": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 2,
+          "x": 97.92,
+          "y": 22.330125764669294,
+          "width": 45.139662639973565,
+          "blade": 15.366173417384774,
+          "roots": 48.672
+        },
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        },
+        {
+          "id": 4,
+          "x": 455.04,
+          "y": 25.83583422570902,
+          "width": 92.63136571149221,
+          "blade": 21.84,
+          "roots": 121.67999999999999
+        }
+      ],
+      "dataset": {
+        "anchors": "2:97.92,22.330125764669294;3:288,23.814816797021827;4:455.04,25.83583422570902",
+        "coverage": 0.0245,
+        "light": 0.9755,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-three-sizes": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 2,
+          "x": 97.92,
+          "y": 22.330125764669294,
+          "width": 45.139662639973565,
+          "blade": 15.366173417384774,
+          "roots": 48.672
+        },
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        },
+        {
+          "id": 4,
+          "x": 455.04,
+          "y": 25.83583422570902,
+          "width": 92.63136571149221,
+          "blade": 21.84,
+          "roots": 121.67999999999999
+        }
+      ],
+      "dataset": {
+        "anchors": "2:97.92,22.330125764669294;3:288,23.814816797021827;4:455.04,25.83583422570902",
+        "coverage": 0.0245,
+        "light": 0.9755,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-medium": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-medium-selected": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": "3"
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-medium-full": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-depth-projection": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 25.50274574068829,
+          "width": 69.30591816503625,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,25.50274574068829",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-moved": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 357.12,
+          "y": 25.50274574068829,
+          "width": 69.30591816503625,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:357.12,25.50274574068829",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-grown": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 76.06285847388376,
+          "blade": 21.84,
+          "roots": 108.16
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.00818,
+        "light": 0.99182,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-shadow-gain": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.34,
+        "light": 0.6599999999999999,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-shallow": {
+      "surface": 177.12,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 189.335848048376,
+          "width": 68.45657262649539,
+          "blade": 11.881376000000001,
+          "roots": 40.559999999999995
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,189.335848048376",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-dry": {
+      "surface": 265,
+      "bed": 265,
+      "visuals": [],
+      "dataset": {
+        "anchors": null,
+        "coverage": 0,
+        "light": 1,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "legacy-dry": {
+      "surface": 265,
+      "bed": 265,
+      "visuals": [],
+      "dataset": {
+        "anchors": null,
+        "coverage": null,
+        "light": null,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    },
+    "floating-reflooded": {
+      "surface": 1.3600000000000196,
+      "bed": 265,
+      "visuals": [
+        {
+          "id": 3,
+          "x": 288,
+          "y": 23.814816797021827,
+          "width": 68.45657262649539,
+          "blade": 21.84,
+          "roots": 97.344
+        }
+      ],
+      "dataset": {
+        "anchors": "3:288,23.814816797021827",
+        "coverage": 0.0066,
+        "light": 0.9934,
+        "selection": null
+      },
+      "width": 576,
+      "height": 324,
+      "dpr": 1.5
+    }
+  }
+}

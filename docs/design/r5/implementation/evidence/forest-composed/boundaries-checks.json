@@ -1,0 +1,88 @@
+[
+  {
+    "check": "isolated WebView2",
+    "result": {
+      "labels": [
+        "layout",
+        "panel",
+        "observe",
+        "editor"
+      ],
+      "appPort": "1427",
+      "browser": "Edg/158.0.4370.33"
+    }
+  },
+  {
+    "check": "private profile ownership",
+    "result": {
+      "processId": 66276,
+      "bootGeneration": "bc1977c0-d36b-4acb-a68f-ee2e3184b8cb"
+    }
+  },
+  {
+    "check": "2x physical drag released outside canvas discards even a valid target",
+    "result": {
+      "id": 2,
+      "viewport": [
+        144,
+        81,
+        288,
+        162
+      ],
+      "mouseFrom": {
+        "x": 194.35706583658856,
+        "y": 288.7556005407263
+      },
+      "mouseOutside": {
+        "x": 71.32103792826335,
+        "y": 288.7556005407263
+      },
+      "boardLeft": 88.20833587646484,
+      "sceneFrom": [
+        188,
+        132
+      ],
+      "sceneOutside": [
+        137,
+        132
+      ],
+      "wouldBeValid": {
+        "x": 0.19965285189843002,
+        "y": 0.7160493827160493
+      },
+      "revision": "19"
+    }
+  },
+  {
+    "check": "native trial advances authority animals only in the copy",
+    "result": {
+      "before": "0",
+      "after": "600",
+      "animals": [
+        "isopod-1",
+        "isopod-2",
+        "isopod-3",
+        "isopod-4"
+      ],
+      "formalTick": "0"
+    }
+  },
+  {
+    "check": "pixel density selectors remain confined to legacy v9",
+    "result": {
+      "version14": [],
+      "version9": [
+        "240 × 135",
+        "480 × 270"
+      ]
+    }
+  },
+  {
+    "check": "owned instance exited through save-and-exit",
+    "result": {
+      "processId": 66276,
+      "appPort": "1427",
+      "webViewPort": "43948"
+    }
+  }
+]

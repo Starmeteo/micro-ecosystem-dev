@@ -1,0 +1,14 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.82s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 6 tests
+test pond::topology::tests::r5_topology_rejects_excess_population_without_changing_either_basin ... ok
+test pond::topology::tests::r5_topology_rejects_an_absorbed_section_and_a_cut_through_a_floating_anchor_atomically ... ok
+test pond::tests::r5_topology_rejects_unrepresentable_or_occupied_results_atomically ... ok
+test pond::topology::tests::r5_topology_moves_floating_plants_and_daphnia_while_retaining_the_selected_living_section ... ok
+test pond::tests::r5_topology_conserves_stocks_and_keeps_independent_identifiers ... ok
+test pond::topology::tests::r5_topology_retains_static_layout_on_the_original_section_only ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
+

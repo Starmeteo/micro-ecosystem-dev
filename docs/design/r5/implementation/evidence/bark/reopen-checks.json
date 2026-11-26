@@ -1,0 +1,106 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "bark-reopened-editor.png"
+      }
+    },
+    {
+      "check": "reopen-persisted-r5-world",
+      "via": "read-only Rust subscription and live editor canvas",
+      "result": {
+        "worldId": "forest-8bc832cf24d4418da23c71a07f996e0a",
+        "worldName": "R5 树皮验收 2026-11-25T09:01:11.062Z",
+        "definition": "forest-understory-r5-bark/1",
+        "modelVersion": 8,
+        "runGeneration": "04ba28e7-1b48-40c6-b04e-1cedae4e1f69",
+        "editRevision": "9",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.3800000144947054,
+              "y": 0.8000000156170866
+            },
+            "mirrored": true,
+            "preset": "arch",
+            "footCells": [
+              27,
+              29
+            ],
+            "passageCells": [
+              16,
+              28,
+              40
+            ],
+            "occupantIds": [
+              "isopod-2"
+            ]
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.7400000039531014,
+              "y": 0.7300000952642278
+            },
+            "mirrored": false,
+            "preset": "split",
+            "footCells": [
+              19,
+              22
+            ],
+            "passageCells": [
+              9,
+              21,
+              33
+            ],
+            "occupantIds": []
+          }
+        ],
+        "shadeFraction": [
+          0.33268923965000163,
+          0.25406507964894665
+        ],
+        "shelterFraction": [
+          0.17303115533492583,
+          0.10802736307972532
+        ],
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

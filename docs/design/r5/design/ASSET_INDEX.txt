@@ -1,0 +1,62 @@
+R5 素材索引与版本优先级
+日期：2026-11-25
+
+本包用途：对用户提出的尺寸、空间关系和精细度问题，提供新构图、尺度规则、可操作评审页与开发交接资料。
+
+一、本轮新图（唯一当前场景目标）
+
+assets/forest-keyart.png
+林下含动物构图。木材表面、木下与土面安排不同鼠妇，叶缘保留小型陆生蜗牛。用于判断整体比例、接触、前后遮挡及材质精细度。
+
+assets/pond-keyart.png
+浅塘含动物构图。成年虾与幼虾分级，区分停驻和水层位置；小螺贴附沉水叶片。水生苔藓改为更细密、柔软的分枝。
+
+assets/forest-cleanplate.png
+assets/pond-cleanplate.png
+对应场景的无动物底图。作为构图、环境材质和分层制作起点；生成编辑可能带来细小差异，它们不是与含动物图逐像素对应的差分蒙版。
+
+assets/creature-morphology-study.png
+六类生物形态研究。上排从左到右：鼠妇、弹尾虫、小型陆生蜗牛；下排：米虾、水蚤、小型淡水螺。
+各格独立放大，不是统一倍率；不得按图中外框面积反推真实体长。生物尺寸以SCALE_CONTRACT.txt和common-scale.svg为准。
+
+上述5张均为不透明完整PNG概念稿。它们不是透明精灵、动画帧、碰撞体、可投放对象或生产图集。不能将背景上的静态动物当成真实模拟个体。
+
+二、沿用的内容造型参考
+
+references/r4-shape-studies/forest-expansion-board.png
+references/r4-shape-studies/pond-expansion-board.png
+保留上一版石木、叶片、苔藓、蕨类、水草、底床等造型方向。它们的原始排列不代表同一倍率；尺寸、接触、遮挡和生产规则由R5覆盖。
+旧R4生物板没有再次纳入当前包，防止与本轮形态研究混用。
+
+design/r5-content-expansion.csv
+当前扩展矩阵：29个资产族，林下14项、浅塘15项；保留原13列，并补充尺寸测量、实体尺寸、空间规则、姿态接触遮挡、证据边界5列。
+design/r4-content-expansion.csv仅作为差异追溯，不能替代R5矩阵。
+design/r4-content-expansion-notes.txt保留前轮模型边界与研究说明。
+design/r4-glass-spec.txt保留玻璃材质原则，与本轮场景精细度相互独立。
+
+三、原始风格参考
+
+references/original-nine/index.html可浏览用户提供的9张原图。
+以像素簇、物体轮廓、植物层次、水中光色和构图为参考；人物图主要参考光色与空间气氛，不导入人物角色，不把鱼虾特写占幅当作本项目主场景的生物尺寸。
+
+四、精确规则与评审证据
+
+SCALE_CONTRACT.txt：世界尺寸、测量部位、投影、接触与像素密度。
+common-scale.svg：统一图示倍率的长度比较，不是动物解剖图。
+ART_REVIEW.txt：最终概念图的目测复查、可见改善与尚未校准的项目。
+r5-research.txt：来源研究记录。参考物种不自动等于正式物种表。
+REVIEW_QA.txt：当前交付预览实际检查范围。
+generation-prompts.json：分阶段生成及修订提示词，部分是过程稿步骤，最终文件映射看下节。
+ASSET_MANIFEST.json：当前文件尺寸、模式和SHA-256。
+
+五、生成过程与最终映射
+
+林下：环境底稿 → 加入小型生命 → 缩小并校正动物尺度 → 最终forest-keyart.png → 移除动物得到forest-cleanplate.png。
+浅塘：环境底稿 → 加入小型生命 → 缩小动物并修正水生苔藓 → 最终pond-keyart.png → 移除动物得到pond-cleanplate.png。
+形态：初次形态研究 → 修正两类螺的形态区别与像素表现 → 最终creature-morphology-study.png。
+没有把未选中的中间图纳入当前包。
+
+六、优先级与冲突处理
+
+用户最新明确意见 > 本轮确认后的尺度与视觉规则 > 本轮图稿的视觉参考 > 继承的造型与历史资料。
+图稿与尺寸规则冲突时，记录具体冲突并在生产校准中修正；不把生成图视为自动通过的测量结果。R5不自动废除既有R3状态、存档、世界独立性、编辑试运行等交互契约。

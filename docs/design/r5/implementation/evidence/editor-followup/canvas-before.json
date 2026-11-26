@@ -1,0 +1,12 @@
+{
+  "baseline": true,
+  "duplicates": {
+    "forest": 12,
+    "pond": 12
+  },
+  "unchangedPixelHashes": {
+    "forest": 527838187,
+    "pond": 3890129256
+  },
+  "cloneBurstMs": 1784.5999999046326
+}

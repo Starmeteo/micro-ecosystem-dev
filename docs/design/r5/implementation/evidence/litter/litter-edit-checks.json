@@ -1,0 +1,303 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-forest-r5-litter-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "forest-744c707bd1b045f7a179f5ca1a1c7db9",
+        "worldName": "R5 落叶验收 2026-11-25T09:11:51.028Z",
+        "definition": "forest-understory-r5-leaves/1",
+        "modelVersion": 9,
+        "runGeneration": "cd68a06a-db0e-4798-b823-e09e36293afb",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [],
+        "leafPatches": [],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "litter-placement-native.png"
+      }
+    },
+    {
+      "check": "leaf-input-and-open-ground",
+      "via": "native editor and valid Rust snapshot",
+      "result": {
+        "leaves": {
+          "id": 2,
+          "position": {
+            "x": 0.3800000144947054,
+            "y": 0.8000000156170866
+          },
+          "mirrored": false,
+          "preset": "leaves",
+          "remainingMgCnp": [
+            24,
+            1.032,
+            0.10799999999999998
+          ],
+          "initialMgCnp": [
+            24,
+            1.032,
+            0.10799999999999998
+          ],
+          "cellIndex": 28
+        },
+        "heap": {
+          "id": 3,
+          "position": {
+            "x": 0.7400000039531014,
+            "y": 0.7599999718892443
+          },
+          "mirrored": false,
+          "preset": "heap",
+          "remainingMgCnp": [
+            60,
+            2.5799999999999996,
+            0.26999999999999996
+          ],
+          "initialMgCnp": [
+            60,
+            2.5799999999999996,
+            0.26999999999999996
+          ],
+          "cellIndex": 21
+        },
+        "ui": {
+          "initial": [
+            24,
+            1.032,
+            0.10799999999999998
+          ],
+          "remaining": [
+            24,
+            1.032,
+            0.10799999999999998
+          ]
+        },
+        "dpr": 1.5
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "litter-trial-residue.png"
+      }
+    },
+    {
+      "check": "consumption-isolation-removal-adoption",
+      "via": "native step, residue confirmation, history and save",
+      "result": {
+        "after": {
+          "initial": [
+            24,
+            1.032,
+            0.10799999999999998
+          ],
+          "remaining": [
+            23.998175860457366,
+            1.0319215619996676,
+            0.10799179137205783
+          ]
+        },
+        "adopted": {
+          "worldId": "forest-744c707bd1b045f7a179f5ca1a1c7db9",
+          "worldName": "R5 落叶验收 2026-11-25T09:11:51.028Z",
+          "definition": "forest-understory-r5-leaves/1",
+          "modelVersion": 9,
+          "runGeneration": "a0b38d0a-c066-4480-8945-5241dc7bf97e",
+          "editRevision": "3",
+          "simulationTick": "600",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.44,
+                "y": 0.68
+              },
+              "mirrored": false
+            }
+          ],
+          "logs": [],
+          "stonework": [],
+          "barkShelters": [],
+          "leafPatches": [
+            {
+              "id": 2,
+              "position": {
+                "x": 0.21999998989762962,
+                "y": 0.8399999031740636
+              },
+              "mirrored": false,
+              "preset": "leaves",
+              "remainingMgCnp": [
+                23.998175860457366,
+                1.0319215619996676,
+                0.10799179137205783
+              ],
+              "initialMgCnp": [
+                24,
+                1.032,
+                0.10799999999999998
+              ],
+              "cellIndex": 26
+            },
+            {
+              "id": 3,
+              "position": {
+                "x": 0.7400000039531014,
+                "y": 0.7599999718892443
+              },
+              "mirrored": false,
+              "preset": "heap",
+              "remainingMgCnp": [
+                59.99518806094856,
+                2.579793086620783,
+                0.2699783462742682
+              ],
+              "initialMgCnp": [
+                60,
+                2.5799999999999996,
+                0.26999999999999996
+              ],
+              "cellIndex": 21
+            }
+          ],
+          "shadeFraction": [
+            0.24886147394553954,
+            0.15776765299046366
+          ],
+          "shelterFraction": [
+            0.16469705584474478,
+            0.07786767471772543
+          ],
+          "lastSaveMessage": "已采用试运行结果并保存检查点"
+        },
+        "saved": {
+          "worldId": "forest-744c707bd1b045f7a179f5ca1a1c7db9",
+          "worldName": "R5 落叶验收 2026-11-25T09:11:51.028Z",
+          "definition": "forest-understory-r5-leaves/1",
+          "modelVersion": 9,
+          "runGeneration": "a0b38d0a-c066-4480-8945-5241dc7bf97e",
+          "editRevision": "3",
+          "simulationTick": "600",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.44,
+                "y": 0.68
+              },
+              "mirrored": false
+            }
+          ],
+          "logs": [],
+          "stonework": [],
+          "barkShelters": [],
+          "leafPatches": [
+            {
+              "id": 2,
+              "position": {
+                "x": 0.21999998989762962,
+                "y": 0.8399999031740636
+              },
+              "mirrored": false,
+              "preset": "leaves",
+              "remainingMgCnp": [
+                23.998175860457366,
+                1.0319215619996676,
+                0.10799179137205783
+              ],
+              "initialMgCnp": [
+                24,
+                1.032,
+                0.10799999999999998
+              ],
+              "cellIndex": 26
+            },
+            {
+              "id": 3,
+              "position": {
+                "x": 0.7400000039531014,
+                "y": 0.7599999718892443
+              },
+              "mirrored": false,
+              "preset": "heap",
+              "remainingMgCnp": [
+                59.99518806094856,
+                2.579793086620783,
+                0.2699783462742682
+              ],
+              "initialMgCnp": [
+                60,
+                2.5799999999999996,
+                0.26999999999999996
+              ],
+              "cellIndex": 21
+            }
+          ],
+          "shadeFraction": [
+            0.24886147394553954,
+            0.15776765299046366
+          ],
+          "shelterFraction": [
+            0.16469705584474478,
+            0.07786767471772543
+          ],
+          "lastSaveMessage": "已保存第 600 步"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "host": "isolated Edge with mocked authoritative IPC",
+  "dpr": 1.5,
+  "dryOxygenGap": true,
+  "validZeroWater": true,
+  "queryWhileExpanded": true,
+  "otherBasinIsolated": true,
+  "trialIdentity": true,
+  "historyTableRows": 3,
+  "errors": []
+}

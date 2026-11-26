@@ -1,0 +1,71 @@
+{
+  "merge": {
+    "canApply": true,
+    "sections": [
+      [
+        1,
+        [
+          4
+        ]
+      ]
+    ],
+    "waterLiters": [
+      12
+    ],
+    "counts": [
+      {
+        "shrimp": 1,
+        "daphnia": 5,
+        "floatingPlants": 2,
+        "leafDeposits": 3
+      }
+    ]
+  },
+  "split": {
+    "canApply": true,
+    "sections": [
+      [
+        1,
+        []
+      ],
+      [
+        4,
+        []
+      ]
+    ],
+    "counts": [
+      {
+        "shrimp": 1,
+        "daphnia": 3,
+        "floatingPlants": 1,
+        "leafDeposits": 1
+      },
+      {
+        "shrimp": 0,
+        "daphnia": 2,
+        "floatingPlants": 1,
+        "leafDeposits": 2
+      }
+    ],
+    "waterLiters": [
+      6,
+      6
+    ]
+  },
+  "retainsEmptyStoredSection": true,
+  "promotesLowestStoredRow": true,
+  "rejectsFifthSection": true,
+  "rejectsBoundLife": true,
+  "rejectsPositiveFilm": true,
+  "allowsDormantFilm": true,
+  "protectsSecondaryRowFromBothBrushes": true,
+  "rejectsLostAnchor": true,
+  "rejectsPopulationLimits": true,
+  "unequalAreaDaphnia": [
+    2,
+    3
+  ],
+  "actualReact": true,
+  "mockedSubmit": true,
+  "keyboardAndButtonControls": true
+}

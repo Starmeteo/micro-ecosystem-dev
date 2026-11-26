@@ -1,0 +1,7 @@
+{"case":"owned-installed-process","pid":84396,"bootGeneration":"1ba4d498-aeaa-49a8-9511-8ab410ecb497"}
+{"case":"woodlouse-inspect-remove-undo-redo","worldId":"forest-fbb937e899ac476891c983cbda227102","id":"isopod-1","before":4,"after":3}
+{"case":"pond-remove-one-located-leaf","id":1,"sectionRow":4,"remainingPrimary":24,"externalCarbon":40,"undoRedo":true}
+{"case":"pond-remove-one-shrimp","worldId":"pond-63dd384e0e404aa1b5d65cae4214e919","sectionRow":4,"id":"pond-2-shrimp-1","mainUnaffected":true,"detritusUnchanged":true}
+{"case":"pond-remove-two-water-fleas","before":5,"after":3}
+{"case":"native-observation-history","sourceSamples":1,"adoptedSimulationMillis":[0,10000,20000,30000,40000,50000,60000],"pondSamples":1,"discardIsolation":true}
+{"case":"multiple-ecology-cards-layout","componentIds":["forest","7b913684-d1d2-433e-998b-f5ffd5b18799"],"bindings":["forest-fbb937e899ac476891c983cbda227102","pond-63dd384e0e404aa1b5d65cae4214e919"],"before":[384,216],"after":[422,238],"unaffected":[384,216]}

@@ -1,0 +1,80 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "terrain-reopened-editor.png"
+      }
+    },
+    {
+      "check": "reopen-persisted-r5-world",
+      "via": "read-only Rust subscription and live editor canvas",
+      "result": {
+        "worldId": "forest-fbe48bcbc6964334b9ff6881159981f7",
+        "worldName": "R5 石木验收 2026-11-25T08:31:04.604Z",
+        "definition": "forest-understory-r5-terrain/1",
+        "modelVersion": 6,
+        "runGeneration": "b18647a5-5cda-4045-9e4c-54d08c3f79cc",
+        "editRevision": "10",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.5750000087846698,
+              "y": 0.8870000716824271
+            },
+            "mirrored": true
+          }
+        ],
+        "shadeFraction": [
+          0.5861274298787555,
+          0.6419199625485356
+        ],
+        "shelterFraction": [
+          0.3167641528070371,
+          0.334175139567566
+        ],
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "host": "isolated Edge display fixture",
+  "dpr": 1.5,
+  "testedTiers": [
+    {
+      "mgC": 0.35,
+      "span": 5,
+      "filename": "mycelium-5mm.png"
+    },
+    {
+      "mgC": 2.4,
+      "span": 15,
+      "filename": "mycelium-15mm.png"
+    },
+    {
+      "mgC": 3.25,
+      "span": 30,
+      "filename": "mycelium-30mm.png"
+    },
+    {
+      "mgC": 0,
+      "span": 0,
+      "filename": "mycelium-0mm.png"
+    }
+  ],
+  "unrelatedCellIgnored": true,
+  "errors": []
+}

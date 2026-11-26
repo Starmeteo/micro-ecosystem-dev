@@ -1,0 +1,380 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "create-from-forest-r5-bark-preset",
+      "via": "World library UI, DOM select, CDP text, Rust snapshot",
+      "result": {
+        "worldId": "forest-8bc832cf24d4418da23c71a07f996e0a",
+        "worldName": "R5 树皮验收 2026-11-25T09:01:11.062Z",
+        "definition": "forest-understory-r5-bark/1",
+        "modelVersion": 8,
+        "runGeneration": "9f37e2c3-fe8a-445c-bd7c-0bd1ae4eb1fd",
+        "editRevision": "0",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "bark-placement-footprints.png"
+      }
+    },
+    {
+      "check": "native-placement-pointer-sample",
+      "via": "canvas geometry and pointer down/up",
+      "result": [
+        {
+          "type": "pointerdown",
+          "x": 0.38000001449470533,
+          "y": 0.8000000156170866,
+          "bounds": {
+            "x": 88.20833587646484,
+            "y": 180.58334350585938,
+            "width": 694.7916870117188,
+            "height": 390.82293701171875,
+            "top": 180.58334350585938,
+            "right": 783.0000228881836,
+            "bottom": 571.4062805175781,
+            "left": 88.20833587646484
+          },
+          "preview": "16,28,40"
+        },
+        {
+          "type": "pointerup",
+          "x": 0.38000001449470533,
+          "y": 0.8000000156170866,
+          "bounds": {
+            "x": 88.20833587646484,
+            "y": 180.58334350585938,
+            "width": 694.7916870117188,
+            "height": 390.82293701171875,
+            "top": 180.58334350585938,
+            "right": 783.0000228881836,
+            "bottom": 571.4062805175781,
+            "left": 88.20833587646484
+          },
+          "preview": "16,28,40"
+        }
+      ]
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "bark-occupied-native.png"
+      }
+    },
+    {
+      "check": "real-resident-with-open-corridor",
+      "via": "native placement, Rust habitat and inspector",
+      "result": {
+        "worldId": "forest-8bc832cf24d4418da23c71a07f996e0a",
+        "worldName": "R5 树皮验收 2026-11-25T09:01:11.062Z",
+        "definition": "forest-understory-r5-bark/1",
+        "modelVersion": 8,
+        "runGeneration": "9f37e2c3-fe8a-445c-bd7c-0bd1ae4eb1fd",
+        "editRevision": "2",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.3800000144947054,
+              "y": 0.8000000156170866
+            },
+            "mirrored": false,
+            "preset": "arch",
+            "footCells": [
+              27,
+              29
+            ],
+            "passageCells": [
+              16,
+              28,
+              40
+            ],
+            "occupantIds": [
+              "isopod-2"
+            ]
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.7400000039531014,
+              "y": 0.7300000952642278
+            },
+            "mirrored": false,
+            "preset": "split",
+            "footCells": [
+              19,
+              22
+            ],
+            "passageCells": [
+              9,
+              21,
+              33
+            ],
+            "occupantIds": []
+          }
+        ],
+        "shadeFraction": [
+          0.33268923965000163,
+          0.25406507964894665
+        ],
+        "shelterFraction": [
+          0.17303115533492583,
+          0.10802736307972532
+        ],
+        "lastSaveMessage": "已从初始方案创建并保存新世界",
+        "dpr": 1.5,
+        "feet": [
+          27,
+          29
+        ],
+        "passage": [
+          16,
+          28,
+          40
+        ],
+        "before": 47,
+        "after": 43
+      }
+    },
+    {
+      "check": "solid-item-cannot-block-the-entrance",
+      "via": "native IPC validation and unchanged habitat",
+      "result": {
+        "code": "invalid_fixture_input",
+        "message": "这会堵住树皮下方或洞口的通路，请换个位置。"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "bark-removed-native.png"
+      }
+    },
+    {
+      "check": "moving-or-removing-does-not-teleport-residents",
+      "via": "native drag, mirror, undo, redo and complete animal snapshots",
+      "result": {
+        "movedOccupants": [],
+        "removedWalkable": 45,
+        "restored": {
+          "worldId": "forest-8bc832cf24d4418da23c71a07f996e0a",
+          "worldName": "R5 树皮验收 2026-11-25T09:01:11.062Z",
+          "definition": "forest-understory-r5-bark/1",
+          "modelVersion": 8,
+          "runGeneration": "9f37e2c3-fe8a-445c-bd7c-0bd1ae4eb1fd",
+          "editRevision": "9",
+          "simulationTick": "0",
+          "paused": true,
+          "manualPaused": false,
+          "editPaused": true,
+          "rocks": [
+            {
+              "id": 1,
+              "position": {
+                "x": 0.44,
+                "y": 0.68
+              },
+              "mirrored": false
+            }
+          ],
+          "logs": [],
+          "stonework": [],
+          "barkShelters": [
+            {
+              "id": 2,
+              "position": {
+                "x": 0.3800000144947054,
+                "y": 0.8000000156170866
+              },
+              "mirrored": true,
+              "preset": "arch",
+              "footCells": [
+                27,
+                29
+              ],
+              "passageCells": [
+                16,
+                28,
+                40
+              ],
+              "occupantIds": [
+                "isopod-2"
+              ]
+            },
+            {
+              "id": 3,
+              "position": {
+                "x": 0.7400000039531014,
+                "y": 0.7300000952642278
+              },
+              "mirrored": false,
+              "preset": "split",
+              "footCells": [
+                19,
+                22
+              ],
+              "passageCells": [
+                9,
+                21,
+                33
+              ],
+              "occupantIds": []
+            }
+          ],
+          "shadeFraction": [
+            0.33268923965000163,
+            0.25406507964894665
+          ],
+          "shelterFraction": [
+            0.17303115533492583,
+            0.10802736307972532
+          ],
+          "lastSaveMessage": "已从初始方案创建并保存新世界"
+        }
+      }
+    },
+    {
+      "check": "trial-removal-isolated-and-saved",
+      "via": "native trial, buttons and formal snapshot",
+      "result": {
+        "worldId": "forest-8bc832cf24d4418da23c71a07f996e0a",
+        "worldName": "R5 树皮验收 2026-11-25T09:01:11.062Z",
+        "definition": "forest-understory-r5-bark/1",
+        "modelVersion": 8,
+        "runGeneration": "9f37e2c3-fe8a-445c-bd7c-0bd1ae4eb1fd",
+        "editRevision": "9",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.3800000144947054,
+              "y": 0.8000000156170866
+            },
+            "mirrored": true,
+            "preset": "arch",
+            "footCells": [
+              27,
+              29
+            ],
+            "passageCells": [
+              16,
+              28,
+              40
+            ],
+            "occupantIds": [
+              "isopod-2"
+            ]
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.7400000039531014,
+              "y": 0.7300000952642278
+            },
+            "mirrored": false,
+            "preset": "split",
+            "footCells": [
+              19,
+              22
+            ],
+            "passageCells": [
+              9,
+              21,
+              33
+            ],
+            "occupantIds": []
+          }
+        ],
+        "shadeFraction": [
+          0.33268923965000163,
+          0.25406507964894665
+        ],
+        "shelterFraction": [
+          0.17303115533492583,
+          0.10802736307972532
+        ],
+        "lastSaveMessage": "已保存第 0 步"
+      }
+    }
+  ]
+}

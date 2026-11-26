@@ -1,0 +1,2455 @@
+{
+  "styles": [
+    {
+      "id": "twig-far-left",
+      "type": "twig",
+      "label": "左侧林隙细枝",
+      "depth": 0,
+      "mm": 130,
+      "angle": -0.54,
+      "shade": 0.59,
+      "opacity": 0.84,
+      "placeable": false
+    },
+    {
+      "id": "twig-far-right",
+      "type": "twig",
+      "label": "远层交错细枝",
+      "depth": 0,
+      "mm": 164,
+      "angle": 0.1,
+      "shade": 0.67,
+      "opacity": 0.9,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-edge",
+      "type": "seedling",
+      "label": "左后阔叶",
+      "depth": 0,
+      "mm": 32,
+      "shade": 0.68,
+      "saturation": 0.83,
+      "shadow": [
+        19.2,
+        6.08,
+        0.35
+      ],
+      "flip": true,
+      "angle": -0.2,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-a",
+      "type": "seedling",
+      "label": "背光幼苗",
+      "depth": 0,
+      "mm": 31,
+      "shade": 0.63,
+      "saturation": 0.83,
+      "shadow": [
+        18.599999999999998,
+        5.89,
+        0.35
+      ],
+      "flip": true,
+      "opacity": 0.84,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-b",
+      "type": "seedling",
+      "label": "苔坡后的阔叶",
+      "depth": 0,
+      "mm": 37,
+      "shade": 0.66,
+      "saturation": 0.83,
+      "shadow": [
+        22.2,
+        7.03,
+        0.35
+      ],
+      "angle": 0.24,
+      "opacity": 0.93,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-c",
+      "type": "seedling",
+      "label": "林隙阔叶",
+      "depth": 0,
+      "mm": 48,
+      "shade": 0.71,
+      "saturation": 0.83,
+      "shadow": [
+        28.799999999999997,
+        9.120000000000001,
+        0.35
+      ],
+      "flip": true,
+      "angle": 0.3,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-d",
+      "type": "seedling",
+      "label": "斜枝后的幼苗",
+      "depth": 0,
+      "mm": 39,
+      "shade": 0.68,
+      "saturation": 0.83,
+      "shadow": [
+        23.4,
+        7.41,
+        0.35
+      ],
+      "angle": -0.27,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "seed-far-e",
+      "type": "seedling",
+      "label": "远处细茎",
+      "depth": 0,
+      "mm": 27,
+      "shade": 0.63,
+      "saturation": 0.83,
+      "shadow": [
+        16.2,
+        5.13,
+        0.35
+      ],
+      "flip": true,
+      "angle": 0.16,
+      "placeable": false
+    },
+    {
+      "id": "crown-far-left",
+      "type": "moss-crown",
+      "label": "左后苔坡",
+      "depth": 1,
+      "mm": 74,
+      "shade": 0.72,
+      "saturation": 0.91,
+      "shadow": [
+        92.5,
+        16.28,
+        0.42
+      ],
+      "flat": 0.69,
+      "angle": -0.16,
+      "placeable": false
+    },
+    {
+      "id": "crown-far-arch",
+      "type": "moss-crown",
+      "label": "朽木后方苔坡",
+      "depth": 1,
+      "mm": 106,
+      "shade": 0.73,
+      "saturation": 0.91,
+      "shadow": [
+        132.5,
+        23.32,
+        0.42
+      ],
+      "flat": 0.68,
+      "angle": 0.09,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "film-far-end",
+      "type": "moss",
+      "label": "背光苔坡薄缘",
+      "depth": 1,
+      "mm": 92,
+      "shade": 0.7,
+      "saturation": 0.86,
+      "shadow": [
+        108.55999999999999,
+        19.32,
+        0.37
+      ],
+      "flat": 0.65,
+      "angle": 0.26,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "crown-far-stone",
+      "type": "moss-crown",
+      "label": "主石后苔坡",
+      "depth": 1,
+      "mm": 104,
+      "shade": 0.89,
+      "saturation": 0.91,
+      "shadow": [
+        130,
+        22.88,
+        0.42
+      ],
+      "flat": 0.79,
+      "angle": 0.1,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "crown-far-stone-left",
+      "type": "moss-crown",
+      "label": "苔坡旁厚苔",
+      "depth": 2,
+      "mm": 60,
+      "shade": 0.87,
+      "saturation": 0.91,
+      "shadow": [
+        75,
+        13.2,
+        0.42
+      ],
+      "flat": 0.74,
+      "angle": -0.39,
+      "placeable": false
+    },
+    {
+      "id": "fern-left",
+      "type": "fern",
+      "label": "左侧羽状蕨",
+      "depth": 2,
+      "mm": 137,
+      "scale": 0.93,
+      "angle": -0.16,
+      "shade": 1.06,
+      "saturation": 0.92,
+      "shadow": [
+        52,
+        16,
+        0.42
+      ],
+      "placeable": false
+    },
+    {
+      "id": "fern-right",
+      "type": "fern-side",
+      "label": "右侧羽状蕨",
+      "depth": 2,
+      "mm": 144,
+      "angle": 0.11,
+      "shade": 1.03,
+      "saturation": 0.88,
+      "shadow": [
+        49,
+        18,
+        0.43
+      ],
+      "placeable": false
+    },
+    {
+      "id": "seed-log-side",
+      "type": "seedling",
+      "label": "断木后阔叶",
+      "depth": 2,
+      "mm": 38,
+      "shade": 0.82,
+      "saturation": 0.83,
+      "shadow": [
+        22.8,
+        7.22,
+        0.35
+      ],
+      "flip": true,
+      "angle": 0.24,
+      "placeable": false
+    },
+    {
+      "id": "leaf-back",
+      "type": "leaf",
+      "label": "中景湿铜落叶",
+      "depth": 2,
+      "mm": 58,
+      "flat": 0.78,
+      "shade": 0.77,
+      "saturation": 0.82,
+      "shadow": [
+        69.02,
+        9.28,
+        0.47
+      ],
+      "angle": -0.55,
+      "placeable": false
+    },
+    {
+      "id": "seed-stripe",
+      "type": "seedling",
+      "label": "后坡小苗",
+      "depth": 2,
+      "mm": 29,
+      "shade": 0.71,
+      "saturation": 0.83,
+      "shadow": [
+        17.4,
+        5.51,
+        0.35
+      ],
+      "flip": true,
+      "angle": -0.23,
+      "placeable": false
+    },
+    {
+      "id": "log-moss-a",
+      "type": "ridge-moss",
+      "label": "木端贴面苔冠",
+      "depth": 1,
+      "mm": 60,
+      "shade": 0.82,
+      "saturation": 0.87,
+      "angle": -0.2,
+      "flat": 0.64,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-moss-b",
+      "type": "ridge-moss",
+      "label": "木顶前缘厚苔",
+      "depth": 1,
+      "mm": 59,
+      "shade": 0.99,
+      "saturation": 0.87,
+      "angle": -0.24,
+      "flat": 0.73,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-moss-c",
+      "type": "ridge-moss",
+      "label": "木顶中段厚苔",
+      "depth": 1,
+      "mm": 71,
+      "shade": 0.98,
+      "saturation": 0.87,
+      "angle": -0.18,
+      "flat": 0.65,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-moss-d",
+      "type": "ridge-moss",
+      "label": "木顶主苔冠",
+      "depth": 1,
+      "mm": 85,
+      "shade": 1.07,
+      "saturation": 0.91,
+      "angle": -0.14,
+      "flat": 0.76,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-moss-e",
+      "type": "moss-tail",
+      "label": "贴着木壁的渐细垂苔",
+      "depth": 2,
+      "mm": 72,
+      "shade": 1.04,
+      "saturation": 0.88,
+      "angle": 0.14,
+      "flat": 0.89,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-moss-f",
+      "type": "drape",
+      "label": "朽木右缘短垂苔",
+      "depth": 2,
+      "mm": 45,
+      "shade": 0.97,
+      "saturation": 0.89,
+      "angle": -0.31,
+      "flat": 0.67,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-left-drape",
+      "type": "drape",
+      "label": "木端细垂苔",
+      "depth": 2,
+      "mm": 47,
+      "shade": 0.87,
+      "saturation": 0.87,
+      "angle": 0.25,
+      "flat": 0.84,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-edge-sparse",
+      "type": "moss-tail",
+      "label": "木纹边缘薄垂苔",
+      "depth": 2,
+      "mm": 40,
+      "shade": 0.89,
+      "saturation": 0.87,
+      "angle": -0.31,
+      "flat": 0.64,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-lichen-a",
+      "type": "lichen",
+      "label": "木侧银绿地衣",
+      "depth": 3,
+      "mm": 37,
+      "shade": 0.85,
+      "saturation": 0.65,
+      "angle": -0.49,
+      "flat": 0.51,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "log-lichen-b",
+      "type": "lichen",
+      "label": "断口浅色地衣",
+      "depth": 3,
+      "mm": 17,
+      "shade": 0.68,
+      "saturation": 0.87,
+      "angle": 0.41,
+      "flat": 0.65,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "moss-arch-edge",
+      "type": "moss",
+      "label": "木洞边零星薄苔",
+      "depth": 4,
+      "mm": 29,
+      "shade": 0.69,
+      "saturation": 0.86,
+      "shadow": [
+        34.22,
+        6.09,
+        0.37
+      ],
+      "flat": 0.6,
+      "angle": 0.16,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "seed-corner",
+      "type": "seedling",
+      "label": "木下根际幼苗",
+      "depth": 4,
+      "mm": 40,
+      "shade": 0.83,
+      "saturation": 0.83,
+      "shadow": [
+        24,
+        7.6,
+        0.35
+      ],
+      "angle": 0.24,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "twig-mid",
+      "type": "twig",
+      "label": "朽木下细枝",
+      "depth": 4,
+      "mm": 122,
+      "angle": 0.31,
+      "shade": 0.75,
+      "saturation": 0.85,
+      "shadow": [
+        142,
+        9,
+        0.58,
+        -4,
+        3
+      ],
+      "shadowAngle": 0.31,
+      "placeable": false
+    },
+    {
+      "id": "crown-right-rill",
+      "type": "moss-crown",
+      "label": "土路拐角苔丛",
+      "depth": 4,
+      "mm": 51,
+      "shade": 0.79,
+      "saturation": 0.91,
+      "shadow": [
+        63.75,
+        11.22,
+        0.42
+      ],
+      "flat": 0.69,
+      "angle": -0.32,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "rock-moss-crown",
+      "type": "ridge-moss",
+      "label": "主石左肩厚苔",
+      "depth": 1,
+      "mm": 72,
+      "shade": 1.07,
+      "saturation": 0.91,
+      "flat": 0.97,
+      "angle": -0.31,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "rock-moss-back",
+      "type": "ridge-moss",
+      "label": "主石冠部贴合苔",
+      "depth": 1,
+      "mm": 49,
+      "shade": 0.96,
+      "saturation": 0.87,
+      "flat": 0.7,
+      "angle": 0.02,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "rock-moss-tail",
+      "type": "moss-tail",
+      "label": "沿石面左缘下垂的苔",
+      "depth": 2,
+      "mm": 63,
+      "shade": 1.01,
+      "saturation": 0.9,
+      "flat": 1.16,
+      "angle": -0.15,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "rock-moss-end",
+      "type": "drape",
+      "label": "绕到前面的短垂苔",
+      "depth": 2,
+      "mm": 42,
+      "shade": 0.98,
+      "saturation": 0.87,
+      "flat": 1.1,
+      "angle": -0.62,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "rock-lichen",
+      "type": "lichen",
+      "label": "岩面浅银地衣",
+      "depth": 3,
+      "mm": 24,
+      "shade": 0.74,
+      "saturation": 0.7,
+      "flat": 0.55,
+      "angle": 0.31,
+      "flip": true,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ]
+    },
+    {
+      "id": "seed-stone-face",
+      "type": "seedling",
+      "label": "石脚朝光阔叶",
+      "depth": 5,
+      "mm": 52,
+      "shade": 0.9,
+      "saturation": 0.88,
+      "shadow": [
+        31.2,
+        9.88,
+        0.35
+      ],
+      "angle": -0.18,
+      "placeable": false
+    },
+    {
+      "id": "moss-left-ground",
+      "type": "moss",
+      "label": "木脚附近薄苔",
+      "depth": 5,
+      "mm": 57,
+      "shade": 0.84,
+      "saturation": 0.86,
+      "shadow": [
+        67.25999999999999,
+        11.969999999999999,
+        0.37
+      ],
+      "angle": -0.31,
+      "flat": 0.72,
+      "placeable": false
+    },
+    {
+      "id": "moss-rock-foot",
+      "type": "moss-crown",
+      "label": "石脚团苔",
+      "depth": 5,
+      "mm": 49,
+      "shade": 0.85,
+      "saturation": 0.91,
+      "shadow": [
+        61.25,
+        10.78,
+        0.42
+      ],
+      "angle": 0.18,
+      "flat": 0.86,
+      "placeable": false
+    },
+    {
+      "id": "moss-path-left",
+      "type": "moss-crown",
+      "label": "土路左侧厚苔",
+      "depth": 6,
+      "mm": 58,
+      "shade": 0.99,
+      "saturation": 0.91,
+      "shadow": [
+        72.5,
+        12.76,
+        0.42
+      ],
+      "flat": 0.85,
+      "angle": -0.33,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "moss-front-band",
+      "type": "moss-crown",
+      "label": "近处左侧苔甸",
+      "depth": 7,
+      "mm": 86,
+      "shade": 1.03,
+      "saturation": 0.91,
+      "shadow": [
+        107.5,
+        18.92,
+        0.42
+      ],
+      "flat": 0.78,
+      "angle": 0.18,
+      "placeable": false
+    },
+    {
+      "id": "moss-front-light",
+      "type": "moss",
+      "label": "左缘嫩苔",
+      "depth": 7,
+      "mm": 48,
+      "shade": 1.06,
+      "saturation": 0.86,
+      "shadow": [
+        56.64,
+        10.08,
+        0.37
+      ],
+      "flat": 0.63,
+      "angle": 0.26,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "moss-front-bank",
+      "type": "moss-crown",
+      "label": "右前地表苔甸",
+      "depth": 6,
+      "mm": 81,
+      "shade": 0.89,
+      "saturation": 0.91,
+      "shadow": [
+        101.25,
+        17.82,
+        0.42
+      ],
+      "flat": 0.9,
+      "angle": -0.16,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "moss-front-tip",
+      "type": "moss-crown",
+      "label": "地衣石脚厚苔",
+      "depth": 8,
+      "mm": 53,
+      "shade": 0.93,
+      "saturation": 0.91,
+      "shadow": [
+        66.25,
+        11.66,
+        0.42
+      ],
+      "flat": 0.78,
+      "angle": -0.2,
+      "placeable": false
+    },
+    {
+      "id": "seed-root-left",
+      "type": "seedling",
+      "label": "朽木左缘小苗",
+      "depth": 5,
+      "mm": 39,
+      "shade": 0.85,
+      "saturation": 0.83,
+      "shadow": [
+        23.4,
+        7.41,
+        0.35
+      ],
+      "flip": true,
+      "angle": 0.14,
+      "placeable": false
+    },
+    {
+      "id": "seed-front-left",
+      "type": "seedling",
+      "label": "贴近镜头的阔叶",
+      "depth": 9,
+      "mm": 58,
+      "shade": 0.81,
+      "saturation": 0.83,
+      "shadow": [
+        34.8,
+        11.02,
+        0.35
+      ],
+      "scale": 1.19,
+      "angle": 0.03,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "seed-front-middle",
+      "type": "seedling",
+      "label": "土路边缘小苗",
+      "depth": 7,
+      "mm": 23,
+      "shade": 0.93,
+      "saturation": 0.83,
+      "shadow": [
+        13.799999999999999,
+        4.37,
+        0.35
+      ],
+      "angle": -0.33,
+      "placeable": false
+    },
+    {
+      "id": "seed-front-right",
+      "type": "seedling",
+      "label": "右前缘小苗",
+      "depth": 9,
+      "mm": 29,
+      "shade": 0.83,
+      "saturation": 0.83,
+      "shadow": [
+        17.4,
+        5.51,
+        0.35
+      ],
+      "angle": 0.45,
+      "placeable": false
+    },
+    {
+      "id": "seed-stone-gap",
+      "type": "seedling",
+      "label": "两石之间的阔叶",
+      "depth": 7,
+      "mm": 29,
+      "shade": 0.77,
+      "saturation": 0.83,
+      "shadow": [
+        17.4,
+        5.51,
+        0.35
+      ],
+      "angle": -0.3,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "leaf-log-under",
+      "type": "leaf",
+      "label": "木下小落叶",
+      "depth": 5,
+      "mm": 53,
+      "flat": 0.64,
+      "shade": 0.65,
+      "saturation": 0.82,
+      "shadow": [
+        63.07,
+        8.48,
+        0.47
+      ],
+      "angle": 0.39,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "leaf-left-front",
+      "type": "leaf",
+      "label": "左下宽阔铜褐叶",
+      "depth": 8,
+      "mm": 116,
+      "flat": 1.03,
+      "shade": 0.94,
+      "saturation": 0.78,
+      "shadow": [
+        177,
+        29,
+        0.67
+      ],
+      "scale": 1.23,
+      "angle": 0.41,
+      "placeable": false
+    },
+    {
+      "id": "leaf-edge",
+      "type": "leaf",
+      "label": "下缘卷边枯叶",
+      "depth": 8,
+      "mm": 94,
+      "flat": 0.92,
+      "shade": 0.77,
+      "saturation": 0.82,
+      "shadow": [
+        111.86,
+        15.040000000000001,
+        0.47
+      ],
+      "scale": 1.07,
+      "angle": -0.41,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "leaf-rock-side",
+      "type": "leaf",
+      "label": "石下半埋叶",
+      "depth": 5,
+      "mm": 44,
+      "flat": 0.62,
+      "shade": 0.68,
+      "saturation": 0.82,
+      "shadow": [
+        52.36,
+        7.04,
+        0.47
+      ],
+      "angle": 0.49,
+      "placeable": false
+    },
+    {
+      "id": "leaf-chip-a",
+      "type": "leaf",
+      "label": "木下叶片碎屑",
+      "depth": 5,
+      "mm": 18,
+      "flat": 0.63,
+      "shade": 0.84,
+      "saturation": 0.82,
+      "shadow": [
+        21.419999999999998,
+        2.88,
+        0.47
+      ],
+      "angle": 0.32,
+      "placeable": false
+    },
+    {
+      "id": "leaf-chip-b",
+      "type": "leaf",
+      "label": "路边叶片碎屑",
+      "depth": 5,
+      "mm": 26,
+      "flat": 0.71,
+      "shade": 0.78,
+      "saturation": 0.82,
+      "shadow": [
+        30.939999999999998,
+        4.16,
+        0.47
+      ],
+      "angle": -0.44,
+      "placeable": false
+    },
+    {
+      "id": "leaf-chip-c",
+      "type": "leaf",
+      "label": "前景碎叶",
+      "depth": 6,
+      "mm": 16,
+      "flat": 0.6,
+      "shade": 0.7,
+      "saturation": 0.82,
+      "shadow": [
+        19.04,
+        2.56,
+        0.47
+      ],
+      "angle": 0.71,
+      "placeable": false
+    },
+    {
+      "id": "leaf-chip-d",
+      "type": "leaf",
+      "label": "零星卷边叶屑",
+      "depth": 7,
+      "mm": 21,
+      "flat": 0.64,
+      "shade": 0.94,
+      "saturation": 0.82,
+      "shadow": [
+        24.99,
+        3.36,
+        0.47
+      ],
+      "angle": -0.3,
+      "placeable": false
+    },
+    {
+      "id": "rock-near",
+      "type": "lichen-rock",
+      "label": "右下近景地衣灰石",
+      "depth": 8,
+      "mm": 98,
+      "scale": 1.27,
+      "flat": 1.02,
+      "angle": 0.12,
+      "flip": true,
+      "shade": 0.91,
+      "saturation": 0.8,
+      "shadow": [
+        176,
+        30,
+        0.73,
+        -2,
+        -3
+      ],
+      "placeable": false
+    },
+    {
+      "id": "near-stone-lichen",
+      "type": "lichen",
+      "label": "前石的银色地衣",
+      "depth": 2,
+      "mm": 31,
+      "shade": 0.77,
+      "saturation": 0.68,
+      "flat": 0.73,
+      "angle": -0.12,
+      "placeable": false,
+      "attachedOnly": true,
+      "parentKinds": [
+        "scenery"
+      ]
+    },
+    {
+      "id": "twig-front",
+      "type": "twig",
+      "label": "横过近边的细枝",
+      "depth": 8,
+      "mm": 147,
+      "angle": 0.18,
+      "shade": 0.82,
+      "saturation": 0.86,
+      "shadow": [
+        179,
+        10,
+        0.64,
+        3,
+        3
+      ],
+      "shadowAngle": 0.18,
+      "placeable": false
+    },
+    {
+      "id": "twig-front-small",
+      "type": "twig",
+      "label": "更近的短细枝",
+      "depth": 8,
+      "mm": 78,
+      "angle": -0.76,
+      "shade": 0.77,
+      "saturation": 0.86,
+      "shadow": [
+        79,
+        7,
+        0.5,
+        0,
+        2
+      ],
+      "shadowAngle": -0.76,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-a",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 20,
+      "shade": 1.02,
+      "saturation": 0.835,
+      "shadow": [
+        27.200000000000003,
+        4.6000000000000005,
+        0.41
+      ],
+      "angle": -0.14,
+      "flat": 0.91,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-b",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 11,
+      "shade": 0.91,
+      "saturation": 0.835,
+      "shadow": [
+        14.96,
+        2.5300000000000002,
+        0.41
+      ],
+      "angle": 0.21,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-c",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 20,
+      "shade": 0.87,
+      "saturation": 0.835,
+      "shadow": [
+        27.200000000000003,
+        4.6000000000000005,
+        0.41
+      ],
+      "angle": 0.28,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-d",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 12,
+      "shade": 0.85,
+      "saturation": 0.835,
+      "shadow": [
+        16.32,
+        2.7600000000000002,
+        0.41
+      ],
+      "angle": -0.13,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-e",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 11,
+      "shade": 0.88,
+      "saturation": 0.835,
+      "shadow": [
+        14.96,
+        2.5300000000000002,
+        0.41
+      ],
+      "angle": 0.1,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-f",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 9,
+      "shade": 0.7,
+      "saturation": 0.835,
+      "shadow": [
+        12.24,
+        2.0700000000000003,
+        0.41
+      ],
+      "angle": -0.28,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-g",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 11,
+      "shade": 0.79,
+      "saturation": 0.835,
+      "shadow": [
+        14.96,
+        2.5300000000000002,
+        0.41
+      ],
+      "angle": -0.21,
+      "placeable": false
+    },
+    {
+      "id": "stone-chip-h",
+      "type": "rock",
+      "label": "地表碎石",
+      "depth": 4,
+      "mm": 18,
+      "shade": 0.83,
+      "saturation": 0.835,
+      "shadow": [
+        24.48,
+        4.140000000000001,
+        0.41
+      ],
+      "angle": 0.14,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "left-fern",
+      "type": "fern",
+      "label": "羽状蕨（造景）",
+      "band": 2,
+      "depth": 2,
+      "mm": 135,
+      "shade": 1.03,
+      "saturation": 0.89,
+      "shadow": [
+        52,
+        14,
+        0.42
+      ],
+      "placeable": true
+    },
+    {
+      "id": "side-fern",
+      "type": "fern-side",
+      "label": "侧生蕨（造景）",
+      "band": 2,
+      "depth": 2,
+      "mm": 134,
+      "shade": 0.96,
+      "saturation": 0.86,
+      "shadow": [
+        44,
+        14,
+        0.42
+      ],
+      "placeable": true
+    },
+    {
+      "id": "broadleaf",
+      "type": "seedling",
+      "label": "阔叶小苗（造景）",
+      "band": 4,
+      "depth": 4,
+      "mm": 40,
+      "shade": 0.87,
+      "saturation": 0.84,
+      "shadow": [
+        27,
+        9,
+        0.4
+      ],
+      "placeable": true
+    },
+    {
+      "id": "moss-hummock",
+      "type": "moss-crown",
+      "label": "地表厚苔（造景）",
+      "band": 4,
+      "depth": 4,
+      "mm": 57,
+      "shade": 0.94,
+      "saturation": 0.9,
+      "shadow": [
+        70,
+        13,
+        0.47
+      ],
+      "placeable": true
+    },
+    {
+      "id": "ground-moss",
+      "type": "moss",
+      "label": "地表薄苔（造景）",
+      "band": 4,
+      "depth": 4,
+      "mm": 40,
+      "shade": 0.86,
+      "saturation": 0.9,
+      "shadow": [
+        51,
+        10,
+        0.39
+      ],
+      "placeable": true
+    },
+    {
+      "id": "twig",
+      "type": "twig",
+      "label": "枯枝（造景）",
+      "band": 5,
+      "depth": 5,
+      "mm": 118,
+      "shade": 0.83,
+      "saturation": 0.84,
+      "shadow": [
+        145,
+        10,
+        0.46
+      ],
+      "placeable": true
+    },
+    {
+      "id": "copper-leaf",
+      "type": "leaf",
+      "label": "铜褐落叶（造景）",
+      "band": 5,
+      "depth": 5,
+      "mm": 58,
+      "shade": 0.91,
+      "saturation": 0.8,
+      "flat": 0.77,
+      "shadow": [
+        74,
+        13,
+        0.41
+      ],
+      "placeable": true
+    },
+    {
+      "id": "gold-leaf",
+      "type": "gold-leaf",
+      "label": "金褐卷叶（造景）",
+      "band": 6,
+      "depth": 6,
+      "mm": 106,
+      "shade": 0.93,
+      "saturation": 0.7,
+      "flat": 0.8,
+      "shadow": [
+        134,
+        16,
+        0.56,
+        1,
+        -1
+      ],
+      "placeable": true
+    },
+    {
+      "id": "small-stone",
+      "type": "rock",
+      "label": "小灰石（造景）",
+      "band": 4,
+      "depth": 4,
+      "mm": 38,
+      "shade": 0.89,
+      "saturation": 0.82,
+      "shadow": [
+        53,
+        13,
+        0.49
+      ],
+      "placeable": true
+    },
+    {
+      "id": "seed-shell-sparse",
+      "type": "seed-shell",
+      "label": "空种壳（稀疏）",
+      "depth": 4.7,
+      "seedShellGroup": "sparse",
+      "placeable": true
+    },
+    {
+      "id": "seed-shell-loose",
+      "type": "seed-shell",
+      "label": "空种壳（疏落）",
+      "depth": 4.7,
+      "seedShellGroup": "loose",
+      "placeable": true
+    },
+    {
+      "id": "seed-shell-dense",
+      "type": "seed-shell",
+      "label": "空种壳（成簇）",
+      "depth": 4.7,
+      "seedShellGroup": "dense",
+      "placeable": true
+    },
+    {
+      "id": "acorn-shell-sparse",
+      "type": "acorn-shell",
+      "label": "橡实壳（稀疏）",
+      "depth": 4.7,
+      "seedShellGroup": "sparse",
+      "placeable": true
+    },
+    {
+      "id": "acorn-shell-loose",
+      "type": "acorn-shell",
+      "label": "橡实壳（疏落）",
+      "depth": 4.7,
+      "seedShellGroup": "loose",
+      "placeable": true
+    },
+    {
+      "id": "acorn-shell-dense",
+      "type": "acorn-shell",
+      "label": "橡实壳（成簇）",
+      "depth": 4.7,
+      "seedShellGroup": "dense",
+      "placeable": true
+    },
+    {
+      "id": "attached-moss",
+      "type": "ridge-moss",
+      "label": "附着厚苔（造景）",
+      "band": 1,
+      "depth": 1,
+      "mm": 61,
+      "shade": 0.99,
+      "saturation": 0.88,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ],
+      "parentTypes": [
+        "barkShelter",
+        "log",
+        "rock",
+        "stonework"
+      ],
+      "defaultLocal": [
+        0.020833333333333332,
+        -0.1419753086419753
+      ],
+      "placeable": true
+    },
+    {
+      "id": "attached-drape",
+      "type": "moss-tail",
+      "label": "渐细垂苔（造景）",
+      "band": 2,
+      "depth": 2,
+      "mm": 57,
+      "shade": 0.98,
+      "saturation": 0.92,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ],
+      "parentTypes": [
+        "barkShelter",
+        "log",
+        "rock",
+        "stonework"
+      ],
+      "defaultLocal": [
+        0.020833333333333332,
+        -0.1419753086419753
+      ],
+      "placeable": true
+    },
+    {
+      "id": "attached-lichen",
+      "type": "lichen",
+      "label": "银绿地衣（造景）",
+      "band": 1,
+      "depth": 1,
+      "mm": 28,
+      "shade": 0.86,
+      "flat": 0.54,
+      "saturation": 0.72,
+      "attachedOnly": true,
+      "parentKinds": [
+        "terrain"
+      ],
+      "parentTypes": [
+        "barkShelter",
+        "log",
+        "rock",
+        "stonework"
+      ],
+      "defaultLocal": [
+        0.020833333333333332,
+        -0.1419753086419753
+      ],
+      "placeable": true
+    }
+  ],
+  "initial": [
+    {
+      "id": 1,
+      "style": "twig-far-left",
+      "x": 0.16666666666666666,
+      "y": 0.2839506172839506
+    },
+    {
+      "id": 2,
+      "style": "twig-far-right",
+      "x": 0.5954861111111112,
+      "y": 0.3117283950617284
+    },
+    {
+      "id": 3,
+      "style": "seed-far-edge",
+      "x": 0.020833333333333332,
+      "y": 0.30864197530864196
+    },
+    {
+      "id": 4,
+      "style": "seed-far-a",
+      "x": 0.19270833333333334,
+      "y": 0.3765432098765432
+    },
+    {
+      "id": 5,
+      "style": "seed-far-b",
+      "x": 0.34375,
+      "y": 0.3055555555555556
+    },
+    {
+      "id": 6,
+      "style": "seed-far-c",
+      "x": 0.5677083333333334,
+      "y": 0.30864197530864196
+    },
+    {
+      "id": 7,
+      "style": "seed-far-d",
+      "x": 0.7204861111111112,
+      "y": 0.33024691358024694
+    },
+    {
+      "id": 8,
+      "style": "seed-far-e",
+      "x": 0.9774305555555556,
+      "y": 0.3734567901234568
+    },
+    {
+      "id": 9,
+      "style": "crown-far-left",
+      "x": 0.1232638888888889,
+      "y": 0.42592592592592593
+    },
+    {
+      "id": 10,
+      "style": "crown-far-arch",
+      "x": 0.4166666666666667,
+      "y": 0.35802469135802467
+    },
+    {
+      "id": 11,
+      "style": "film-far-end",
+      "x": 0.5260416666666666,
+      "y": 0.3549382716049383
+    },
+    {
+      "id": 12,
+      "style": "crown-far-stone",
+      "x": 0.8090277777777778,
+      "y": 0.49382716049382713
+    },
+    {
+      "id": 13,
+      "style": "crown-far-stone-left",
+      "x": 0.6979166666666666,
+      "y": 0.5277777777777778
+    },
+    {
+      "id": 14,
+      "style": "fern-left",
+      "x": 0.10416666666666667,
+      "y": 0.4012345679012346
+    },
+    {
+      "id": 15,
+      "style": "fern-right",
+      "x": 0.9444444444444444,
+      "y": 0.46296296296296297
+    },
+    {
+      "id": 16,
+      "style": "seed-log-side",
+      "x": 0.5902777777777778,
+      "y": 0.5246913580246914
+    },
+    {
+      "id": 17,
+      "style": "leaf-back",
+      "x": 0.6111111111111112,
+      "y": 0.5493827160493827
+    },
+    {
+      "id": 18,
+      "style": "seed-stripe",
+      "x": 0.6371527777777778,
+      "y": 0.4876543209876543
+    },
+    {
+      "id": 19,
+      "style": "log-moss-a",
+      "x": -0.17881944444444445,
+      "y": -0.2345679012345679,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 20,
+      "style": "log-moss-b",
+      "x": -0.1076388888888889,
+      "y": -0.2777777777777778,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 21,
+      "style": "log-moss-c",
+      "x": -0.022569444444444444,
+      "y": -0.3148148148148148,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 22,
+      "style": "log-moss-d",
+      "x": 0.0920138888888889,
+      "y": -0.35185185185185186,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 23,
+      "style": "log-moss-e",
+      "x": 0.140625,
+      "y": -0.3395061728395062,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 24,
+      "style": "log-moss-f",
+      "x": 0.2378472222222222,
+      "y": -0.3888888888888889,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 25,
+      "style": "log-left-drape",
+      "x": -0.15625,
+      "y": -0.2345679012345679,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 26,
+      "style": "log-edge-sparse",
+      "x": -0.020833333333333332,
+      "y": -0.2932098765432099,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 27,
+      "style": "log-lichen-a",
+      "x": -0.08506944444444445,
+      "y": -0.1882716049382716,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 28,
+      "style": "log-lichen-b",
+      "x": 0.18229166666666666,
+      "y": -0.24691358024691357,
+      "parent": {
+        "kind": "terrain",
+        "id": 2
+      }
+    },
+    {
+      "id": 29,
+      "style": "moss-arch-edge",
+      "x": 0.1840277777777778,
+      "y": 0.691358024691358
+    },
+    {
+      "id": 30,
+      "style": "seed-corner",
+      "x": 0.4809027777777778,
+      "y": 0.6327160493827161
+    },
+    {
+      "id": 31,
+      "style": "twig-mid",
+      "x": 0.5260416666666666,
+      "y": 0.6574074074074074
+    },
+    {
+      "id": 32,
+      "style": "crown-right-rill",
+      "x": 0.6510416666666666,
+      "y": 0.6512345679012346
+    },
+    {
+      "id": 33,
+      "style": "rock-moss-crown",
+      "x": -0.06770833333333333,
+      "y": -0.22839506172839505,
+      "parent": {
+        "kind": "terrain",
+        "id": 1
+      }
+    },
+    {
+      "id": 34,
+      "style": "rock-moss-back",
+      "x": 0.012152777777777778,
+      "y": -0.25,
+      "parent": {
+        "kind": "terrain",
+        "id": 1
+      }
+    },
+    {
+      "id": 35,
+      "style": "rock-moss-tail",
+      "x": -0.08333333333333333,
+      "y": -0.17901234567901234,
+      "parent": {
+        "kind": "terrain",
+        "id": 1
+      }
+    },
+    {
+      "id": 36,
+      "style": "rock-moss-end",
+      "x": -0.11458333333333333,
+      "y": -0.11728395061728394,
+      "parent": {
+        "kind": "terrain",
+        "id": 1
+      }
+    },
+    {
+      "id": 37,
+      "style": "rock-lichen",
+      "x": 0.07291666666666667,
+      "y": -0.20679012345679013,
+      "parent": {
+        "kind": "terrain",
+        "id": 1
+      }
+    },
+    {
+      "id": 38,
+      "style": "seed-stone-face",
+      "x": 0.953125,
+      "y": 0.691358024691358
+    },
+    {
+      "id": 39,
+      "style": "moss-left-ground",
+      "x": 0.08854166666666667,
+      "y": 0.7870370370370371
+    },
+    {
+      "id": 40,
+      "style": "moss-rock-foot",
+      "x": 0.8107638888888888,
+      "y": 0.7592592592592593
+    },
+    {
+      "id": 41,
+      "style": "moss-path-left",
+      "x": 0.2916666666666667,
+      "y": 0.8395061728395061
+    },
+    {
+      "id": 42,
+      "style": "moss-front-band",
+      "x": 0.3402777777777778,
+      "y": 0.9320987654320988
+    },
+    {
+      "id": 43,
+      "style": "moss-front-light",
+      "x": 0.3923611111111111,
+      "y": 0.9228395061728395
+    },
+    {
+      "id": 44,
+      "style": "moss-front-bank",
+      "x": 0.7586805555555556,
+      "y": 0.8827160493827161
+    },
+    {
+      "id": 45,
+      "style": "moss-front-tip",
+      "x": 0.859375,
+      "y": 0.9320987654320988
+    },
+    {
+      "id": 46,
+      "style": "seed-root-left",
+      "x": 0.078125,
+      "y": 0.7654320987654321
+    },
+    {
+      "id": 47,
+      "style": "seed-front-left",
+      "x": 0.036458333333333336,
+      "y": 1.0123456790123457
+    },
+    {
+      "id": 48,
+      "style": "seed-front-middle",
+      "x": 0.4635416666666667,
+      "y": 0.8672839506172839
+    },
+    {
+      "id": 49,
+      "style": "seed-front-right",
+      "x": 0.78125,
+      "y": 0.9691358024691358
+    },
+    {
+      "id": 50,
+      "style": "seed-stone-gap",
+      "x": 0.71875,
+      "y": 0.8209876543209876
+    },
+    {
+      "id": 51,
+      "style": "leaf-log-under",
+      "x": 0.2378472222222222,
+      "y": 0.7191358024691358
+    },
+    {
+      "id": 52,
+      "style": "leaf-left-front",
+      "x": 0.14756944444444445,
+      "y": 0.9938271604938271
+    },
+    {
+      "id": 53,
+      "style": "leaf-edge",
+      "x": 0.6736111111111112,
+      "y": 1.0339506172839505
+    },
+    {
+      "id": 54,
+      "style": "leaf-rock-side",
+      "x": 0.6996527777777778,
+      "y": 0.7037037037037037
+    },
+    {
+      "id": 55,
+      "style": "leaf-chip-a",
+      "x": 0.296875,
+      "y": 0.7283950617283951
+    },
+    {
+      "id": 56,
+      "style": "leaf-chip-b",
+      "x": 0.515625,
+      "y": 0.7067901234567902
+    },
+    {
+      "id": 57,
+      "style": "leaf-chip-c",
+      "x": 0.4253472222222222,
+      "y": 0.8703703703703703
+    },
+    {
+      "id": 58,
+      "style": "leaf-chip-d",
+      "x": 0.5347222222222222,
+      "y": 0.9567901234567902
+    },
+    {
+      "id": 59,
+      "style": "rock-near",
+      "x": 0.9513888888888888,
+      "y": 1.0308641975308641
+    },
+    {
+      "id": 60,
+      "style": "near-stone-lichen",
+      "x": -0.046875,
+      "y": -0.19753086419753085,
+      "parent": {
+        "kind": "scenery",
+        "id": 59
+      }
+    },
+    {
+      "id": 61,
+      "style": "twig-front",
+      "x": 0.4652777777777778,
+      "y": 0.9629629629629629
+    },
+    {
+      "id": 62,
+      "style": "twig-front-small",
+      "x": 0.7552083333333334,
+      "y": 0.9598765432098766
+    },
+    {
+      "id": 63,
+      "style": "stone-chip-a",
+      "x": 0.4114583333333333,
+      "y": 0.6790123456790124
+    },
+    {
+      "id": 64,
+      "style": "stone-chip-b",
+      "x": 0.3940972222222222,
+      "y": 0.6975308641975309
+    },
+    {
+      "id": 65,
+      "style": "stone-chip-c",
+      "x": 0.4947916666666667,
+      "y": 0.904320987654321
+    },
+    {
+      "id": 66,
+      "style": "stone-chip-d",
+      "x": 0.515625,
+      "y": 0.8858024691358025
+    },
+    {
+      "id": 67,
+      "style": "stone-chip-e",
+      "x": 0.4600694444444444,
+      "y": 0.7993827160493827
+    },
+    {
+      "id": 68,
+      "style": "stone-chip-f",
+      "x": 0.5347222222222222,
+      "y": 0.6265432098765432
+    },
+    {
+      "id": 69,
+      "style": "stone-chip-g",
+      "x": 0.3541666666666667,
+      "y": 0.691358024691358
+    },
+    {
+      "id": 70,
+      "style": "stone-chip-h",
+      "x": 0.7326388888888888,
+      "y": 0.7808641975308642
+    }
+  ],
+  "seedShellReferenceWidthMm": 450,
+  "seedShellPlacementY": [0.63, 0.90],
+  "seedShellGroups": {
+    "sparse": {
+      "label": "稀疏",
+      "spanMm": 30,
+      "pieces": [
+        { "mm": 5, "x": -12.5, "y": -1, "angle": 0, "flip": true },
+        { "mm": 12, "x": 9, "y": 2, "angle": 0 }
+      ]
+    },
+    "loose": {
+      "label": "疏落",
+      "spanMm": 50,
+      "pieces": [
+        { "mm": 12, "x": -9, "y": -4, "angle": 0.31 },
+        { "mm": 5, "x": -22.5, "y": 0, "angle": 0, "flip": true },
+        { "mm": 20, "x": 15, "y": 2, "angle": 0 },
+        { "mm": 5, "x": 5, "y": 5, "angle": -0.28, "flip": true }
+      ]
+    },
+    "dense": {
+      "label": "成簇",
+      "spanMm": 80,
+      "pieces": [
+        { "mm": 12, "x": -12, "y": -5, "angle": 0.3 },
+        { "mm": 12, "x": 25, "y": -4, "angle": 0.43, "flip": true },
+        { "mm": 20, "x": 4, "y": -1, "angle": 0.15 },
+        { "mm": 12, "x": -34, "y": 0, "angle": 0, "flip": true },
+        { "mm": 5, "x": 37.5, "y": 2, "angle": 0 },
+        { "mm": 5, "x": -23, "y": 3, "angle": 0.24 },
+        { "mm": 5, "x": 16, "y": 5, "angle": -0.28, "flip": true }
+      ]
+    }
+  },
+  "art": {
+    "bridge-root": { "file": "bridge-root.png", "mm": 140, "axis": [[0, 0.75], [1, 0.75]], "foot": [0.5, 0.98] },
+    "bridge-branch": { "file": "bridge-branch.png", "mm": 200, "axis": [[0, 0.44], [1, 0.44]], "foot": [0.48, 0.98] },
+    "litter-fragments": { "file": "litter-fragments.png", "mm": 32.17, "axis": [[0, 0.55], [1, 0.55]], "foot": [0.513, 0.574] },
+    "litter-fragments-worn": { "file": "litter-fragments-worn.png", "mm": 23.67, "axis": [[0, 0.55], [1, 0.55]], "foot": [0.465, 0.459] },
+    "litter-fragments-trace": { "file": "litter-fragments-trace.png", "mm": 15.5, "axis": [[0, 0.55], [1, 0.55]], "foot": [0.355, 0.326] },
+    "log": {
+      "file": "log-thick.png",
+      "mm": 292,
+      "axis": [
+        [
+          0.014,
+          0.8
+        ],
+        [
+          0.985,
+          0.19
+        ]
+      ],
+      "foot": [
+        0.445,
+        0.91
+      ]
+    },
+    "boulder-round": {
+      "file": "boulder-round.png",
+      "mm": 99,
+      "axis": [
+        [
+          0.031,
+          0.59
+        ],
+        [
+          0.972,
+          0.6
+        ]
+      ],
+      "foot": [
+        0.54,
+        0.98
+      ]
+    },
+    "rock": {
+      "file": "rock.png",
+      "mm": 38,
+      "axis": [
+        [
+          0.02,
+          0.56
+        ],
+        [
+          0.98,
+          0.54
+        ]
+      ],
+      "foot": [
+        0.53,
+        0.98
+      ]
+    },
+    "lichen-rock": {
+      "file": "lichen-rock.png",
+      "mm": 93,
+      "axis": [
+        [
+          0.03,
+          0.6
+        ],
+        [
+          0.97,
+          0.48
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.91
+      ]
+    },
+    "fern": {
+      "file": "fern.png",
+      "mm": 135,
+      "axis": [
+        [
+          0.53,
+          0.98
+        ],
+        [
+          0.4,
+          0.04
+        ]
+      ],
+      "foot": [
+        0.53,
+        0.98
+      ]
+    },
+    "fern-side": {
+      "file": "fern-side.png",
+      "mm": 134,
+      "axis": [
+        [
+          0.75,
+          0.98
+        ],
+        [
+          0.48,
+          0.08
+        ]
+      ],
+      "foot": [
+        0.75,
+        0.98
+      ]
+    },
+    "moss-crown": {
+      "file": "moss-crown.png",
+      "mm": 57,
+      "axis": [
+        [
+          0.035,
+          0.52
+        ],
+        [
+          0.968,
+          0.51
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.84
+      ]
+    },
+    "moss": {
+      "file": "moss.png",
+      "mm": 40,
+      "axis": [
+        [
+          0.035,
+          0.52
+        ],
+        [
+          0.965,
+          0.51
+        ]
+      ],
+      "foot": [
+        0.52,
+        0.66
+      ]
+    },
+    "ridge-moss": {
+      "file": "moss-crown.png",
+      "mm": 61,
+      "axis": [
+        [
+          0.035,
+          0.52
+        ],
+        [
+          0.968,
+          0.51
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.67
+      ]
+    },
+    "drape": {
+      "file": "drape.png",
+      "mm": 45,
+      "axis": [
+        [
+          0.018,
+          0.48
+        ],
+        [
+          0.985,
+          0.47
+        ]
+      ],
+      "foot": [
+        0.52,
+        0.48
+      ]
+    },
+    "moss-tail": {
+      "file": "moss-tail.png",
+      "mm": 57,
+      "axis": [
+        [
+          0.02,
+          0.26
+        ],
+        [
+          0.983,
+          0.79
+        ]
+      ],
+      "foot": [
+        0.4,
+        0.35
+      ]
+    },
+    "lichen": {
+      "file": "lichen.png",
+      "mm": 28,
+      "axis": [
+        [
+          0.035,
+          0.49
+        ],
+        [
+          0.965,
+          0.48
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.59
+      ]
+    },
+    "seedling": {
+      "file": "seedling.png",
+      "mm": 40,
+      "axis": [
+        [
+          0.49,
+          0.97
+        ],
+        [
+          0.44,
+          0.08
+        ]
+      ],
+      "foot": [
+        0.48,
+        0.98
+      ]
+    },
+    "seed-shell": {
+      "file": "seed-shell.png",
+      "mm": 12,
+      "axis": [[0, 0.5], [1, 0.5]],
+      "foot": [0.5, 0.91]
+    },
+    "acorn-shell": {
+      "file": "acorn-shell.png",
+      "mm": 12,
+      "axis": [[0, 0.5], [1, 0.5]],
+      "foot": [0.5, 0.91]
+    },
+    "twig": {
+      "file": "twig.png",
+      "mm": 118,
+      "axis": [
+        [
+          0.01,
+          0.49
+        ],
+        [
+          0.985,
+          0.89
+        ]
+      ],
+      "foot": [
+        0.49,
+        0.71
+      ]
+    },
+    "leaf": {
+      "file": "leaf.png",
+      "mm": 58,
+      "axis": [
+        [
+          0.02,
+          0.55
+        ],
+        [
+          0.83,
+          0.53
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.77
+      ]
+    },
+    "gold-leaf": {
+      "file": "gold-leaf.png",
+      "mm": 106,
+      "axis": [
+        [
+          0.02,
+          0.79
+        ],
+        [
+          0.81,
+          0.44
+        ]
+      ],
+      "foot": [
+        0.51,
+        0.73
+      ]
+    },
+    "woodlouse": {
+      "file": "woodlouse.png",
+      "mm": 12,
+      "axis": [
+        [
+          0.18,
+          0.62
+        ],
+        [
+          0.97,
+          0.35
+        ]
+      ],
+      "foot": [
+        0.56,
+        0.7
+      ]
+    },
+    "ground-log": {
+      "id": "log",
+      "label": "断裂朽木",
+      "mm": 286,
+      "axis": [
+        [
+          0.012,
+          0.77
+        ],
+        [
+          0.985,
+          0.24
+        ]
+      ],
+      "foot": [
+        0.44,
+        0.96
+      ],
+      "depth": 3,
+      "defaultX": 167,
+      "defaultY": 216,
+      "defaults": {
+        "shade": 0.91,
+        "saturation": 0.83,
+        "shadow": [
+          345,
+          49,
+          0.72,
+          -17,
+          -15
+        ],
+        "shadowAngle": -0.24
+      },
+      "file": "ground-log.png"
+    }
+  },
+  "physical": {
+    "rock-main": {
+      "id": "rock-main",
+      "type": "boulder-round",
+      "label": "右侧近景主灰岩",
+      "depth": 4,
+      "mm": 100,
+      "scale": 1.3,
+      "flat": 1.025,
+      "shade": 0.97,
+      "angle": -0.055,
+      "saturation": 0.82,
+      "shadow": [
+        197,
+        28,
+        0.7,
+        -6,
+        1
+      ],
+      "contact": [
+        [
+          116,
+          12,
+          0.56,
+          -4,
+          -1
+        ]
+      ],
+      "placeable": false
+    },
+    "log-main": {
+      "id": "log-main",
+      "type": "log",
+      "label": "斜卧厚壁朽木",
+      "depth": 3,
+      "mm": 292,
+      "flat": 0.88,
+      "shade": 0.91,
+      "saturation": 0.9,
+      "shadow": [
+        390,
+        47,
+        0.66,
+        -12,
+        -19
+      ],
+      "shadowAngle": -0.27,
+      "contact": [
+        [
+          70,
+          16,
+          0.74,
+          -113,
+          -2,
+          -0.04
+        ],
+        [
+          58,
+          19,
+          0.75,
+          -33,
+          -7,
+          -0.06
+        ],
+        [
+          79,
+          18,
+          0.65,
+          65,
+          -17,
+          -0.13
+        ]
+      ],
+      "placeable": false,
+      "offsetX": 33
+    },
+    "leaf-gold": {
+      "id": "leaf-gold",
+      "type": "gold-leaf",
+      "label": "土路右侧金褐卷叶",
+      "depth": 6,
+      "mm": 106,
+      "scale": 1.1,
+      "shade": 0.94,
+      "saturation": 0.72,
+      "angle": -0.11,
+      "flat": 0.87,
+      "shadow": [
+        159,
+        19,
+        0.6,
+        2,
+        -1
+      ],
+      "placeable": false
+    },
+    "live-woodlouse": {
+      "id": "louse-road-a",
+      "type": "woodlouse",
+      "label": "中央土路鼠妇",
+      "depth": 6,
+      "mm": 12,
+      "angle": -0.41,
+      "shade": 1.38,
+      "saturation": 0.49,
+      "shadow": [
+        17,
+        5,
+        0.73
+      ],
+      "placeable": false
+    }
+  },
+  "bed": "forest-floor-v2.png"
+}

@@ -1,0 +1,161 @@
+{
+  "version": "R5",
+  "date": "2026-11-25",
+  "status": "Design review; not production sprites",
+  "new_images": [
+    {
+      "file": "assets/creature-morphology-study.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 1364460,
+      "sha256": "3ec059695abf934a22624a332c1ff6ef6de30df7659e07f3b8e19ae8bb8bfb5d"
+    },
+    {
+      "file": "assets/forest-cleanplate.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 3243109,
+      "sha256": "c8d8c7272ac0542fd68903b5e2458a0e46b40083789bcdc3eec74ee095571864"
+    },
+    {
+      "file": "assets/forest-keyart.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 3187511,
+      "sha256": "25e27780bda4c1339a2f5c5a00f95369bd3af7273882f70d1c48f116ebcbcb32"
+    },
+    {
+      "file": "assets/pond-cleanplate.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 2606109,
+      "sha256": "304ade5e5718ef9071c3f715209f5db53e1234452b06a7662102155f1a3c57cd"
+    },
+    {
+      "file": "assets/pond-keyart.png",
+      "width": 1672,
+      "height": 941,
+      "mode": "RGB",
+      "bytes": 2612716,
+      "sha256": "7b2d08cb72820cba9f20426da86c679a75da74da5f21c3be769c362487c9d462"
+    }
+  ],
+  "inherited_reference_boards": [
+    {
+      "file": "references/r4-shape-studies/forest-expansion-board.png",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "bytes": 1570429,
+      "sha256": "b62f7bb68ebca53661243e717dc4fd3f40c06c5722e261e0332e07deba91bb9c"
+    },
+    {
+      "file": "references/r4-shape-studies/pond-expansion-board.png",
+      "width": 1448,
+      "height": 1086,
+      "mode": "RGB",
+      "bytes": 1576030,
+      "sha256": "7009b98a0db75395a833b7471792ba0f9672eedea62e94fc55e831a4d786b25c"
+    }
+  ],
+  "original_references": [
+    {
+      "file": "references/original-nine/ref-01-shrimp-moss-closeup.jpg",
+      "width": 1536,
+      "height": 948,
+      "mode": "RGB",
+      "bytes": 237787,
+      "sha256": "994b43f936c3165dcf374b8168cc7100af4695c9ab595e6b32331dd64fe32036"
+    },
+    {
+      "file": "references/original-nine/ref-02-shrimp-moss-driftwood.jpg",
+      "width": 1536,
+      "height": 1124,
+      "mode": "RGB",
+      "bytes": 321973,
+      "sha256": "317f7df0d9ea9148781dff5857fdc6814d59279c0155298ccdd24723448d1554"
+    },
+    {
+      "file": "references/original-nine/ref-03-streambed-catfish.jpg",
+      "width": 1536,
+      "height": 855,
+      "mode": "RGB",
+      "bytes": 213861,
+      "sha256": "4b40d84e629df8b00078706d74043276a6cae10341b115400cd706a13d1914f5"
+    },
+    {
+      "file": "references/original-nine/ref-04-aquarium-room-depth.jpg",
+      "width": 1530,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 349649,
+      "sha256": "2183d962d6cffc0a287146cf3aac9dc6806b671f9b5772a81f7c28bb6bbfb778"
+    },
+    {
+      "file": "references/original-nine/ref-05-ocean-wide-atmosphere.jpg",
+      "width": 608,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 161173,
+      "sha256": "c32c2c2884453636e4b065a1fedf8d3068f59610ebcdf9e1ea75ba9b51f63dc4"
+    },
+    {
+      "file": "references/original-nine/ref-06-lily-pond-surface.jpg",
+      "width": 607,
+      "height": 1536,
+      "mode": "RGB",
+      "bytes": 277294,
+      "sha256": "d40d1be73eb33292305655895bf9c4aeb4ceecfe542f069e568ccf2c4619a519"
+    },
+    {
+      "file": "references/original-nine/ref-07-aquarium-tunnel-light.jpg",
+      "width": 1536,
+      "height": 859,
+      "mode": "RGB",
+      "bytes": 225615,
+      "sha256": "883c02aecea62e1cf7bd8a71ca7827ff71e3d21288c7ea639d62d6b748f832b6"
+    },
+    {
+      "file": "references/original-nine/ref-08-aquarium-deep-blue.jpg",
+      "width": 1536,
+      "height": 868,
+      "mode": "RGB",
+      "bytes": 139536,
+      "sha256": "d19d397692d214021545c3cef1939ec3e824d5f7255dd56f1899f52a9debc15a"
+    },
+    {
+      "file": "references/original-nine/ref-09-aquarium-window-contrast.jpg",
+      "width": 1536,
+      "height": 865,
+      "mode": "RGB",
+      "bytes": 178128,
+      "sha256": "72d746bebafe1e0cfca789b13dee0c07f4fb774a093be3b5a8a7393f72e620bb"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/r5-forest-desktop.jpg",
+      "bytes": 257603
+    },
+    {
+      "file": "screenshots/r5-forest-editor.jpg",
+      "bytes": 247425
+    },
+    {
+      "file": "screenshots/r5-pond-dark.jpg",
+      "bytes": 220577
+    },
+    {
+      "file": "screenshots/r5-pond-desktop.jpg",
+      "bytes": 216441
+    },
+    {
+      "file": "screenshots/r5-scale-observation.jpg",
+      "bytes": 416977
+    }
+  ]
+}

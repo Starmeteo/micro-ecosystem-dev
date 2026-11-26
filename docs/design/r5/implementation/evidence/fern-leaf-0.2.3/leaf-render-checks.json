@@ -1,0 +1,79 @@
+{
+  "dpr": 1.5,
+  "size": [
+    576,
+    324
+  ],
+  "dayPhase": 0.5,
+  "unassignedDetritusMgC": 120,
+  "placementX": 0.44,
+  "comparisons": {
+    "omittedVsEmpty": {
+      "count": 0,
+      "bounds": null
+    },
+    "midground": {
+      "whole": {
+        "count": 1002,
+        "bounds": [
+          222,
+          242,
+          310,
+          275
+        ]
+      },
+      "fragments": {
+        "count": 265,
+        "bounds": [
+          242,
+          249,
+          291,
+          270
+        ]
+      },
+      "fine": {
+        "count": 110,
+        "bounds": [
+          255,
+          259,
+          280,
+          272
+        ]
+      }
+    },
+    "foreground": {
+      "whole": {
+        "count": 5328,
+        "bounds": [
+          175,
+          212,
+          361,
+          274
+        ]
+      },
+      "fragments": {
+        "count": 439,
+        "bounds": [
+          231,
+          252,
+          297,
+          268
+        ]
+      },
+      "fine": {
+        "count": 101,
+        "bounds": [
+          253,
+          261,
+          280,
+          268
+        ]
+      }
+    }
+  },
+  "restored": {
+    "count": 0,
+    "bounds": null
+  },
+  "errors": []
+}

@@ -1,0 +1,110 @@
+.workspace-settings {
+  min-block-size: 100dvh;
+  color: var(--glass-ink);
+  background: linear-gradient(135deg, #ffffff12 0%, transparent 44%), var(--glass-fill);
+  box-shadow: inset 0 1px #ffffff27;
+  padding: 0 clamp(14px, 4vw, 22px) 16px;
+  font-size: 13px;
+}
+
+.workspace-settings__heading {
+  min-block-size: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-block-end: 1px solid var(--glass-edge);
+  user-select: none;
+}
+
+.workspace-settings__heading h1 { margin: 0; font-size: 18px; font-weight: 650; }
+.workspace-settings__form { display: grid; gap: 14px; padding-block-start: 14px; }
+.workspace-settings__idle { padding: 0; margin: 0; border: 0; min-inline-size: 0; }
+.workspace-settings__idle legend { padding: 0 0 8px; font-weight: 620; }
+
+.workspace-settings__choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 12px;
+  background: #0e121b3d;
+  padding: 3px;
+}
+
+.settings-choice { position: relative; display: grid; min-inline-size: 0; }
+.settings-choice input { position: absolute; inline-size: 1px; block-size: 1px; opacity: 0; }
+.settings-choice span {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  min-block-size: 33px;
+  padding: 5px 3px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  color: var(--glass-muted);
+  cursor: pointer;
+}
+.settings-choice input:checked + span {
+  color: var(--glass-ink);
+  background: linear-gradient(180deg, #ffffff24, #ffffff0d);
+  border-color: #ffffff29;
+  box-shadow: inset 0 1px #ffffff28, 0 2px 7px #00000037;
+}
+.settings-choice input:focus-visible + span { outline: 2px solid var(--glass-accent); outline-offset: 1px; }
+.settings-choice input:disabled + span { cursor: default; }
+
+.workspace-settings__text { display: grid; gap: 5px; margin-block-start: 10px; }
+.workspace-settings__world { margin-block-start: 0; }
+.workspace-settings__sources { display: grid; gap: 8px; max-block-size: min(42vh, 225px); overflow: auto; padding: 3px; }
+.workspace-settings__sources > button { justify-self: start; }
+.workspace-settings__text :is(input, select) {
+  inline-size: 100%;
+  min-block-size: 36px;
+  padding: 6px 9px;
+  color: var(--glass-ink);
+  border: 1px solid var(--glass-edge);
+  border-radius: 9px;
+  background: #0e121b59;
+}
+.workspace-settings__text small { color: var(--glass-muted); font-size: 11px; }
+
+.workspace-settings__guide {
+  display: grid;
+  gap: 7px;
+  background: linear-gradient(155deg, #ffffff0e, transparent 75%), #13172235;
+  border: 1px solid var(--glass-edge);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.workspace-settings__guide h2 { margin: 0; font-size: 13px; font-weight: 620; }
+.workspace-settings__guide dl { display: grid; gap: 6px; margin: 0; font-size: 12px; }
+.workspace-settings__guide dl > div { display: grid; grid-template-columns: minmax(75px, max-content) 1fr; gap: 8px 14px; }
+.workspace-settings__guide dd { margin: 0; color: var(--glass-muted); }
+.workspace-settings__guide kbd { font: 11px "Segoe UI", sans-serif; padding: 1px 4px; border: 1px solid var(--glass-edge); border-radius: 4px; }
+
+.workspace-settings__actions { display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.workspace-settings__actions p { flex: 1 1 12em; margin: 0; overflow-wrap: anywhere; color: var(--error, #f4bcac); font-size: 12px; }
+.settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 34px;
+  min-inline-size: 70px;
+  gap: 5px;
+  padding: 6px 11px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 9px;
+  color: var(--glass-ink);
+  background: linear-gradient(180deg, #ffffff19, #ffffff08);
+  box-shadow: inset 0 1px #ffffff16;
+}
+.settings-button:not(:disabled):hover { background: var(--glass-raised); }
+.settings-button--close span { font-size: 17px; font-weight: 350; line-height: .8; }
+.settings-button--primary {
+  color: #1e2839;
+  font-weight: 650;
+  background: linear-gradient(180deg, #edf4ff, var(--glass-accent));
+  border-color: #f3f8ffc4;
+}
+.settings-button--primary:not(:disabled):hover { background: #f4f8ff; }

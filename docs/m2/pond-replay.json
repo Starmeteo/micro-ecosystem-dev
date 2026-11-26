@@ -1,0 +1,511 @@
+{
+  "dryObservation": {
+    "basins": [
+      {
+        "algaeMgC": 0.0,
+        "availableNitrogenMgPerLiter": null,
+        "availablePhosphorusMgPerLiter": null,
+        "biofilmMgC": 24.0,
+        "capacityLiters": 28.8,
+        "daphniaCount": 0,
+        "depthCm": 0.0,
+        "detritusMgC": 184.60000000000002,
+        "id": "pond-main",
+        "label": "主水域",
+        "maxDepthCm": 12.0,
+        "oxygenMgPerLiter": null,
+        "plantMgC": 150.0,
+        "shrimp": [],
+        "surfaceAreaCm2": 2400.0,
+        "temperatureCelsius": null,
+        "turbidityIndex": 0.0,
+        "waterLiters": 0.0,
+        "wet": false
+      }
+    ]
+  },
+  "editGeometry": {
+    "ledger": {
+      "basins": [
+        {
+          "animalRespirationOxygenMg": 0.0,
+          "currentMatterMgCnp": [
+            397.3234042553192,
+            33.08448936170213,
+            4.328834042553192
+          ],
+          "currentOxygenMg": 135.75294208770816,
+          "currentWaterLiters": 18.0,
+          "daphniaFoodMgC": 0.0,
+          "decomposedMgC": 0.0,
+          "gasExportOxygenMg": 0.0,
+          "gasImportOxygenMg": 0.0,
+          "id": "pond-main",
+          "initialMatterMgCnp": [
+            398.6,
+            33.373000000000005,
+            4.3656
+          ],
+          "initialOxygenMg": 133.20000000000002,
+          "initialWaterLiters": 18.0,
+          "matterInputMgCnp": [
+            0.0,
+            0.096,
+            0.0176
+          ],
+          "matterOutputMgCnp": [
+            1.2765957446808511,
+            0.3845106382978723,
+            0.05436595744680851
+          ],
+          "matterResidualMgCnp": [
+            0.0,
+            -7.105427357601002e-15,
+            -8.881784197001252e-16
+          ],
+          "microbialRespirationOxygenMg": 0.0,
+          "oxygenInputMg": 8.586406180495173,
+          "oxygenOutputMg": 6.033464092787029,
+          "oxygenResidualMg": 0.0,
+          "photosynthesisOxygenMg": 0.0,
+          "producerRespirationOxygenMg": 0.0,
+          "shrimpFoodMgC": 0.0,
+          "waterInputLiters": 0.8,
+          "waterOutputLiters": 0.8,
+          "waterResidualLiters": 0.0
+        }
+      ]
+    },
+    "pond": {
+      "basins": [
+        {
+          "algaeMgC": 28.72340425531915,
+          "availableNitrogenMgPerLiter": 0.3402127659574468,
+          "availablePhosphorusMgPerLiter": 0.04880851063829787,
+          "biofilmMgC": 24.0,
+          "capacityLiters": 24.0,
+          "daphniaCount": 48,
+          "depthCm": 9.0,
+          "detritusMgC": 120.0,
+          "id": "pond-main",
+          "label": "主水域",
+          "maxDepthCm": 12.0,
+          "oxygenMgPerLiter": 7.541830115983787,
+          "plantMgC": 150.0,
+          "shrimp": [
+            {
+              "activity": "resting",
+              "heading": 3.599703082040347,
+              "id": "pond-main-shrimp-1",
+              "x": 0.24,
+              "y": 0.5500000351901607
+            },
+            {
+              "activity": "resting",
+              "heading": 4.211306076783676,
+              "id": "pond-main-shrimp-2",
+              "x": 0.48,
+              "y": 0.6138932689328662
+            },
+            {
+              "activity": "resting",
+              "heading": 1.0764718033320413,
+              "id": "pond-main-shrimp-3",
+              "x": 0.72,
+              "y": 0.7667714808121766
+            }
+          ],
+          "surfaceAreaCm2": 2000.0,
+          "temperatureCelsius": 20.33789324907845,
+          "turbidityIndex": 0.24193548387096772,
+          "waterLiters": 18.0,
+          "wet": true
+        }
+      ]
+    }
+  },
+  "elapsedSimulatedSeconds": 7200.0,
+  "initial": {
+    "basins": [
+      {
+        "algaeMgC": 30.0,
+        "availableNitrogenMgPerLiter": 0.35,
+        "availablePhosphorusMgPerLiter": 0.05,
+        "biofilmMgC": 24.0,
+        "capacityLiters": 28.8,
+        "daphniaCount": 48,
+        "depthCm": 7.5,
+        "detritusMgC": 120.0,
+        "id": "pond-main",
+        "label": "主水域",
+        "maxDepthCm": 12.0,
+        "oxygenMgPerLiter": 7.400000000000001,
+        "plantMgC": 150.0,
+        "shrimp": [
+          {
+            "activity": "resting",
+            "heading": 3.599703082040347,
+            "id": "pond-main-shrimp-1",
+            "x": 0.24,
+            "y": 0.5500000351901607
+          },
+          {
+            "activity": "resting",
+            "heading": 4.211306076783676,
+            "id": "pond-main-shrimp-2",
+            "x": 0.48,
+            "y": 0.6138932689328662
+          },
+          {
+            "activity": "resting",
+            "heading": 1.0764718033320413,
+            "id": "pond-main-shrimp-3",
+            "x": 0.72,
+            "y": 0.7667714808121766
+          }
+        ],
+        "surfaceAreaCm2": 2400.0,
+        "temperatureCelsius": 21.0,
+        "turbidityIndex": 0.25,
+        "waterLiters": 18.0,
+        "wet": true
+      }
+    ]
+  },
+  "lightAndOrganicLoad": [
+    {
+      "daylightPhase": 0.5833333333298825,
+      "ledger": {
+        "basins": [
+          {
+            "animalRespirationOxygenMg": 5.136829070436206,
+            "currentMatterMgCnp": [
+              399.8381827660881,
+              33.37300000000044,
+              4.3656
+            ],
+            "currentOxygenMg": 153.43140613759792,
+            "currentWaterLiters": 17.955733980844258,
+            "daphniaFoodMgC": 1.127111205875483,
+            "decomposedMgC": 3.833597326735177,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 16.929585428021657,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              7.56500140964688,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              6.326818643556865,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              1.9326762412674725e-12,
+              -4.334310688136611e-13,
+              0.0
+            ],
+            "microbialRespirationOxygenMg": 8.735785214527628,
+            "oxygenInputMg": 37.102922520412854,
+            "oxygenOutputMg": 16.87151638281806,
+            "oxygenResidualMg": -3.126388037344441e-12,
+            "photosynthesisOxygenMg": 20.173337092391577,
+            "producerRespirationOxygenMg": 2.998902097854461,
+            "shrimpFoodMgC": 3.5878889349143797,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.04426601915574224,
+            "waterResidualLiters": 0.0
+          }
+        ]
+      },
+      "name": "day",
+      "pond": {
+        "basins": [
+          {
+            "algaeMgC": 31.1938655454868,
+            "availableNitrogenMgPerLiter": 0.33172536285890436,
+            "availablePhosphorusMgPerLiter": 0.04779741232642994,
+            "biofilmMgC": 21.350745767767357,
+            "capacityLiters": 28.8,
+            "daphniaCount": 48,
+            "depthCm": 7.481555825351775,
+            "detritusMgC": 118.18258162174651,
+            "id": "pond-main",
+            "label": "主水域",
+            "maxDepthCm": 12.0,
+            "oxygenMgPerLiter": 8.544981023960556,
+            "plantMgC": 153.18080166890482,
+            "shrimp": [
+              {
+                "activity": "foraging",
+                "heading": 3.713317436616769,
+                "id": "pond-main-shrimp-1",
+                "x": 0.4060096869532853,
+                "y": 0.5777684352314826
+              },
+              {
+                "activity": "foraging",
+                "heading": 6.212920983794323,
+                "id": "pond-main-shrimp-2",
+                "x": 0.1452573379500495,
+                "y": 0.4325954974803807
+              },
+              {
+                "activity": "feeding",
+                "heading": 1.7041993060612202,
+                "id": "pond-main-shrimp-3",
+                "x": 0.2712911451287908,
+                "y": 0.41149840433457163
+              }
+            ],
+            "surfaceAreaCm2": 2400.0,
+            "temperatureCelsius": 13.542844602851558,
+            "turbidityIndex": 0.2578590704867472,
+            "waterLiters": 17.955733980844258,
+            "wet": true
+          }
+        ]
+      }
+    },
+    {
+      "daylightPhase": 0.08333333333325002,
+      "ledger": {
+        "basins": [
+          {
+            "animalRespirationOxygenMg": 4.690833317054193,
+            "currentMatterMgCnp": [
+              392.8557811346574,
+              33.37300000000032,
+              4.3656000000000255
+            ],
+            "currentOxygenMg": 142.07917090677418,
+            "currentWaterLiters": 17.977288200703306,
+            "daphniaFoodMgC": 1.0298411504340224,
+            "decomposedMgC": 3.5035364949935466,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 24.19708788101118,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              0.015372891163230708,
+              0.0,
+              0.0
+            ],
+            "matterOutputMgCnp": [
+              5.7595917565031876,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              2.6716406864579767e-12,
+              -3.126388037344441e-13,
+              -2.5757174171303632e-14
+            ],
+            "microbialRespirationOxygenMg": 7.982692903705466,
+            "oxygenInputMg": 24.238082257446443,
+            "oxygenOutputMg": 15.358911350674973,
+            "oxygenResidualMg": -2.7000623958883807e-12,
+            "photosynthesisOxygenMg": 0.040994376435281914,
+            "producerRespirationOxygenMg": 2.6853851299154687,
+            "shrimpFoodMgC": 3.2828500412619426,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.02271179929669387,
+            "waterResidualLiters": 0.0
+          }
+        ]
+      },
+      "name": "night",
+      "pond": {
+        "basins": [
+          {
+            "algaeMgC": 28.759352179103175,
+            "availableNitrogenMgPerLiter": 0.36047474646257094,
+            "availablePhosphorusMgPerLiter": 0.05142917307462901,
+            "biofilmMgC": 20.58846946040521,
+            "capacityLiters": 28.8,
+            "daphniaCount": 48,
+            "depthCm": 7.490536750293045,
+            "detritusMgC": 118.34062230593084,
+            "id": "pond-main",
+            "label": "主水域",
+            "maxDepthCm": 12.0,
+            "oxygenMgPerLiter": 7.903259341484873,
+            "plantMgC": 149.34784063623857,
+            "shrimp": [
+              {
+                "activity": "foraging",
+                "heading": 0.5717247830269566,
+                "id": "pond-main-shrimp-1",
+                "x": 0.3412713637916868,
+                "y": 0.8682225579907397
+              },
+              {
+                "activity": "foraging",
+                "heading": 3.0713283302045817,
+                "id": "pond-main-shrimp-2",
+                "x": 0.7343429527832666,
+                "y": 0.8054217785720246
+              },
+              {
+                "activity": "feeding",
+                "heading": 4.845791959650961,
+                "id": "pond-main-shrimp-3",
+                "x": 0.7871574002717873,
+                "y": 0.6498122005665732
+              }
+            ],
+            "surfaceAreaCm2": 2400.0,
+            "temperatureCelsius": 11.161168486788773,
+            "turbidityIndex": 0.24239672901707315,
+            "waterLiters": 17.977288200703306,
+            "wet": true
+          }
+        ]
+      }
+    },
+    {
+      "daylightPhase": 0.08333333333325002,
+      "ledger": {
+        "basins": [
+          {
+            "animalRespirationOxygenMg": 4.672420217720895,
+            "currentMatterMgCnp": [
+              2833.391324308001,
+              118.37300000000596,
+              16.865600000000214
+            ],
+            "currentOxygenMg": 23.00260790024133,
+            "currentWaterLiters": 17.977288200703306,
+            "daphniaFoodMgC": 0.8857492722148383,
+            "decomposedMgC": 75.93536690693082,
+            "gasExportOxygenMg": 0.0,
+            "gasImportOxygenMg": 63.692409745800866,
+            "id": "pond-main",
+            "initialMatterMgCnp": [
+              398.6,
+              33.373000000000005,
+              4.3656
+            ],
+            "initialOxygenMg": 133.20000000000002,
+            "initialWaterLiters": 18.0,
+            "matterInputMgCnp": [
+              2500.0153728911646,
+              85.0,
+              12.5
+            ],
+            "matterOutputMgCnp": [
+              65.22404858324774,
+              0.0,
+              0.0
+            ],
+            "matterResidualMgCnp": [
+              -8.412825991399586e-11,
+              -5.9543481256696396e-12,
+              -2.1316282072803006e-13
+            ],
+            "microbialRespirationOxygenMg": 166.57157169838737,
+            "oxygenInputMg": 63.73340412223615,
+            "oxygenOutputMg": 173.93079622199582,
+            "oxygenResidualMg": -9.805489753489383e-13,
+            "photosynthesisOxygenMg": 0.040994376435281914,
+            "producerRespirationOxygenMg": 2.6868043058863065,
+            "shrimpFoodMgC": 2.8484016702813815,
+            "waterInputLiters": 0.0,
+            "waterOutputLiters": 0.02271179929669387,
+            "waterResidualLiters": 0.0
+          }
+        ]
+      },
+      "name": "loaded-night",
+      "pond": {
+        "basins": [
+          {
+            "algaeMgC": 28.903291219544013,
+            "availableNitrogenMgPerLiter": 0.4729726672242106,
+            "availablePhosphorusMgPerLiter": 0.06797232014332288,
+            "biofilmMgC": 21.02253847817463,
+            "capacityLiters": 28.8,
+            "daphniaCount": 40,
+            "depthCm": 7.490536750293045,
+            "detritusMgC": 2547.9250067488515,
+            "id": "pond-main",
+            "label": "主水域",
+            "maxDepthCm": 12.0,
+            "oxygenMgPerLiter": 1.2795371383844991,
+            "plantMgC": 149.34784063623857,
+            "shrimp": [
+              {
+                "activity": "foraging",
+                "heading": 0.5717247830269602,
+                "id": "pond-main-shrimp-1",
+                "x": 0.6463544247605069,
+                "y": 0.49374748376624034
+              },
+              {
+                "activity": "foraging",
+                "heading": 6.21292098379433,
+                "id": "pond-main-shrimp-2",
+                "x": 0.09291525342979486,
+                "y": 0.631651188402225
+              },
+              {
+                "activity": "feeding",
+                "heading": 1.7041993060612024,
+                "id": "pond-main-shrimp-3",
+                "x": 0.35939837594612206,
+                "y": 0.38511948185539846
+              }
+            ],
+            "surfaceAreaCm2": 2400.0,
+            "temperatureCelsius": 11.161168486788773,
+            "turbidityIndex": 0.24331472660675837,
+            "waterLiters": 17.977288200703306,
+            "wet": true
+          }
+        ]
+      }
+    }
+  ],
+  "rewettedObservation": {
+    "basins": [
+      {
+        "algaeMgC": 0.0,
+        "availableNitrogenMgPerLiter": 0.12,
+        "availablePhosphorusMgPerLiter": 0.022,
+        "biofilmMgC": 24.0,
+        "capacityLiters": 28.8,
+        "daphniaCount": 0,
+        "depthCm": 0.3333333333333333,
+        "detritusMgC": 184.60000000000002,
+        "id": "pond-main",
+        "label": "主水域",
+        "maxDepthCm": 12.0,
+        "oxygenMgPerLiter": 10.733016870172586,
+        "plantMgC": 150.0,
+        "shrimp": [],
+        "surfaceAreaCm2": 2400.0,
+        "temperatureCelsius": 5.440458107190858,
+        "turbidityIndex": 0.0,
+        "waterLiters": 0.8,
+        "wet": true
+      }
+    ]
+  },
+  "scenario": "POND-REPLAY",
+  "seed": 2729,
+  "undisturbedBasinMatchesTwin": true
+}

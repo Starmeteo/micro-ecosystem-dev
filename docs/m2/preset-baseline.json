@@ -1,0 +1,491 @@
+{
+  "conditions": "No edit, built-in seasonal forcing, simulated natural daylight, starting at noon.",
+  "forestSeed": 1206,
+  "pondSeed": 2729,
+  "samples": [
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "currentWaterMl": 876.7800000000002,
+          "decomposedMgC": 0.0,
+          "fedMgC": 0.0,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "photosynthesizedMgC": 0.0,
+          "waterInputMl": 0.0,
+          "waterOutputMl": 0.0,
+          "waterResidualMl": 0.0
+        },
+        "litterMgC": 2515.8,
+        "waterMl": [
+          439.9200000000001,
+          436.8600000000001
+        ],
+        "woodliceBySide": [
+          2,
+          2
+        ]
+      },
+      "pond": {
+        "daphniaCount": 48,
+        "matterResidualMgCnp": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "oxygenMgPerLiter": 7.400000000000001,
+        "oxygenResidualMg": 0.0,
+        "shrimpCount": 3,
+        "waterLiters": 18.0,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.440491353343619,
+        "dayOfYear": 1,
+        "relativeHumidity": 0.6831875447315322,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 0
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            3280.060589487744,
+            319.66490000061987,
+            45.291900000091154
+          ],
+          "currentWaterMl": 1117.5613345505792,
+          "decomposedMgC": 237.9267001065269,
+          "fedMgC": 114.08519999982322,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            226.04426330137963,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            230.1536738301242,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -1.6490048437844962e-8,
+            -6.209006642166059e-10,
+            -9.118394928009366e-11
+          ],
+          "photosynthesizedMgC": 226.04426330137963,
+          "waterInputMl": 1848.2141114215055,
+          "waterOutputMl": 1607.4327768697622,
+          "waterResidualMl": 1.1643805919447914e-9
+        },
+        "litterMgC": 2316.3173891478077,
+        "waterMl": [
+          573.8938732402157,
+          543.6674613103631
+        ],
+        "woodliceBySide": [
+          4,
+          0
+        ]
+      },
+      "pond": {
+        "daphniaCount": 50,
+        "matterResidualMgCnp": [
+          1.460875864722766e-11,
+          -9.166001291305292e-13,
+          -1.2168044349891716e-13
+        ],
+        "oxygenMgPerLiter": 11.362676983383745,
+        "oxygenResidualMg": -4.149569576838985e-12,
+        "shrimpCount": 3,
+        "waterLiters": 17.87963662709516,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.416871030325989,
+        "dayOfYear": 1,
+        "relativeHumidity": 0.6839891666295294,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 12
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            3216.027569764896,
+            319.6649000012764,
+            45.291900000186764
+          ],
+          "currentWaterMl": 859.0270765796238,
+          "decomposedMgC": 523.8897474767216,
+          "fedMgC": 214.9752000006181,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            431.5278776221951,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            499.6703078909665,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -3.3668129617581144e-8,
+            -1.2774421520589385e-9,
+            -1.8679457980397274e-10
+          ],
+          "photosynthesizedMgC": 431.5278776221951,
+          "waterInputMl": 3700.1282658956925,
+          "waterOutputMl": 3717.8811893103025,
+          "waterResidualMl": 5.765969035564922e-9
+        },
+        "litterMgC": 2107.2696491615147,
+        "waterMl": [
+          451.85163154633847,
+          407.1754450332852
+        ],
+        "woodliceBySide": [
+          4,
+          0
+        ]
+      },
+      "pond": {
+        "daphniaCount": 52,
+        "matterResidualMgCnp": [
+          8.469669410260394e-12,
+          2.3447910280083306e-13,
+          -7.904787935331115e-14
+        ],
+        "oxygenMgPerLiter": 11.926940785142932,
+        "oxygenResidualMg": -3.126388037344441e-12,
+        "shrimpCount": 3,
+        "waterLiters": 17.795133318615346,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.3938865606728505,
+        "dayOfYear": 2,
+        "relativeHumidity": 0.6847934562737106,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 24
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            3122.2465527348786,
+            319.66490000214435,
+            45.29190000031485
+          ],
+          "currentWaterMl": 1118.7943685580285,
+          "decomposedMgC": 737.9664711224139,
+          "fedMgC": 305.9508000003004,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            548.290598138927,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            710.2140454605977,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -5.655056156683713e-8,
+            -2.145384314644616e-9,
+            -3.148770133520884e-10
+          ],
+          "photosynthesizedMgC": 548.290598138927,
+          "waterInputMl": 5555.754619185996,
+          "waterOutputMl": 5313.740250621196,
+          "waterResidualMl": 6.771188054699451e-9
+        },
+        "litterMgC": 1964.8579738749786,
+        "waterMl": [
+          574.3585321853125,
+          544.435836372716
+        ],
+        "woodliceBySide": [
+          1,
+          3
+        ]
+      },
+      "pond": {
+        "daphniaCount": 54,
+        "matterResidualMgCnp": [
+          1.2846612662542611e-11,
+          1.9610979506978765e-12,
+          -1.2434497875801753e-13
+        ],
+        "oxygenMgPerLiter": 11.736823152683407,
+        "oxygenResidualMg": -1.7905676941154525e-12,
+        "shrimpCount": 3,
+        "waterLiters": 17.704616843263135,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.371539647114332,
+        "dayOfYear": 2,
+        "relativeHumidity": 0.6856003540808776,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 36
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            3038.6214951172497,
+            319.66490000300826,
+            45.291900000442595
+          ],
+          "currentWaterMl": 865.5791263917907,
+          "decomposedMgC": 963.4850092639174,
+          "fedMgC": 395.63039999902935,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            684.5661903405439,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            930.1146953022709,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -7.897779141785577e-8,
+            -3.0092905944911763e-9,
+            -4.426254918143968e-10
+          ],
+          "photosynthesizedMgC": 684.5661903405439,
+          "waterInputMl": 7415.1050520565705,
+          "waterOutputMl": 7426.305925657989,
+          "waterResidualMl": 6.790401130274404e-9
+        },
+        "litterMgC": 1799.6800626058812,
+        "waterMl": [
+          455.0957054346084,
+          410.4834209571825
+        ],
+        "woodliceBySide": [
+          1,
+          3
+        ]
+      },
+      "pond": {
+        "daphniaCount": 56,
+        "matterResidualMgCnp": [
+          1.2391865311656147e-11,
+          3.623767952376511e-13,
+          -2.4424906541753444e-13
+        ],
+        "oxygenMgPerLiter": 11.961737661074277,
+        "oxygenResidualMg": 1.8616219676914625e-11,
+        "shrimpCount": 3,
+        "waterLiters": 17.6203480991417,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.349831945149294,
+        "dayOfYear": 3,
+        "relativeHumidity": 0.6864098002746146,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 48
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            2939.142183206414,
+            319.66490000399426,
+            45.291900000588015
+          ],
+          "currentWaterMl": 1126.5731563564298,
+          "decomposedMgC": 1137.9426584624991,
+          "fedMgC": 485.2463999977592,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            763.0929610003366,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            1108.120777898811,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -1.0488975021871738e-7,
+            -3.995296538050752e-9,
+            -5.880451681150589e-10
+          ],
+          "photosynthesizedMgC": 763.0929610003366,
+          "waterInputMl": 9278.19116938588,
+          "waterOutputMl": 9028.398013025624,
+          "waterResidualMl": 3.826926331385039e-9
+        },
+        "litterMgC": 1678.5301399914072,
+        "waterMl": [
+          578.0219285678841,
+          548.5512277885457
+        ],
+        "woodliceBySide": [
+          1,
+          3
+        ]
+      },
+      "pond": {
+        "daphniaCount": 58,
+        "matterResidualMgCnp": [
+          1.9099388737231493e-11,
+          8.384404281969182e-13,
+          -9.14823772291129e-14
+        ],
+        "oxygenMgPerLiter": 11.828192724590814,
+        "oxygenResidualMg": 5.087485988042317e-12,
+        "shrimpCount": 3,
+        "waterLiters": 17.53024065369597,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.32876506292266,
+        "dayOfYear": 3,
+        "relativeHumidity": 0.6872217348897168,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 60
+    },
+    {
+      "forest": {
+        "ledger": {
+          "currentMatterMgCnp": [
+            2848.9457238914115,
+            319.6649000049665,
+            45.29190000073077
+          ],
+          "currentWaterMl": 873.2489531792526,
+          "decomposedMgC": 1332.422276182943,
+          "fedMgC": 574.804799999465,
+          "initialMatterMgCnp": [
+            3284.1699999999987,
+            319.66489999999897,
+            45.29189999999997
+          ],
+          "initialWaterMl": 876.7800000000002,
+          "matterInputMgCnp": [
+            867.296699260579,
+            0.0,
+            0.0
+          ],
+          "matterOutputMgCnp": [
+            1302.5209754992795,
+            0.0,
+            0.0
+          ],
+          "matterResidualMgCnp": [
+            -1.30112766782986e-7,
+            -4.9675463742460124e-9,
+            -7.308003091566206e-10
+          ],
+          "photosynthesizedMgC": 867.296699260579,
+          "waterInputMl": 11145.024299307197,
+          "waterOutputMl": 11148.555346123603,
+          "waterResidualMl": 4.341927706263959e-9
+        },
+        "litterMgC": 1535.8865219539575,
+        "waterMl": [
+          458.79624399924285,
+          414.4527091800097
+        ],
+        "woodliceBySide": [
+          1,
+          3
+        ]
+      },
+      "pond": {
+        "daphniaCount": 60,
+        "matterResidualMgCnp": [
+          6.480149750132114e-12,
+          2.2879476091475226e-12,
+          3.2862601528904634e-14
+        ],
+        "oxygenMgPerLiter": 12.162486461701551,
+        "oxygenResidualMg": 2.0264678823878057e-11,
+        "shrimpCount": 2,
+        "waterLiters": 17.446197112407557,
+        "waterResidualLiters": 0.0
+      },
+      "season": {
+        "airTemperatureCelsius": 5.308340561106306,
+        "dayOfYear": 4,
+        "relativeHumidity": 0.6880360977766331,
+        "season": "winter",
+        "year": 1
+      },
+      "simulatedHours": 72
+    }
+  ],
+  "scenario": "M2-THREE-DAY-EXPERIMENTAL-BASELINE"
+}

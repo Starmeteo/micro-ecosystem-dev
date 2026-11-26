@@ -1,0 +1,126 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1423",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-stones-reopened.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "observe",
+        "file": "pond-stones-reopened-observe.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "panel",
+        "file": "pond-stones-reopened-panel.png"
+      }
+    },
+    {
+      "check": "pond-views-share-bottom-stones",
+      "via": "editor, observation and desktop component through the same Rust snapshot",
+      "result": {
+        "ids": "1,2"
+      }
+    },
+    {
+      "check": "pond-stones-reopened-with-same-state",
+      "via": "real process restart and authoritative snapshot",
+      "result": {
+        "worldId": "pond-768d2f3f99d44a138a52f3b9dfe350b7",
+        "worldName": "R5 底石验收 2026-11-25T09:27:12.766Z",
+        "definition": "pond-shallow-r5-stones/1",
+        "modelVersion": 10,
+        "runGeneration": "8c538f80-a580-4d26-81d5-91af6c70e144",
+        "editRevision": "12",
+        "simulationTick": "600",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 17.99952881109488,
+              "capacityLiters": 28.8,
+              "depthCm": 7.499803671289532,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 20.90406885947482,
+              "oxygenMgPerLiter": 7.409450457571734,
+              "availableNitrogenMgPerLiter": 0.34978245422645154,
+              "availablePhosphorusMgPerLiter": 0.049973703233177715,
+              "algaeMgC": 30.01387681705849,
+              "biofilmMgC": 23.97094260791008,
+              "plantMgC": 150.03672237427236,
+              "detritusMgC": 119.97998900461914,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.6254895806277831,
+                  "y": 0.235779839636879,
+                  "heading": 5.333395468192018,
+                  "activity": "foraging"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.2992819246471348,
+                  "y": 0.6095707158815326,
+                  "heading": 4.595461578520453,
+                  "activity": "foraging"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.5878518549313616,
+                  "y": 0.8576286697707922,
+                  "heading": 3.8952851032442575,
+                  "activity": "feeding"
+                }
+              ],
+              "turbidityIndex": 0.25009162952727637,
+              "stones": [
+                {
+                  "id": 1,
+                  "x": 0.3700000205945536,
+                  "preset": "main"
+                },
+                {
+                  "id": 2,
+                  "x": 0.770000032307096,
+                  "preset": "pebble"
+                }
+              ]
+            }
+          ]
+        },
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+   Compiling micro-ecosystem-desktop v0.2.10 (D:\Github Projects\micro-ecosystem-dev\apps\desktop\src-tauri)
+   Compiling world-runtime v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\world-runtime)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.58s
+     Running unittests src\lib.rs (target\debug\build\eco-core/ac23112934c164c1\out\eco_core-ac23112934c164c1.exe)
+
+running 84 tests
+test forest::stonework_contacts_leave_real_paths_between_members ... ok
+test forest::tests::committed_rock_move_changes_geometry_and_rate_before_inventory ... ok
+test forest::tests::invalid_or_occupied_rock_destination_leaves_the_world_unchanged ... ok
+test pond::tests::edible_resources_are_disjoint_and_the_same_biofilm_is_allocated_once ... ok
+test forest::tests::recruitment_uses_reserved_brood_and_death_returns_stocks_to_the_soil ... ok
+test forest::tests::season_and_wetness_drive_living_patches_and_vegetation_returns_to_litter ... ok
+test forest::tests::soil_water_changes_a_route_with_fixed_geometry_and_food ... ok
+test forest::tests::soil_and_patch_share_one_withdrawal_when_food_and_decay_compete ... ok
+test pond::tests::drying_retains_nonvolatile_residue_accounts_for_oxygen_and_never_spawns_replacements ... ok
+test forest::tests::r5_living_fern_canopy_composes_by_maximum_and_reaches_the_actual_water_cycle ... ok
+test forest::tests::scarce_litter_is_allocated_once_and_an_empty_cell_stays_finite ... ok
+test pond::tests::pond_geometry_reshapes_without_changing_volume_or_stocks_and_rejects_overflow ... ok
+test pond::tests::lower_oxygen_and_parental_investment_change_pond_populations_without_creating_matter ... ok
+test forest::tests::r5_substrate_rejects_an_entire_invalid_stroke_and_applies_the_rainfall_capacity ... ok
+test forest::tests::animal_walks_from_back_entrance_through_roof_and_out_the_front ... ok
+test pond::tests::evaporation_drainage_and_refill_have_distinct_water_and_matter_flows ... ok
+test forest::tests::r5_ground_moss_metadata_does_not_run_a_second_growth_process ... ok
+test pond::tests::r5_moss_add_move_trim_and_both_removal_paths_conserve_each_element ... ok
+test pond::tests::r5_contact_food_caps_each_typed_source_and_shares_scarcity_proportionally ... ok
+test pond::tests::r5_pond_edit_history_preserves_daylight_and_does_not_reuse_stone_ids ... ok
+test pond::tests::r5_pond_leaf_deposit_checks_bounds_and_supports_a_dry_bed ... ok
+test pond::tests::r5_ribbon_uses_shared_nutrients_and_oxygen_but_applies_growth_to_its_own_stock ... ok
+test pond::tests::r5_stone_contact_handles_moved_removed_and_shallow_surfaces ... ok
+test pond::tests::r5_main_stone_contact_persists_without_retrospectively_attributing_food ... ok
+test pond::tests::r5_submerged_moss_competes_for_minerals_and_shares_limited_oxygen ... ok
+test pond::tests::r5_stone_edits_are_atomic_and_inert_while_water_level_changes ... ok
+test forest::tests::r5_living_fern_moves_only_its_share_and_keeps_stock_in_the_existing_cell ... ok
+test pond::tests::r5_biofilm_projection_uses_the_existing_visual_shares_and_keeps_one_stock ... ok
+test pond::tests::r5_pond_stocking_checks_sites_counts_and_elemental_inputs_atomically ... ok
+test pond::tests::r5_water_plant_exposure_and_initial_presets_keep_their_stock_boundaries ... ok
+test pond::tests::r5_pond_leaf_deposit_uses_the_original_detritus_and_oxygen_processes_once ... ok
+test pond::tests::r5_wood_and_stone_reserve_common_routes_and_wood_ids_survive_history ... ok
+test forest::tests::r5_ground_moss_links_existing_cells_and_accounts_for_each_edit ... ok
+test pond::tests::single_aerobic_budget_is_shared_under_oxygen_scarcity ... ok
+test pond::tests::r5_pond_shape_rejects_splits_merges_and_capacity_atomically ... ok
+test pond::tests::r5_topology_rejects_unrepresentable_or_occupied_results_atomically ... ok
+test pond::tests::r5_wood_supports_autonomous_rest_and_carried_or_released_shrimp ... ok
+test pond::topology::tests::r5_topology_rejects_absorbed_objects_and_positioned_stock_atomically ... ok
+test pond_leaf::tests::r5_pond_leaf_deposit_stages_report_retained_carbon_and_retire_visuals_only ... ok
+test pond::tests::r5_shrimp_stage_reads_existing_state_across_maturity_and_drainage ... ok
+test pond_scenery::tests::rejects_cycles_or_dangling_parents_and_removes_all_nested_children ... ok
+test pond_stones::tests::ground_objects_fit_under_the_limb_but_cannot_overlap_the_wood_feet ... ok
+test pond_stones::tests::receding_water_checks_the_whole_layout_before_relocating_a_blocked_swimmer ... ok
+test pond::tests::r5_legacy_composed_stone_rest_is_explicit_and_basin_local ... ok
+test pond_stones::tests::slope_keeps_the_underpass_open_and_blocks_a_crossing_through_wood ... ok
+test pond::tests::r5_ribbon_edit_save_and_dry_restore_keep_stock_and_type ... ok
+test pond::tests::r5_topology_conserves_stocks_and_keeps_independent_identifiers ... ok
+test pond_wood::tests::slope_landing_height_depends_on_which_part_is_submerged ... ok
+test pond::tests::r5_pond_shape_changes_area_and_depth_without_moving_stock ... ok
+test season::tests::annual_climate_is_continuous_and_repeatable ... ok
+test pond::tests::r5_pond_shape_validates_checkpoints_and_rejects_old_model_edits ... ok
+test tests::invalid_edits_do_not_mutate_the_fixture ... ok
+test tests::daylight_correction_across_midnight_is_continuous ... ok
+test season::tests::fixed_calendar_switches_at_day_boundaries ... ok
+test tests::composed_blank_starter_and_custom_habitat_keep_existing_litter ... ok
+test pond::topology::tests::r5_topology_retains_static_layout_on_the_original_section_only ... ok
+test tests::composed_forest_starts_with_real_shelter_and_balanced_litter ... ok
+test tests::moving_fixture_rock_updates_the_two_moisture_zones_after_stepping ... ok
+test tests::r5_bark_reserves_open_passages_without_moving_animals_or_inventory ... ok
+test pond::tests::r5_wood_contact_reports_consumed_parcels_and_excludes_new_or_released_contacts ... ok
+test tests::r5_log_rejects_animal_overlap_and_reserves_footprint_in_fresh_presets ... ok
+test tests::r5_leaf_history_restores_only_current_tick_edits_and_preserves_id_allocation ... ok
+test pond::tests::r5_shrimp_swims_clear_of_a_main_stone_and_passes_after_removal ... ok
+test tests::r5_leaf_brush_rejects_invalid_strokes_without_allocating_or_bookkeeping ... ok
+test tests::same_inputs_match_across_step_batching ... ok
+test tests::r5_woodlouse_stock_uses_walkable_ground_and_adult_inventory ... ok
+test forest::tests::r5_substrate_changes_capacity_and_future_water_flow_without_changing_held_stock ... ok
+test tests::r5_woodlouse_stock_undo_preserves_allocations_without_preserving_the_animals ... ok
+test pond::tests::r5_moss_survives_emergence_without_treating_it_as_submerged_growth ... ok
+test pond::tests::r5_water_plant_roots_share_one_pool_and_return_trimmings_to_detritus ... ok
+test tests::r5_leaf_patch_tracks_placed_moved_depleted_and_removed_material ... ok
+test pond::tests::pond_replay_batches_match_and_other_basins_keep_their_own_random_history ... ok
+test pond::tests::empty_r5_stone_basin_preserves_the_legacy_trajectory ... ok
+test pond::tests::r5_empty_wood_layout_retains_the_complete_stone_pond_trajectory ... ok
+test tests::r5_log_footprint_controls_ground_without_changing_inventory ... ok
+test pond::tests::r5_pond_with_empty_moss_sites_replays_the_previous_wood_definition ... ok
+test tests::r5_existing_bark_trajectory_matches_empty_leaf_world ... ok
+test tests::r5_existing_terrain_trajectory_matches_empty_stonework_world ... ok
+test tests::r5_stone_world_stays_compatible_with_empty_terrain_world ... ok
+test tests::r5_existing_stonework_trajectory_matches_empty_bark_world ... ok
+test tests::r5_stonework_layouts_preserve_contact_gaps_and_inventory ... ok
+test forest::tests::exact_replay_and_conservation_cover_water_carbon_nitrogen_and_phosphorus ... ok
+test pond::tests::light_organic_load_temperature_and_supersaturation_have_the_expected_directions ... ok
+test forest::tests::seasonal_forest_replays_and_preserves_every_ledger_element ... ok
+
+test result: ok. 84 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.34s
+
+     Running unittests src\main.rs (target\debug\build\micro-ecosystem-desktop/88c008ece3e08af4\out\micro_ecosystem_desktop-88c008ece3e08af4.exe)
+
+running 20 tests
+test workspace::tests::panel_bounds_use_desktop_edges_and_preserve_dimensions ... ok
+test workspace::tests::an_oversized_component_group_is_scaled_as_one_unit_on_small_fallback_screen ... ok
+test workspace::tests::visible_window_edges_are_preserved_but_a_lost_header_is_detected ... ok
+test workspace::tests::relative_panel_placement_reuses_remaining_travel_at_the_new_scale ... ok
+test workspace_tray::tests::tray_checks_follow_saved_modes_and_enabled_component_kinds ... ok
+test host::tests::old_binding_cannot_receive_or_remove_current_binding ... ok
+test host::tests::power_edges_do_not_add_sleep_or_remove_remainder ... ok
+test host::tests::slow_observer_receives_only_the_latest_complete_state ... ok
+test host::tests::awake_stall_drains_retained_work_in_bounded_batches ... ok
+test host::tests::no_view_one_view_and_two_views_share_fixed_stepping ... ok
+test host::tests::trial_leaves_formal_daylight_target_frozen_until_discard ... ok
+test workspace_tray::tests::tray_batch_stays_queued_until_save_and_duplicate_commit_is_idempotent ... ok
+test host::tests::boot_preserves_existing_legacy_default_and_blocks_unreadable_selection ... ok
+test workspace::tests::workspace_layout_loads_and_replaces_only_its_own_file ... ok
+test workspace::tests::idle_settings_and_panel_layout_preserve_each_others_fields ... ok
+test host::tests::autosaves_only_dirty_formal_worlds_and_recovers_paused_state ... ok
+test host::tests::pond_edit_authority_follows_the_explicit_v10_trial_world ... ok
+test host::tests::bound_panel_observes_background_ticks_without_advancing_a_paused_foreground ... ok
+test host::tests::archive_keeps_checkpoint_and_pauses_background_until_reopened ... ok
+test host::tests::fresh_boot_and_quick_theme_creation_use_the_composed_presets ... ok
+
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+     Running unittests src\lib.rs (target\debug\build\world-runtime/2aac44e7939eb78f\out\world_runtime-2aac44e7939eb78f.exe)
+
+running 55 tests
+test tests::edits_retry_once_and_mismatching_revision_or_generation_is_rejected ... ok
+test solar::tests::beijing_horizon_times_and_phase_match_the_utc_reference ... ok
+test solar::tests::polar_days_and_nights_have_no_invented_horizon_crossings ... ok
+test solar::tests::rejects_non_finite_coordinates_and_out_of_range_timestamps ... ok
+test solar::tests::western_longitude_sunset_can_be_on_the_next_utc_date ... ok
+test solar::tests::international_date_line_does_not_shift_utc_events_by_a_day ... ok
+test tests::manual_and_system_pauses_do_not_add_ticks ... ok
+test tests::fixture_worlds_have_distinct_runs_and_isolated_mutable_state ... ok
+test solar::tests::leap_day_and_circular_midnight_stay_continuous ... ok
+test tests::pond_edit_retries_history_and_invalid_capacity_preserve_exact_inventory ... ok
+test library::tests::starter_introduction_is_explicit_paused_once_and_accounted ... ok
+test tests::forest_trial_advances_the_complete_copy_and_leaves_formal_world_exact ... ok
+test checkpoint::tests::unfamiliar_model_payload_is_not_treated_as_corruption ... ok
+test checkpoint::tests::future_checkpoint_fails_without_loading_an_older_world ... ok
+test checkpoint::tests::validates_identity_and_distinguishes_absent_and_unusable ... ok
+test checkpoint::tests::fresh_runtime_restores_exact_state_and_random_continuation ... ok
+test checkpoint::tests::save_failure_leaves_last_commit_and_ignores_uncommitted_candidate ... ok
+test tests::dual_pond_preset_keeps_water_and_shoreline_edits_independent ... ok
+test tests::r5_main_stone_contact_survives_cold_load_but_intake_is_live_only ... ok
+test tests::r5_ground_moss_history_retry_trial_and_checkpoint_preserve_local_stocks ... ok
+test checkpoint::tests::corrupt_newest_recovers_previous_and_can_publish_a_new_serial ... ok
+test tests::r5_living_fern_edit_history_retains_shade_and_stock_on_checkpoint ... ok
+test tests::r5_composed_scenery_survives_trial_history_and_save_without_changing_stocks ... ok
+test tests::forest_reopens_with_identical_resources_rng_phase_location_and_pause_reasons ... ok
+test tests::r5_bark_shelter_passage_and_occupants_survive_edit_history_and_reopen ... ok
+test tests::snapshot_wire_fields_are_camel_case_and_identifiers_are_strings ... ok
+test tests::zero_one_and_two_observers_do_not_change_completed_ticks ... ok
+test library::tests::blank_presets_and_custom_habitat_have_independent_valid_initial_state ... ok
+test tests::r5_pond_stocking_retries_and_trial_history_keep_ids_and_inventories_scoped ... ok
+test tests::forest_r5_composed_scopes_moves_and_attachment_history_to_the_same_save ... ok
+test tests::mixed_world_checkpoints_and_pond_trial_keep_state_and_season_separate ... ok
+test trial::tests::trial_drives_the_whole_model_and_daylight_with_reproducible_scaled_steps ... ok
+test tests::r5_ribbon_plant_reopens_with_its_live_stock_and_reseeds_a_preset ... ok
+test tests::r5_pond_shape_stroke_is_one_retriable_edit_and_survives_history_and_restore ... ok
+test tests::r5_leaf_brush_is_one_replayable_edit_with_durable_distinct_stocks ... ok
+test tests::r5_wood_contact_feeding_is_live_only_through_checkpoint_pause_and_edit ... ok
+test tests::r5_ground_logs_share_edit_history_and_survive_reopen ... ok
+test tests::r5_pond_moss_history_preserves_patch_identity_and_elemental_transfers ... ok
+test tests::r5_pond_leaf_deposit_survives_history_trial_presets_and_readback ... ok
+test tests::r5_pond_stones_keep_world_and_basin_state_separate_through_edits_and_restart ... ok
+test tests::r5_litter_history_and_saves_preserve_remaining_stock_and_external_flows ... ok
+test tests::empty_r5_pond_topology_survives_history_trials_and_checkpoint_restore ... ok
+test tests::automatic_checkpoint_rotation_keeps_manual_and_damaged_versions_and_recovers_previous ... ok
+test tests::r5_stonework_edits_keep_each_group_and_older_world_intact ... ok
+test tests::r5_stones_replay_restore_and_keep_trial_changes_isolated ... ok
+test trial::tests::failed_checkpoint_keeps_both_branches_and_allows_retry ... ok
+test trial::tests::apply_is_durable_and_keeps_formal_identity_pause_location_and_live_goal ... ok
+test tests::r5_pond_wood_keeps_real_attachments_through_history_trial_and_checkpoint ... ok
+test trial::tests::copy_and_trial_save_commit_distinct_exact_states_without_changing_original ... ok
+test trial::tests::revision_steps_and_generation_each_block_adoption_without_losing_the_trial ... ok
+test tests::r5_substrate_stroke_history_trial_copy_and_blueprint_keep_their_own_state ... ok
+test library::tests::library_discovers_legacy_worlds_and_preserves_unreadable_checkpoints ... ok
+test tests::r5_woodlouse_stock_replays_and_restores_brains_ledger_and_id_floor ... ok
+test tests::r5_water_plant_history_and_save_preserve_allocation_and_id_floor ... ok
+test tests::r5_decorative_bed_materials_preserve_wet_and_dry_state_through_history_and_copy ... ok
+
+test result: ok. 55 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s
+
+     Running unittests src\bin\m0-headless.rs (target\debug\build\world-runtime/79b7af6ab9f7e898\out\m0_headless-79b7af6ab9f7e898.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m1-forest-replay.rs (target\debug\build\world-runtime/8ea988cb1676f719\out\m1_forest_replay-8ea988cb1676f719.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m2-pond-replay.rs (target\debug\build\world-runtime/ec0582a2bfaed183\out\m2_pond_replay-ec0582a2bfaed183.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m4-long-run.rs (target\debug\build\world-runtime/6e31187fb235c7f8\out\m4_long_run-6e31187fb235c7f8.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests eco_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests world_runtime
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

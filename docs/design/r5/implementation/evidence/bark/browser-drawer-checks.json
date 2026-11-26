@@ -1,0 +1,27 @@
+{
+  "backend": "UI fixture, no Rust/Tauri",
+  "v5Choices": 1,
+  "v6Choices": 2,
+  "v7Choices": 5,
+  "v8Choices": 7,
+  "rows": 2,
+  "edits": [
+    {
+      "worldId": "editor-smoke",
+      "commandId": "4d9c7b56-62d9-4e89-83bf-569c9b71ca7c",
+      "expectedGeneration": "fixture",
+      "expectedRevision": "0",
+      "action": {
+        "action": "change",
+        "edit": {
+          "kind": "addBarkShelter",
+          "position": {
+            "x": 0.38000002108305037,
+            "y": 0.8000000156168792
+          },
+          "preset": "arch"
+        }
+      }
+    }
+  ]
+}

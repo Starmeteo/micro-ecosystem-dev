@@ -1,0 +1,130 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "observe",
+        "file": "litter-reopened-observe.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "panel",
+        "file": "litter-reopened-panel.png"
+      }
+    },
+    {
+      "check": "same-litter-in-all-three-native-views",
+      "via": "live canvas IDs and unchanged authoritative paused snapshot",
+      "result": {
+        "leafIds": "2,3"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "litter-reopened-editor.png"
+      }
+    },
+    {
+      "check": "reopen-persisted-r5-world",
+      "via": "read-only Rust subscription and live editor canvas",
+      "result": {
+        "worldId": "forest-744c707bd1b045f7a179f5ca1a1c7db9",
+        "worldName": "R5 落叶验收 2026-11-25T09:11:51.028Z",
+        "definition": "forest-understory-r5-leaves/1",
+        "modelVersion": 9,
+        "runGeneration": "c8ead19d-bde0-462f-a215-9fbd25264afd",
+        "editRevision": "3",
+        "simulationTick": "600",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [],
+        "barkShelters": [],
+        "leafPatches": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.21999998989762962,
+              "y": 0.8399999031740636
+            },
+            "mirrored": false,
+            "preset": "leaves",
+            "remainingMgCnp": [
+              23.998175860457366,
+              1.0319215619996676,
+              0.10799179137205783
+            ],
+            "initialMgCnp": [
+              24,
+              1.032,
+              0.10799999999999998
+            ],
+            "cellIndex": 26
+          },
+          {
+            "id": 3,
+            "position": {
+              "x": 0.7400000039531014,
+              "y": 0.7599999718892443
+            },
+            "mirrored": false,
+            "preset": "heap",
+            "remainingMgCnp": [
+              59.99518806094856,
+              2.579793086620783,
+              0.2699783462742682
+            ],
+            "initialMgCnp": [
+              60,
+              2.5799999999999996,
+              0.26999999999999996
+            ],
+            "cellIndex": 21
+          }
+        ],
+        "shadeFraction": [
+          0.24886147394553954,
+          0.15776765299046366
+        ],
+        "shelterFraction": [
+          0.16469705584474478,
+          0.07786767471772543
+        ],
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

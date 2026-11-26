@@ -1,0 +1,25 @@
+{
+  "backend": "UI fixture, no Rust/Tauri",
+  "v5Choices": 1,
+  "v6Choices": 2,
+  "v7Choices": 5,
+  "edits": [
+    {
+      "worldId": "editor-smoke",
+      "commandId": "384256e3-8121-4077-ac11-937a95b302c5",
+      "expectedGeneration": "fixture",
+      "expectedRevision": "0",
+      "action": {
+        "action": "change",
+        "edit": {
+          "kind": "addStonework",
+          "position": {
+            "x": 0.5,
+            "y": 0.6200000218636309
+          },
+          "preset": "pair"
+        }
+      }
+    }
+  ]
+}

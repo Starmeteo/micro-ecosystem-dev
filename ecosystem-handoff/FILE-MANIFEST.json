@@ -1,0 +1,177 @@
+{
+  "package_version": "0.1-review1",
+  "scope": "all package files except FILE-MANIFEST.json itself",
+  "file_count_excluding_manifest": 34,
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 4342,
+      "sha256": "df901d9ce319cd11e03f0b4e27465c212d2de7cf976198f6a2cf0af14575bd48"
+    },
+    {
+      "path": "CODEX_REVIEW_FIRST_PROMPT.txt",
+      "bytes": 12222,
+      "sha256": "f88e8df60d4ddaed6c34bcb0e38eb49e2acda86e43e3df8b70e604f45f387d9a"
+    },
+    {
+      "path": "PACKAGE-CHECKS.md",
+      "bytes": 1970,
+      "sha256": "a038af2694ece05999c7291a2ec64800c6eaaaaa8f5c36cc996a32f5809c5578"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5790,
+      "sha256": "c9fb61feca738acffbeb115c22f01d8ab379caa09da6b2bc56b606ea232cf9c2"
+    },
+    {
+      "path": "contracts/parameter-registry.csv",
+      "bytes": 12928,
+      "sha256": "b17ec57ba5b0eb5f2b3b674e6da0d9af4864923bc07205676b75b2754e8b49d9"
+    },
+    {
+      "path": "docs/01-project-baseline.md",
+      "bytes": 8699,
+      "sha256": "76141d1db1266176b6a864341820107de1a1e36a763fc5c0b360f6de72f18151"
+    },
+    {
+      "path": "docs/02-product-requirements.md",
+      "bytes": 15898,
+      "sha256": "039ff4c2d2c7d2ea2af9909ef0fef0772c670ace0bc8eb43118632c17d391555"
+    },
+    {
+      "path": "docs/03-editor-and-components.md",
+      "bytes": 19992,
+      "sha256": "0b584a8151a2de5987edb7bb04c6959949e72ba3cd5627c98b3d56287af27c99"
+    },
+    {
+      "path": "docs/04-ecology-model.md",
+      "bytes": 22378,
+      "sha256": "e44f09a5753e3c04f8a14a07f4d63ecd9143321d374b81a34a225ebffa246a60"
+    },
+    {
+      "path": "docs/05-theme-specifications.md",
+      "bytes": 20441,
+      "sha256": "832722b7197292c050b27d8227670056676828cd27970d1e96c9c25e96f3329d"
+    },
+    {
+      "path": "docs/06-architecture-and-contracts.md",
+      "bytes": 17215,
+      "sha256": "454f36fc96f779f3f39ca39a0c6f9e2647d49f4bbf1e6fef73ba5c0b414aab6d"
+    },
+    {
+      "path": "docs/07-time-save-and-lifecycle.md",
+      "bytes": 14486,
+      "sha256": "faab144a3272042a592b0ca73eaa7330747cf3e2d8be93558eb15a457268e0c6"
+    },
+    {
+      "path": "docs/08-visual-and-asset-guide.md",
+      "bytes": 17446,
+      "sha256": "1e9238ef7cdd38a0c9e93f832ee447baf968a7ab765221571149596befc55492"
+    },
+    {
+      "path": "docs/09-development-plan.md",
+      "bytes": 13177,
+      "sha256": "d55c9b5b4338d6f6604466afb2b101c0cd199b06540621a639f88f40ceea2d23"
+    },
+    {
+      "path": "docs/10-validation-plan.md",
+      "bytes": 16747,
+      "sha256": "f7820f70a11a01dfc2fb13428b7f34b065bf8e7a41878a91d2834bf54eb9ced4"
+    },
+    {
+      "path": "docs/11-open-questions-and-review-gate.md",
+      "bytes": 6268,
+      "sha256": "a614d8574f9f7090359750cc3f00e57c0cab040ce5b0d22e719a5979bc3780a0"
+    },
+    {
+      "path": "docs/12-sources-and-evidence.md",
+      "bytes": 6222,
+      "sha256": "cfe22a3e3c436494c14ce5fab1385bbc880785b8fbe25bfc084836ff73c222a0"
+    },
+    {
+      "path": "prototypes/README.md",
+      "bytes": 990,
+      "sha256": "05f57a1e86bb764d45131c000dac9570937b874eb80fb823dc30b271005cfb51"
+    },
+    {
+      "path": "prototypes/editor-concept.html",
+      "bytes": 18440,
+      "sha256": "96bc391ab243d6b70dc31d21a3c01b1a9de751cc389626477452608ba3a99040"
+    },
+    {
+      "path": "references/README.md",
+      "bytes": 7642,
+      "sha256": "d7b5d581422da464133c09980ac91fad1b50696b001088cdf14b8f9fbaddda97"
+    },
+    {
+      "path": "references/gallery.html",
+      "bytes": 2819317,
+      "sha256": "92f3bd5856f79f11df45cbd4fca2c667daf57509feb141cc6f9d00ef9ebcfd59"
+    },
+    {
+      "path": "references/manifest.json",
+      "bytes": 4916,
+      "sha256": "7668fcfa2764a464512705108cceff62b95daf40a7a83a08964eec42c590a4e3"
+    },
+    {
+      "path": "references/originals/ref-01-shrimp-moss-closeup.jpg",
+      "bytes": 237787,
+      "sha256": "994b43f936c3165dcf374b8168cc7100af4695c9ab595e6b32331dd64fe32036"
+    },
+    {
+      "path": "references/originals/ref-02-shrimp-moss-driftwood.jpg",
+      "bytes": 321973,
+      "sha256": "317f7df0d9ea9148781dff5857fdc6814d59279c0155298ccdd24723448d1554"
+    },
+    {
+      "path": "references/originals/ref-03-streambed-catfish.jpg",
+      "bytes": 213861,
+      "sha256": "4b40d84e629df8b00078706d74043276a6cae10341b115400cd706a13d1914f5"
+    },
+    {
+      "path": "references/originals/ref-04-aquarium-room-depth.jpg",
+      "bytes": 349649,
+      "sha256": "2183d962d6cffc0a287146cf3aac9dc6806b671f9b5772a81f7c28bb6bbfb778"
+    },
+    {
+      "path": "references/originals/ref-05-ocean-wide-atmosphere.jpg",
+      "bytes": 161173,
+      "sha256": "c32c2c2884453636e4b065a1fedf8d3068f59610ebcdf9e1ea75ba9b51f63dc4"
+    },
+    {
+      "path": "references/originals/ref-06-lily-pond-surface.jpg",
+      "bytes": 277294,
+      "sha256": "d40d1be73eb33292305655895bf9c4aeb4ceecfe542f069e568ccf2c4619a519"
+    },
+    {
+      "path": "references/originals/ref-07-aquarium-tunnel-light.jpg",
+      "bytes": 225615,
+      "sha256": "883c02aecea62e1cf7bd8a71ca7827ff71e3d21288c7ea639d62d6b748f832b6"
+    },
+    {
+      "path": "references/originals/ref-08-aquarium-deep-blue.jpg",
+      "bytes": 139536,
+      "sha256": "d19d397692d214021545c3cef1939ec3e824d5f7255dd56f1899f52a9debc15a"
+    },
+    {
+      "path": "references/originals/ref-09-aquarium-window-contrast.jpg",
+      "bytes": 178128,
+      "sha256": "72d746bebafe1e0cfca789b13dee0c07f4fb774a093be3b5a8a7393f72e620bb"
+    },
+    {
+      "path": "review/README.md",
+      "bytes": 706,
+      "sha256": "2acb193a51ce8f20843677d428330376bf11ffd42cfd03a1329701f71835e547"
+    },
+    {
+      "path": "review/gate.json",
+      "bytes": 365,
+      "sha256": "61f266b0cf53c00bb8cd8f4d15b125b856831c136e03d79be17c93e62ac1214e"
+    },
+    {
+      "path": "review/review-template.md",
+      "bytes": 1604,
+      "sha256": "4b582e6007eb1c56dc7f7f2d196dcda267954cdc88e794aef1d23a5c11b7ea9c"
+    }
+  ]
+}

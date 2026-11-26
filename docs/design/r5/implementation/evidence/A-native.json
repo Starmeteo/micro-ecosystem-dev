@@ -1,0 +1,151 @@
+{
+  "runtime": "Edg/158.0.4370.33",
+  "editor": {
+    "view": [
+      1060,
+      730
+    ],
+    "dpr": 1.5,
+    "canvas": [
+      712.9375,
+      401.0208435058594,
+      1069,
+      601
+    ],
+    "scene": {
+      "theme": "forest",
+      "density": "480",
+      "zoom": "1",
+      "focus": "center",
+      "pose": "0",
+      "referenceWidthMm": "450",
+      "bodyLengthMm": "12",
+      "bodyLengthCss": "19.01",
+      "bodyLengthLogical": "12.80",
+      "viewport": "0,0,480,270",
+      "animalAnchor": "174,192",
+      "stoneAnchor": "335,193",
+      "logAnchor": "133,201",
+      "ready": "true"
+    }
+  },
+  "forest": {
+    "view": [
+      384,
+      216
+    ],
+    "dpr": 1.5,
+    "canvas": [
+      384,
+      216,
+      576,
+      324
+    ],
+    "scene": {
+      "theme": "forest",
+      "density": "480",
+      "zoom": "1",
+      "focus": "center",
+      "pose": "0",
+      "referenceWidthMm": "450",
+      "bodyLengthMm": "12",
+      "bodyLengthCss": "10.24",
+      "bodyLengthLogical": "12.80",
+      "viewport": "0,0,480,270",
+      "animalAnchor": "174,192",
+      "stoneAnchor": "335,193",
+      "logAnchor": "133,201",
+      "ready": "true"
+    }
+  },
+  "pond": {
+    "view": [
+      384,
+      216
+    ],
+    "dpr": 1.5,
+    "canvas": [
+      384,
+      216,
+      576,
+      324
+    ],
+    "scene": {
+      "theme": "pond",
+      "density": "480",
+      "zoom": "1",
+      "focus": "center",
+      "pose": "0",
+      "referenceWidthMm": "600",
+      "bodyLengthMm": "20",
+      "bodyLengthCss": "12.80",
+      "bodyLengthLogical": "16.00",
+      "viewport": "0,0,480,270",
+      "animalAnchor": "295,117",
+      "stoneAnchor": "352,220",
+      "logAnchor": "244,173",
+      "waterline": "46",
+      "ready": "true"
+    }
+  },
+  "observe": {
+    "view": [
+      720,
+      450
+    ],
+    "dpr": 1.5,
+    "canvas": [
+      554.5521240234375,
+      311.9375,
+      831,
+      467
+    ],
+    "scene": {
+      "theme": "pond",
+      "density": "480",
+      "zoom": "1",
+      "focus": "center",
+      "pose": "0",
+      "referenceWidthMm": "600",
+      "bodyLengthMm": "20",
+      "bodyLengthCss": "18.49",
+      "bodyLengthLogical": "16.00",
+      "viewport": "0,0,480,270",
+      "animalAnchor": "295,117",
+      "stoneAnchor": "352,220",
+      "logAnchor": "244,173",
+      "waterline": "46",
+      "ready": "true"
+    }
+  },
+  "enlarged": {
+    "view": [
+      720,
+      450
+    ],
+    "dpr": 1.5,
+    "canvas": [
+      554.5521240234375,
+      311.9375,
+      831,
+      467
+    ],
+    "scene": {
+      "theme": "pond",
+      "density": "480",
+      "zoom": "2",
+      "focus": "center",
+      "pose": "0",
+      "referenceWidthMm": "600",
+      "bodyLengthMm": "20",
+      "bodyLengthCss": "36.97",
+      "bodyLengthLogical": "16.00",
+      "viewport": "120,67.5,240,135",
+      "animalAnchor": "295,117",
+      "stoneAnchor": "352,220",
+      "logAnchor": "244,173",
+      "waterline": "46",
+      "ready": "true"
+    }
+  }
+}

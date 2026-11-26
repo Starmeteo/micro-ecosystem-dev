@@ -1,0 +1,89 @@
+{
+  "backend": "UI fixture, no Rust/Tauri",
+  "oldChoices": [
+    "放置主石",
+    "放置卵石",
+    "放置主枝沉木",
+    "放置短根沉木"
+  ],
+  "choices": [
+    "放置主石",
+    "放置卵石",
+    "放置主枝沉木",
+    "放置短根沉木",
+    "附着苔藓小垫",
+    "附着分枝绒簇"
+  ],
+  "carrierOptions": [
+    "",
+    "stone:1",
+    "wood:1"
+  ],
+  "edits": [
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "767830be-323a-42e1-a526-f081f57e08f6",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "0",
+      "edit": {
+        "type": "addMoss",
+        "basinId": "pond-main",
+        "preset": "mat",
+        "parent": {
+          "kind": "stone",
+          "id": 1
+        },
+        "offset": 0.05
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "6e4ff9c5-0ff5-4029-a48d-32b512693017",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "moveMoss",
+        "basinId": "pond-main",
+        "id": 1,
+        "offset": 0
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-smoke",
+      "commandId": "ce35d172-1c4e-480f-895f-c82fb8674b24",
+      "expectedGeneration": "fixture-formal",
+      "expectedRevision": "2",
+      "edit": {
+        "type": "trimMoss",
+        "basinId": "pond-main",
+        "id": 1,
+        "mgC": 1.25
+      }
+    },
+    {
+      "command": "edit_pond",
+      "worldId": "pond-trial",
+      "commandId": "a7d8c950-7b96-4e73-a8fa-e12b7874deb8",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "3",
+      "edit": {
+        "type": "removeStone",
+        "basinId": "pond-main",
+        "id": 1
+      }
+    },
+    {
+      "command": "edit_pond_history",
+      "worldId": "pond-trial",
+      "commandId": "3d570f34-94a3-41e7-8d06-2c096e75b156",
+      "expectedGeneration": "fixture-trial",
+      "expectedRevision": "4",
+      "redo": false
+    }
+  ],
+  "addAnchor": "211.06,215",
+  "moveAnchor": "210.56,215"
+}

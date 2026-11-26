@@ -1,0 +1,90 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1424",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "v10-keeps-existing-bottom-stone-state",
+      "via": "real world library and original basin snapshot",
+      "result": {
+        "worldId": "pond-c6fdd19fb82b40fc80db00266f939429",
+        "worldName": "R5 底石验收 2026-11-25T09:42:25.513Z",
+        "definition": "pond-shallow-r5-stones/1",
+        "modelVersion": 10,
+        "runGeneration": "fb89ecc2-66eb-428e-82b2-2f039a3c80f7",
+        "editRevision": "1",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 18,
+              "capacityLiters": 28.8,
+              "depthCm": 7.5,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 21,
+              "oxygenMgPerLiter": 7.400000000000001,
+              "availableNitrogenMgPerLiter": 0.35,
+              "availablePhosphorusMgPerLiter": 0.05,
+              "algaeMgC": 30,
+              "biofilmMgC": 24,
+              "plantMgC": 150,
+              "detritusMgC": 120,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607,
+                  "heading": 3.599703082040347,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662,
+                  "heading": 4.211306076783676,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766,
+                  "heading": 1.0764718033320413,
+                  "activity": "resting"
+                }
+              ],
+              "turbidityIndex": 0.25,
+              "stones": [
+                {
+                  "id": 1,
+                  "x": 0.37,
+                  "preset": "main"
+                }
+              ]
+            }
+          ]
+        },
+        "lastSaveMessage": "已切换世界"
+      }
+    }
+  ]
+}

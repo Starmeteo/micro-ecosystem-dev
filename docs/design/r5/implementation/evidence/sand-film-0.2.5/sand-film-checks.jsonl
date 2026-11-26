@@ -1,0 +1,4 @@
+{"case":"owned-installed-process","pid":73760,"bootGeneration":"7cd4ae0a-4e9c-4891-b056-a969b3592087"}
+{"case":"native-p04-sands","styles":["bottom-fine-sand-patch","bottom-coarse-sand-patch"],"ids":[66,67],"floatingRejected":true,"unchangedInventory":true,"otherBasinIdentical":true,"undoRedo":true}
+{"case":"native-p12-film","full":{"bed":13.036683729197701,"inactive":0,"surface":[["stone:1",2.17278062153295],["wood:1",8.790535649269348]]},"shallow":{"bed":23.19357760775769,"inactive":0,"surface":[["stone:1",0.46495717003997317],["wood:1",0.34146522220233916]]},"dry":{"bed":0,"inactive":24,"surface":[]},"refilled":{"bed":13.036683729197701,"inactive":0,"surface":[["stone:1",2.17278062153295],["wood:1",8.790535649269348]]},"otherBasinIdentical":true}
+{"case":"native-p04-dry-sand","placed":{"id":68,"style":"bottom-fine-sand-patch","x":0.3200000506307693,"y":0.8999999882825005},"sameAfterRefill":true}

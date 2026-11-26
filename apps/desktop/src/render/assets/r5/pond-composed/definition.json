@@ -1,0 +1,1850 @@
+{
+  "styles": [
+    {
+      "id": "back-0",
+      "label": "远层轮生水草 1",
+      "type": "hornwort-100",
+      "band": 0,
+      "mm": 82,
+      "opacity": 0.39,
+      "shade": 0.55,
+      "flip": false,
+      "angle": -0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-1",
+      "label": "远层轮生水草 2",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 87,
+      "opacity": 0.56,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": -0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-2",
+      "label": "远层轮生水草 3",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 105,
+      "opacity": 0.58,
+      "shade": 0.654,
+      "flip": false,
+      "angle": 0,
+      "placeable": false
+    },
+    {
+      "id": "back-3",
+      "label": "远层轮生水草 4",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 82,
+      "opacity": 0.37,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": 0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-4",
+      "label": "远层轮生水草 5",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 101,
+      "opacity": 0.5,
+      "shade": 0.55,
+      "flip": false,
+      "angle": 0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-5",
+      "label": "远层轮生水草 6",
+      "type": "hornwort-100",
+      "band": 0,
+      "mm": 78,
+      "opacity": 0.49,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": -0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-6",
+      "label": "远层轮生水草 7",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 105,
+      "opacity": 0.61,
+      "shade": 0.654,
+      "flip": false,
+      "angle": -0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-7",
+      "label": "远层轮生水草 8",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 64,
+      "opacity": 0.37,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": 0,
+      "placeable": false
+    },
+    {
+      "id": "back-8",
+      "label": "远层轮生水草 9",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 109,
+      "opacity": 0.68,
+      "shade": 0.55,
+      "flip": false,
+      "angle": 0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-9",
+      "label": "远层轮生水草 10",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 94,
+      "opacity": 0.51,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": 0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-10",
+      "label": "远层轮生水草 11",
+      "type": "hornwort-100",
+      "band": 0,
+      "mm": 83,
+      "opacity": 0.44,
+      "shade": 0.654,
+      "flip": false,
+      "angle": -0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-11",
+      "label": "远层轮生水草 12",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 101,
+      "opacity": 0.54,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": -0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-12",
+      "label": "远层轮生水草 13",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 111,
+      "opacity": 0.5,
+      "shade": 0.55,
+      "flip": false,
+      "angle": 0,
+      "placeable": false
+    },
+    {
+      "id": "back-13",
+      "label": "远层轮生水草 14",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 82,
+      "opacity": 0.48,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": 0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-14",
+      "label": "远层轮生水草 15",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 123,
+      "opacity": 0.66,
+      "shade": 0.654,
+      "flip": false,
+      "angle": 0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-15",
+      "label": "远层轮生水草 16",
+      "type": "hornwort-100",
+      "band": 0,
+      "mm": 107,
+      "opacity": 0.51,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": -0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-16",
+      "label": "远层轮生水草 17",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 92,
+      "opacity": 0.39,
+      "shade": 0.55,
+      "flip": false,
+      "angle": -0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-17",
+      "label": "远层轮生水草 18",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 108,
+      "opacity": 0.49,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": 0,
+      "placeable": false
+    },
+    {
+      "id": "back-18",
+      "label": "远层轮生水草 19",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 120,
+      "opacity": 0.58,
+      "shade": 0.654,
+      "flip": false,
+      "angle": 0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-19",
+      "label": "远层轮生水草 20",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 46,
+      "opacity": 0.57,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": 0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-20",
+      "label": "远层轮生水草 21",
+      "type": "hornwort-100",
+      "band": 0,
+      "mm": 39,
+      "opacity": 0.49,
+      "shade": 0.55,
+      "flip": false,
+      "angle": -0.072,
+      "placeable": false
+    },
+    {
+      "id": "back-21",
+      "label": "远层轮生水草 22",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 48,
+      "opacity": 0.54,
+      "shade": 0.6020000000000001,
+      "flip": true,
+      "angle": -0.036,
+      "placeable": false
+    },
+    {
+      "id": "back-22",
+      "label": "远层轮生水草 23",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 52,
+      "opacity": 0.61,
+      "shade": 0.654,
+      "flip": false,
+      "angle": 0,
+      "placeable": false
+    },
+    {
+      "id": "back-23",
+      "label": "远层轮生水草 24",
+      "type": "whorls-rich",
+      "band": 0,
+      "mm": 48,
+      "opacity": 0.54,
+      "shade": 0.7060000000000001,
+      "flip": true,
+      "angle": 0.036,
+      "placeable": false
+    },
+    {
+      "id": "ribbon-back",
+      "label": "远层带叶水草",
+      "type": "ribbon-180",
+      "band": 0,
+      "mm": 142,
+      "flip": true,
+      "opacity": 0.37,
+      "shade": 0.67,
+      "angle": 0.14,
+      "placeable": false
+    },
+    {
+      "id": "ribbon-mid",
+      "label": "左中层带叶水草",
+      "type": "ribbon-180",
+      "band": 1,
+      "mm": 165,
+      "flip": true,
+      "opacity": 0.69,
+      "shade": 0.82,
+      "angle": 0.12,
+      "placeable": false
+    },
+    {
+      "id": "fern-left",
+      "label": "左侧中景水草",
+      "type": "whorls-rich",
+      "band": 1,
+      "mm": 123,
+      "opacity": 0.87,
+      "shade": 0.88,
+      "angle": 0.19,
+      "placeable": false
+    },
+    {
+      "id": "fern-pool",
+      "label": "池底远端水草",
+      "type": "whorls-rich",
+      "band": 1,
+      "mm": 61,
+      "opacity": 0.76,
+      "shade": 0.86,
+      "angle": -0.07,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "fern-right",
+      "label": "右侧中景水草",
+      "type": "whorls-rich",
+      "band": 1,
+      "mm": 106,
+      "opacity": 0.8,
+      "shade": 0.81,
+      "angle": -0.1,
+      "placeable": false
+    },
+    {
+      "id": "ribbon-right-tall",
+      "label": "高带叶侧景",
+      "type": "ribbon-180",
+      "band": 1,
+      "mm": 236,
+      "flip": true,
+      "angle": 0.14,
+      "shade": 0.92,
+      "opacity": 0.82,
+      "placeable": false
+    },
+    {
+      "id": "float-left",
+      "label": "左侧浮叶",
+      "type": "lily-rim",
+      "band": 2,
+      "mm": 45,
+      "angle": -0.12,
+      "rings": true,
+      "placeable": false
+    },
+    {
+      "id": "float-high",
+      "label": "上方浮叶",
+      "type": "lily-rim",
+      "band": 2,
+      "mm": 49,
+      "angle": 0.09,
+      "rings": true,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "float-right",
+      "label": "远处小浮叶",
+      "type": "floating-45",
+      "band": 2,
+      "mm": 34,
+      "shade": 0.84,
+      "angle": 0.13,
+      "rings": true,
+      "placeable": false
+    },
+    {
+      "id": "rock-mid-back",
+      "label": "远处高圆石",
+      "type": "rock-dome-100",
+      "band": 2,
+      "mm": 60,
+      "shade": 0.61,
+      "angle": 0.08,
+      "shadow": [
+        76,
+        16,
+        0.49
+      ],
+      "placeable": false
+    },
+    {
+      "id": "rock-mid-left",
+      "label": "中景左石",
+      "type": "rock-river-round",
+      "band": 3,
+      "mm": 67,
+      "shade": 0.82,
+      "angle": -0.16,
+      "shadow": [
+        109,
+        24,
+        0.57
+      ],
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "rock-mid-small",
+      "label": "中景小石",
+      "type": "rock-low-98",
+      "band": 3,
+      "mm": 31,
+      "shade": 0.69,
+      "angle": 0.12,
+      "shadow": [
+        42,
+        10,
+        0.49
+      ],
+      "placeable": false
+    },
+    {
+      "id": "rock-mid-left-low",
+      "label": "木下小扁石",
+      "type": "rock-low-98",
+      "band": 3,
+      "mm": 30,
+      "shade": 0.63,
+      "angle": 0.1,
+      "flip": true,
+      "shadow": [
+        37,
+        11,
+        0.52
+      ],
+      "placeable": false
+    },
+    {
+      "id": "leaf-back",
+      "label": "木下落叶",
+      "type": "leaf-55",
+      "band": 4,
+      "mm": 59,
+      "flat": 0.8,
+      "angle": 0.17,
+      "shade": 0.77,
+      "shadow": [
+        80,
+        12,
+        0.57
+      ],
+      "placeable": false
+    },
+    {
+      "id": "plant-left",
+      "label": "左前景轮生水草",
+      "type": "whorls-rich",
+      "band": 5,
+      "mm": 146,
+      "shade": 1.11,
+      "angle": 0.12,
+      "placeable": false
+    },
+    {
+      "id": "plant-left-fine",
+      "label": "左侧细枝水草",
+      "type": "hornwort-100",
+      "band": 5,
+      "mm": 87,
+      "shade": 0.86,
+      "angle": 0.27,
+      "flip": true,
+      "placeable": false
+    },
+    {
+      "id": "rock-left",
+      "label": "左侧低扁前景石",
+      "type": "rock-low-98",
+      "band": 6,
+      "mm": 98,
+      "shade": 1.04,
+      "saturation": 0.65,
+      "angle": -0.18,
+      "shadow": [
+        153,
+        30,
+        0.66
+      ],
+      "placeable": false
+    },
+    {
+      "id": "rock-right",
+      "label": "右侧高圆前景石",
+      "type": "rock-river-round",
+      "band": 6,
+      "mm": 100,
+      "shade": 1.18,
+      "angle": 0.12,
+      "shadow": [
+        148,
+        28,
+        0.65
+      ],
+      "placeable": false
+    },
+    {
+      "id": "leaf-front",
+      "label": "铺在底床的宽落叶",
+      "type": "leaf-105",
+      "band": 6,
+      "mm": 97,
+      "angle": 0.08,
+      "flat": 0.53,
+      "shade": 1.09,
+      "shadow": [
+        144,
+        17,
+        0.54
+      ],
+      "placeable": false
+    },
+    {
+      "id": "moss-floor",
+      "label": "左前景苔甸",
+      "type": "moss-ledge",
+      "band": 7,
+      "mm": 72,
+      "shade": 0.92,
+      "flat": 0.61,
+      "angle": 0.2,
+      "shadow": [
+        102,
+        15,
+        0.55
+      ],
+      "placeable": false
+    },
+    {
+      "id": "rock-bottom",
+      "label": "右下较小的扁石",
+      "type": "rock-low-98",
+      "band": 7,
+      "mm": 62,
+      "shade": 0.93,
+      "saturation": 0.71,
+      "angle": -0.08,
+      "flip": true,
+      "shadow": [
+        93,
+        20,
+        0.57
+      ],
+      "placeable": false
+    },
+    {
+      "id": "ribbon-side",
+      "label": "右侧高带叶水草",
+      "type": "ribbon-bright",
+      "band": 7,
+      "mm": 240,
+      "flip": true,
+      "angle": 0.075,
+      "shade": 0.9,
+      "rootCut": true,
+      "placeable": false
+    },
+    {
+      "id": "ribbon-front",
+      "label": "右前景低带叶水草",
+      "type": "ribbon-180",
+      "band": 8,
+      "mm": 135,
+      "flip": true,
+      "angle": -0.1,
+      "shade": 1.21,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-0",
+      "label": "沉木挂苔 1",
+      "type": "moss-42",
+      "band": 3,
+      "mm": 40,
+      "flat": 0.92,
+      "angle": 0.056999999999999995,
+      "shade": 1.05,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-1",
+      "label": "沉木挂苔 2",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 51,
+      "flat": 0.8799999999999999,
+      "angle": 0.119,
+      "shade": 1.12,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-2",
+      "label": "沉木挂苔 3",
+      "type": "moss-fringe",
+      "band": 3,
+      "mm": 36,
+      "flat": 0.79,
+      "angle": 0.181,
+      "shade": 1.19,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-3",
+      "label": "沉木挂苔 4",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 45,
+      "flat": 0.82,
+      "angle": 0.243,
+      "shade": 1.05,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-4",
+      "label": "沉木挂苔 5",
+      "type": "moss-42",
+      "band": 3,
+      "mm": 38,
+      "flat": 0.92,
+      "angle": 0.056999999999999995,
+      "shade": 1.12,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-5",
+      "label": "沉木挂苔 6",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 47,
+      "flat": 0.94,
+      "angle": 0.119,
+      "shade": 1.19,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-6",
+      "label": "沉木挂苔 7",
+      "type": "moss-fringe",
+      "band": 3,
+      "mm": 33,
+      "flat": 0.79,
+      "angle": 0.181,
+      "shade": 1.05,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-7",
+      "label": "沉木挂苔 8",
+      "type": "moss-drape",
+      "band": 3,
+      "mm": 43,
+      "flat": 0.92,
+      "angle": 0.243,
+      "shade": 1.12,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-8",
+      "label": "沉木挂苔 9",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 56,
+      "flat": 0.94,
+      "angle": 0.056999999999999995,
+      "shade": 1.19,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-9",
+      "label": "沉木挂苔 10",
+      "type": "moss-fringe",
+      "band": 3,
+      "mm": 30,
+      "flat": 0.79,
+      "angle": 0.119,
+      "shade": 1.05,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-10",
+      "label": "沉木挂苔 11",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 51,
+      "flat": 0.8799999999999999,
+      "angle": 0.181,
+      "shade": 1.12,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-11",
+      "label": "沉木挂苔 12",
+      "type": "moss-drape",
+      "band": 3,
+      "mm": 43,
+      "flat": 0.92,
+      "angle": 0.243,
+      "shade": 1.19,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-12",
+      "label": "沉木挂苔 13",
+      "type": "moss-fringe",
+      "band": 3,
+      "mm": 34,
+      "flat": 0.79,
+      "angle": 0.056999999999999995,
+      "shade": 1.05,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "wood-moss-13",
+      "label": "沉木挂苔 14",
+      "type": "moss-ledge",
+      "band": 3,
+      "mm": 51,
+      "flat": 0.8799999999999999,
+      "angle": 0.119,
+      "shade": 1.12,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "stone-left-moss-1",
+      "label": "左石苔甸",
+      "type": "moss-ledge",
+      "band": 6,
+      "mm": 48,
+      "flat": 0.83,
+      "angle": 0.39,
+      "shade": 1.02,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "stone-right-moss-1",
+      "label": "右石苔甸",
+      "type": "moss-ledge",
+      "band": 6,
+      "mm": 61,
+      "flat": 0.84,
+      "angle": 0.28,
+      "shade": 1.03,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "stone-right-moss-2",
+      "label": "右石垂苔",
+      "type": "moss-fringe",
+      "band": 6,
+      "mm": 23,
+      "flat": 0.65,
+      "angle": 0.2,
+      "shade": 0.98,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "stone-mid-moss",
+      "label": "中景石薄苔",
+      "type": "moss-42",
+      "band": 3,
+      "mm": 47,
+      "angle": 0.09,
+      "shade": 0.81,
+      "attachBand": 1,
+      "placeable": false
+    },
+    {
+      "id": "water-whorls",
+      "label": "轮生水草（造景）",
+      "type": "whorls-rich",
+      "band": 1,
+      "mm": 123,
+      "opacity": 0.87,
+      "shade": 0.88,
+      "angle": 0.19,
+      "placeable": true
+    },
+    {
+      "id": "water-ribbon",
+      "label": "带叶水草（造景）",
+      "type": "ribbon-180",
+      "band": 1,
+      "mm": 165,
+      "flip": true,
+      "opacity": 0.69,
+      "shade": 0.82,
+      "angle": 0.12,
+      "placeable": true
+    },
+    {
+      "id": "river-stone",
+      "label": "圆石（造景）",
+      "type": "rock-river-round",
+      "band": 3,
+      "mm": 67,
+      "shade": 0.82,
+      "angle": -0.16,
+      "shadow": [
+        109,
+        24,
+        0.57
+      ],
+      "flip": true,
+      "placeable": true
+    },
+    {
+      "id": "flat-stone",
+      "label": "扁石（造景）",
+      "type": "rock-low-98",
+      "band": 3,
+      "mm": 31,
+      "shade": 0.69,
+      "angle": 0.12,
+      "shadow": [
+        42,
+        10,
+        0.49
+      ],
+      "placeable": true
+    },
+    {
+      "id": "wide-leaf",
+      "label": "宽落叶（造景）",
+      "type": "leaf-105",
+      "band": 6,
+      "mm": 97,
+      "angle": 0.08,
+      "flat": 0.53,
+      "shade": 1.09,
+      "shadow": [
+        144,
+        17,
+        0.54
+      ],
+      "placeable": true
+    },
+    {
+      "id": "floating-leaf",
+      "label": "浮叶（造景）",
+      "type": "lily-rim",
+      "band": 2,
+      "mm": 45,
+      "angle": -0.12,
+      "rings": true,
+      "placeable": true
+    },
+    {
+      "id": "moss-mat",
+      "label": "底床苔甸（造景）",
+      "type": "moss-ledge",
+      "band": 7,
+      "mm": 72,
+      "shade": 0.92,
+      "flat": 0.61,
+      "angle": 0.2,
+      "shadow": [
+        102,
+        15,
+        0.55
+      ],
+      "placeable": true
+    },
+    {
+      "id": "bottom-fine-sand-patch",
+      "label": "细砂斑（仅造景）",
+      "type": "sand-fine-100",
+      "band": 1,
+      "mm": 100,
+      "bedAnchor": { "x": [0.15, 0.85], "y": [0.77, 0.94] },
+      "placeable": true
+    },
+    {
+      "id": "bottom-coarse-sand-patch",
+      "label": "粗砂斑（仅造景）",
+      "type": "sand-coarse-100",
+      "band": 1,
+      "mm": 100,
+      "bedAnchor": { "x": [0.15, 0.85], "y": [0.77, 0.94] },
+      "placeable": true
+    },
+    {
+      "id": "bottom-gravel-patch",
+      "label": "小砾砂斑（仅造景）",
+      "type": "gravel-patch-100",
+      "band": 1,
+      "mm": 100,
+      "bedAnchor": { "x": [0.15, 0.85], "y": [0.77, 0.94] },
+      "placeable": true
+    }
+  ],
+  "initial": [
+    {
+      "id": 1,
+      "style": "back-0",
+      "x": 0.015625,
+      "y": 0.7160493827160493
+    },
+    {
+      "id": 2,
+      "style": "back-1",
+      "x": 0.06944444444444445,
+      "y": 0.6975308641975309
+    },
+    {
+      "id": 3,
+      "style": "back-2",
+      "x": 0.125,
+      "y": 0.7191358024691358
+    },
+    {
+      "id": 4,
+      "style": "back-3",
+      "x": 0.18229166666666666,
+      "y": 0.7253086419753086
+    },
+    {
+      "id": 5,
+      "style": "back-4",
+      "x": 0.2378472222222222,
+      "y": 0.7222222222222222
+    },
+    {
+      "id": 6,
+      "style": "back-5",
+      "x": 0.2934027777777778,
+      "y": 0.7129629629629629
+    },
+    {
+      "id": 7,
+      "style": "back-6",
+      "x": 0.3489583333333333,
+      "y": 0.7314814814814815
+    },
+    {
+      "id": 8,
+      "style": "back-7",
+      "x": 0.40625,
+      "y": 0.6820987654320988
+    },
+    {
+      "id": 9,
+      "style": "back-8",
+      "x": 0.4722222222222222,
+      "y": 0.6944444444444444
+    },
+    {
+      "id": 10,
+      "style": "back-9",
+      "x": 0.5225694444444444,
+      "y": 0.7191358024691358
+    },
+    {
+      "id": 11,
+      "style": "back-10",
+      "x": 0.5642361111111112,
+      "y": 0.6851851851851852
+    },
+    {
+      "id": 12,
+      "style": "back-11",
+      "x": 0.6041666666666666,
+      "y": 0.7037037037037037
+    },
+    {
+      "id": 13,
+      "style": "back-12",
+      "x": 0.6614583333333334,
+      "y": 0.7376543209876543
+    },
+    {
+      "id": 14,
+      "style": "back-13",
+      "x": 0.7118055555555556,
+      "y": 0.6944444444444444
+    },
+    {
+      "id": 15,
+      "style": "back-14",
+      "x": 0.7708333333333334,
+      "y": 0.7283950617283951
+    },
+    {
+      "id": 16,
+      "style": "back-15",
+      "x": 0.8159722222222222,
+      "y": 0.7191358024691358
+    },
+    {
+      "id": 17,
+      "style": "back-16",
+      "x": 0.8767361111111112,
+      "y": 0.7006172839506173
+    },
+    {
+      "id": 18,
+      "style": "back-17",
+      "x": 0.9427083333333334,
+      "y": 0.7129629629629629
+    },
+    {
+      "id": 19,
+      "style": "back-18",
+      "x": 0.9947916666666666,
+      "y": 0.7314814814814815
+    },
+    {
+      "id": 20,
+      "style": "back-19",
+      "x": 0.17708333333333334,
+      "y": 0.7777777777777778
+    },
+    {
+      "id": 21,
+      "style": "back-20",
+      "x": 0.4305555555555556,
+      "y": 0.7530864197530864
+    },
+    {
+      "id": 22,
+      "style": "back-21",
+      "x": 0.5538194444444444,
+      "y": 0.7654320987654321
+    },
+    {
+      "id": 23,
+      "style": "back-22",
+      "x": 0.6354166666666666,
+      "y": 0.7932098765432098
+    },
+    {
+      "id": 24,
+      "style": "back-23",
+      "x": 0.7447916666666666,
+      "y": 0.7839506172839507
+    },
+    {
+      "id": 25,
+      "style": "ribbon-back",
+      "x": 0.8524305555555556,
+      "y": 0.7314814814814815
+    },
+    {
+      "id": 26,
+      "style": "ribbon-mid",
+      "x": 0.4427083333333333,
+      "y": 0.8117283950617284
+    },
+    {
+      "id": 27,
+      "style": "fern-left",
+      "x": 0.13368055555555555,
+      "y": 0.7746913580246914
+    },
+    {
+      "id": 28,
+      "style": "fern-pool",
+      "x": 0.6284722222222222,
+      "y": 0.7808641975308642
+    },
+    {
+      "id": 29,
+      "style": "fern-right",
+      "x": 0.8923611111111112,
+      "y": 0.8024691358024691
+    },
+    {
+      "id": 30,
+      "style": "ribbon-right-tall",
+      "x": 1.0520833333333333,
+      "y": 0.8117283950617284
+    },
+    {
+      "id": 31,
+      "style": "float-left",
+      "x": 0.10069444444444445,
+      "y": 0.08641975308641975
+    },
+    {
+      "id": 32,
+      "style": "float-high",
+      "x": 0.3732638888888889,
+      "y": 0.046296296296296294
+    },
+    {
+      "id": 33,
+      "style": "float-right",
+      "x": 0.6319444444444444,
+      "y": 0.13271604938271606
+    },
+    {
+      "id": 34,
+      "style": "rock-mid-back",
+      "x": 0.7118055555555556,
+      "y": 0.7314814814814815
+    },
+    {
+      "id": 35,
+      "style": "rock-mid-left",
+      "x": 0.4079861111111111,
+      "y": 0.8333333333333334
+    },
+    {
+      "id": 36,
+      "style": "rock-mid-small",
+      "x": 0.5138888888888888,
+      "y": 0.8209876543209876
+    },
+    {
+      "id": 37,
+      "style": "rock-mid-left-low",
+      "x": 0.2986111111111111,
+      "y": 0.8518518518518519
+    },
+    {
+      "id": 38,
+      "style": "leaf-back",
+      "x": 0.2899305555555556,
+      "y": 0.8117283950617284
+    },
+    {
+      "id": 39,
+      "style": "plant-left",
+      "x": 0.03993055555555555,
+      "y": 0.9135802469135802
+    },
+    {
+      "id": 40,
+      "style": "plant-left-fine",
+      "x": -0.006944444444444444,
+      "y": 0.941358024691358
+    },
+    {
+      "id": 41,
+      "style": "rock-left",
+      "x": 0.06076388888888889,
+      "y": 0.9722222222222222
+    },
+    {
+      "id": 42,
+      "style": "rock-right",
+      "x": 0.8854166666666666,
+      "y": 0.9135802469135802
+    },
+    {
+      "id": 43,
+      "style": "leaf-front",
+      "x": 0.6979166666666666,
+      "y": 0.9537037037037037
+    },
+    {
+      "id": 44,
+      "style": "moss-floor",
+      "x": 0.2309027777777778,
+      "y": 1.0061728395061729
+    },
+    {
+      "id": 45,
+      "style": "rock-bottom",
+      "x": 0.8611111111111112,
+      "y": 1.0401234567901234
+    },
+    {
+      "id": 46,
+      "style": "ribbon-side",
+      "x": 1,
+      "y": 0.9938271604938271
+    },
+    {
+      "id": 47,
+      "style": "ribbon-front",
+      "x": 0.9774305555555556,
+      "y": 1.0030864197530864
+    },
+    {
+      "id": 48,
+      "style": "wood-moss-0",
+      "x": 0.043,
+      "y": 0.718,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 49,
+      "style": "wood-moss-1",
+      "x": 0.113,
+      "y": 0.634,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 50,
+      "style": "wood-moss-2",
+      "x": 0.167,
+      "y": 0.563,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 51,
+      "style": "wood-moss-3",
+      "x": 0.235,
+      "y": 0.522,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 52,
+      "style": "wood-moss-4",
+      "x": 0.288,
+      "y": 0.49,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 53,
+      "style": "wood-moss-5",
+      "x": 0.343,
+      "y": 0.468,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 54,
+      "style": "wood-moss-6",
+      "x": 0.411,
+      "y": 0.438,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 55,
+      "style": "wood-moss-7",
+      "x": 0.475,
+      "y": 0.403,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 56,
+      "style": "wood-moss-8",
+      "x": 0.537,
+      "y": 0.38,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 57,
+      "style": "wood-moss-9",
+      "x": 0.618,
+      "y": 0.326,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 58,
+      "style": "wood-moss-10",
+      "x": 0.682,
+      "y": 0.313,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 59,
+      "style": "wood-moss-11",
+      "x": 0.76,
+      "y": 0.259,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 60,
+      "style": "wood-moss-12",
+      "x": 0.835,
+      "y": 0.202,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 61,
+      "style": "wood-moss-13",
+      "x": 0.9,
+      "y": 0.149,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      }
+    },
+    {
+      "id": 62,
+      "style": "stone-left-moss-1",
+      "x": 0.37,
+      "y": 0.43,
+      "parent": {
+        "kind": "scenery",
+        "id": 41
+      }
+    },
+    {
+      "id": 63,
+      "style": "stone-right-moss-1",
+      "x": 0.31,
+      "y": 0.5,
+      "parent": {
+        "kind": "scenery",
+        "id": 42
+      }
+    },
+    {
+      "id": 64,
+      "style": "stone-right-moss-2",
+      "x": 0.47,
+      "y": 0.34,
+      "parent": {
+        "kind": "scenery",
+        "id": 42
+      }
+    },
+    {
+      "id": 65,
+      "style": "stone-mid-moss",
+      "x": 0.42,
+      "y": 0.42,
+      "parent": {
+        "kind": "scenery",
+        "id": 35
+      }
+    }
+  ],
+  "art": {
+    "pebble-16": {
+      "file": "pebble-16.png",
+      "mm": 16,
+      "projection": 1,
+      "axis": [
+        [
+          0.2489301,
+          0.5918004
+        ],
+        [
+          0.743224,
+          0.583779
+        ]
+      ],
+      "anchor": [
+        0.4992867,
+        0.6951872
+      ]
+    },
+    "moss-42": {
+      "file": "moss-42.png",
+      "mm": 42,
+      "projection": 1,
+      "axis": [
+        [
+          0.047076,
+          0.513369
+        ],
+        [
+          0.948645,
+          0.736631
+        ]
+      ],
+      "anchor": [
+        0.497385,
+        0.791444
+      ]
+    },
+    "hornwort-100": {
+      "file": "hornwort-100.png",
+      "mm": 100,
+      "projection": 1,
+      "axis": [
+        [
+          0.404297,
+          0.985677
+        ],
+        [
+          0.580078,
+          0.014974
+        ]
+      ],
+      "anchor": [
+        0.404297,
+        0.985677
+      ]
+    },
+    "leaf-55": {
+      "file": "leaf-55.png",
+      "mm": 55,
+      "projection": 0.9,
+      "axis": [
+        [
+          0.161616,
+          0.795455
+        ],
+        [
+          0.988836,
+          0.108852
+        ]
+      ],
+      "anchor": [
+        0.505051,
+        0.729665
+      ]
+    },
+    "ribbon-180": {
+      "file": "ribbon-180.png",
+      "mm": 180,
+      "projection": 0.75,
+      "axis": [
+        [
+          0.4095052083333333,
+          0.8486328125
+        ],
+        [
+          0.8828125,
+          0.283203125
+        ]
+      ],
+      "anchor": [
+        0.4095052083333333,
+        0.8486328125
+      ]
+    },
+    "floating-45": {
+      "file": "floating-45.png",
+      "mm": 45,
+      "projection": 1,
+      "axis": [
+        [
+          0.2786458333333333,
+          0.30078125
+        ],
+        [
+          0.71484375,
+          0.296875
+        ]
+      ],
+      "anchor": [
+        0.5013020833333334,
+        0.376953125
+      ]
+    },
+    "shrimp-swim-20": {
+      "file": "shrimp-swim-20.png",
+      "mm": 20,
+      "projection": 1,
+      "axis": [
+        [
+          0.64388021,
+          0.44042969
+        ],
+        [
+          0.19856771,
+          0.54003906
+        ]
+      ],
+      "anchor": [
+        0.48567708,
+        0.4921875
+      ]
+    },
+    "shrimp-rest-20": {
+      "file": "shrimp-rest-20.png",
+      "mm": 20,
+      "projection": 1,
+      "axis": [
+        [
+          0.63476563,
+          0.43945313
+        ],
+        [
+          0.19205729,
+          0.53613281
+        ]
+      ],
+      "anchor": [
+        0.50065104,
+        0.68847656
+      ]
+    },
+    "moss-drape": {
+      "file": "moss-drape.png",
+      "mm": 62,
+      "projection": 1,
+      "axis": [
+        [
+          0.117188,
+          0.696289
+        ],
+        [
+          0.910807,
+          0.241211
+        ]
+      ],
+      "anchor": [
+        0.50651,
+        0.512695
+      ]
+    },
+    "leaf-105": {
+      "file": "leaf-105.png",
+      "mm": 105,
+      "projection": 0.9,
+      "axis": [
+        [
+          0.162909,
+          0.77903
+        ],
+        [
+          0.940248,
+          0.054115
+        ]
+      ],
+      "anchor": [
+        0.523112,
+        0.871477
+      ]
+    },
+    "moss-fringe": {
+      "file": "moss-fringe.png",
+      "mm": 32,
+      "projection": 1,
+      "axis": [
+        [
+          0.16114180478821363,
+          0.337707182320442
+        ],
+        [
+          0.7780847145488029,
+          0.1505524861878453
+        ]
+      ],
+      "anchor": [
+        0.4852670349907919,
+        0.2534530386740331
+      ]
+    },
+    "whorls-rich": {
+      "file": "whorls-rich.png",
+      "mm": 118,
+      "projection": 1,
+      "axis": [
+        [
+          0.44335938,
+          0.984375
+        ],
+        [
+          0.47167969,
+          0.01757813
+        ]
+      ],
+      "anchor": [
+        0.44335938,
+        0.984375
+      ]
+    },
+    "ribbon-bright": {
+      "file": "ribbon-bright.png",
+      "mm": 180,
+      "projection": 0.63,
+      "axis": [
+        [
+          0.4728214,
+          0.80383481
+        ],
+        [
+          0.03451251,
+          0.22492625
+        ]
+      ],
+      "anchor": [
+        0.4728214,
+        0.80383481
+      ]
+    },
+    "rock-low-98": {
+      "file": "rock-low-98.png",
+      "mm": 98,
+      "projection": 1,
+      "axis": [
+        [
+          0.007065,
+          0.619883
+        ],
+        [
+          0.993478,
+          0.619883
+        ]
+      ],
+      "anchor": [
+        0.499457,
+        0.915789
+      ]
+    },
+    "rock-dome-100": {
+      "file": "rock-dome-100.png",
+      "mm": 100,
+      "projection": 1,
+      "axis": [
+        [
+          0.014825,
+          0.601887
+        ],
+        [
+          0.983827,
+          0.646226
+        ]
+      ],
+      "anchor": [
+        0.50876,
+        0.928302
+      ]
+    },
+    "wood-ridged": {
+      "file": "wood-ridged.png",
+      "mm": 420,
+      "projection": 0.9,
+      "axis": [
+        [
+          0.019337016574585635,
+          0.8853591160220995
+        ],
+        [
+          0.9769797421731123,
+          0.08287292817679558
+        ]
+      ],
+      "anchor": [
+        0.28084714548802947,
+        0.9668508287292817
+      ]
+    },
+    "moss-ledge": {
+      "file": "moss-ledge.png",
+      "mm": 58,
+      "projection": 1,
+      "axis": [
+        [
+          0.060879368658399095,
+          0.7001127395715896
+        ],
+        [
+          0.9301014656144306,
+          0.24689966178128522
+        ]
+      ],
+      "anchor": [
+        0.5016910935738444,
+        0.6471251409244645
+      ]
+    },
+    "rock-river-round": {
+      "file": "rock-river-round.png",
+      "mm": 100,
+      "projection": 1,
+      "axis": [
+        [
+          0.02670807453416149,
+          0.6151484135107472
+        ],
+        [
+          0.9714285714285714,
+          0.6141248720573184
+        ]
+      ],
+      "anchor": [
+        0.5049689440993789,
+        0.9263050153531218
+      ]
+    },
+    "sand-fine-100": {
+      "file": "sand-fine-100.png",
+      "mm": 100,
+      "projection": 1,
+      "axis": [[0, 0.5], [1, 0.5]],
+      "anchor": [0.5, 0.5]
+    },
+    "sand-coarse-100": {
+      "file": "sand-coarse-100.png",
+      "mm": 100,
+      "projection": 1,
+      "axis": [[0, 0.5], [1, 0.5]],
+      "anchor": [0.5, 0.5]
+    },
+    "sedge-shoot": {
+      "file": "sedge-shoot.png",
+      "mm": 220,
+      "projection": 1,
+      "axis": [[0.4756, 0.1003], [0.4756, 0.911]],
+      "anchor": [0.4756, 0.911]
+    },
+    "sedge-bank-roots": {
+      "file": "sedge-bank-roots.png",
+      "mm": 40,
+      "projection": 1,
+      "axis": [[0.233, 0.67], [0.738, 0.67]],
+      "anchor": [0.511, 0.36]
+    },
+    "lily-rim": {
+      "file": "lily-rim.png",
+      "mm": 45,
+      "projection": 1,
+      "axis": [
+        [
+          0.23372395833333334,
+          0.2578125
+        ],
+        [
+          0.7565104166666666,
+          0.232421875
+        ]
+      ],
+      "anchor": [
+        0.552734375,
+        0.32421875
+      ]
+    }
+  },
+  "gravelPatch": {
+    "type": "gravel-patch-100",
+    "source": "pebble-16",
+    "spanMm": 100,
+    "projectedDepthMm": 30,
+    "grains": [
+      [-46,3,2,-0.22], [-41,-1,4,0.26], [-36,6,3,-0.42], [-32,-4,6,0.13], [-29,2,5,0.38],
+      [-25,-7,2,-0.09], [-23,8,4,-0.26], [-20,1,6,0.15], [-15,-6,5,-0.20], [-13,6,8,0.31],
+      [-8,-2,4,0.22], [-4,8,3,-0.37], [-2,-7,5,0.16], [2,1,8,-0.31], [6,7,3,0.16],
+      [10,-4,6,0.05], [15,3,4,-0.41], [18,-6,2,0.44], [20,7,7,0.29], [24,0,5,-0.24],
+      [28,-7,4,-0.37], [31,5,6,0.23], [35,-1,3,0.19], [41,6,4,-0.28], [46,1,2,0.15]
+    ]
+  },
+  "environment": {
+    "bed": "water-bed.png",
+    "surface": "water-surface.png",
+    "caustics": "water-caustics.png",
+    "mirror": "water-mirror.png"
+  },
+  "physical": {
+    "slope": {
+      "id": "branch",
+      "label": "有裂纹与分叉的沉木",
+      "type": "wood-ridged",
+      "band": 3,
+      "angle": -0.085,
+      "shade": 1.13,
+      "shadow": [
+        136,
+        32,
+        0.65
+      ],
+      "extraShadow": {
+        "local": [
+          0.055,
+          0.923
+        ],
+        "size": [
+          112,
+          20,
+          0.53
+        ]
+      },
+      "placeable": false
+    },
+    "main": {
+      "id": "rock-mid-right",
+      "label": "中景右扁石",
+      "type": "rock-low-98",
+      "band": 3,
+      "mm": 48,
+      "shade": 0.73,
+      "angle": 0.04,
+      "shadow": [
+        67,
+        13,
+        0.57
+      ],
+      "placeable": false
+    }
+  }
+}

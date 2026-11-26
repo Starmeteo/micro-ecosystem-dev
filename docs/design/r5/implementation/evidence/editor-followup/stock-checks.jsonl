@@ -1,0 +1,3 @@
+{"case":"owned-installed-process","pid":30680,"bootGeneration":"f3c681f6-7869-4ead-90ac-489a3e6d7d5b"}
+{"case":"native-woodlice","initial":4,"after":6,"ids":["isopod-5","isopod-6"],"blockedOutside":true,"exactUndoRedo":true}
+{"case":"native-pond-stock","shrimpBefore":3,"shrimpAfter":5,"adult":4,"juvenile":1,"daphniaBefore":48,"daphniaAfter":60,"keyboardPlacement":true}

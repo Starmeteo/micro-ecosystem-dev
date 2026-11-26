@@ -1,0 +1,4 @@
+{"case":"owned-installed-process","pid":74676,"bootGeneration":"7a76c86b-4dab-437e-ad28-aad85d8004ea"}
+{"case":"native-f10","id":4,"cells":[17,8],"mgC":[15,3],"trimToLitterMgC":12,"canopy":[0.28,0.05600000000000001],"assetFrames":["open","tender"],"undoRestored":true}
+{"case":"native-p05","id":1,"fromX":0.4700000621493648,"toX":0.7600001101410098,"initialMgC":50,"addedDetritusMgC":50,"unchangedOnMove":true,"stage":"whole","undoRedo":true}
+{"case":"native-dual-basin","ids":["pond-main","pond-2"],"firstWaterLiters":18,"secondWaterLiters":18.8,"touchRejected":true,"onlyTargetChanged":true}

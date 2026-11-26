@@ -1,0 +1,59 @@
+[
+  {
+    "check": "isolated WebView2",
+    "result": {
+      "labels": [
+        "layout",
+        "panel",
+        "observe",
+        "editor"
+      ],
+      "appPort": "1426",
+      "browser": "Edg/158.0.4370.33"
+    }
+  },
+  {
+    "check": "private profile ownership",
+    "result": {
+      "processId": 66336,
+      "bootGeneration": "25582f0d-54cb-4747-81ec-be7e2573c80f"
+    }
+  },
+  {
+    "check": "new native process reopened the same scene and ecology",
+    "result": {
+      "worldId": "pond-5b680e5631344443ab369884c65f55f3",
+      "definition": "pond-shallow-r5-composed/1",
+      "oldProcessId": 28148,
+      "processId": 66336,
+      "originalGeneration": "3968357f-2432-4307-8d14-8ee1351e928c",
+      "generation": "25582f0d-54cb-4747-81ec-be7e2573c80f",
+      "anchor": "1:178.87999446871729,242"
+    }
+  },
+  {
+    "check": "native scenery select add undo",
+    "result": {
+      "child": 48,
+      "parent": {
+        "kind": "wood",
+        "id": 1
+      },
+      "added": {
+        "id": 66,
+        "style": "wide-leaf",
+        "x": 0.7760417138012404,
+        "y": 0.9043210115233016
+      },
+      "revision": "5"
+    }
+  },
+  {
+    "check": "owned instance exited through save-and-exit",
+    "result": {
+      "processId": 66336,
+      "appPort": "1426",
+      "webViewPort": "43947"
+    }
+  }
+]

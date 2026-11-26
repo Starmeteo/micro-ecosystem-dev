@@ -1,0 +1,27 @@
+{
+  "fixture": "isolated Edge with supplied React snapshot props",
+  "presentCount": 49,
+  "points": 9,
+  "largeCount": 2048,
+  "maxPoints": 32,
+  "knownZeroStock": [
+    0,
+    0,
+    0
+  ],
+  "states": [
+    "present",
+    "empty",
+    "dry",
+    "unavailable"
+  ],
+  "keyboardOpens": true,
+  "pointerOpens": true,
+  "missingStockUnavailable": true,
+  "drawing": {
+    "width": 528,
+    "height": 280,
+    "filled": 31951,
+    "description": "水蚤侧视形态示意，透明卵形壳、眼、分枝触角和尾刺。标尺为躯体参考长 2 毫米。"
+  }
+}

@@ -1,0 +1,9 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.47s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 1 test
+test forest_scenery::tests::r5_seed_shells_are_ground_decorations_without_resource_or_simulation_changes ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 111 filtered out; finished in 0.00s
+

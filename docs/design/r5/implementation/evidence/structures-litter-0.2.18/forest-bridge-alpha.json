@@ -1,0 +1,50 @@
+[
+  {
+    "file": "apps/desktop/src/render/assets/r5/forest-composed/bridge-root.png",
+    "sha256": "23c63bee607c6e42afcb3f3e5f054d670bd05b20170940d18876bf336b80d619",
+    "mode": "RGBA",
+    "loaded_dimensions": [
+      2172,
+      724
+    ],
+    "alpha_bbox": [
+      49,
+      101,
+      2121,
+      598
+    ],
+    "reference_span_mm": 140,
+    "model_clear_width_mm": 65,
+    "model_clear_height_mm": 12,
+    "one_source_pixel_outer_margin_visible_pixels": 3,
+    "visible_pixels_in_opening_interior": 0,
+    "support_alpha_at_foot": [
+      253,
+      252
+    ]
+  },
+  {
+    "file": "apps/desktop/src/render/assets/r5/forest-composed/bridge-branch.png",
+    "sha256": "35d2af1ab7966a36f88eceafeba8f3dc905c404e0d88c1215da60c1aecb7f131",
+    "mode": "RGBA",
+    "loaded_dimensions": [
+      2172,
+      724
+    ],
+    "alpha_bbox": [
+      224,
+      125,
+      1988,
+      594
+    ],
+    "reference_span_mm": 200,
+    "model_clear_width_mm": 90,
+    "model_clear_height_mm": 22,
+    "one_source_pixel_outer_margin_visible_pixels": 0,
+    "visible_pixels_in_opening_interior": 0,
+    "support_alpha_at_foot": [
+      252,
+      253
+    ]
+  }
+]

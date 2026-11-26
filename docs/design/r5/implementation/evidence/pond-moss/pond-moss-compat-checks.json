@@ -1,0 +1,92 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1425",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "v11-keeps-original-wood-and-water",
+      "via": "actual library and exact older snapshot",
+      "result": {
+        "worldId": "pond-8293a564b2cb4f8e81eef80cab200de3",
+        "worldName": "R5 沉木验收 2026-11-25T11:14:17.198Z",
+        "definition": "pond-shallow-r5-wood/1",
+        "modelVersion": 11,
+        "runGeneration": "163e7c36-71ed-4708-a7b0-a7d1737e8955",
+        "editRevision": "1",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 18,
+              "capacityLiters": 28.8,
+              "depthCm": 7.5,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 21,
+              "oxygenMgPerLiter": 7.400000000000001,
+              "availableNitrogenMgPerLiter": 0.35,
+              "availablePhosphorusMgPerLiter": 0.05,
+              "algaeMgC": 30,
+              "biofilmMgC": 24,
+              "plantMgC": 150,
+              "detritusMgC": 120,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.24,
+                  "y": 0.5500000351901607,
+                  "heading": 3.599703082040347,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.48,
+                  "y": 0.6138932689328662,
+                  "heading": 4.211306076783676,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.72,
+                  "y": 0.7667714808121766,
+                  "heading": 1.0764718033320413,
+                  "activity": "resting"
+                }
+              ],
+              "turbidityIndex": 0.25,
+              "stones": [],
+              "woods": [
+                {
+                  "id": 1,
+                  "x": 0.5,
+                  "preset": "root"
+                }
+              ],
+              "shrimpAttachments": []
+            }
+          ]
+        },
+        "lastSaveMessage": "已切换世界"
+      }
+    }
+  ]
+}

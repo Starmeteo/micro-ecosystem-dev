@@ -1,0 +1,29 @@
+Windows x64 workspace tests, 2026-11-26 (Beijing time).
+cargo test --locked --workspace -- --skip paired_seeds_show_water_and_woodlouse_feedback_after_the_same_elapsed_time
+
+     Running unittests src\lib.rs (target\debug\build\eco-core/ac23112934c164c1\out\eco_core-ac23112934c164c1.exe)
+running 72 tests
+test result: ok. 72 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.33s
+     Running unittests src\main.rs (target\debug\build\micro-ecosystem-desktop/6803bf0b6f5858b1\out\micro_ecosystem_desktop-6803bf0b6f5858b1.exe)
+running 20 tests
+test result: ok. 20 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+     Running unittests src\lib.rs (target\debug\build\world-runtime/2aac44e7939eb78f\out\world_runtime-2aac44e7939eb78f.exe)
+running 51 tests
+test tests::r5_decorative_bed_materials_preserve_wet_and_dry_state_through_history_and_copy ... ok
+test result: ok. 51 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+     Running unittests src\bin\m0-headless.rs (target\debug\build\world-runtime/79b7af6ab9f7e898\out\m0_headless-79b7af6ab9f7e898.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m1-forest-replay.rs (target\debug\build\world-runtime/8ea988cb1676f719\out\m1_forest_replay-8ea988cb1676f719.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m2-pond-replay.rs (target\debug\build\world-runtime/ec0582a2bfaed183\out\m2_pond_replay-ec0582a2bfaed183.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src\bin\m4-long-run.rs (target\debug\build\world-runtime/6e31187fb235c7f8\out\m4_long_run-6e31187fb235c7f8.exe)
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+running 0 tests
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

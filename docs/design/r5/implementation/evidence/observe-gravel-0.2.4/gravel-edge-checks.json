@@ -1,0 +1,28 @@
+{
+  "edgePreviewCannotCommit": true,
+  "floatingRejected": true,
+  "invalidDragRejected": true,
+  "wet": [
+    {
+      "id": 66,
+      "style": "bottom-gravel-patch",
+      "x": 0.4799999812193893,
+      "y": 0.8700000648368308
+    }
+  ],
+  "dry": [
+    {
+      "id": 66,
+      "style": "bottom-gravel-patch",
+      "x": 0.4799999812193893,
+      "y": 0.8700000648368308
+    },
+    {
+      "id": 67,
+      "style": "bottom-gravel-patch",
+      "x": 0.6799999768262639,
+      "y": 0.8700000648368308
+    }
+  ],
+  "errors": []
+}

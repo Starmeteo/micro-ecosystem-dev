@@ -1,0 +1,41 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+   Compiling world-runtime v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\world-runtime)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.85s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 1 test
+test forest::tests::forest_bridge_feet_block_but_both_raised_spans_allow_animal_passage ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 108 filtered out; finished in 0.00s
+
+     Running unittests src\lib.rs (target\debug\build\world-runtime/c6e7c9e6d46cd105\out\world_runtime-c6e7c9e6d46cd105.exe)
+
+running 1 test
+test tests::r5_forest_bridges_move_mirror_round_trip_and_seed_a_custom_preset ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 62 filtered out; finished in 0.01s
+
+     Running unittests src\bin\m0-headless.rs (target\debug\build\world-runtime/d1a13cfe261ed6b7\out\m0_headless-d1a13cfe261ed6b7.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m1-forest-replay.rs (target\debug\build\world-runtime/85da7a1109d462cb\out\m1_forest_replay-85da7a1109d462cb.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m2-pond-replay.rs (target\debug\build\world-runtime/b3f9be084ffefc1a\out\m2_pond_replay-b3f9be084ffefc1a.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\bin\m4-long-run.rs (target\debug\build\world-runtime/32554700c8095f56\out\m4_long_run-32554700c8095f56.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

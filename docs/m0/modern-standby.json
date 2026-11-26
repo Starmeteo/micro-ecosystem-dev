@@ -1,0 +1,60 @@
+{
+  "kind": "Windows Modern Standby S0",
+  "kernelPowerEntry": {
+    "id": 506,
+    "localTime": "2026-11-24T16:57:11.8049578+08:00"
+  },
+  "kernelPowerExit": {
+    "id": 507,
+    "localTime": "2026-11-24T16:57:36.7908857+08:00"
+  },
+  "kernelEventGapSeconds": 24.9859279,
+  "previousSample": {
+    "tick": "636",
+    "paused": false,
+    "suspended": false,
+    "wallMillis": 1795510631254,
+    "details": {
+      "activeClock100ns": 2818901366646,
+      "backlogMillis": 96
+    }
+  },
+  "nativeTransitions": [
+    {
+      "tick": "642",
+      "paused": false,
+      "suspended": true,
+      "wallMillis": 1795510653750,
+      "details": {
+        "activeClock100ns": 2819126331472,
+        "stamp": 3,
+        "suspended": true
+      }
+    },
+    {
+      "tick": "642",
+      "paused": false,
+      "suspended": false,
+      "wallMillis": 1795510653777,
+      "details": {
+        "activeClock100ns": 2819126597638,
+        "stamp": 4,
+        "suspended": false
+      }
+    }
+  ],
+  "firstLaterRunningSample": {
+    "tick": "652",
+    "paused": false,
+    "suspended": false,
+    "wallMillis": 1795510654764,
+    "details": {
+      "activeClock100ns": 2819136470372,
+      "backlogMillis": 41
+    }
+  },
+  "nativeTickStayedConstant": true,
+  "chartSecondsPerTick": 0.1,
+  "wallGapToFirstPowerMessageMillis": 22496,
+  "activeClockGapToFirstPowerMessageMillis": 22496.4826
+}

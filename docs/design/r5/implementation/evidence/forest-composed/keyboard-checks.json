@@ -1,0 +1,60 @@
+[
+  {
+    "check": "isolated WebView2",
+    "result": {
+      "labels": [
+        "layout",
+        "panel",
+        "observe",
+        "editor"
+      ],
+      "appPort": "1427",
+      "browser": "Edg/158.0.4370.33"
+    }
+  },
+  {
+    "check": "private profile ownership",
+    "result": {
+      "processId": 63688,
+      "bootGeneration": "241bdbee-372b-4b4f-9cfe-52200605b072"
+    }
+  },
+  {
+    "check": "opaque overlaid child remains pickable over selected native carrier",
+    "result": {
+      "carrier": 2,
+      "id": 19,
+      "point": [
+        55.000042693495686,
+        162
+      ]
+    }
+  },
+  {
+    "check": "stale keyboard draft discarded when native inspector selection changes",
+    "result": {
+      "abandonedTerrain": 2,
+      "preview": "ground",
+      "selectedScenery": 72,
+      "unchangedRevision": "17",
+      "acceptedRevision": "18",
+      "undo": "19",
+      "before": [
+        0.6145833800018922,
+        0.8425925737942477
+      ],
+      "after": [
+        0.6185833800018922,
+        0.8385925737942477
+      ]
+    }
+  },
+  {
+    "check": "owned instance exited through save-and-exit",
+    "result": {
+      "processId": 63688,
+      "appPort": "1427",
+      "webViewPort": "43948"
+    }
+  }
+]

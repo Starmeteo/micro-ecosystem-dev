@@ -1,0 +1,23 @@
+✔ combined slots fit both auxiliary pieces inside the original enclosure (1.7585ms)
+✔ dragging and raising ecology carry its attached pieces while allowing external overlap (0.4891ms)
+✔ a nearby neighbor beats the lattice and snaps each moving axis to the previewed placement (0.1627ms)
+✔ small lattice radius leaves open placement and does not change an untouched axis (0.1178ms)
+✔ whole-panel snapping keeps the physical grid relative to the DPI-scaled work area (0.1156ms)
+✔ switching from combined to free gives both cards a separate starting position (0.2038ms)
+✔ mixed dragging shows a free ghost before attachment and allows a later detachment (0.2011ms)
+✔ snapping a free ghost across the docking margin does not attach before the pointer does (0.1048ms)
+✔ moving a panel origin clips the group as a unit (0.1077ms)
+✔ V1 migration preserves piece identities, order, positions and idle preferences (0.3121ms)
+✔ removing ecology leaves other items usable and re-enabling respects stored composition (0.1991ms)
+✔ V2 rejects missing composition controls and impossible attachments (0.2383ms)
+✔ V2 remembers monitor-relative placement alongside world binding and legacy geometry (0.2946ms)
+✔ each added ecology can follow its own world without changing the established dock host (0.2141ms)
+✔ individual resize keeps other free cards and world bindings intact, even when the host shrinks (0.2426ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 94.1728

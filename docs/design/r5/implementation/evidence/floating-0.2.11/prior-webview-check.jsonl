@@ -1,0 +1,8 @@
+{"case":"owned-installed-process","pid":72496,"bootGeneration":"e8a7e252-018f-4074-8cc0-d8ba02b5f0f0"}
+{"case":"prior-r5-f10-live-fern","id":4,"position":{"x":0.45,"y":0.85},"cellIndex":41,"remainingMgC":2.999999999999999,"editRevision":"2"}
+{"case":"prior-r5-p05-and-dual","basinIds":["pond-main","pond-2"],"waterLiters":[18,18.8],"leafId":1,"leafX":0.76,"remainingMgC":50,"editRevision":"3"}
+{"case":"prior-r5-p04-sand","basinId":"pond-2","placed":[{"id":66,"style":"bottom-fine-sand-patch","x":0.39,"y":0.86},{"id":67,"style":"bottom-coarse-sand-patch","x":0.63,"y":0.91}]}
+{"case":"prior-r5-stone-and-whorled-plant","basinId":"pond-main","stoneRestEnabled":true,"plant":{"id":1,"x":0.36,"initialMgCnp":[50,3,0.35000000000000003],"stockMgCnp":[50,3,0.35000000000000003],"submerged":true}}
+{"case":"prior-r5-ribbon-plant","basinId":"pond-main","ribbon":{"id":2,"x":0.81,"initialMgCnp":[75,4.5,0.525],"stockMgCnp":[75,4.5,0.525],"submerged":true,"ribbonPreset":"large","ribbonLightTransmission":0.7135519747065026}}
+{"case":"prior-r5-split-shape","worldId":"pond-634340bc9b6c4c00aee8a4867d95e016","basins":[["pond-main",6,40,1],["pond-3",6,40,3]],"retained":{"stones":[{"id":1,"x":0.65,"preset":"main"}],"woods":[{"id":1,"x":0.28,"preset":"root"}],"scenery":[{"id":1,"style":"bottom-coarse-sand-patch","x":0.56,"y":0.86}]}}
+{"case":"prior-install-created-saved-worlds","priorRelease":"0.2.10","forestId":"forest-understory","forestVersion":14,"pondId":"pond-1326d0acf4b246e2b46bc2b36c0d5bb1","pondVersion":13,"stateSha256":["b04d5d4a107f75a3fc177fbcf1b0bd570a3ae16c8e70133ec90fffda6c596c65","d350147d08c8ca0cd53cee485e10e6497deec576fdbe8979884fcc7b5d966461","c995c385073e8a751bfe26419c0d6c8eaa0c0372ce9fa06704efdd8562a099c1"]}

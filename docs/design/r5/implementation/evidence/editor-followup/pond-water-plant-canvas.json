@@ -1,0 +1,96 @@
+{
+  "actualEditorAndCanvas": true,
+  "controlledPointer": true,
+  "mockHost": true,
+  "added": {
+    "id": 1,
+    "x": 0.41999999999999993,
+    "initialMgCnp": [
+      50,
+      3,
+      0.35
+    ],
+    "stockMgCnp": [
+      50,
+      3,
+      0.35
+    ],
+    "submerged": true
+  },
+  "moved": {
+    "id": 1,
+    "x": 0.37486111111111103,
+    "initialMgCnp": [
+      50,
+      3,
+      0.35
+    ],
+    "stockMgCnp": [
+      50,
+      3,
+      0.35
+    ],
+    "submerged": true
+  },
+  "full": {
+    "width": 110.62120165141343,
+    "height": 165.9318024771202,
+    "root": [
+      255.44687999999996,
+      265
+    ]
+  },
+  "sparse": {
+    "width": 68.58514502387635,
+    "height": 102.8777175358145,
+    "root": [
+      229.08287999999996,
+      265
+    ]
+  },
+  "solidAndSpacingBlockedWithoutCommand": true,
+  "distinctSharedNumericIds": true,
+  "exposedRetained": true,
+  "undoExact": true,
+  "calls": [
+    {
+      "edit": {
+        "type": "addWaterPlant",
+        "basinId": "basin-main",
+        "x": 0.41999999999999993
+      },
+      "expectedRevision": "1"
+    },
+    {
+      "edit": {
+        "type": "moveWaterPlant",
+        "basinId": "basin-main",
+        "id": 1,
+        "x": 0.37486111111111103
+      },
+      "expectedRevision": "2"
+    },
+    {
+      "edit": {
+        "type": "trimWaterPlant",
+        "basinId": "basin-main",
+        "id": 1,
+        "mgC": 37.5
+      },
+      "expectedRevision": "3"
+    },
+    {
+      "edit": {
+        "type": "removeWaterPlant",
+        "basinId": "basin-main",
+        "id": 1
+      },
+      "expectedRevision": "5"
+    },
+    {
+      "redo": false,
+      "expectedRevision": "6"
+    }
+  ],
+  "errors": []
+}

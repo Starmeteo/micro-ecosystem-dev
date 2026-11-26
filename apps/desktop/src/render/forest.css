@@ -1,0 +1,26 @@
+.forest-view {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #121d17;
+}
+
+.forest-view canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  image-rendering: pixelated;
+}
+
+.forest-view canvas:focus-visible {
+  outline: 2px solid #d5c58d;
+  outline-offset: -2px;
+}
+
+.forest-view__error {
+  margin: 1rem;
+  color: #f0d9a7;
+  font-size: .875rem;
+}

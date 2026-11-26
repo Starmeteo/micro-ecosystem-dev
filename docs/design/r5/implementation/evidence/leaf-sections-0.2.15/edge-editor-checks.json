@@ -1,0 +1,142 @@
+{
+  "main": {
+    "row": null,
+    "rock": "1:271.03999999999996,242",
+    "wood": "",
+    "film": {
+      "bedMgC": 13,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 11
+        }
+      ]
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null,
+    "leaves": "1:0.32",
+    "leafStages": "1:whole",
+    "selectedLeaf": null
+  },
+  "secondary": {
+    "row": "3",
+    "rock": "1:311.36,242",
+    "wood": "1:184.64000000000001,242",
+    "film": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null,
+    "leaves": "1:0.64",
+    "leafStages": "1:fragments",
+    "selectedLeaf": null
+  },
+  "moved": {
+    "row": "3",
+    "rock": "1:311.36,242",
+    "wood": "1:184.64000000000001,242",
+    "film": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null,
+    "leaves": "1:0.66",
+    "leafStages": "1:fragments",
+    "selectedLeaf": "1"
+  },
+  "placed": {
+    "row": "3",
+    "rock": "1:311.36,242",
+    "wood": "1:184.64000000000001,242",
+    "film": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null,
+    "leaves": "1:0.66;2:0.52",
+    "leafStages": "1:fragments;2:whole",
+    "selectedLeaf": "2"
+  },
+  "primaryAfter": {
+    "row": null,
+    "rock": "1:271.03999999999996,242",
+    "wood": "",
+    "film": {
+      "bedMgC": 13,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 11
+        }
+      ]
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null,
+    "leaves": "1:0.32",
+    "leafStages": "1:whole",
+    "selectedLeaf": null
+  },
+  "historyCommands": [
+    "edit_pond",
+    "edit_pond_history",
+    "edit_pond_history",
+    "edit_pond"
+  ],
+  "request": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "38cd235b-0eed-4a8a-9b47-c7d3f0f5be36",
+      "expectedGeneration": "4",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "moveLeafDeposit",
+          "basinId": "pond-main",
+          "id": 1,
+          "x": 0.66
+        }
+      }
+    }
+  },
+  "add": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "2f3e4c52-e2ea-4bd9-adf4-963c25aa63aa",
+      "expectedGeneration": "4",
+      "expectedRevision": "4",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "addLeafDeposit",
+          "basinId": "pond-main",
+          "preset": "midground",
+          "mgC": 50,
+          "x": 0.52
+        }
+      }
+    }
+  },
+  "mockedReceipts": true
+}

@@ -1,0 +1,92 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1422",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "stonework-reopened-editor.png"
+      }
+    },
+    {
+      "check": "reopen-persisted-r5-world",
+      "via": "read-only Rust subscription and live editor canvas",
+      "result": {
+        "worldId": "forest-42502776a0b84a6bb4234fe4a8fdf9be",
+        "worldName": "R5 扁石验收 2026-11-25T08:42:44.673Z",
+        "definition": "forest-understory-r5-stonework/1",
+        "modelVersion": 7,
+        "runGeneration": "59c2904b-c61d-4760-bdbb-116d3c564b3d",
+        "editRevision": "11",
+        "simulationTick": "0",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "rocks": [
+          {
+            "id": 1,
+            "position": {
+              "x": 0.44,
+              "y": 0.68
+            },
+            "mirrored": false
+          }
+        ],
+        "logs": [],
+        "stonework": [
+          {
+            "id": 2,
+            "position": {
+              "x": 0.5000000109808374,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "pair"
+          },
+          {
+            "id": 4,
+            "position": {
+              "x": 0.5600000092239035,
+              "y": 0.8869999155115619
+            },
+            "mirrored": true,
+            "preset": "cluster"
+          },
+          {
+            "id": 5,
+            "position": {
+              "x": 0.8199999723282898,
+              "y": 0.6150000085893976
+            },
+            "mirrored": false,
+            "preset": "slab"
+          }
+        ],
+        "shadeFraction": [
+          0.3242429089756449,
+          0.4032445385207375
+        ],
+        "shelterFraction": [
+          0.19371087847095747,
+          0.2720063752725826
+        ],
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}

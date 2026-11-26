@@ -1,0 +1,91 @@
+{
+  "main": {
+    "row": null,
+    "rock": "1:271.03999999999996,242",
+    "wood": "",
+    "film": {
+      "bedMgC": 13,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 11
+        }
+      ]
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null
+  },
+  "secondary": {
+    "row": "3",
+    "rock": "1:311.36,242",
+    "wood": "1:184.64000000000001,242",
+    "film": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null
+  },
+  "moved": {
+    "row": "3",
+    "rock": "1:317.12,242",
+    "wood": "1:184.64000000000001,242",
+    "film": {
+      "bedMgC": 0,
+      "inactiveMgC": 24,
+      "surfaces": []
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": "1"
+  },
+  "primaryAfter": {
+    "row": null,
+    "rock": "1:271.03999999999996,242",
+    "wood": "",
+    "film": {
+      "bedMgC": 13,
+      "inactiveMgC": 0,
+      "surfaces": [
+        {
+          "kind": "stone",
+          "id": 1,
+          "mgC": 11
+        }
+      ]
+    },
+    "waterline": "112",
+    "drift": "8",
+    "selected": null
+  },
+  "historyCommands": [
+    "edit_pond",
+    "edit_pond_history",
+    "edit_pond_history"
+  ],
+  "request": {
+    "command": "edit_pond",
+    "args": {
+      "worldId": "pond-section-editor",
+      "commandId": "86a30de2-4b38-4088-9f3b-c4db5cd45824",
+      "expectedGeneration": "4",
+      "expectedRevision": "1",
+      "edit": {
+        "type": "editStaticSection",
+        "basinId": "pond-main",
+        "row": 3,
+        "edit": {
+          "type": "moveStone",
+          "basinId": "pond-main",
+          "id": 1,
+          "x": 0.74
+        }
+      }
+    }
+  }
+}

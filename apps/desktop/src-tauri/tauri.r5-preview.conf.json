@@ -1,0 +1,13 @@
+{
+  "productName": "微缩生态 R5 验证",
+  "identifier": "local.micro-ecosystem.r5-preview",
+  "build": {
+    "beforeDevCommand": "npm run dev -- --port 1421",
+    "devUrl": "http://localhost:1421"
+  },
+  "app": {
+    "security": {
+      "devCsp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self' ipc: http://ipc.localhost ws://localhost:1421"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+   Compiling eco-core v0.1.0 (D:\Github Projects\micro-ecosystem-dev\crates\eco-core)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.50s
+     Running unittests src\lib.rs (target\debug\build\eco-core/8b70d42550c45e01\out\eco_core-8b70d42550c45e01.exe)
+
+running 1 test
+test forest::tests::r5_decomposer_observation_tracks_local_stock_without_a_new_inventory ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 110 filtered out; finished in 0.00s
+

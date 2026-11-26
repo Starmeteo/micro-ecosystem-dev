@@ -1,0 +1,100 @@
+{
+  "osBuild": "26200.9457",
+  "architecture": "x64",
+  "webview2": "157.0.4341.60",
+  "executableSha256": "359b271f2cdf44dd84b2ff53bc5d150247205f1605e983b865cec5601ee6bf26",
+  "powerRegistration": {
+    "registered": true,
+    "win32Error": null
+  },
+  "distinctWindowCount": 3,
+  "windows": [
+    {
+      "viewId": "editor",
+      "decorated": false,
+      "scaleFactor": 1.5,
+      "physicalSize": [
+        1590,
+        1095
+      ]
+    },
+    {
+      "viewId": "observe",
+      "decorated": false,
+      "scaleFactor": 1.5,
+      "physicalSize": [
+        1230,
+        825
+      ]
+    },
+    {
+      "viewId": "panel",
+      "decorated": false,
+      "scaleFactor": 1.5,
+      "physicalSize": [
+        576,
+        405
+      ]
+    }
+  ],
+  "intervals": [
+    {
+      "views": 0,
+      "subscribers": 0,
+      "paused": false,
+      "beforeTick": "0",
+      "afterTick": "6",
+      "simulatedMillis": 600,
+      "windowMillis": 650,
+      "sameWorld": true
+    },
+    {
+      "views": 1,
+      "subscribers": 1,
+      "paused": false,
+      "beforeTick": "6",
+      "afterTick": "13",
+      "simulatedMillis": 700,
+      "windowMillis": 650,
+      "sameWorld": true
+    },
+    {
+      "views": 2,
+      "subscribers": 2,
+      "paused": false,
+      "beforeTick": "13",
+      "afterTick": "20",
+      "simulatedMillis": 700,
+      "windowMillis": 650,
+      "sameWorld": true
+    },
+    {
+      "views": 3,
+      "subscribers": 2,
+      "paused": false,
+      "beforeTick": "20",
+      "afterTick": "27",
+      "simulatedMillis": 700,
+      "windowMillis": 650,
+      "sameWorld": true
+    },
+    {
+      "views": 0,
+      "subscribers": 0,
+      "paused": true,
+      "beforeTick": "27",
+      "afterTick": "27",
+      "simulatedMillis": 0,
+      "windowMillis": 650,
+      "sameWorld": true
+    }
+  ],
+  "saveReload": {
+    "sameEcology": true,
+    "newGeneration": true
+  },
+  "explicitExit": true,
+  "result": {
+    "ok": true
+  }
+}

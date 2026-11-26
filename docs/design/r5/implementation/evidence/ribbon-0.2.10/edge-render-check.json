@@ -1,0 +1,248 @@
+{
+  "dimensions": [
+    576,
+    324
+  ],
+  "dpr": 1.5,
+  "independentEdge": true,
+  "legacyIdentical": true,
+  "restoredIdentical": true,
+  "pictureDifference": {
+    "count": 1158,
+    "bounds": [
+      233,
+      175,
+      344,
+      266
+    ]
+  },
+  "measurements": {
+    "legacy-no-plant": [],
+    "ribbon-in-default": [
+      {
+        "id": 2,
+        "anchor": [
+          115.27152000000001,
+          265
+        ],
+        "base": [
+          115.27152000000001,
+          265
+        ],
+        "widthMm": 39.709769953315714,
+        "heightPx": 72.36072884789706,
+        "tipGapPx": 191.27927115210292,
+        "rootPixels": 215,
+        "rootPick": true
+      },
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      },
+      {
+        "id": 4,
+        "anchor": [
+          454.02864,
+          265
+        ],
+        "base": [
+          454.02864,
+          265
+        ],
+        "widthMm": 99.27442488328929,
+        "heightPx": 98.9556067790744,
+        "tipGapPx": 164.68439322092559,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-three-sizes": [
+      {
+        "id": 2,
+        "anchor": [
+          115.27152000000001,
+          265
+        ],
+        "base": [
+          115.27152000000001,
+          265
+        ],
+        "widthMm": 39.709769953315714,
+        "heightPx": 72.36072884789706,
+        "tipGapPx": 191.27927115210292,
+        "rootPixels": 215,
+        "rootPick": true
+      },
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      },
+      {
+        "id": 4,
+        "anchor": [
+          454.02864,
+          265
+        ],
+        "base": [
+          454.02864,
+          265
+        ],
+        "widthMm": 99.27442488328929,
+        "heightPx": 98.9556067790744,
+        "tipGapPx": 164.68439322092559,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-medium": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-medium-4x": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-medium-trimmed": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 51.262866723810504,
+        "heightPx": 76.61327268694433,
+        "tipGapPx": 187.02672731305566,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-shallow": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 37.71483389690667,
+        "tipGapPx": 50.16516610309333,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-dry": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 18.174358223034034,
+        "tipGapPx": -18.174358223034034,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-restored": [
+      {
+        "id": 3,
+        "anchor": [
+          272.9688,
+          265
+        ],
+        "base": [
+          272.9688,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ],
+    "ribbon-moved": [
+      {
+        "id": 3,
+        "anchor": [
+          383.94096,
+          265
+        ],
+        "base": [
+          383.94096,
+          265
+        ],
+        "widthMm": 69.49209741830249,
+        "heightPx": 88.91791197882634,
+        "tipGapPx": 174.72208802117365,
+        "rootPixels": 215,
+        "rootPick": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "width": 704,
+  "height": 396,
+  "comparisons": {
+    "algae": {
+      "changed": 252736,
+      "air": 0,
+      "upper": 121792
+    },
+    "cloudy": {
+      "changed": 252731,
+      "air": 0,
+      "upper": 121792
+    },
+    "biofilm": {
+      "changed": 1795,
+      "air": 0,
+      "upper": 0
+    },
+    "detritus": {
+      "changed": 277,
+      "air": 0,
+      "upper": 0
+    }
+  },
+  "dryWater": {
+    "changed": 0,
+    "air": 0,
+    "upper": 0
+  },
+  "dryResidue": {
+    "changed": 290,
+    "air": 0,
+    "upper": 0
+  }
+}

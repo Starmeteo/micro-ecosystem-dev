@@ -1,0 +1,35 @@
+{
+  "merge": {
+    "basinCount": 1,
+    "affected": [
+      "pond-main",
+      "pond-2"
+    ],
+    "cells": 49,
+    "protectedRows": [
+      1,
+      4
+    ],
+    "areaCm2": 4900,
+    "waterLiters": 36.8
+  },
+  "split": {
+    "basinCount": 2,
+    "cells": [
+      4,
+      24
+    ],
+    "waterLiters": [
+      2.5714285714285716,
+      15.428571428571429
+    ],
+    "depthCm": 6.428571428571429
+  },
+  "mismatchOmitsProjection": true,
+  "fourNeighbors": true,
+  "protectedSection": true,
+  "wholeBasinAndLimits": true,
+  "areaAndCapacity": true,
+  "unknownAndInvalidCells": true,
+  "frozenSnapshots": true
+}

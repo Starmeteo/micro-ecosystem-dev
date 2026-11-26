@@ -1,0 +1,231 @@
+{
+  "canvas": { "width": 480, "height": 270 },
+  "forest": {
+    "referenceWidthMm": 450,
+    "layers": {
+      "base": "forest/clean-base.png",
+      "foreground": "forest/foreground.png",
+      "light": "forest/light.png"
+    },
+    "leafPatches": {
+      "leaves": {
+        "width": 80, "height": 44, "anchor": [40, 30], "position": [240, 205],
+        "lengthMm": 55, "body": [[10.67, 25], [69.33, 25]], "contact": [[40, 30]],
+        "placementRange": [0.16, 0.84],
+        "sprites": {
+          "default": "forest/leaf-patch-leaves.png",
+          "worn": "forest/leaf-patch-leaves-worn.png",
+          "trace": "forest/leaf-patch-leaves-trace.png",
+          "depleted": "forest/leaf-patch-leaves-depleted.png"
+        }
+      },
+      "heap": {
+        "width": 128, "height": 54, "anchor": [64, 34], "position": [240, 210],
+        "lengthMm": 105, "body": [[8, 29], [120, 29]], "contact": [[64, 34]],
+        "placementRange": [0.24, 0.76],
+        "sprites": {
+          "default": "forest/leaf-patch-heap.png",
+          "worn": "forest/leaf-patch-heap-worn.png",
+          "trace": "forest/leaf-patch-heap-trace.png",
+          "depleted": "forest/leaf-patch-heap-depleted.png"
+        }
+      },
+      "fragments": {
+        "width": 38, "height": 26, "anchor": [19, 15], "position": [240, 205],
+        "lengthMm": 36, "body": [[0, 15], [38, 15]], "contact": [[19, 15]],
+        "placementRange": [0.16, 0.84],
+        "sprites": {
+          "default": "forest/leaf-patch-fragments.png",
+          "worn": "forest/leaf-patch-fragments-worn.png",
+          "trace": "forest/leaf-patch-fragments-trace.png",
+          "depleted": "forest/leaf-patch-fragments-depleted.png"
+        }
+      }
+    },
+    "barkShelters": {
+      "arch": {
+        "width": 116, "height": 91, "anchor": [58, 64], "position": [182, 216],
+        "lengthMm": 90, "body": [[10, 56], [106, 56]],
+        "contact": [[17.47, 64], [98.53, 64]], "footOffsetMm": 38,
+        "openingWidthMm": 45, "openingHeightMm": 18,
+        "placementRange": [0.15, 0.85],
+        "sprites": {
+          "shadow": "forest/bark-shelter-arch-shadow.png",
+          "interior": "forest/bark-shelter-arch-interior.png",
+          "back": "forest/bark-shelter-arch-back.png",
+          "front": "forest/bark-shelter-arch-front.png",
+          "preview": "forest/bark-shelter-arch.png"
+        }
+      },
+      "split": {
+        "width": 150, "height": 98, "anchor": [75, 71], "position": [355, 197],
+        "lengthMm": 120, "body": [[11, 62], [139, 62]],
+        "contact": [[20.6, 71], [129.4, 71]], "footOffsetMm": 51,
+        "openingWidthMm": 45, "openingHeightMm": 28,
+        "placementRange": [0.18, 0.82],
+        "sprites": {
+          "shadow": "forest/bark-shelter-split-shadow.png",
+          "interior": "forest/bark-shelter-split-interior.png",
+          "back": "forest/bark-shelter-split-back.png",
+          "front": "forest/bark-shelter-split-front.png",
+          "preview": "forest/bark-shelter-split.png"
+        }
+      },
+      "rootArch": {
+        "width": 150, "height": 37, "anchor": [75, 35], "position": [245, 249],
+        "lengthMm": 140, "body": [[0, 18], [150, 18]],
+        "contact": [[20.6, 35], [129.4, 35]], "footOffsetMm": 51,
+        "openingWidthMm": 65, "openingHeightMm": 12,
+        "placementRange": [0.18, 0.82], "sprites": {}
+      },
+      "branchBridge": {
+        "width": 213, "height": 43, "anchor": [102, 41], "position": [245, 249],
+        "lengthMm": 200, "body": [[0, 19], [213, 19]],
+        "contact": [[18.8, 41], [185.2, 41]], "footOffsetMm": 78,
+        "openingWidthMm": 90, "openingHeightMm": 22,
+        "placementRange": [0.24, 0.76], "sprites": {}
+      }
+    },
+    "stonework": {
+      "slab": {
+        "width": 56, "height": 34, "anchor": [28, 24], "position": [240, 194],
+        "lengthMm": 40, "body": [[6.67, 18], [49.33, 18]], "contact": [[28, 24]],
+        "placementRange": [0.11, 0.89],
+        "parts": [{ "offsetMm": 0, "lengthMm": 40, "heightPx": 12 }],
+        "sprites": { "default": "forest/stonework-slab.png", "shadow": "forest/stonework-slab-shadow.png" }
+      },
+      "pair": {
+        "width": 120, "height": 34, "anchor": [60, 24], "position": [240, 194],
+        "lengthMm": 100, "body": [[7.73, 20], [114.4, 20]], "contact": [[15.2, 24], [104.8, 24]],
+        "placementRange": [0.16, 0.84],
+        "parts": [{ "offsetMm": -42, "lengthMm": 14, "heightPx": 8 }, { "offsetMm": 42, "lengthMm": 18, "heightPx": 10 }],
+        "sprites": { "default": "forest/stonework-pair.png", "shadow": "forest/stonework-pair-shadow.png" }
+      },
+      "cluster": {
+        "width": 166, "height": 34, "anchor": [82, 24], "position": [240, 194],
+        "lengthMm": 140, "body": [[8.4, 20], [157.73, 20]], "contact": [[16.93, 24], [82, 24], [147.07, 24]],
+        "placementRange": [0.20, 0.80],
+        "parts": [
+          { "offsetMm": -61, "lengthMm": 16, "heightPx": 9 }, { "offsetMm": 0, "lengthMm": 8, "heightPx": 6 },
+          { "offsetMm": 61, "lengthMm": 20, "heightPx": 11 }
+        ],
+        "sprites": { "default": "forest/stonework-cluster.png", "shadow": "forest/stonework-cluster-shadow.png" }
+      }
+    },
+    "objects": {
+      "rock": {
+        "width": 64, "height": 48, "anchor": [32, 39], "position": [335, 193],
+        "lengthMm": 50, "body": [[5, 24], [58, 24]], "contact": [[8, 40], [18, 36], [49, 36], [57, 39], [42, 45], [17, 45]],
+        "sprites": { "default": "forest/rock.png", "shadow": "forest/rock-shadow.png" }
+      },
+      "log": {
+        "width": 300, "height": 112, "anchor": [145, 94], "position": [133, 201],
+        "lengthMm": 260, "body": [[13, 83], [281, 14]], "contact": [[14, 90], [62, 91], [86, 84], [180, 62], [246, 43]],
+        "perch": [139, 42], "cover": [97, 86],
+        "sprites": { "back": "forest/log-back.png", "front": "forest/log-front.png", "shadow": "forest/log-shadow.png", "growth": "forest/log-growth.png" }
+      },
+      "leaf": {
+        "width": 76, "height": 33, "anchor": [38, 27], "position": [321, 221],
+        "lengthMm": 52, "body": [[10, 21], [64, 10]], "contact": [[20, 24], [37, 27], [57, 18]],
+        "sprites": { "default": "forest/leaf.png" }
+      },
+      "leafLarge": {
+        "width": 130, "height": 70, "anchor": [65, 54], "position": [55, 258],
+        "lengthMm": 104, "body": [[12, 28], [120, 54]], "contact": [[21, 33], [61, 47], [92, 50]],
+        "sprites": { "default": "forest/leaf-large.png" }
+      },
+      "moss": {
+        "width": 60, "height": 25, "anchor": [30, 20], "position": [102, 153],
+        "lengthMm": 40, "body": [[9, 16], [52, 16]], "contact": [[10, 20], [27, 19], [47, 21]],
+        "sprites": { "default": "forest/moss.png" }
+      },
+      "woodlouse": {
+        "width": 22, "height": 15, "anchor": [11, 11], "position": [174, 192],
+        "lengthMm": 12, "body": [[4, 7], [17, 7]], "contact": [[6, 11], [10, 11], [15, 11]],
+        "sprites": { "default": "forest/woodlouse-idle.png", "walk": "forest/woodlouse-walk.png", "hidden": "forest/woodlouse-hidden.png" }
+      }
+    }
+  },
+  "pond": {
+    "referenceWidthMm": 600,
+    "attachedMoss": {
+      "mat": {
+        "width": 32, "height": 17, "anchor": [16, 12], "lengthMm": 30, "maxCarbonMg": 12,
+        "sprites": {
+          "full": "pond/attached-plant-mat.png", "sparse": "pond/attached-plant-mat-sparse.png",
+          "exposed": "pond/attached-plant-mat-exposed.png"
+        }
+      },
+      "frond": {
+        "width": 48, "height": 32, "anchor": [24, 26], "lengthMm": 50, "maxCarbonMg": 24,
+        "sprites": {
+          "full": "pond/attached-plant-frond.png", "sparse": "pond/attached-plant-frond-sparse.png",
+          "exposed": "pond/attached-plant-frond-exposed.png"
+        }
+      }
+    },
+    "bottomWoods": {
+      "bedBiofilm": "pond/bed-biofilm.png",
+      "branch": {
+        "lengthMm": 300, "halfSpanPx": 96, "heightPx": 22, "upperAlphaY": 16,
+        "width": 212, "height": 57, "anchor": [106, 38],
+        "placementRange": [0.37, 0.63], "directionProjection": 0.8, "surfaceHalfSpanPx": 58,
+        "sprites": {
+          "back": "pond/bottom-wood-branch-back.png", "front": "pond/bottom-wood-branch-front.png",
+          "growth": "pond/bottom-wood-branch-growth.png", "shadow": "pond/bottom-wood-branch-shadow.png",
+          "preview": "pond/bottom-wood-branch.png"
+        }
+      },
+      "root": {
+        "lengthMm": 150, "halfSpanPx": 48, "heightPx": 15, "upperAlphaY": 21,
+        "width": 114, "height": 48, "anchor": [57, 36],
+        "placementRange": [0.25, 0.75], "directionProjection": 0.8, "surfaceHalfSpanPx": 25,
+        "sprites": {
+          "back": "pond/bottom-wood-root-back.png", "front": "pond/bottom-wood-root-front.png",
+          "growth": "pond/bottom-wood-root-growth.png", "shadow": "pond/bottom-wood-root-shadow.png",
+          "preview": "pond/bottom-wood-root.png"
+        }
+      }
+    },
+    "bottomStones": {
+      "bedGrit": "pond/bed-grit.png",
+      "main": { "preset": "main", "lengthMm": 80, "halfSpanPx": 32, "heightPx": 27, "upperAlphaY": 5, "placementRange": [0.26, 0.74] },
+      "pebble": {
+        "preset": "pebble", "lengthMm": 25, "halfSpanPx": 10, "heightPx": 9, "upperAlphaY": 6,
+        "placementRange": [0.19, 0.81], "width": 28, "height": 21, "anchor": [14, 15],
+        "rock": "pond/pebble.png", "shadow": "pond/pebble-shadow.png"
+      }
+    },
+    "waterline": 25,
+    "waterBounds": [0, 25, 480, 245],
+    "layers": {
+      "base": "pond/clean-base.png",
+      "foreground": "pond/foreground.png",
+      "surface": "pond/surface.png",
+      "light": "pond/light.png"
+    },
+    "objects": {
+      "rock": {
+        "width": 72, "height": 40, "anchor": [36, 34], "position": [352, 220],
+        "lengthMm": 80, "body": [[4, 24], [68, 24]], "contact": [[8, 34], [24, 31], [50, 30], [67, 34], [45, 39], [17, 39]],
+        "sprites": { "default": "pond/rock.png", "shadow": "pond/rock-shadow.png" }
+      },
+      "log": {
+        "width": 306, "height": 139, "anchor": [152, 113], "position": [244, 173],
+        "lengthMm": 360, "body": [[15, 119], [291, 37]], "contact": [[18, 124], [42, 124], [78, 108]],
+        "perch": [203, 57],
+        "sprites": { "back": "pond/log-back.png", "front": "pond/log-front.png", "shadow": "pond/log-shadow.png", "growth": "pond/log-growth.png" }
+      },
+      "plant": {
+        "width": 62, "height": 100, "anchor": [31, 93], "position": [412, 224],
+        "lengthMm": 110, "body": [[31, 93], [32, 5]], "contact": [[24, 93], [31, 93], [40, 92]],
+        "sprites": { "default": "pond/plant.png" }
+      },
+      "shrimp": {
+        "width": 30, "height": 16, "anchor": [15, 12], "position": [317, 143],
+        "lengthMm": 20, "body": [[7, 7], [23, 7]], "contact": [[13, 12], [17, 12], [21, 12]],
+        "sprites": { "default": "pond/shrimp-rest.png", "swim": "pond/shrimp-swim.png" }
+      }
+    }
+  }
+}

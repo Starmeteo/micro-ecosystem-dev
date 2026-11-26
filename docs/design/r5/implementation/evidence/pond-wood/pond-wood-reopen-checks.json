@@ -1,0 +1,123 @@
+{
+  "pass": true,
+  "steps": [
+    {
+      "check": "native-host",
+      "via": "WebView2 CDP",
+      "result": {
+        "labels": [
+          "layout",
+          "panel",
+          "observe",
+          "editor"
+        ],
+        "appUrl": "http://localhost:1424",
+        "browser": "Edg/158.0.4370.33"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "editor",
+        "file": "pond-wood-reopened.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "observe",
+        "file": "pond-wood-reopened-observe.png"
+      }
+    },
+    {
+      "check": "capture",
+      "via": "WebView2 CDP",
+      "result": {
+        "view": "panel",
+        "file": "pond-wood-reopened-panel.png"
+      }
+    },
+    {
+      "check": "wood-and-riders-reopen-exactly",
+      "via": "new native process, editor, observation and desktop component",
+      "result": {
+        "worldId": "pond-479a5fefe4cd42d8a2cdf6e311c11c4c",
+        "worldName": "R5 沉木验收 2026-11-25T09:42:26.224Z",
+        "definition": "pond-shallow-r5-wood/1",
+        "modelVersion": 11,
+        "runGeneration": "67fe2044-dd27-4626-bd98-e368e13152cd",
+        "editRevision": "11",
+        "simulationTick": "2120",
+        "paused": true,
+        "manualPaused": false,
+        "editPaused": true,
+        "pond": {
+          "basins": [
+            {
+              "id": "pond-main",
+              "label": "主水域",
+              "wet": true,
+              "waterLiters": 17.99834473695126,
+              "capacityLiters": 28.8,
+              "depthCm": 7.499310307063026,
+              "maxDepthCm": 12,
+              "surfaceAreaCm2": 2400,
+              "temperatureCelsius": 20.66457488442404,
+              "oxygenMgPerLiter": 7.433461388651443,
+              "availableNitrogenMgPerLiter": 0.3492379642724131,
+              "availablePhosphorusMgPerLiter": 0.049907885654623285,
+              "algaeMgC": 30.048672174309914,
+              "biofilmMgC": 23.898209674344685,
+              "plantMgC": 150.1286956125566,
+              "detritusMgC": 119.92986901706662,
+              "daphniaCount": 48,
+              "shrimp": [
+                {
+                  "id": "pond-main-shrimp-1",
+                  "x": 0.822008777031057,
+                  "y": 0.5975567193985799,
+                  "heading": 1.386912137085186,
+                  "activity": "foraging"
+                },
+                {
+                  "id": "pond-main-shrimp-2",
+                  "x": 0.4426332219265014,
+                  "y": 0.8288304132521532,
+                  "heading": 1.0101017360421243,
+                  "activity": "resting"
+                },
+                {
+                  "id": "pond-main-shrimp-3",
+                  "x": 0.9333091196311698,
+                  "y": 0.7842964181510663,
+                  "heading": 2.934844830238002,
+                  "activity": "foraging"
+                }
+              ],
+              "turbidityIndex": 0.25032133524108535,
+              "stones": [],
+              "woods": [
+                {
+                  "id": 3,
+                  "x": 0.5200000615884517,
+                  "preset": "branch"
+                }
+              ],
+              "shrimpAttachments": [
+                {
+                  "shrimpId": "pond-main-shrimp-2",
+                  "woodId": 3,
+                  "offset": -0.3841663762524428,
+                  "restTicks": 31
+                }
+              ]
+            }
+          ]
+        },
+        "lastSaveMessage": "已恢复已保存的世界"
+      }
+    }
+  ]
+}
