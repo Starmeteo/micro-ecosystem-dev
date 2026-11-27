@@ -667,6 +667,12 @@ try {
   await showViews();
   await revealPanel();
   const library = await ipc('editor','list_worlds');
+  const builtInIds = library.presets.filter((preset)=>preset.source!=='custom').map(({presetId})=>presetId);
+  const currentPresetsOnly = builtInIds.includes('forest-r5-composed') && !builtInIds.includes('forest');
+  if (currentPresetsOnly) assert.deepEqual(builtInIds, [
+    'forest-r5-composed','blank-forest-r5-composed','pond-r5-composed',
+    'pond-r5-dual','blank-pond-r5-composed','blank-pond-r5-dual',
+  ]);
 
   if (mode==='legacy'||mode==='upgrade-seed') {
     assert.equal(library.worlds.length,1);
@@ -859,10 +865,18 @@ try {
 
   if(mode==='upgrade') {
     const expected=JSON.parse(await readFile(join(evidence,'prior-worlds-expected.json'),'utf8'));
-    assert.equal(library.activeWorldId,expected.activeWorldId);
     assert.notEqual(Number(pid),expected.priorPid);
     assert([...priorReleaseBySeed.values()].includes(expected.priorRelease));
     const r5=expected.priorRelease!=='0.1.0';
+    if (currentPresetsOnly && !r5) {
+      assert.notEqual(library.activeWorldId,expected.activeWorldId);
+      const prior = expected.worlds.find(({state})=>state.worldId===expected.activeWorldId);
+      assert(prior);
+      const version = prior.state.modelVersion===3 ? 13 : 14;
+      await waitWorld(library.activeWorldId,version);
+    } else {
+      assert.equal(library.activeWorldId,expected.activeWorldId);
+    }
     const priorGravel=expected.priorRelease==='0.2.4';
     const priorTopology=expected.priorRelease==='0.2.6';
     const priorStructures=['0.2.18','0.2.19'].includes(expected.priorRelease);
@@ -870,7 +884,7 @@ try {
     const priorSplit=priorStaticSections||['0.2.7','0.2.8','0.2.9','0.2.10','0.2.11','0.2.12','0.2.13'].includes(expected.priorRelease);
     const priorSand=expected.priorRelease==='0.2.5'||priorTopology||priorSplit;
     const priorLiving=expected.priorRelease==='0.2.3'||priorGravel||priorSand;
-    if (priorLiving) assert.equal(library.presets.length,priorTopology||priorSplit ? 18 : 17);
+    if (priorLiving && !currentPresetsOnly) assert.equal(library.presets.length,priorTopology||priorSplit ? 18 : 17);
     if (priorTopology||priorSplit) assert(library.presets.some(({presetId,modelVersion})=>presetId==='blank-pond-r5-dual'&&modelVersion===13));
     assert.deepEqual(expected.worlds.map(({state})=>state.modelVersion),priorStructures ? [14,13,13,13,14,13]
       : priorStaticSections ? [14,13,13,13] : priorSplit ? [14,13,13] : r5 ? [14,13] : [4,3]);
@@ -880,7 +894,8 @@ try {
       const forest=restored.modelVersion===14||restored.modelVersion===4;
       const structureForest=priorStructures&&restored.forestRocks?.barkShelters.some(({preset})=>preset==='rootArch');
       const structurePond=priorStructures&&restored.pond?.basins[0].stones.some(({preset})=>preset==='flatStoneCave');
-      const selector=forest ? (r5 ? forestCanvas : legacyForestCanvas) : (r5 ? pondCanvas : legacyPondCanvas);
+      const currentArt = r5 || currentPresetsOnly;
+      const selector=forest ? (currentArt ? forestCanvas : legacyForestCanvas) : (currentArt ? pondCanvas : legacyPondCanvas);
       const split = priorSplit && restored.pond?.basins.some(({id})=>id==='pond-3');
       const storedSide=restored.pond?.basins[0].staticSections?.[0];
       const prefix=`upgraded-${r5 ? 'r5' : 'legacy'}-v${restored.modelVersion}${split ? '-split' : storedSide ? '-sections'

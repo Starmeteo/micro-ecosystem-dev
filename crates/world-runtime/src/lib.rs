@@ -29,6 +29,10 @@ use uuid::Uuid;
 
 pub const SNAPSHOT_PROTOCOL_VERSION: u32 = 1;
 
+fn default_solar_config() -> SolarConfig {
+    SolarConfig { location: SolarLocation::beijing_sample(), model_version: SOLAR_MODEL_VERSION }
+}
+
 #[derive(Clone, Debug, PartialEq, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Snapshot {
@@ -654,18 +658,16 @@ impl WorldRuntime {
 
     pub fn create_forest_from_preset(&mut self, seed: u64) -> Result<Snapshot, RuntimeError> {
         let id = format!("forest-{}", Uuid::new_v4().simple());
-        self.create_seasonal_forest(&id, seed)
+        self.create_composed_forest(&id, seed)
     }
 
     pub fn create_pond_from_preset(&mut self, seed: u64) -> Result<Snapshot, RuntimeError> {
         let id = format!("pond-{}", Uuid::new_v4().simple());
-        self.create_pond(&id, seed)
+        self.create_with_solar(&id, WorldState::new_r5_composed_pond(seed))
     }
 
     fn create_with_solar(&mut self, id: &str, state: WorldState) -> Result<Snapshot, RuntimeError> {
-        self.create(id, state, Some(SolarConfig {
-            location: SolarLocation::beijing_sample(), model_version: SOLAR_MODEL_VERSION,
-        }))
+        self.create(id, state, Some(default_solar_config()))
     }
 
     fn create(&mut self, world_id: &str, state: WorldState, solar_config: Option<SolarConfig>) -> Result<Snapshot, RuntimeError> {

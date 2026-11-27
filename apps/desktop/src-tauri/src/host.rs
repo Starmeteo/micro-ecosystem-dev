@@ -162,7 +162,7 @@ impl Host {
             Ok(_) => runtime.load(&store, world_id),
             Err(error) => Err(error.clone()),
         };
-        let (snapshot, boot_mode, save_message, save_blocked) = match loaded {
+        let (mut snapshot, mut boot_mode, mut save_message, save_blocked) = match loaded {
             Ok(receipt) => {
                 let recovered = receipt.recovered_previous;
                 let message = if recovered { "已从上一有效检查点恢复" }
@@ -176,20 +176,36 @@ impl Host {
                 // Permit inspection of an in-memory preset while preserving the
                 // unreadable existing files until a valid version can be loaded.
                 let message = format!("现有世界无法读取。暂时显示林下预设，已禁用覆盖保存。{read_error}");
-                (runtime.create_seasonal_forest(world_id, FOREST_SEED)?, "unusable-save", Some(message.clone()), Some(message))
+                (runtime.create_composed_forest(world_id, FOREST_SEED)?, "unusable-save", Some(message.clone()), Some(message))
             }
         };
+        let entries = store.discover_worlds();
+        if let Ok(entries) = &entries {
+            if matches!(boot_mode, "restored" | "fallback") {
+                match library::select_r5_default(&store, &mut runtime, &snapshot, entries) {
+                    Ok(Some(current)) => {
+                        snapshot = current;
+                        boot_mode = "r5-default";
+                        save_message = Some("已打开 R5 分层世界。旧世界仍可在世界库打开。".to_owned());
+                    }
+                    Ok(None) => {}
+                    Err(error) => { save_message = Some(format!("继续显示已保存的世界。无法切换 R5 默认世界：{error}")); }
+                }
+            }
+        }
+        let world_id = snapshot.world_id.as_str();
         let mut background = VecDeque::new();
         let mut autosaves = Autosaves::new();
-        if boot_mode == "restored" || boot_mode == "fallback" { autosaves.remember(&runtime, world_id); }
+        if matches!(boot_mode, "restored" | "fallback" | "r5-default") { autosaves.remember(&runtime, world_id); }
         let mut world_names = HashMap::new();
-        let mut world_name = library::default_world_name(&snapshot).to_owned();
-        if let Ok(entries) = store.discover_worlds() {
+        let mut world_name = snapshot.default_world_name().to_owned();
+        if let Ok(entries) = entries {
             for entry in entries {
                 world_names.insert(entry.world_id.clone(), entry.name.clone());
                 if entry.world_id == world_id {
-                    world_name = entry.name;
-                } else if !entry.archived && runtime.load(&store, &entry.world_id).is_ok() {
+                    if save_blocked.is_none() { world_name = entry.name; }
+                } else if !entry.archived && (runtime.is_world_loaded(&entry.world_id) ||
+                    runtime.load(&store, &entry.world_id).is_ok()) {
                     autosaves.remember(&runtime, &entry.world_id);
                     background.push_back((entry.world_id, 0));
                 }
@@ -286,7 +302,7 @@ impl Host {
         let unavailable = || HostError::new("bound_world_unavailable", "组件绑定的世界不可用。可从托盘的组件设置更换来源。");
         if !self.background.iter().any(|(background, _)| background == id) { return Err(unavailable()); }
         let world = self.runtime.snapshot(id).map_err(|_| unavailable())?;
-        let world_name = self.world_names.get(id).cloned().unwrap_or_else(|| library::default_world_name(&world).into());
+        let world_name = self.world_names.get(id).cloned().unwrap_or_else(|| world.default_world_name().into());
         Ok(ViewSnapshot { world, world_name, last_save_message: self.autosaves.failure(id), active_backlog_millis: 0, solar: None, ..self.world.clone() })
     }
 
@@ -490,7 +506,7 @@ impl Host {
             self.runtime.unload(id);
             return Err(error.into());
         }
-        let name = library::default_world_name(&snapshot).to_owned();
+        let name = snapshot.default_world_name().to_owned();
         self.autosaves.remember(&self.runtime, &snapshot.world_id);
         self.bind_world(snapshot, name, Some(format!("已从{preset_name}预设建立并保存新世界")));
         self.trace("preset-created", json!({ "preset": preset_name }));
@@ -738,14 +754,20 @@ mod tests {
         assert_eq!(forest.definition, "forest-r5-composed/1");
         assert!(forest.edit_paused && forest.world_id != first.world_id);
 
-        let legacy_pond = host.create_world("pond", "旧浅塘预设").unwrap().world;
-        assert_eq!(legacy_pond.definition, "pond-shallow/1");
-        let legacy_forest = host.create_world("forest", "旧林下预设").unwrap().world;
-        assert_eq!(legacy_forest.definition, "forest-understory-seasonal/1");
+        let library = host.list_worlds().unwrap();
+        let presets = serde_json::to_value(library).unwrap();
+        let listed = presets["presets"].as_array().unwrap().iter()
+            .map(|preset| preset["presetId"].as_str().unwrap()).collect::<Vec<_>>();
+        assert_eq!(listed, ["forest-r5-composed", "blank-forest-r5-composed",
+            "pond-r5-composed", "pond-r5-dual", "blank-pond-r5-composed", "blank-pond-r5-dual"]);
+        let pond_alias = host.create_world("pond", "浅塘预设").unwrap().world;
+        assert_eq!(pond_alias.definition, pond.definition);
+        let forest_alias = host.create_world("forest", "林下预设").unwrap().world;
+        assert_eq!(forest_alias.definition, forest.definition);
         drop(host);
         let mut reopened = Host::open(directory.clone(), None).unwrap();
-        assert_eq!(reopened.world.world.world_id, legacy_forest.world_id);
-        assert_eq!(reopened.world.world.definition, legacy_forest.definition);
+        assert_eq!(reopened.world.world.world_id, forest_alias.world_id);
+        assert_eq!(reopened.world.world.definition, forest_alias.definition);
         assert_eq!(reopened.switch_world(&pond.world_id).unwrap().world.definition, pond.definition);
         assert_eq!(reopened.switch_world(&forest.world_id).unwrap().world.definition, forest.definition);
         drop(reopened);
@@ -753,12 +775,26 @@ mod tests {
     }
 
     #[test]
-    fn boot_preserves_existing_legacy_default_and_blocks_unreadable_selection() {
+    fn boot_selects_r5_once_preserves_legacy_checkpoints_and_blocks_unreadable_selection() {
         let directory = std::env::temp_dir().join(format!("micro-ecosystem-{}-v2-legacy-default", std::process::id()));
         let store = SaveStore::new(&directory);
         let mut runtime = WorldRuntime::new();
         let legacy = runtime.create_seasonal_forest(DEFAULT_WORLD_ID, FOREST_SEED).unwrap();
         runtime.save(&store, DEFAULT_WORLD_ID).unwrap();
+        let legacy_file = directory.join(format!("world-{DEFAULT_WORLD_ID}")).join("checkpoint-00000000000000000001.json");
+        let original = std::fs::read(&legacy_file).unwrap();
+        let reopened = Host::open(directory.clone(), None).unwrap();
+        let current_id = reopened.world.world.world_id.clone();
+        assert_ne!(current_id, legacy.world_id);
+        assert_eq!(reopened.world.world.definition, "forest-r5-composed/1");
+        assert_eq!(store.active_world().unwrap().as_deref(), Some(current_id.as_str()));
+        assert_eq!(std::fs::read(&legacy_file).unwrap(), original);
+        drop(reopened);
+
+        let mut reopened = Host::open(directory.clone(), None).unwrap();
+        assert_eq!(reopened.world.world.world_id, current_id);
+        assert_eq!(reopened.switch_world(&legacy.world_id).unwrap().world.definition, legacy.definition);
+        drop(reopened);
         let reopened = Host::open(directory.clone(), None).unwrap();
         assert_eq!(reopened.world.world.world_id, legacy.world_id);
         assert_eq!(reopened.world.world.definition, legacy.definition);
@@ -768,12 +804,33 @@ mod tests {
         let unreadable = b"broken world selection";
         std::fs::write(&pointer, unreadable).unwrap();
         let mut blocked = Host::open(directory.clone(), None).unwrap();
-        assert_eq!(blocked.world.world.definition, legacy.definition);
+        assert_eq!(blocked.world.world.definition, "forest-r5-composed/1");
         assert_eq!(blocked.save().err().unwrap().code, "save_blocked");
         assert_eq!(std::fs::read(&pointer).unwrap(), unreadable);
         let accessible = WorldRuntime::new().load(&store, DEFAULT_WORLD_ID).unwrap();
         assert_eq!(accessible.snapshot.definition, legacy.definition);
+        assert_eq!(std::fs::read(&legacy_file).unwrap(), original);
         drop(blocked);
+        std::fs::remove_dir_all(directory).unwrap();
+    }
+
+    #[test]
+    fn legacy_pond_boot_reuses_an_existing_current_pond() {
+        let directory = std::env::temp_dir().join(format!("micro-ecosystem-{}-reuse-r5-pond", std::process::id()));
+        let store = SaveStore::new(&directory);
+        let mut runtime = WorldRuntime::new();
+        let legacy = runtime.create_pond("old-pond", POND_SEED).unwrap();
+        runtime.save(&store, &legacy.world_id).unwrap();
+        let current = runtime.create_library_world(&store, "pond-r5-composed", POND_SEED).unwrap();
+        runtime.save(&store, &current.world_id).unwrap();
+        store.select_active_world(&legacy.world_id).unwrap();
+
+        let host = Host::open(directory.clone(), None).unwrap();
+        assert_eq!(host.world.world.world_id, current.world_id);
+        assert_eq!(host.world.world.definition, current.definition);
+        assert_eq!(store.discover_worlds().unwrap().len(), 2);
+        assert_eq!(store.active_world().unwrap().as_deref(), Some(current.world_id.as_str()));
+        drop(host);
         std::fs::remove_dir_all(directory).unwrap();
     }
 
@@ -796,9 +853,9 @@ mod tests {
     }
 
     #[test]
-    fn pond_edit_authority_follows_the_explicit_v10_trial_world() {
+    fn pond_edit_authority_follows_the_explicit_r5_trial_world() {
         let mut host = fresh("pond-stone-trial");
-        let formal = host.create_world("pond-r5-stones", "池底试运行").unwrap().world;
+        let formal = host.create_world("blank-pond-r5-composed", "池底试运行").unwrap().world;
         let trial = host.start_trial().unwrap().world;
         let add = PondEdit::AddStone {
             basin_id: "pond-main".into(), x: 0.37, preset: world_runtime::PondStonePreset::Main,
@@ -809,7 +866,7 @@ mod tests {
         assert_eq!(missing_world.err().unwrap().code, "trial_active");
         let changed = host.edit_pond(Some(&trial.world_id), "add", &trial.run_generation, &trial.edit_revision, add.clone()).unwrap();
         let restored = host.edit_pond_history(Some(&trial.world_id), "undo", &trial.run_generation, &changed.world.edit_revision, false).unwrap();
-        assert!(restored.world.pond.unwrap().basins[0].stones.as_ref().unwrap().is_empty());
+        assert_eq!(restored.world.pond.unwrap().basins[0].stones, formal.pond.as_ref().unwrap().basins[0].stones);
         let retry = host.edit_pond(Some(&trial.world_id), "add", &trial.run_generation, &trial.edit_revision, add).unwrap();
         assert_eq!(retry.world.edit_revision, restored.world.edit_revision);
         assert_eq!(host.probe_snapshot(), formal);

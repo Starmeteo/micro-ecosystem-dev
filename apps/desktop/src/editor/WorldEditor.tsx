@@ -2,7 +2,7 @@ import { invoke } from '@tauri-apps/api/core';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent, KeyboardEvent } from 'react';
 import { WorldScene } from '../render/WorldScene';
-import rockThumbnail from '../render/assets/d2/rock.png';
+import rockThumbnail from '../render/assets/r5/forest-composed/boulder-round.png';
 import type { R5SampleFocus, R5SampleZoom } from '../render/r5/geometry';
 import type { ForestBrushResult } from '../render/r5/forestBrushInput';
 import { errorText, native, worldName } from '../world';
@@ -37,7 +37,7 @@ import { waterPlantLimit } from '../render/r5/pondWaterPlant';
 import { pondStructureProfile } from '../render/r5/pondStructureProfiles';
 import { PondSceneryCards, PondSceneryProperties, pondSceneryIsBed, pondSceneryName } from './r5/PondSceneryControls';
 import { displayMass, matterSummary } from './r5/formatMatter';
-import { R5ObservationControls } from './r5/R5PreviewControls';
+import { R5ObservationControls } from './r5/R5ObservationControls';
 import { ForestSpringtailObservation } from './r5/ForestSpringtailObservation';
 import type { ForestSpringtailView } from '../render/r5/forestSpringtails';
 import { StockingControls, stockSpeciesName, type StockSpecies } from './r5/StockingControls';
@@ -316,7 +316,6 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
   const [pending, setPending] = useState<EditorCommand | null>(null);
   const [notice, setNotice] = useState<Notice | null>(null);
   const [saveFailures, setSaveFailures] = useState<Record<string, string>>({});
-  const [density, setDensity] = useState<1 | 2>(2);
   const [light, setLight] = useState<LightPreview>('scene');
   const [appearance, setAppearance] = useState<'mist' | 'obsidian'>(() => {
     try {
@@ -1550,11 +1549,9 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
                     key={staticSection ? `${basin?.id}/${staticSection.row}` : undefined}
                     snapshot={shownWorld}
                     basinId={basin?.id}
-                    density={density}
                     active={viewActive}
                     pondFloatingSelectionId={selectedFloatingPlant?.id}
                     pondSedgeSelectionId={selectedSedge?.id}
-                    exactFit
                     rockSelected={selected}
                     onRockSelect={() => setSelected(true)}
                     onRockMove={canMove ? (x, y) => moveRock({ x, y }) : undefined}
@@ -1963,13 +1960,6 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
                         try { window.localStorage.setItem('micro-eco-appearance', id); } catch { /* ignore */ }
                       }}>{label}</button>
                   ))}
-                </div>
-              </fieldset>}
-              {!basin && !forestScenery && <fieldset>
-                <legend>像素密度</legend>
-                <div className="editor-details__options">
-                  <button type="button" className="editor-tool" aria-pressed={density === 1} onClick={() => setDensity(1)}>240 × 135</button>
-                  <button type="button" className="editor-tool" aria-pressed={density === 2} onClick={() => setDensity(2)}>480 × 270</button>
                 </div>
               </fieldset>}
               <fieldset>

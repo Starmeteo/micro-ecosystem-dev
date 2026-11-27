@@ -1,8 +1,6 @@
 import { useState, type ReactNode } from 'react';
-import mainThumbnail from '../../render/assets/r5/pond/rock.png';
-import pebbleThumbnail from '../../render/assets/r5/pond/pebble.png';
-import branchThumbnail from '../../render/assets/r5/pond/bottom-wood-branch.png';
-import rootThumbnail from '../../render/assets/r5/pond/bottom-wood-root.png';
+import mainThumbnail from '../../render/assets/r5/pond-composed/rock-dome-100.png';
+import pebbleThumbnail from '../../render/assets/r5/pond-composed/pebble-16.png';
 import slopeThumbnail from '../../render/assets/r5/pond-composed/wood-ridged.png';
 import caveThumbnail from '../../render/assets/r5/pond-composed/flat-stone-cave.png';
 import hangingRootsThumbnail from '../../render/assets/r5/pond-composed/hanging-roots.png';
@@ -21,8 +19,8 @@ const stones = {
   flatStoneCave: { name: '扁石洞', size: 110, thumbnail: caveThumbnail, label: '跨度' },
 } as const;
 const woods = {
-  branch: { name: '主枝沉木', size: 300, thumbnail: branchThumbnail },
-  root: { name: '短根沉木', size: 150, thumbnail: rootThumbnail },
+  branch: { name: '主枝沉木', size: 300, thumbnail: slopeThumbnail },
+  root: { name: '短根沉木', size: 150, thumbnail: rootNetworkThumbnail },
   slope: { name: '斜沉木', size: 420, thumbnail: slopeThumbnail },
   hangingRoots: { name: '稀疏悬根', size: 120, thumbnail: hangingRootsThumbnail, label: '跨度' },
   rootNetwork: { name: '盘根网', size: 180, thumbnail: rootNetworkThumbnail, label: '跨度' },

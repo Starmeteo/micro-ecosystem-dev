@@ -48,6 +48,6 @@
 
 ## 能力边界
 
-- 视觉资产含两套逻辑像素网格、28 个独立 PNG 和可编辑的生成源。固定状态的 [两档密度对照](../../apps/desktop/src/render/source/density-comparison.png) 与 [素材说明](../../apps/desktop/src/render/README.md) 可直接审查。
+- 视觉资产含两套逻辑像素网格、28 个独立 PNG 和可编辑的生成源。固定状态的 [两档密度对照](https://github.com/Starmeteo/micro-ecosystem-dev/blob/ff9ae2b0ff82050f1ea112a7013054f94c89227d/apps/desktop/src/render/source/density-comparison.png) 与 [素材说明](https://github.com/Starmeteo/micro-ecosystem-dev/blob/ff9ae2b0ff82050f1ea112a7013054f94c89227d/apps/desktop/src/render/README.md) 可直接审查。
 - 本机文件提交使用同目录临时文件刷新后的 NTFS 硬链接发布。原型保留历史检查点。M1 要补可靠的保留策略、写盘压力与不支持的文件系统策略。
 - Windows 图形验证范围为本机单屏 150%。100%/125% 与混合 DPI、拔插显示器、GPU 上下文恢复、较弱机型及长时渲染开销待后续实测。托盘动作由原生共享路径验证，实体托盘图标的菜单点击待补测。原生退出时 WebView2 偶尔写了一条窗口类注销诊断，进程退出码为 0。

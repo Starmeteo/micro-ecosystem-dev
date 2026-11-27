@@ -11,8 +11,34 @@ pub struct LibrarySnapshot {
     preset_warnings: Vec<String>,
 }
 
-pub(super) fn default_world_name(snapshot: &Snapshot) -> &'static str {
-    if snapshot.pond.is_some() { "浅水池塘" } else { "林下切片" }
+pub(super) fn select_r5_default(
+    store: &SaveStore, runtime: &mut WorldRuntime, active: &Snapshot, entries: &[WorldEntry],
+) -> Result<Option<Snapshot>, RuntimeError> {
+    let theme = WorldTheme::for_model_version(active.model_version);
+    if active.model_version == theme.current_model_version() || store.has_r5_default_selection()? { return Ok(None); }
+    let existing = entries.iter().find(|entry| !entry.archived &&
+        entry.model_version == Some(theme.current_model_version()) &&
+        matches!(entry.state, WorldEntryState::Ready | WorldEntryState::Recovered));
+    let selected = match existing {
+        Some(entry) => runtime.load(store, &entry.world_id)?.snapshot,
+        None => {
+            let seed = if theme == WorldTheme::Forest { FOREST_SEED } else { POND_SEED };
+            let snapshot = runtime.create_library_world(store, theme.default_preset_id(), seed)?;
+            let id = &snapshot.world_id;
+            let saved = runtime.set_edit_paused(id, false).and_then(|running| {
+                runtime.save(store, id)?;
+                Ok(running)
+            });
+            if saved.is_err() { runtime.unload(id); }
+            saved?
+        }
+    };
+    if let Err(error) = store.select_active_world(&selected.world_id) {
+        runtime.unload(&selected.world_id);
+        return Err(error);
+    }
+    if let Err(error) = store.mark_r5_default_selection() { eprintln!("记录 R5 默认选择失败：{error}"); }
+    Ok(Some(selected))
 }
 
 impl Host {
@@ -66,6 +92,7 @@ impl Host {
         }
         let snapshot = self.runtime.snapshot(id)?;
         self.store.select_active_world(id)?;
+        Self::remember_manual_selection(&self.store, &snapshot);
         self.bind_world(snapshot, entry.name, Some("已切换世界".into()));
         self.trace("world-switched", json!({}));
         Ok(self.world.clone())
@@ -75,11 +102,7 @@ impl Host {
         self.require_library_change()?;
         let name = SaveStore::validate_library_name(name)?;
         self.save_before_switch()?;
-        let seed = match preset_id {
-            "pond" | "blank-pond" | "pond-r5-stones" | "pond-r5-wood" | "pond-r5-moss"
-            | "pond-r5-composed" | "blank-pond-r5-composed" | "blank-pond-r5-dual" => POND_SEED,
-            _ => FOREST_SEED,
-        };
+        let seed = if preset_id.starts_with("pond") || preset_id.starts_with("blank-pond") { POND_SEED } else { FOREST_SEED };
         let snapshot = self.runtime.create_library_world(&self.store, preset_id, seed)?;
         self.finish_new_world(snapshot, name, "已从初始方案创建并保存新世界", true)
     }
@@ -210,10 +233,17 @@ impl Host {
             self.runtime.unload(id);
             return Err(error.into());
         }
+        Self::remember_manual_selection(&self.store, &snapshot);
         self.autosaves.remember(&self.runtime, id);
         self.bind_world(snapshot, name, Some(message.into()));
         self.trace("world-created", json!({}));
         Ok(self.world.clone())
+    }
+
+    fn remember_manual_selection(store: &SaveStore, snapshot: &Snapshot) {
+        let model_version = snapshot.model_version;
+        if model_version == WorldTheme::for_model_version(model_version).current_model_version() { return; }
+        if let Err(error) = store.mark_r5_default_selection() { eprintln!("记录手动选择旧世界失败：{error}"); }
     }
 
     pub(super) fn bind_world(&mut self, snapshot: Snapshot, name: String, message: Option<String>) {

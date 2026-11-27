@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react';
-import matThumbnail from '../../render/assets/r5/pond/attached-plant-mat.png';
-import frondThumbnail from '../../render/assets/r5/pond/attached-plant-frond.png';
+import matThumbnail from '../../render/assets/r5/pond-composed/moss-ledge.png';
+import frondThumbnail from '../../render/assets/r5/pond-composed/moss-drape.png';
 import type { PondMossDefinition, PondMossParent, PondMossPatch, PondMossPreset } from '../../world';
 import { pondBedName, type PondBedObject } from './PondBedControls';
 import { displayMass, matterSummary, nutrients } from './formatMatter';

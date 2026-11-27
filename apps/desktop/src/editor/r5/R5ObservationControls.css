@@ -1,0 +1,40 @@
+.r5-view-controls {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 0;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.r5-segments {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--glass-edge);
+  border-radius: 11px;
+  background: var(--glass-raised);
+}
+
+.r5-view-controls button {
+  min-height: 27px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 4px 9px;
+  background: transparent;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.r5-view-controls > .r5-button {
+  border-color: var(--glass-edge);
+  background: var(--glass-raised);
+}
+
+.r5-view-controls button:hover { background: var(--glass-raised-hover); }
+
+.r5-view-controls button[aria-pressed='true'] {
+  border-color: var(--glass-edge-strong);
+  background: var(--glass-accent);
+  color: var(--ed-primary-ink, var(--glass-accent-ink));
+  font-weight: 650;
+}

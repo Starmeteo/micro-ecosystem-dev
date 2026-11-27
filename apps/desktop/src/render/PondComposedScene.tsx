@@ -2,8 +2,8 @@ import { type PointerEvent, useEffect, useLayoutEffect, useRef, useState } from 
 import type { PondBasinSnapshot } from '../world';
 import { seasonColor } from './seasonColor';
 import { fitSample, R5_WIDTH } from './r5/geometry';
-import { drawRuler } from './r5/drawSample';
-import type { R5ForestView } from './r5/ForestLiveScene';
+import { drawRuler } from './r5/drawRuler';
+import type { R5ForestView } from './r5/forestView';
 import { loadComposedArt, composedPixelsPerMm, type ComposedArt } from './r5/pondComposedArt';
 import {
   atStage, cameraAtStage, composedLayers, composedPick, compositionSedges, compositionSurface, drawPondComposition,

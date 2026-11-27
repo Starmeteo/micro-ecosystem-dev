@@ -161,7 +161,7 @@ fn forest_r5_composed_scopes_moves_and_attachment_history_to_the_same_save() {
     let mut runtime = WorldRuntime::new();
     let start = runtime.create_library_world(&store, "forest-r5-composed", 1206).unwrap();
     let blank = runtime.create_library_world(&store, "blank-forest-r5-composed", 1206).unwrap();
-    let legacy = runtime.create_library_world(&store, "forest-r5-litter", 1206).unwrap();
+    let legacy = runtime.create_legacy_library_fixture("forest-r5-litter", 1206).unwrap();
     let scene = |snapshot: &Snapshot| snapshot.forest_rocks.as_ref().unwrap().scenery.clone().unwrap();
     let edit = |runtime: &mut WorldRuntime, snap: &Snapshot, command_id, edit| {
         runtime.edit_forest_rock_command(&snap.world_id, command_id, &snap.run_generation, &snap.edit_revision,
@@ -242,7 +242,7 @@ fn r5_composed_scenery_survives_trial_history_and_save_without_changing_stocks()
     let mut runtime = WorldRuntime::new();
     let start = runtime.create_library_world(&store, "pond-r5-composed", 2729).unwrap();
     let blank = runtime.create_library_world(&store, "blank-pond-r5-composed", 2729).unwrap();
-    let old = runtime.create_library_world(&store, "pond-r5-moss", 2729).unwrap();
+    let old = runtime.create_legacy_library_fixture("pond-r5-moss", 2729).unwrap();
     let basin_id = || eco_core::POND_DEFAULT_BASIN_ID.to_owned();
     let basin = |snap: &Snapshot| snap.pond.as_ref().unwrap().basins[0].clone();
     let edit = |runtime: &mut WorldRuntime, snap: &Snapshot, command_id: &str, edit| {
@@ -306,8 +306,8 @@ fn r5_pond_moss_history_preserves_patch_identity_and_elemental_transfers() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-pond-moss-{}", Uuid::new_v4()));
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "pond-r5-wood", 2729).unwrap();
-    let start = runtime.create_library_world(&store, "pond-r5-moss", 2729).unwrap();
+    let old = runtime.create_legacy_library_fixture("pond-r5-wood", 2729).unwrap();
+    let start = runtime.create_legacy_library_fixture("pond-r5-moss", 2729).unwrap();
     let id = &start.world_id;
     let basin_id = || eco_core::POND_DEFAULT_BASIN_ID.to_owned();
     let edit = |runtime: &mut WorldRuntime, from: &Snapshot, command_id: &str, action| {
@@ -1272,8 +1272,8 @@ fn r5_pond_wood_keeps_real_attachments_through_history_trial_and_checkpoint() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-pond-wood-{}", Uuid::new_v4()));
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "pond-r5-stones", 2729).unwrap();
-    let start = runtime.create_library_world(&store, "pond-r5-wood", 2729).unwrap();
+    let old = runtime.create_legacy_library_fixture("pond-r5-stones", 2729).unwrap();
+    let start = runtime.create_legacy_library_fixture("pond-r5-wood", 2729).unwrap();
     let id = &start.world_id;
     let basin_id = eco_core::POND_DEFAULT_BASIN_ID;
     let add = PondEdit::AddWood { basin_id: basin_id.to_owned(), x: 0.50, preset: PondWoodPreset::Branch };
@@ -1356,8 +1356,8 @@ fn r5_pond_stones_keep_world_and_basin_state_separate_through_edits_and_restart(
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-pond-stones-{}", Uuid::new_v4()));
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "pond", 2729).unwrap();
-    let start = runtime.create_library_world(&store, "pond-r5-stones", 2729).unwrap();
+    let old = runtime.create_legacy_library_fixture("pond", 2729).unwrap();
+    let start = runtime.create_legacy_library_fixture("pond-r5-stones", 2729).unwrap();
     let id = &start.world_id;
     let basin_id = eco_core::POND_DEFAULT_BASIN_ID;
     let main = PondEdit::AddStone { basin_id: basin_id.to_owned(), x: 0.37, preset: PondStonePreset::Main };
@@ -1438,8 +1438,8 @@ fn r5_litter_history_and_saves_preserve_remaining_stock_and_external_flows() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-litter-{}", Uuid::new_v4()));
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "forest-r5-bark", 1206).unwrap();
-    let start = runtime.create_library_world(&store, "forest-r5-litter", 1206).unwrap();
+    let old = runtime.create_legacy_library_fixture("forest-r5-bark", 1206).unwrap();
+    let start = runtime.create_legacy_library_fixture("forest-r5-litter", 1206).unwrap();
     let id = &start.world_id;
     let edit = |runtime: &mut WorldRuntime, previous: &Snapshot, command_id, action| {
         runtime.edit_forest_rock_command(&previous.world_id, command_id, &previous.run_generation, &previous.edit_revision, action)
@@ -1657,8 +1657,8 @@ fn r5_bark_shelter_passage_and_occupants_survive_edit_history_and_reopen() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-bark-{}", Uuid::new_v4()));
     let store = SaveStore::new(path.clone());
     let mut runtime = WorldRuntime::new();
-    let previous = runtime.create_library_world(&store, "forest-r5-stonework", 1206).unwrap();
-    let initial = runtime.create_library_world(&store, "forest-r5-bark", 1206).unwrap();
+    let previous = runtime.create_legacy_library_fixture("forest-r5-stonework", 1206).unwrap();
+    let initial = runtime.create_legacy_library_fixture("forest-r5-bark", 1206).unwrap();
     let id = &initial.world_id;
     let edit = |runtime: &mut WorldRuntime, from: &Snapshot, command_id, action| {
         runtime.edit_forest_rock_command(&from.world_id, command_id, &from.run_generation, &from.edit_revision, action)
@@ -1759,8 +1759,8 @@ fn r5_stonework_edits_keep_each_group_and_older_world_intact() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-stonework-{}", Uuid::new_v4()));
     let store = SaveStore::new(path.clone());
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "forest-r5-terrain", 1206).unwrap();
-    let start = runtime.create_library_world(&store, "forest-r5-stonework", 1206).unwrap();
+    let old = runtime.create_legacy_library_fixture("forest-r5-terrain", 1206).unwrap();
+    let start = runtime.create_legacy_library_fixture("forest-r5-stonework", 1206).unwrap();
     let id = &start.world_id;
     let edit = |runtime: &mut WorldRuntime, previous: &Snapshot, command_id, action| {
         runtime.edit_forest_rock_command(&previous.world_id, command_id, &previous.run_generation, &previous.edit_revision, action)
@@ -1821,8 +1821,8 @@ fn r5_ground_logs_share_edit_history_and_survive_reopen() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-terrain-{}", Uuid::new_v4()));
     let store = SaveStore::new(path.clone());
     let mut runtime = WorldRuntime::new();
-    let old = runtime.create_library_world(&store, "forest-r5", 1206).unwrap();
-    let start = runtime.create_library_world(&store, "forest-r5-terrain", 1206).unwrap();
+    let old = runtime.create_legacy_library_fixture("forest-r5", 1206).unwrap();
+    let start = runtime.create_legacy_library_fixture("forest-r5-terrain", 1206).unwrap();
     let id = &start.world_id;
     let terrain_edit = |runtime: &mut WorldRuntime, previous: &Snapshot, command_id, action| {
         runtime.edit_forest_rock_command(&previous.world_id, command_id, &previous.run_generation, &previous.edit_revision, action)
@@ -1889,7 +1889,7 @@ fn r5_stones_replay_restore_and_keep_trial_changes_isolated() {
     let path = std::env::temp_dir().join(format!("micro-ecosystem-r5-{}", Uuid::new_v4()));
     let save = SaveStore::new(path.clone());
     let mut runtime = WorldRuntime::new();
-    let start = runtime.create_library_world(&save, "forest-r5", 1206).unwrap();
+    let start = runtime.create_legacy_library_fixture("forest-r5", 1206).unwrap();
     let id = &start.world_id;
     let stone_b = ForestRockCommand::Change { edit: ForestRockEdit::Add { position: Point { x: 0.81, y: 0.61 } } };
     let command = |runtime: &mut WorldRuntime, previous: &Snapshot, command_id, action| {
@@ -2147,7 +2147,7 @@ fn r5_living_fern_edit_history_retains_shade_and_stock_on_checkpoint() {
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
     let original = runtime.create_library_world(&store, "forest-r5-composed", 1206).unwrap();
-    let old = runtime.create_library_world(&store, "forest-r5-litter", 1206).unwrap();
+    let old = runtime.create_legacy_library_fixture("forest-r5-litter", 1206).unwrap();
     let read = |snapshot: &Snapshot| snapshot.forest_rocks.as_ref().unwrap().fern_patches.clone();
     assert_eq!(read(&original), Some(vec![]));
     assert!(read(&old).is_none());
@@ -2196,7 +2196,7 @@ fn r5_substrate_stroke_history_trial_copy_and_blueprint_keep_their_own_state() {
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
     let source = runtime.create_library_world(&store, "forest-r5-composed", 1206).unwrap();
-    let legacy = runtime.create_library_world(&store, "forest-r5-litter", 1206).unwrap();
+    let legacy = runtime.create_legacy_library_fixture("forest-r5-litter", 1206).unwrap();
     let read = |snapshot: &Snapshot| snapshot.forest_rocks.as_ref().unwrap().substrate_cells.clone();
     let starting = read(&source).unwrap();
     assert!(read(&legacy).is_none());
@@ -2250,7 +2250,7 @@ fn r5_ground_moss_history_retry_trial_and_checkpoint_preserve_local_stocks() {
     let store = SaveStore::new(&path);
     let mut runtime = WorldRuntime::new();
     let source = runtime.create_library_world(&store, "forest-r5-composed", 1206).unwrap();
-    let old = runtime.create_library_world(&store, "forest-r5-litter", 1206).unwrap();
+    let old = runtime.create_legacy_library_fixture("forest-r5-litter", 1206).unwrap();
     let read = |snapshot: &Snapshot| snapshot.forest_rocks.as_ref().unwrap().moss_patches.clone();
     assert_eq!(read(&source), Some(Vec::new()));
     assert!(read(&old).is_none());

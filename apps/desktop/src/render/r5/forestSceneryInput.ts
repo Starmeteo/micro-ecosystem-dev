@@ -1,8 +1,8 @@
 import { type KeyboardEvent, type PointerEvent, type RefObject, useEffect, useRef, useState } from 'react';
 import type { ForestScenery } from '../../world';
 import { clamp, type Point, type Rect, pointerOnSample } from './geometry';
-import type { R5ForestEdit } from './ForestLiveScene';
-import type { ForestDraft } from './forestPlacement';
+import type { R5ForestEdit } from './forestView';
+import { legacyForestRockId, type ForestDraft } from './forestPlacement';
 import type { ForestLayer, ForestSceneryDraft } from './forestComposition';
 import { forestPosition } from './forestComposition';
 
@@ -45,9 +45,14 @@ const steps: Record<string, Point> = {
   ArrowLeft: { x: -1, y: 0 }, ArrowRight: { x: 1, y: 0 }, ArrowUp: { x: 0, y: -1 }, ArrowDown: { x: 0, y: 1 },
 };
 
-export function useComposedForestInput({ terrain, scenery, revision, viewport, canvas, items, pick, selected, onMossSelect, onFernSelect }: {
+export function useComposedForestInput({ terrain, scenery, legacyRock, revision, viewport, canvas, items, pick, selected, onMossSelect, onFernSelect }: {
   terrain?: R5ForestEdit;
   scenery?: R5ForestSceneryEdit;
+  legacyRock?: {
+    position: Point;
+    onMove?: (x: number, y: number) => void;
+    onSelect?: () => void;
+  };
   revision: string;
   viewport: Rect;
   canvas: RefObject<HTMLCanvasElement | null>;
@@ -65,9 +70,10 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
     : kind === 'barkShelter' ? terrain?.barkPreset ?? 'arch'
     : kind === 'leafPatch' ? terrain?.leafPreset ?? 'leaves' : undefined;
   const style = scenery?.placement;
-  const enabled = Boolean(terrain || scenery);
+  const enabled = Boolean(terrain || scenery || legacyRock);
+  const legacyMovable = Boolean(legacyRock?.onMove);
   const current = shown?.revision === revision && enabled ? shown.draft : null;
-  const selectedId = current?.kind === 'terrain' ? terrain?.selectedId : scenery?.selectedId;
+  const selectedId = current?.kind === 'terrain' ? legacyRock ? legacyForestRockId : terrain?.selectedId : scenery?.selectedId;
   const draft = current && (current.value.id === null || current.value.id === selectedId) ? current : null;
 
   function setDraft(draft: Draft | null) {
@@ -83,7 +89,7 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
 
   useEffect(() => {
     clear();
-  }, [revision, kind, preset, style, terrainMode, enabled]);
+  }, [revision, kind, preset, style, terrainMode, enabled, legacyMovable]);
 
   useEffect(() => {
     if (!pointer.current) setShown(null);
@@ -105,7 +111,7 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
   }
 
   function existing(layer?: ForestLayer): Draft | undefined {
-    if (layer?.key?.kind === 'terrain' && layer.terrain && terrain) {
+    if (layer?.key?.kind === 'terrain' && layer.terrain && (terrain || legacyMovable)) {
       return { kind: 'terrain', value: layer.terrain };
     }
     if (layer?.key?.kind === 'scenery' && scenery) {
@@ -118,6 +124,13 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
     if (!enabled || pointer.current || event.button !== 0 || !event.isPrimary) return;
     const point = at(event, viewport);
     const under = kind || style ? undefined : pick(point);
+    if (legacyRock) {
+      if (under?.key?.kind !== 'terrain' || under.key.id !== legacyForestRockId) return;
+      event.preventDefault();
+      event.currentTarget.focus({ preventScroll: true });
+      legacyRock.onSelect?.();
+      if (!legacyMovable) return;
+    }
     if (under?.key?.kind === 'moss' && onMossSelect) {
       event.preventDefault();
       onMossSelect(under.key.id);
@@ -159,7 +172,7 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
     if (!enabled || !event.isPrimary) return;
     const state = pointer.current;
     if (state?.id === event.pointerId && state.revision === revision) {
-      if (state.draft.kind === 'terrain' && !overCanvas(event)) {
+      if (state.draft.kind === 'terrain' && !legacyRock && !overCanvas(event)) {
         setDraft(null);
         return;
       }
@@ -174,7 +187,8 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
   function commit(next: Draft) {
     if (next.kind === 'terrain') {
       const { id, position } = next.value;
-      if (id === null) terrain?.onAdd(position);
+      if (legacyRock && id === legacyForestRockId) legacyRock.onMove?.(position.x, position.y);
+      else if (id === null) terrain?.onAdd(position);
       else terrain?.onMove(id, position);
     } else {
       const { id, x, y } = next.value;
@@ -190,7 +204,7 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
     const didMove = Math.hypot(point.x - state.start.x, point.y - state.start.y) >= 1;
     clear();
     if (!enabled || state.revision !== revision || (!didMove && state.draft.value.id !== null)) return;
-    if (state.draft.kind === 'terrain' && !overCanvas(event)) return;
+    if (state.draft.kind === 'terrain' && !legacyRock && !overCanvas(event)) return;
     commit(positionDuring(event, state));
   }
 
@@ -200,6 +214,21 @@ export function useComposedForestInput({ terrain, scenery, revision, viewport, c
 
   function keyboard(event: KeyboardEvent<HTMLCanvasElement>) {
     if (!enabled) return;
+    if (legacyRock) {
+      if (event.key === 'Escape' && pointer.current) {
+        clear();
+        event.preventDefault();
+      } else if ((event.key === 'Enter' || event.key === ' ') && legacyRock.onSelect) {
+        legacyRock.onSelect();
+        event.preventDefault();
+      } else if (legacyRock.onMove && !pointer.current && steps[event.key]) {
+        const direction = steps[event.key];
+        const { x, y } = legacyRock.position;
+        legacyRock.onMove(clamp(x + direction.x * .015, 0, 1), clamp(y + direction.y * .015, 0, 1));
+        event.preventDefault();
+      }
+      return;
+    }
     if (event.key === 'Escape') {
       clear();
       terrain?.onCancel?.();

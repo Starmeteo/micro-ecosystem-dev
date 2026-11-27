@@ -1,6 +1,6 @@
-import type { BarkShelterPreset, ForestFernPatch, ForestMossPatch, ForestRock, ForestTerrainKind, LeafPatchPreset, StoneworkPreset } from '../../world';
+import type { BarkShelterPreset, ForestFernPatch, ForestMossPatch, ForestRock, ForestTerrainKind, LeafPatchPreset, StoneworkPreset, WorldSnapshot } from '../../world';
 import { clamp, type Point } from './geometry';
-import { sceneArt } from './sceneArt';
+import geometry from '../assets/r5/placement-geometry.json';
 
 export type ForestShape = { kind: ForestTerrainKind; preset?: StoneworkPreset | BarkShelterPreset | LeafPatchPreset };
 export type ForestDraft = ForestShape & { id: number | null; position: Point; mirrored: boolean };
@@ -9,10 +9,25 @@ export type ForestObject = ForestShape & ForestRock & {
   initialMgCnp?: readonly number[]; remainingMgCnp?: readonly number[]; cellIndex?: number;
 };
 
-export const forestArt = sceneArt('forest');
-const stonework = forestArt.stonework!;
-const barkShelters = forestArt.barkShelters!;
-const leafPatches = forestArt.leafPatches!;
+// The legacy snapshot exposes a single rock position without a terrain object ID.
+export const legacyForestRockId = 0;
+
+export function forestObjects(snapshot: WorldSnapshot): ForestObject[] {
+  const layout = snapshot.forestRocks;
+  if (!layout) return [{ kind: 'rock', id: legacyForestRockId, position: snapshot.rock, mirrored: false }];
+  const entries: ForestObject[] = [
+    ...layout.rocks.map((rock): ForestObject => ({ ...rock, kind: 'rock' })),
+    ...(layout.logs ?? []).map((log): ForestObject => ({ ...log, kind: 'log' })),
+    ...(layout.stonework ?? []).map((shape): ForestObject => ({ ...shape, kind: 'stonework' })),
+    ...(layout.barkShelters ?? []).map((shelter): ForestObject => ({ ...shelter, kind: 'barkShelter' })),
+    ...(layout.leafPatches ?? []).map((patch): ForestObject => ({ ...patch, kind: 'leafPatch' })),
+  ];
+  const groundLayer = (entry: ForestObject) => entry.kind === 'leafPatch' ? 0 : 1;
+  return entries.sort((a, b) => groundLayer(a) - groundLayer(b) || a.position.y - b.position.y || a.id - b.id);
+}
+
+export const forestPlacementGeometry = geometry.forest;
+const { stonework, barkShelters, leafPatches, logLengthMm, referenceWidthMm } = forestPlacementGeometry;
 
 function stoneworkArt(preset: ForestShape['preset']) {
   return stonework[preset === 'pair' || preset === 'cluster' ? preset : 'slab'];
@@ -37,13 +52,6 @@ export function leafPatchFrame(item: Pick<ForestObject, 'initialMgCnp' | 'remain
   if (ratio >= .72) return 'default';
   if (ratio >= .36) return 'worn';
   return 'trace';
-}
-
-export function forestObjectArt(shape: ForestShape) {
-  if (shape.kind === 'stonework') return stoneworkArt(shape.preset);
-  if (shape.kind === 'barkShelter') return barkShelterArt(shape.preset);
-  if (shape.kind === 'leafPatch') return leafPatchArt(shape.preset);
-  return forestArt.objects[shape.kind];
 }
 
 // Logical soil form documented by eco-core. This only indicates the latest displayed snapshot.
@@ -83,7 +91,7 @@ function stoneworkCells(shape: ForestDraft) {
   const { position, mirrored, preset } = shape;
   const sign = mirrored ? -1 : 1;
   return stoneworkArt(preset).parts.map(({ offsetMm }) => cellIndex({
-    x: position.x + sign * offsetMm / forestArt.referenceWidthMm, y: position.y,
+    x: position.x + sign * offsetMm / referenceWidthMm, y: position.y,
   })).sort((a, b) => a - b);
 }
 
@@ -92,7 +100,7 @@ function structureCells(object: ForestObject) {
   if (object.kind === 'leafPatch') return [object.cellIndex ?? cellIndex(object.position)];
   if (object.kind === 'stonework') return stoneworkCells(object);
   if (object.kind === 'rock') return [cellIndex(object.position)];
-  const half = forestArt.objects.log.lengthMm / forestArt.referenceWidthMm / 2;
+  const half = logLengthMm / referenceWidthMm / 2;
   const left = cellIndex({ ...object.position, x: object.position.x - half });
   const right = cellIndex({ ...object.position, x: object.position.x + half });
   return Array.from({ length: right - left + 1 }, (_, index) => left + index);
@@ -154,7 +162,7 @@ export function forestPlacementHint(draft: ForestDraft, objects: readonly Forest
     role,
   });
   const cells = leaves ? [pointForCell(cellIndex({ x, y }), 'substrate')] : bark ? (() => {
-    const offset = bark.footOffsetMm / forestArt.referenceWidthMm;
+    const offset = bark.footOffsetMm / referenceWidthMm;
     const center = cellIndex({ x, y });
     return [
       pointForCell(cellIndex({ x: x - offset, y }), 'solid'),

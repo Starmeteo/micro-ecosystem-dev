@@ -1,10 +1,10 @@
 # 微缩生态 · Windows
 
-当前提供 0.2.20 Windows x64 本地安装包，内含可分层编辑的 R5 林下与浅水池塘。首次打开进入新版林下。世界库和快捷新建可创建两套新版场景。现有存档继续按原模型版本打开。 [0.2.20 交付验收](docs/design/r5/implementation/windows-release-0.2.20.md) · [林下模型说明](crates/eco-core/README.md) · [浅塘模型说明](crates/eco-core/POND.md)
+当前源码版使用可分层编辑的 R5 林下与浅水池塘。首次启动进入 R5 林下，编辑器的快捷新建也使用 R5。 [林下模型说明](crates/eco-core/README.md) · [浅塘模型说明](crates/eco-core/POND.md)
 
 ## 安装与启动
 
-本地安装包面向 Windows 11 x64 的当前用户。安装后从系统托盘打开「世界编辑器」，即可选择林下或浅水池塘。通过托盘的「保存并退出」结束应用。安装包为未签名本地构建。 [Windows 安装包](target/release/bundle/nsis/微缩生态_0.2.20_x64-setup.exe) · [免安装程序](target/release/micro-ecosystem-desktop.exe) · [M4 历史安装记录与构建步骤](docs/m4/windows-install.md)
+体验本次素材和预设更新，可运行 `target/debug/micro-ecosystem-desktop.exe`，或按下文步骤从源码启动。启动后从系统托盘打开「世界编辑器」，结束时选择「保存并退出」。此前发布的 Windows x64 0.2.20 安装包及校验值见历史记录。 [0.2.20 交付存档](docs/design/r5/implementation/windows-release-0.2.20.md) · [历史安装与构建步骤](docs/m4/windows-install.md)
 
 文档中指向 `target/` 和 `.local/` 的链接是本地构建或验收路径。从 GitHub 克隆后，可按下方步骤从源码构建安装包。外部原始风格参考图随本地交接资料保管，仓库保留文字索引和项目自有素材。
 
@@ -57,31 +57,23 @@ npm --prefix apps/desktop ci
 
 脚本会尝试载入 Visual Studio x64 开发命令环境。使用仓库级的 Rust 版本配置。若当前工作区已有 .local 下的同版本工具链，也可直接使用。
 
-### R5 隔离体验
+### R5 预设与隔离体验
 
-```powershell
-.\scripts\windows.ps1 -Mode r5-terrain
-```
+「世界库 → 从预设新建」提供以下六套内置预设。
 
-在托盘打开「世界编辑器」，从世界库新建「林下 · R5 石木布置」。点「内容 → 放置朽木段」，把木段摆在场景中部的空地。可单独拖动或翻转木段，也可移除、撤销、试运行和保存。石木体验使用 `.local/r5-terrain/data`，可和前一阶段的双石体验同时打开。 [R5 贴地木段验收](docs/design/r5/implementation/terrain-verification.md)
+| 主题 | 带造景 | 空白 |
+| --- | --- | --- |
+| 林下 | 林下 · R5 分层造景 | 空白林下 · R5 分层造景 |
+| 浅塘 | 浅水池塘 · R5 水下造景 | 空白浅塘 · R5 水下造景 |
+| 双水域 | 浅水池塘 · R5 双水域 | 空白浅塘 · R5 双水域 |
 
-同一启动方式也可从世界库新建「林下 · R5 扁石与小石组」。在「内容」里选择扁石、两石组或三石组，放置预览标出实际接地格。石组支持整组移动和撤销。 [R5 扁石与小石组验收](docs/design/r5/implementation/stonework-verification.md)
-
-要体验可以穿行的树皮，从世界库新建「林下 · R5 树皮洞口」。打开「内容」放置短拱树皮或裂口半筒。实线框标出两个支脚，虚线框标出需要留空的通道。点选树皮可查看洞内鼠妇数量。 [R5 树皮洞口验收](docs/design/r5/implementation/bark-verification.md)
-
-「林下 · R5 落叶布置」包含上述石木、树皮以及可取食、可分解的落叶簇和落叶堆。放置前可查看投放量，选中后可查看碳、氮、磷余量。世界库里的旧预设继续按自己的定义运行。 [R5 落叶验收](docs/design/r5/implementation/litter-verification.md)
-
-同一启动方式支持从世界库新建「浅水池塘 · R5 池底造景」。在「内容」选择主石或卵石，沿池底放置和拖动。虾会避开底石，排水时可看到原地露出的石头。 [R5 浅塘底石验收](docs/design/r5/implementation/pond-stones-verification.md)
-
-「浅水池塘 · R5 沉木布置」在底石之外提供主枝和短根。在画布选中沉木后可查看停靠的虾，停靠中的虾会随沉木移动。移除前会确认，虾会离开木面。 [R5 浅塘沉木验收](docs/design/r5/implementation/pond-wood-verification.md)
-
-「浅水池塘 · R5 附着斑块」可在浸水的主石或沉木上布置苔藓小垫、分枝绒簇。先摆放承载物，再从「内容」选择附着位置。在「属性」可以查看斑块的碳、氮、磷，调整位置或修剪。 [R5 浅塘附着斑块验收](docs/design/r5/implementation/pond-moss-verification.md)
+更新后首次启动时，如果上次选中的是旧模型世界，应用会优先打开同主题的可用 R5 世界，必要时另建一个。旧世界可在世界库中打开，仍使用保存时的生态模型，画面使用当前 R5 素材。之后会继续记住手动切换的世界。
 
 ```powershell
 .\scripts\windows.ps1 -Mode r5-dev
 ```
 
-从托盘打开「世界编辑器」，进入「世界库 → 从预设新建」，选择「林下 · R5 石块布置」。暂停编辑时在「内容」里选苔斑岩石，再到画布上摆放。可点选或拖动各块石头，在「属性」中翻转或移除，使用工具栏撤销、重做、试运行和保存。此模式使用 `.local/r5-dev/data`，适合体验和反复重开验证。`-Mode r5-preview` 打开林下和浅塘的分层样板，并使用另一份独立目录。 [R5 B 交付与实测](docs/design/r5/implementation/verification.md)
+此命令使用和常规开发相同的 R5 场景。世界和 WebView2 配置分别保存在 `.local/r5-dev/data` 与 `.local/r5-dev/webview`。
 
 ## 操作
 
@@ -106,7 +98,7 @@ npm --prefix apps/desktop ci
 
 `headless` 验证 M0 夹具的视图解耦。`forest-replay` 比较石块干预后的遮阴、水分、鼠妇活动与资源收支。`pond-replay` 验证补排水、干涸复水、独立水体和昼夜碎屑压力。`build` 产出 `target/debug/micro-ecosystem-desktop.exe`。 [M3 验证记录](docs/m3/verification.md) · [M2 验证记录](docs/m2/verification.md)
 
-Windows 调试和打包的中间文件由构建命令生成。清理后首次运行 `build`、`test` 或 `package` 会重建所需缓存。当前安装包、上一版升级基线及 0.1.0 跨版本基线保留在各自的发布记录所列位置。
+Windows 调试和打包的中间文件由构建命令生成。清理后首次运行 `build`、`test` 或 `package` 会重建所需缓存。历史安装包和兼容测试基线见各自的发布记录。
 
 默认存档使用应用的 Windows 本地数据目录。用临时试验世界验证时，可在启动前设置 `MICRO_ECOSYSTEM_DATA_DIR` 指向独立目录。`MICRO_ECOSYSTEM_TRACE_FILE` 可记录运行、窗口和保存事件。复验自动保存时可用 `MICRO_ECOSYSTEM_AUTOSAVE_INTERVAL_MS` 更改本次启动的间隔，合法范围为 1,000–3,600,000 毫秒。
 
@@ -117,7 +109,7 @@ Windows 调试和打包的中间文件由构建命令生成。清理后首次运
 | crates/eco-core | Tauri 无关的固定步长林下与浅塘模型、季节、M0 兼容夹具和资源账本 |
 | crates/world-runtime | 世界身份、编辑、调度边界与持久化 |
 | apps/desktop/src-tauri | Windows 生命周期、托盘、IPC 和应用入口 |
-| apps/desktop/src | React 界面、独立北京时间、PixiJS 林下场景与 Canvas 2D 池塘场景 |
+| apps/desktop/src | React 界面、独立北京时间，以及林下和浅塘的 R5 分层渲染 |
 | ecosystem-handoff | 交接基线、原参考图与审查结论 |
 
-已有 M0 和 M1 检查点保留各自模型版本。浅塘为版本 3，原季节林下为版本 4，「林下 · R5 石块布置」为版本 5，「林下 · R5 石木布置」为版本 6，「林下 · R5 扁石与小石组」为版本 7。世界库识别以前保存的检查点并显示恢复或不可读状态，归档与世界名称独立存放。
+当前林下与浅塘模型分别为 v14 和 v13。世界库识别以前保存的检查点并显示恢复或不可读状态，归档与世界名称独立存放。 [0.1.0 界面采集归档](ui-ux-current-state/README.md)

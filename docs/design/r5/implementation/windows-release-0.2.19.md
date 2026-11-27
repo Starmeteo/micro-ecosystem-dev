@@ -6,7 +6,7 @@
 
 | 产物 | 大小 | SHA-256 |
 | --- | ---: | --- |
-| [Windows x64 安装包](../../../../target/release/bundle/nsis/微缩生态_0.2.19_x64-setup.exe) | 84,050,113 字节 | `67FCD7A0DD5E4906E6BFF621CC6D3600EE1BCF1A345D9AFE0609CBABE271FF37` |
+| [Windows x64 安装包](../../../../.local/archive-r5-0.2.19/微缩生态_0.2.19_x64-setup.exe) | 84,050,113 字节 | `67FCD7A0DD5E4906E6BFF621CC6D3600EE1BCF1A345D9AFE0609CBABE271FF37` |
 | [0.2.19 独立程序](../../../../.local/archive-r5-0.2.19/micro-ecosystem-desktop.exe) | 93,316,096 字节 | `54D4E9C5EF8C085AEA642EED0CC64BBF760A22F9512DAD5682C174ACE26B053C` |
 
 ## 进入方式

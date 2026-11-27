@@ -255,10 +255,10 @@ async function visual() {
   await workspace('off');
   await show('editor');
   const forest = await ipc('editor', 'set_paused', { paused: true });
-  await captureWorld('forest', '.forest-view canvas', forest);
+  await captureWorld('forest', 'canvas[data-forest-composed][data-ready=true], .forest-view canvas', forest);
   const pond = await ipc('editor', 'create_world', { presetId: 'pond', name: '浅水池塘' });
   assert(pond.editPaused);
-  await captureWorld('pond', '.pond-scene canvas', pond);
+  await captureWorld('pond', 'canvas[data-pond-composed][data-ready=true], .pond-scene canvas', pond);
   await exitApplication();
 }
 

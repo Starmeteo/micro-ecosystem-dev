@@ -1,7 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { WorldSnapshot } from '../world';
-import { forestObjects } from './r5/drawForest';
-import { forestFernSite, forestMossSite, forestPlacementHint, forestStockSite, leafPatchFrame } from './r5/forestPlacement';
+import { forestFernSite, forestMossSite, forestObjects, forestPlacementHint, forestStockSite, leafPatchFrame, legacyForestRockId } from './r5/forestPlacement';
 import { fernFrame } from './r5/forestFern';
 import { forestSpringtailFocus, forestSpringtailMarkCounts } from './r5/forestSpringtails';
 import {
@@ -13,9 +12,9 @@ import {
 } from './r5/forestComposition';
 import { useComposedForestInput, type R5ForestSceneryEdit } from './r5/forestSceneryInput';
 import { drawForestBrush, useForestBrush, type R5ForestBrush } from './r5/forestBrushInput';
-import type { R5ForestEdit, R5ForestView } from './r5/ForestLiveScene';
+import type { R5ForestEdit, R5ForestView } from './r5/forestView';
 import { useCanvasFit } from './r5/useCanvasFit';
-import { drawRuler } from './r5/drawSample';
+import { drawRuler } from './r5/drawRuler';
 import { R5_WIDTH, type Point } from './r5/geometry';
 import { sameComposedFrame } from './r5/composedFrame';
 import { drawStockMarker, useStockPosition, type StockPositionTool } from './r5/stockPosition';
@@ -39,11 +38,14 @@ interface ForestComposedSceneProps {
   sceneryEdit?: R5ForestSceneryEdit;
   forestView?: R5ForestView;
   onReady?: (backend: string) => void;
+  onRockMove?: (x: number, y: number) => void;
+  onRockSelect?: () => void;
+  rockSelected?: boolean;
 }
 
 const center = { x: forestWidth / 2, y: forestHeight / 2 };
 
-export function ForestComposedScene({ snapshot, active = true, forestEdit, forestBrush, stocking, mossEdit, fernEdit, sceneryEdit, forestView, onReady }: ForestComposedSceneProps) {
+export function ForestComposedScene({ snapshot, active = true, forestEdit, forestBrush, stocking, mossEdit, fernEdit, sceneryEdit, forestView, onReady, onRockMove, onRockSelect, rockSelected }: ForestComposedSceneProps) {
   const host = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
   const layers = useRef<ForestLayer[]>([]);
@@ -60,7 +62,9 @@ export function ForestComposedScene({ snapshot, active = true, forestEdit, fores
   const mossTool = active && art ? mossEdit?.placement : undefined;
   const fernTool = active && art ? fernEdit?.placement : undefined;
   const positionTool = fernTool ?? mossTool ?? stockTool;
-  const editable = Boolean(terrainEdit || decorEdit || brushTool || positionTool);
+  const legacyRock = !snapshot.forestRocks && active && art && (onRockMove || onRockSelect)
+    ? { position: snapshot.rock, onMove: onRockMove, onSelect: onRockSelect } : undefined;
+  const editable = Boolean(terrainEdit || decorEdit || brushTool || positionTool || legacyRock);
   const items = snapshot.forestRocks?.scenery ?? [];
   const ferns = snapshot.forestRocks?.fernPatches ?? [];
   const fernPreset = snapshot.forestRocks?.fernPreset;
@@ -68,7 +72,8 @@ export function ForestComposedScene({ snapshot, active = true, forestEdit, fores
   const selection: ForestLayerKey | undefined = fernEdit?.selectedId != null ? { kind: 'fern', id: fernEdit.selectedId }
     : mossEdit?.selectedId != null ? { kind: 'moss', id: mossEdit.selectedId }
     : decorEdit?.selectedId != null ? { kind: 'scenery', id: decorEdit.selectedId }
-    : terrainEdit?.selectedId != null ? { kind: 'terrain', id: terrainEdit.selectedId } : undefined;
+    : terrainEdit?.selectedId != null ? { kind: 'terrain', id: terrainEdit.selectedId }
+    : legacyRock && rockSelected ? { kind: 'terrain', id: legacyForestRockId } : undefined;
   const selected = selection ? layers.current.find(layer => sameForestLayer(layer.key, selection)) : undefined;
   const observedAnimal = snapshot.animals.find(({ id }) => id === forestView?.animalId);
   const animal = observedAnimal ?? snapshot.animals[0];
@@ -81,7 +86,7 @@ export function ForestComposedScene({ snapshot, active = true, forestEdit, fores
     : forestView?.focus === 'contact' && contact ? contact : center;
   const camera = composedForestCamera(placing ? 1 : forestView?.zoom ?? 1, focused);
   const input = useComposedForestInput({
-    terrain: terrainEdit, scenery: decorEdit, revision: snapshot.editRevision, items, canvas, viewport: camera, selected,
+    terrain: terrainEdit, scenery: decorEdit, legacyRock, revision: snapshot.editRevision, items, canvas, viewport: camera, selected,
     onMossSelect: mossEdit?.onSelect,
     onFernSelect: fernEdit?.onSelect,
     pick: (at) => pickComposedForest(layers.current, at),
@@ -98,7 +103,7 @@ export function ForestComposedScene({ snapshot, active = true, forestEdit, fores
     ? { id: fernTool.moving?.id ?? null, position: stock.point } : undefined;
   const brushCells = brush.cells?.map(({ index, occupied, unchanged, overCapacity }) =>
     `${index}:${overCapacity ? 'overflow' : unchanged ? 'same' : Number(occupied)}`).join(',');
-  const hint = input.terrainDraft ? forestPlacementHint(input.terrainDraft, terrain, snapshot.animals, ferns) : undefined;
+  const hint = input.terrainDraft && !legacyRock ? forestPlacementHint(input.terrainDraft, terrain, snapshot.animals, ferns) : undefined;
   const viewportText = [viewport.x, viewport.y, viewport.width, viewport.height].join(',');
 
   useEffect(() => {
@@ -160,6 +165,7 @@ export function ForestComposedScene({ snapshot, active = true, forestEdit, fores
         : stockTool ? '选择鼠妇落点。点击或用方向键选点，回车确认。'
         : brushTool?.kind === 'substrate' ? '林下基质笔刷。拖动选取土格，松开提交。也可用方向键选一格、回车提交。按 Esc 取消。'
         : brushTool ? '林下落叶笔刷。按住拖动铺设，按 Esc 取消。'
+        : legacyRock ? '林下。选择石块，拖动或用方向键移动。'
         : editable ? '林下。拖动物件，或用方向键调整，回车确认。' : '林下生态观赏'}
       data-editable={editable || undefined} data-viewport={viewportText} data-composed-viewport={viewportText}
       data-daylight-phase={snapshot.daylightPhase} data-observed-animal-id={observedAnimal?.id}

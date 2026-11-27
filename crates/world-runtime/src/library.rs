@@ -1,7 +1,6 @@
 use crate::checkpoint::committed_checkpoints;
 use crate::{validate_world_id, RuntimeError, SaveStore, Snapshot, SolarConfig, WorldRuntime};
-use eco_core::{WorldState, FOREST_R5_BARK_MODEL_VERSION, FOREST_R5_COMPOSED_MODEL_VERSION, FOREST_R5_LEAF_MODEL_VERSION, FOREST_R5_MODEL_VERSION, FOREST_R5_STONEWORK_MODEL_VERSION, FOREST_R5_TERRAIN_MODEL_VERSION,
-    FOREST_SEASONAL_MODEL_VERSION, POND_MODEL_VERSION, POND_R5_COMPOSED_MODEL_VERSION, POND_R5_MOSS_MODEL_VERSION, POND_R5_STONES_MODEL_VERSION,
+use eco_core::{WorldState, FOREST_R5_COMPOSED_MODEL_VERSION, POND_MODEL_VERSION, POND_R5_COMPOSED_MODEL_VERSION, POND_R5_MOSS_MODEL_VERSION, POND_R5_STONES_MODEL_VERSION,
     POND_R5_WOOD_MODEL_VERSION};
 use serde::{de::DeserializeOwned, Deserialize, Serialize};
 use std::fs::{self, File, OpenOptions};
@@ -13,6 +12,7 @@ const VERSION: u32 = 1;
 const MAX_ENTRY_BYTES: u64 = 2048;
 const MAX_PRESET_BYTES: u64 = 256 * 1024;
 const ENTRY_FILENAME: &str = "library-entry.json";
+const DEFAULT_SELECTION_FILENAME: &str = "r5-default-selection.json";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -22,7 +22,7 @@ pub enum WorldTheme {
 }
 
 impl WorldTheme {
-    fn for_version(model_version: u32) -> Self {
+    pub fn for_model_version(model_version: u32) -> Self {
         if matches!(model_version, POND_MODEL_VERSION | POND_R5_STONES_MODEL_VERSION | POND_R5_WOOD_MODEL_VERSION
             | POND_R5_MOSS_MODEL_VERSION | POND_R5_COMPOSED_MODEL_VERSION) {
             Self::Pond
@@ -35,8 +35,27 @@ impl WorldTheme {
         match self { Self::Forest => "forest", Self::Pond => "pond" }
     }
 
-    fn title(self) -> &'static str {
-        match self { Self::Forest => "林下切片", Self::Pond => "浅水池塘" }
+    pub fn current_model_version(self) -> u32 {
+        match self { Self::Forest => FOREST_R5_COMPOSED_MODEL_VERSION, Self::Pond => POND_R5_COMPOSED_MODEL_VERSION }
+    }
+
+    pub fn default_preset_id(self) -> &'static str {
+        match self { Self::Forest => "forest-r5-composed", Self::Pond => "pond-r5-composed" }
+    }
+
+    fn title(self, model_version: u32) -> &'static str {
+        match (self, model_version == self.current_model_version()) {
+            (Self::Forest, true) => "林下 · R5 分层造景",
+            (Self::Pond, true) => "浅水池塘 · R5 水下造景",
+            (Self::Forest, false) => "旧版林下切片",
+            (Self::Pond, false) => "旧版浅水池塘",
+        }
+    }
+}
+
+impl Snapshot {
+    pub fn default_world_name(&self) -> &'static str {
+        WorldTheme::for_model_version(self.model_version).title(self.model_version)
     }
 }
 
@@ -82,23 +101,11 @@ pub struct PresetEntry {
     pub model_version: u32,
 }
 
-const BUILT_INS: [(&str, &str, WorldTheme, PresetSource, u32); 18] = [
-    ("forest", "林下切片", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_SEASONAL_MODEL_VERSION),
-    ("forest-r5", "林下 · R5 石块布置", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_MODEL_VERSION),
-    ("forest-r5-terrain", "林下 · R5 石木布置", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_TERRAIN_MODEL_VERSION),
-    ("forest-r5-stonework", "林下 · R5 扁石与小石组", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_STONEWORK_MODEL_VERSION),
-    ("forest-r5-bark", "林下 · R5 树皮洞口", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_BARK_MODEL_VERSION),
-    ("forest-r5-litter", "林下 · R5 落叶布置", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_LEAF_MODEL_VERSION),
+const BUILT_INS: [(&str, &str, WorldTheme, PresetSource, u32); 6] = [
     ("forest-r5-composed", "林下 · R5 分层造景", WorldTheme::Forest, PresetSource::BuiltIn, FOREST_R5_COMPOSED_MODEL_VERSION),
-    ("blank-forest", "空白林下", WorldTheme::Forest, PresetSource::Blank, FOREST_SEASONAL_MODEL_VERSION),
     ("blank-forest-r5-composed", "空白林下 · R5 分层造景", WorldTheme::Forest, PresetSource::Blank, FOREST_R5_COMPOSED_MODEL_VERSION),
-    ("pond", "浅水池塘", WorldTheme::Pond, PresetSource::BuiltIn, POND_MODEL_VERSION),
-    ("pond-r5-stones", "浅水池塘 · R5 池底造景", WorldTheme::Pond, PresetSource::BuiltIn, POND_R5_STONES_MODEL_VERSION),
-    ("pond-r5-wood", "浅水池塘 · R5 沉木布置", WorldTheme::Pond, PresetSource::BuiltIn, POND_R5_WOOD_MODEL_VERSION),
-    ("pond-r5-moss", "浅水池塘 · R5 附着斑块", WorldTheme::Pond, PresetSource::BuiltIn, POND_R5_MOSS_MODEL_VERSION),
     ("pond-r5-composed", "浅水池塘 · R5 水下造景", WorldTheme::Pond, PresetSource::BuiltIn, POND_R5_COMPOSED_MODEL_VERSION),
     ("pond-r5-dual", "浅水池塘 · R5 双水域", WorldTheme::Pond, PresetSource::BuiltIn, POND_R5_COMPOSED_MODEL_VERSION),
-    ("blank-pond", "空白浅塘", WorldTheme::Pond, PresetSource::Blank, POND_MODEL_VERSION),
     ("blank-pond-r5-composed", "空白浅塘 · R5 水下造景", WorldTheme::Pond, PresetSource::Blank, POND_R5_COMPOSED_MODEL_VERSION),
     ("blank-pond-r5-dual", "空白浅塘 · R5 双水域", WorldTheme::Pond, PresetSource::Blank, POND_R5_COMPOSED_MODEL_VERSION),
 ];
@@ -130,7 +137,7 @@ impl CustomPreset {
     fn entry(&self) -> PresetEntry {
         PresetEntry {
             preset_id: self.preset_id.clone(), name: self.name.clone(),
-            theme: WorldTheme::for_version(self.state.model_version()),
+            theme: WorldTheme::for_model_version(self.state.model_version()),
             source: PresetSource::Custom, model_version: self.state.model_version(),
         }
     }
@@ -139,6 +146,17 @@ impl CustomPreset {
 impl SaveStore {
     pub fn validate_library_name(name: &str) -> Result<String, RuntimeError> {
         library_name(name)
+    }
+
+    pub fn has_r5_default_selection(&self) -> Result<bool, RuntimeError> {
+        let path = self.root.join(DEFAULT_SELECTION_FILENAME);
+        Ok(read_record::<bool>(&path, 32)?.unwrap_or(false))
+    }
+
+    /// Once initialized, later manual choices retain the usual restart behavior.
+    pub fn mark_r5_default_selection(&self) -> Result<(), RuntimeError> {
+        if self.has_r5_default_selection()? { return Ok(()); }
+        write_record(&self.root.join(DEFAULT_SELECTION_FILENAME), &true, 32)
     }
 
     /// Existing version-1 checkpoints are discovered without migration writes.
@@ -161,9 +179,9 @@ impl SaveStore {
                 match checkpoint {
                     Ok(saved) => {
                         let version = saved.world.state.model_version();
-                        let theme = WorldTheme::for_version(version);
+                        let theme = WorldTheme::for_model_version(version);
                         row.theme = Some(theme);
-                        row.name = theme.title().to_owned();
+                        row.name = theme.title(version).to_owned();
                         row.model_version = Some(version);
                         row.definition = Some(saved.world.state.definition().to_owned());
                         row.paused = Some(saved.world.is_paused());
@@ -295,38 +313,45 @@ impl WorldRuntime {
 
     pub fn create_library_world(&mut self, store: &SaveStore, preset_id: &str, seed: u64) -> Result<Snapshot, RuntimeError> {
         let (state, solar_config) = match preset_id {
-            "forest" => (WorldState::new_seasonal_forest(seed), None),
-            "forest-r5" => (WorldState::new_r5_forest(seed), None),
-            "forest-r5-terrain" => (WorldState::new_r5_terrain_forest(seed), None),
-            "forest-r5-stonework" => (WorldState::new_r5_stonework_forest(seed), None),
-            "forest-r5-bark" => (WorldState::new_r5_bark_forest(seed), None),
-            "forest-r5-litter" => (WorldState::new_r5_leaf_forest(seed), None),
-            "forest-r5-composed" => (WorldState::new_r5_composed_forest(seed), None),
-            "pond" => (WorldState::new_pond(seed), None),
-            "pond-r5-stones" => (WorldState::new_r5_stone_pond(seed), None),
-            "pond-r5-wood" => (WorldState::new_r5_wood_pond(seed), None),
-            "pond-r5-moss" => (WorldState::new_r5_moss_pond(seed), None),
-            "pond-r5-composed" => (WorldState::new_r5_composed_pond(seed), None),
-            "pond-r5-dual" => (WorldState::new_r5_composed_dual_pond(seed), None),
-            "blank-forest" => (WorldState::new_blank_forest(seed), None),
-            "blank-forest-r5-composed" => (WorldState::new_blank_r5_composed_forest(seed), None),
-            "blank-pond" => (WorldState::new_blank_pond(seed), None),
-            "blank-pond-r5-composed" => (WorldState::new_blank_r5_composed_pond(seed), None),
-            "blank-pond-r5-dual" => (WorldState::new_blank_r5_composed_dual_pond(seed), None),
+            "forest-r5-composed" | "forest" | "forest-r5" | "forest-r5-terrain" | "forest-r5-stonework"
+            | "forest-r5-bark" | "forest-r5-litter" => (WorldState::new_r5_composed_forest(seed), default_solar()),
+            "pond-r5-composed" | "pond" | "pond-r5-stones" | "pond-r5-wood" | "pond-r5-moss" =>
+                (WorldState::new_r5_composed_pond(seed), default_solar()),
+            "pond-r5-dual" => (WorldState::new_r5_composed_dual_pond(seed), default_solar()),
+            "blank-forest-r5-composed" | "blank-forest" => (WorldState::new_blank_r5_composed_forest(seed), default_solar()),
+            "blank-pond-r5-composed" | "blank-pond" => (WorldState::new_blank_r5_composed_pond(seed), default_solar()),
+            "blank-pond-r5-dual" => (WorldState::new_blank_r5_composed_dual_pond(seed), default_solar()),
             id if id.starts_with("preset-") => {
                 let preset = store.custom_preset(id)?;
                 (preset.state, preset.solar_config)
             }
             _ => return Err(RuntimeError::PresetMissing { preset_id: preset_id.to_owned() }),
         };
-        let theme = WorldTheme::for_version(state.model_version());
+        self.create_library_state(state, solar_config)
+    }
+
+    fn create_library_state(&mut self, state: WorldState, solar_config: Option<SolarConfig>) -> Result<Snapshot, RuntimeError> {
+        let theme = WorldTheme::for_model_version(state.model_version());
         let world_id = format!("{}-{}", theme.id(), Uuid::new_v4().simple());
-        if solar_config.is_none() && !preset_id.starts_with("preset-") {
-            self.create_with_solar(&world_id, state)?;
-        } else {
-            self.create(&world_id, state, solar_config)?;
-        }
+        self.create(&world_id, state, solar_config)?;
         self.set_edit_paused(&world_id, true)
+    }
+
+    #[cfg(test)]
+    pub(crate) fn create_legacy_library_fixture(&mut self, id: &str, seed: u64) -> Result<Snapshot, RuntimeError> {
+        let state = match id {
+            "forest-r5" => WorldState::new_r5_forest(seed),
+            "forest-r5-terrain" => WorldState::new_r5_terrain_forest(seed),
+            "forest-r5-stonework" => WorldState::new_r5_stonework_forest(seed),
+            "forest-r5-bark" => WorldState::new_r5_bark_forest(seed),
+            "forest-r5-litter" => WorldState::new_r5_leaf_forest(seed),
+            "pond" => WorldState::new_pond(seed),
+            "pond-r5-stones" => WorldState::new_r5_stone_pond(seed),
+            "pond-r5-wood" => WorldState::new_r5_wood_pond(seed),
+            "pond-r5-moss" => WorldState::new_r5_moss_pond(seed),
+            _ => panic!("unknown legacy library fixture: {id}"),
+        };
+        self.create_library_state(state, default_solar())
     }
 
     pub fn save_custom_preset(&self, store: &SaveStore, world_id: &str, name: &str, seed: u64) -> Result<PresetEntry, RuntimeError> {
@@ -340,6 +365,10 @@ impl WorldRuntime {
         write_record(&path, &preset, MAX_PRESET_BYTES)?;
         Ok(preset.entry())
     }
+}
+
+fn default_solar() -> Option<SolarConfig> {
+    Some(super::default_solar_config())
 }
 
 fn library_name(name: &str) -> Result<String, RuntimeError> {
@@ -449,7 +478,10 @@ mod tests {
         assert_eq!(preset.pond_observation().unwrap().basins[0].daphnia_count, 48);
         assert_eq!(preset.pond_ledger().unwrap().basins[0].matter_input_mg_cnp, [0.0; 3]);
         let undone = runtime.edit_pond_history_command(&pond.world_id, "undo", &pond.run_generation, "2", false).unwrap();
-        assert_eq!(undone.pond, filled.pond);
+        let mut expected = filled.pond.unwrap();
+        // Undo restores the habitat while retaining the allocated shrimp ID range.
+        expected.basins[0].retain_observation_row = Some(true);
+        assert_eq!(undone.pond, Some(expected));
         assert!(undone.starter_community_available);
     }
 

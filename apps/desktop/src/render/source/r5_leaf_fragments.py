@@ -5,8 +5,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageEnhance
 
 
-ASSETS = Path(__file__).resolve().parents[1] / 'assets' / 'r5'
-COMPOSED = ASSETS / 'forest-composed'
+COMPOSED = Path(__file__).resolve().parents[1] / 'assets' / 'r5' / 'forest-composed'
 SCALE = 6
 SIZE = (36 * SCALE, 24 * SCALE)
 
@@ -63,14 +62,10 @@ def main():
         'default': cluster(parts, [(1, 25, 10), (0, 14, 14), (2, 31, 17), (3, 8, 19)]),
         'worn': cluster(parts, [(1, 19, 14), (2, 28, 17), (3, 11, 18)]),
         'trace': cluster(parts, [(2, 16, 15), (3, 24, 17)]),
-        'depleted': cluster(parts, [(3, 18, 16)]),
     }
-    frames['depleted'].putalpha(frames['depleted'].getchannel('A').point(lambda alpha: alpha * .22))
     for frame, image in frames.items():
         suffix = '' if frame == 'default' else '-' + frame
-        image.resize((38, 26), Image.Resampling.LANCZOS).save(ASSETS / 'forest' / f'leaf-patch-fragments{suffix}.png', optimize=True)
-        if frame != 'depleted':
-            image.save(COMPOSED / f'litter-fragments{suffix}.png', optimize=True)
+        image.save(COMPOSED / f'litter-fragments{suffix}.png', optimize=True)
 
 
 if __name__ == '__main__':

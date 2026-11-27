@@ -57,10 +57,12 @@ function worldStatus(world: WorldEntry) {
 }
 
 function worldTheme(world: WorldEntry) {
-  if (world.theme) return themeLabels[world.theme];
-  if (world.definition?.startsWith('pond-')) return themeLabels.pond;
-  if (world.definition?.startsWith('forest-')) return themeLabels.forest;
-  return '';
+  const theme = world.theme ?? (world.definition?.startsWith('pond-') ? 'pond'
+    : world.definition?.startsWith('forest-') ? 'forest' : undefined);
+  if (!theme) return '';
+  const model = world.modelVersion;
+  const modelName = model == null ? '' : model === (theme === 'forest' ? 14 : 13) ? ' · R5' : ' · 兼容模型';
+  return themeLabels[theme] + modelName;
 }
 
 function presetDescription(preset: PresetEntry) {
@@ -68,14 +70,8 @@ function presetDescription(preset: PresetEntry) {
   if (preset.presetId === 'blank-forest-r5-composed') return '从林地底景开始，可独立布置地形、落叶资源和画面造景。';
   if (preset.presetId === 'pond-r5-composed') return '以水下造景开始，可重排场景摆件。斜沉木提供停靠面，支持附着斑块。';
   if (preset.presetId === 'blank-pond-r5-composed') return '从空砂床开始，可摆放石木与场景摆件，并在环境页补水。';
-  if (preset.presetId === 'pond-r5-moss') return '可在主石和沉木上附着苔藓小垫或分枝绒簇，查看水线与碳氮磷库存，并按量修剪。';
-  if (preset.presetId === 'pond-r5-wood') return '沿池底布置石材、主枝和短根沉木。选中沉木可查看停靠小虾及附着装饰。';
-  if (preset.presetId === 'pond-r5-stones') return '沿池底摆放主石和卵石，观察小虾绕行。水量与水质仍可在环境页查看。';
-  if (preset.presetId === 'forest-r5-litter') return '可把落叶簇或落叶堆放入土格。选中后可查看投放量及剩余碳、氮、磷。';
-  if (preset.presetId === 'forest-r5-bark') return '可放置短拱树皮或裂口半筒。鼠妇可从前后入口通过，选中洞口可查看洞内鼠妇数量。';
-  if (preset.presetId === 'forest-r5-stonework') return '可布置扁石、两石组、三石组、主石和贴地木段。石组按整件选择、移动和撤销。';
-  if (preset.presetId === 'forest-r5-terrain') return '编辑时可放置、移动、翻转和移除苔斑岩石及贴地朽木段。木段会占用一段地面。';
-  if (preset.presetId === 'forest-r5') return '使用 R5 林下画面。编辑时可放置、移动、翻转和移除独立石块。';
+  if (preset.presetId === 'pond-r5-dual') return '从两片独立的分层水域开始，各自布置和观察。';
+  if (preset.presetId === 'blank-pond-r5-dual') return '从两片独立的空砂床开始，分别补水、布置石木和水草。';
   if (preset.source === 'blank') return preset.theme === 'pond'
     ? '从干床开始，可以补水、调整面积，并放入初始生物。'
     : '从林下基底开始，可以移动石块并放入初始生物。';

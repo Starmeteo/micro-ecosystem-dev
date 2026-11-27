@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import type { ReactNode } from 'react';
-import rockThumbnail from '../../render/assets/r5/forest/rock.png';
-import logBack from '../../render/assets/r5/forest/log-back.png';
-import logFront from '../../render/assets/r5/forest/log-front.png';
-import slabThumbnail from '../../render/assets/r5/forest/stonework-slab.png';
-import pairThumbnail from '../../render/assets/r5/forest/stonework-pair.png';
-import clusterThumbnail from '../../render/assets/r5/forest/stonework-cluster.png';
-import archThumbnail from '../../render/assets/r5/forest/bark-shelter-arch.png';
-import splitThumbnail from '../../render/assets/r5/forest/bark-shelter-split.png';
+import rockThumbnail from '../../render/assets/r5/forest-composed/boulder-round.png';
+import logThumbnail from '../../render/assets/r5/forest-composed/ground-log.png';
+import slabThumbnail from '../../render/assets/r5/forest-composed/rock.png';
+import lichenStone from '../../render/assets/r5/forest-composed/lichen-rock.png';
+import archThumbnail from '../../render/assets/r5/forest-composed/log-thick.png';
 import rootArchThumbnail from '../../render/assets/r5/forest-composed/bridge-root.png';
 import branchBridgeThumbnail from '../../render/assets/r5/forest-composed/bridge-branch.png';
-import leavesThumbnail from '../../render/assets/r5/forest/leaf-patch-leaves.png';
-import heapThumbnail from '../../render/assets/r5/forest/leaf-patch-heap.png';
-import fragmentsThumbnail from '../../render/assets/r5/forest/leaf-patch-fragments.png';
+import leavesThumbnail from '../../render/assets/r5/forest-composed/leaf.png';
+import heapThumbnail from '../../render/assets/r5/forest-composed/gold-leaf.png';
+import fragmentsThumbnail from '../../render/assets/r5/forest-composed/litter-fragments.png';
 import forestComposition from '../../render/assets/r5/forest-composed/definition.json';
 import type {
   BarkShelterPreset, ForestBarkShelter, ForestLeafPatch, ForestLeafPreset, ForestRock, ForestStonework, LeafPatchMatter,
@@ -37,18 +34,18 @@ export type ForestTerrainObject =
 
 const objects = {
   rock: { name: '苔斑岩石', hint: '50 mm · 放置到场景', thumbnail: rockThumbnail },
-  log: { name: '朽木段', hint: '260 mm · 贴地横放', thumbnail: logBack },
+  log: { name: '朽木段', hint: '260 mm · 贴地横放', thumbnail: logThumbnail },
 } as const;
 
 const stonework = {
   slab: { name: '扁石', hint: '40 mm · 单片', size: '长度 40 mm', thumbnail: slabThumbnail },
-  pair: { name: '两石组', hint: '100 mm · 两块', size: '跨度 100 mm', thumbnail: pairThumbnail },
-  cluster: { name: '三石组', hint: '140 mm · 三块', size: '跨度 140 mm', thumbnail: clusterThumbnail },
+  pair: { name: '两石组', hint: '100 mm · 两块', size: '跨度 100 mm', thumbnail: rockThumbnail },
+  cluster: { name: '三石组', hint: '140 mm · 三块', size: '跨度 140 mm', thumbnail: rockThumbnail },
 } as const;
 const stoneworkPresets = ['slab', 'pair', 'cluster'] as const;
 const barkShelters = {
   arch: { name: '短拱树皮', hint: '90 mm · 前后贯通', size: '轴长 90 mm', thumbnail: archThumbnail },
-  split: { name: '裂口半筒', hint: '120 mm · 前后贯通', size: '轴长 120 mm', thumbnail: splitThumbnail },
+  split: { name: '裂口半筒', hint: '120 mm · 前后贯通', size: '轴长 120 mm', thumbnail: logThumbnail },
   rootArch: { name: '弯曲根拱', hint: '140 mm · 桥下贯通', size: '参考跨度 140 mm', thumbnail: rootArchThumbnail },
   branchBridge: { name: '短枝桥', hint: '200 mm · 桥下贯通', size: '参考跨度 200 mm', thumbnail: branchBridgeThumbnail },
 } as const;
@@ -82,11 +79,12 @@ function composedArtwork(item: ForestTerrainObject) {
 }
 
 function TerrainThumbnail({ choice, mirrored }: { choice: ForestTerrainChoice; mirrored?: boolean }) {
+  const group = choice.kind === 'stonework' && choice.preset !== 'slab' ? choice.preset : undefined;
   return (
-    <span className="editor-terrain-thumb" data-mirrored={mirrored || undefined} aria-hidden="true">
-      {choice.kind === 'log'
-        ? <><img src={logBack} alt="" width="44" height="32" /><img src={logFront} alt="" width="44" height="32" /></>
-        : <img src={terrainDetail(choice).thumbnail} alt="" width="44" height="32" />}
+    <span className="editor-terrain-thumb" data-stone-group={group} data-mirrored={mirrored || undefined} aria-hidden="true">
+      <img src={terrainDetail(choice).thumbnail} alt="" width="44" height="32" />
+      {group && <img src={slabThumbnail} alt="" width="23" height="18" />}
+      {group === 'cluster' && <img src={lichenStone} alt="" width="23" height="18" />}
     </span>
   );
 }

@@ -1,10 +1,10 @@
-# 微缩生态 UI/UX 现状采集
+# 微缩生态 0.1.0 UI/UX 采集归档
 
-整理日期为 2026-11-25（北京时间）。这份资料供未接触工程的设计协作者核对 Windows 微缩生态 0.1.0 的界面、操作路径和内容构成。后续视觉深化方向是用户确认的「像素工作台」。这里保留当前产品的画面和行为。
+整理日期为 2026-11-25（北京时间）。这份历史记录保存了 Windows 微缩生态 0.1.0 的画面、操作路径和内容构成。当前 R5 源码版的入口和预设见 [项目说明](../README.md)。
 
 ## 采集基线
 
-取样使用现有 Windows x64 发布版。工程入口为 target/release/micro-ecosystem-desktop.exe，SHA256 为 85C02123E22E2B28C59998070FC191A4E5342644A9B71EA713B133AC215A4678。工程另有脚本模式 dev、build 与 package，分别用于开发启动、调试构建及发布打包。采集版本、WebView2 和屏幕读数详见 [capture-environment.json](capture-environment.json)。
+取样使用当时的 Windows x64 发布版。采集时工程入口为 `target/release/micro-ecosystem-desktop.exe`，SHA256 为 85C02123E22E2B28C59998070FC191A4E5342644A9B71EA713B133AC215A4678。采集版本、WebView2 和屏幕读数详见 [capture-environment.json](capture-environment.json)。
 
 该工作目录无法读取 Git 工作树元数据，分支、提交与未提交改动状态均记作 unknown。版本能精确绑定到实际可执行文件哈希。
 

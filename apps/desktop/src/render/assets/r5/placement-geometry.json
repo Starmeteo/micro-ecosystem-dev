@@ -1,0 +1,160 @@
+{
+  "forest": {
+    "referenceWidthMm": 450,
+    "logLengthMm": 260,
+    "stonework": {
+      "slab": {
+        "placementRange": [
+          0.11,
+          0.89
+        ],
+        "parts": [
+          {
+            "offsetMm": 0,
+            "lengthMm": 40,
+            "heightPx": 12
+          }
+        ]
+      },
+      "pair": {
+        "placementRange": [
+          0.16,
+          0.84
+        ],
+        "parts": [
+          {
+            "offsetMm": -42,
+            "lengthMm": 14,
+            "heightPx": 8
+          },
+          {
+            "offsetMm": 42,
+            "lengthMm": 18,
+            "heightPx": 10
+          }
+        ]
+      },
+      "cluster": {
+        "placementRange": [
+          0.2,
+          0.8
+        ],
+        "parts": [
+          {
+            "offsetMm": -61,
+            "lengthMm": 16,
+            "heightPx": 9
+          },
+          {
+            "offsetMm": 0,
+            "lengthMm": 8,
+            "heightPx": 6
+          },
+          {
+            "offsetMm": 61,
+            "lengthMm": 20,
+            "heightPx": 11
+          }
+        ]
+      }
+    },
+    "barkShelters": {
+      "arch": {
+        "placementRange": [
+          0.15,
+          0.85
+        ],
+        "footOffsetMm": 38
+      },
+      "split": {
+        "placementRange": [
+          0.18,
+          0.82
+        ],
+        "footOffsetMm": 51
+      },
+      "rootArch": {
+        "placementRange": [
+          0.18,
+          0.82
+        ],
+        "footOffsetMm": 51
+      },
+      "branchBridge": {
+        "placementRange": [
+          0.24,
+          0.76
+        ],
+        "footOffsetMm": 78
+      }
+    },
+    "leafPatches": {
+      "leaves": {
+        "placementRange": [
+          0.16,
+          0.84
+        ]
+      },
+      "heap": {
+        "placementRange": [
+          0.24,
+          0.76
+        ]
+      },
+      "fragments": {
+        "placementRange": [
+          0.16,
+          0.84
+        ]
+      }
+    }
+  },
+  "pond": {
+    "bottomStones": {
+      "main": {
+        "heightPx": 27,
+        "halfSpanPx": 32,
+        "placementRange": [
+          0.26,
+          0.74
+        ]
+      },
+      "pebble": {
+        "heightPx": 9,
+        "halfSpanPx": 10,
+        "placementRange": [
+          0.19,
+          0.81
+        ]
+      }
+    },
+    "bottomWoods": {
+      "branch": {
+        "heightPx": 22,
+        "halfSpanPx": 96,
+        "surfaceHalfSpanPx": 58,
+        "placementRange": [
+          0.37,
+          0.63
+        ]
+      },
+      "root": {
+        "heightPx": 15,
+        "halfSpanPx": 48,
+        "surfaceHalfSpanPx": 25,
+        "placementRange": [
+          0.25,
+          0.75
+        ]
+      }
+    },
+    "attachedMoss": {
+      "mat": {
+        "maxCarbonMg": 12
+      },
+      "frond": {
+        "maxCarbonMg": 24
+      }
+    }
+  }
+}

@@ -6,8 +6,8 @@
 
 | 产物 | 大小 | SHA-256 |
 | --- | ---: | --- |
-| [Windows x64 安装包](../../../../target/release/bundle/nsis/微缩生态_0.2.20_x64-setup.exe) | 84,073,719 字节 | `27FB36802E3A93C05046887A7B8FB2F52B00BC5B0D1DDB99BA46D96BBC2E072A` |
-| [独立程序](../../../../target/release/micro-ecosystem-desktop.exe) | 93,367,808 字节 | `EB08FD11C6C770861D580D4576715B7B68EC06F39B7D9FD85D654D220C4AF1A3` |
+| [Windows x64 安装包](../../../../.local/archive-r5-0.2.20/微缩生态_0.2.20_x64-setup.exe) | 84,073,719 字节 | `27FB36802E3A93C05046887A7B8FB2F52B00BC5B0D1DDB99BA46D96BBC2E072A` |
+| [独立程序](../../../../.local/archive-r5-0.2.20/micro-ecosystem-desktop.exe) | 93,367,808 字节 | `EB08FD11C6C770861D580D4576715B7B68EC06F39B7D9FD85D654D220C4AF1A3` |
 
 ## 使用方式
 

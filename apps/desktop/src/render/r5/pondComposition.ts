@@ -1,5 +1,5 @@
 import type { PondBasinSnapshot, PondLeafDeposit, PondLeafDepositPreset, PondRibbonPlantPreset, PondScenery, PondShrimpStage, PondWaterPlantPatch } from '../../world';
-import type { R5ForestView } from './ForestLiveScene';
+import type { R5ForestView } from './forestView';
 import { clamp, type Point, type Rect } from './geometry';
 import {
   composedWidth, composedHeight, composedPixelsPerMm, composedPhysicalStyles, sceneryStyles, spritePose, spritePoint,

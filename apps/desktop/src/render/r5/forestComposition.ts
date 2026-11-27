@@ -1,6 +1,6 @@
 import type { FixtureAnimal, ForestScenery, WorldSnapshot } from '../../world';
 import { clamp, type Point, type Rect } from './geometry';
-import { type ForestDraft, type ForestObject, type PlacementHint, forestArt, forestSoilIndex, leafPatchFrame } from './forestPlacement';
+import { type ForestDraft, type ForestObject, type PlacementHint, forestPlacementGeometry, forestSoilIndex, leafPatchFrame } from './forestPlacement';
 import {
   type ComposedForestArt, type ForestPose, type ForestStyle, drawForestContact, drawForestSprite, forestHeight,
   forestHeroStyles, forestPixelsPerMm, forestPose, forestSceneryStyles, forestWidth, hitsForestSprite,
@@ -127,7 +127,7 @@ function terrainLayer(art: ComposedForestArt, item: ForestObject, draft: boolean
   }
   if (item.kind === 'stonework') {
     const preset = item.preset === 'pair' || item.preset === 'cluster' ? item.preset : 'slab';
-    layer.parts = (forestArt.stonework?.[preset].parts ?? []).map(({ offsetMm, lengthMm }, index) => {
+    layer.parts = forestPlacementGeometry.stonework[preset].parts.map(({ offsetMm, lengthMm }, index) => {
       const style = { type: 'rock', depth: layer.depth, mm: lengthMm, shade: .88 + index * .05, flat: preset === 'slab' ? .54 : .90,
         shadow: [lengthMm * 1.45, lengthMm * .28, .50] };
       return { style, pose: forestPose(art, style, { ...anchor, x: anchor.x + offsetMm * forestPixelsPerMm * mirror }, mirror) };

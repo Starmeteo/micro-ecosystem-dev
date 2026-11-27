@@ -1,9 +1,7 @@
 import { invoke } from '@tauri-apps/api/core';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
-import { R5Observation } from './editor/r5/R5Observation';
-import { R5ObservationControls } from './editor/r5/R5PreviewControls';
-import { R5Workbench } from './editor/r5/R5Workbench';
+import { R5ObservationControls } from './editor/r5/R5ObservationControls';
 import { WorldEditor } from './editor/WorldEditor';
 import { WorkspaceSettings } from './layout/WorkspaceEditor';
 import { addEcologyPiece, bounds, ecologyAnchor, effectiveMode, PIECES, pieceScaleLimits, pieceSize, pieceWorld,
@@ -11,10 +9,8 @@ import { addEcologyPiece, bounds, ecologyAnchor, effectiveMode, PIECES, pieceSca
 import { usePanelInteraction } from './layout/panelInteraction';
 import { useWorkspaceLayout } from './layout/workspace';
 import { WorldScene } from './render/WorldScene';
-import { R5SampleScene } from './render/r5/R5SampleScene';
 import type { R5SampleFocus, R5SampleZoom } from './render/r5/geometry';
-import type { R5ForestView } from './render/r5/ForestLiveScene';
-import { r5Preview, useR5PreviewTheme, type R5PreviewTheme } from './r5Preview';
+import type { R5ForestView } from './render/r5/forestView';
 import { native, useWorld, viewId, worldName, type WorldSnapshot } from './world';
 
 const hourMinute = new Intl.DateTimeFormat('zh-CN', {
@@ -108,19 +104,18 @@ function useIdleCover(idle: WorkspaceLayout['idle'], active: boolean, ready: boo
   return { enabled, covered, hover, focus };
 }
 
-function Landscape({ snapshot, connectionError, active, idle, sharedCover, previewTheme, observation, desktopPanel }: {
+function Landscape({ snapshot, connectionError, active, idle, sharedCover, observation, desktopPanel }: {
   snapshot: WorldSnapshot | null;
   connectionError: string;
   active: boolean;
   idle: WorkspaceLayout['idle'];
   sharedCover?: IdleCoverState;
-  previewTheme?: R5PreviewTheme;
   observation?: R5ForestView;
   desktopPanel?: boolean;
 }) {
-  const localCover = useIdleCover(idle, active && !sharedCover, Boolean(previewTheme || snapshot));
+  const localCover = useIdleCover(idle, active && !sharedCover, Boolean(snapshot));
   const { enabled, covered } = sharedCover ?? localCover;
-  const title = previewTheme ? (previewTheme === 'forest' ? '林下 R5 样板' : '浅水池塘 R5 样板') : worldName(snapshot);
+  const title = worldName(snapshot);
 
   return (
     <section
@@ -135,8 +130,7 @@ function Landscape({ snapshot, connectionError, active, idle, sharedCover, previ
       }}
     >
       <div className="landscape__image" aria-hidden={covered}>
-        {previewTheme ? <R5SampleScene theme={previewTheme} />
-          : snapshot ? <WorldScene snapshot={snapshot} active={active && !covered} exactFit forestView={observation}
+        {snapshot ? <WorldScene snapshot={snapshot} active={active && !covered} forestView={observation}
             pondFraming={desktopPanel ? 'underwater' : undefined} />
           : <p className="scene-message" role={connectionError ? 'alert' : 'status'}>{connectionError || '正在打开世界'}</p>}
       </div>
@@ -144,12 +138,12 @@ function Landscape({ snapshot, connectionError, active, idle, sharedCover, previ
         <div className="landscape__cover" aria-hidden={!covered}>
           {idle.mode === 'clock' ? <Clock />
             : <span className={`landscape__message${idle.text.length > 12 ? ' landscape__message--long' : ''}`}>{idle.text}</span>}
-          {!previewTheme && covered && (snapshot?.suspended || snapshot?.paused || snapshot?.lastSaveMessage?.includes('失败')) && (
+          {covered && (snapshot?.suspended || snapshot?.paused || snapshot?.lastSaveMessage?.includes('失败')) && (
             <span className="landscape__cover-status">{snapshot.suspended ? '系统暂停' : snapshot.lastSaveMessage?.includes('失败') ? '保存失败' : '世界已暂停'}</span>
           )}
         </div>
       )}
-      {!previewTheme && snapshot && connectionError && <p className="landscape__error" role="alert">{connectionError}</p>}
+      {snapshot && connectionError && <p className="landscape__error" role="alert">{connectionError}</p>}
     </section>
   );
 }
@@ -181,7 +175,7 @@ function inEcologyIdleGroup(target: EventTarget | null) {
   return target instanceof Element && Boolean(target.closest('[data-idle-group="true"]'));
 }
 
-function WorkspacePanel({ previewTheme }: { previewTheme?: R5PreviewTheme }) {
+function WorkspacePanel() {
   const workspace = useWorkspaceLayout();
   const { layout, ready, loadError } = workspace;
   const interaction = usePanelInteraction(workspace);
@@ -205,14 +199,14 @@ function WorkspacePanel({ previewTheme }: { previewTheme?: R5PreviewTheme }) {
     return remaining;
   }), []);
   const mode = effectiveMode(display);
-  const active = Boolean(previewTheme || Object.values(feeds).some(({ viewActive }) => viewActive)) && visible;
+  const active = visible && Object.values(feeds).some(({ viewActive }) => viewActive);
   const portal = interaction.preview?.portal;
   const contextPiece = menu && layout.items.find(({ id }) => id === menu.pieceId);
   const belongsToGroup = (piece: WorkspacePiece) => Boolean(ecologyId)
     && (piece.id === ecologyId || (mode !== 'free' && piece.docked === true));
   const arrangingGroup = display.items.some((piece) =>
     belongsToGroup(piece) && (piece.id === adjust?.id || piece.id === contextPiece?.id));
-  const groupCover = useIdleCover(layout.idle, active, Boolean(ecologyId && (previewTheme || world.snapshot)),
+  const groupCover = useIdleCover(layout.idle, active, Boolean(ecologyId && world.snapshot),
     arrangingGroup || interaction.dragging !== null);
   const groupMembers = display.items.filter(belongsToGroup).map(({ id }) => id).sort().join(' ');
 
@@ -259,7 +253,7 @@ function WorkspacePanel({ previewTheme }: { previewTheme?: R5PreviewTheme }) {
       onKeyDown={(event) => {
         if (event.key === 'Escape') { interaction.cancel(); setMenu(null); setAdjust(undefined); }
       }}>
-      {!previewTheme && Array.from(sources, (id) => <PanelWorldFeed key={feedKey(id)} worldId={id} present={present} />)}
+      {Array.from(sources, (id) => <PanelWorldFeed key={feedKey(id)} worldId={id} present={present} />)}
       {display.items.map((piece) => {
         const { width, height } = pieceSize(piece);
         const resizing = adjust?.id === piece.id && adjust.kind === 'resize';
@@ -293,15 +287,12 @@ function WorkspacePanel({ previewTheme }: { previewTheme?: R5PreviewTheme }) {
             height: `${height / box.height * 100}%`,
           }}>
             <div className="desktop-piece__content" aria-hidden={maskedDock || undefined}>
-              {piece.kind === 'ecology' && <Landscape snapshot={ecologyWorld.snapshot} connectionError={ecologyWorld.connectionError} previewTheme={previewTheme}
-                active={visible && Boolean(previewTheme || ecologyWorld.viewActive)}
+              {piece.kind === 'ecology' && <Landscape snapshot={ecologyWorld.snapshot} connectionError={ecologyWorld.connectionError}
+                active={visible && ecologyWorld.viewActive}
                 idle={!inGroup && (interaction.dragging || resizing || contextPiece?.id === piece.id) ? noCover : layout.idle}
                 sharedCover={inGroup ? groupCover : undefined} desktopPanel />}
               {piece.kind === 'clock' && <Clock />}
-              {piece.kind === 'environment' && (previewTheme ? <section className="environment-info" aria-label="样板信息">
-                <div><strong>{previewTheme === 'forest' ? '林下' : '浅水池塘'}</strong><span>样板</span></div>
-                <div className="environment-info__measure"><span>参考画宽</span><strong>{previewTheme === 'forest' ? 450 : 600}<small>mm</small></strong></div>
-              </section> : <EnvironmentInfo snapshot={world.snapshot} />)}
+              {piece.kind === 'environment' && <EnvironmentInfo snapshot={world.snapshot} />}
             </div>
             {resizing && <button type="button" className="desktop-piece__resize" role="slider" tabIndex={0} autoFocus
               aria-label="组件尺寸" aria-valuemin={pieceScaleLimits.minimum} aria-valuemax={pieceScaleLimits.maximum}
@@ -400,20 +391,8 @@ function WorldWindows() {
   return <WorldEditor {...world} />;
 }
 
-function R5PreviewWindows() {
-  const { theme, changeTheme } = useR5PreviewTheme();
-  if (viewId === 'panel') return <WorkspacePanel previewTheme={theme} />;
-  function hidePreview() {
-    if (native) void invoke('hide_window', { viewId }).catch((error: unknown) => console.error(error));
-    else window.location.assign('?view=panel');
-  }
-  const props = { theme, onDesktopThemeChange: changeTheme, onHide: hidePreview };
-  return viewId === 'observe' ? <R5Observation {...props} /> : <R5Workbench {...props} />;
-}
-
 export function App() {
   if (viewId === 'layout') return <ArrangementWindow />;
-  if (r5Preview) return <R5PreviewWindows />;
   if (viewId === 'panel') return <WorkspacePanel />;
   return <WorldWindows />;
 }

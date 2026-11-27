@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory)]
-    [ValidateSet('check', 'headless', 'forest-replay', 'pond-replay', 'test', 'dev', 'r5-preview', 'r5-dev', 'r5-terrain', 'build', 'package')]
+    [ValidateSet('check', 'headless', 'forest-replay', 'pond-replay', 'test', 'dev', 'r5-dev', 'build', 'package')]
     [string]$Mode
 )
 
@@ -39,20 +39,12 @@ try {
         'test' { cargo test --locked --workspace }
         'check' { Set-Location -LiteralPath $ecoDesktop; npm run build:web }
         'dev' { Set-Location -LiteralPath $ecoDesktop; npm run desktop -- dev }
-        { $_ -in @('r5-preview', 'r5-dev', 'r5-terrain') } {
-            $ecoPreview = Join-Path $ecoLocal $Mode
-            if ($Mode -eq 'r5-preview') { $env:VITE_R5_SAMPLE = '1' }
-            else { Remove-Item Env:VITE_R5_SAMPLE -ErrorAction SilentlyContinue }
-            $env:MICRO_ECOSYSTEM_DATA_DIR = Join-Path $ecoPreview 'data'
-            $env:WEBVIEW2_USER_DATA_FOLDER = Join-Path $ecoPreview 'webview'
-            $ecoWindowConfig = 'src-tauri/tauri.r5-preview.conf.json'
-            if ($Mode -eq 'r5-terrain') {
-                $env:CARGO_TARGET_DIR = Join-Path $ecoPreview 'target'
-                if (-not $env:CARGO_BUILD_BUILD_DIR) { $env:CARGO_BUILD_BUILD_DIR = Join-Path $ecoRoot 'target' }
-                $ecoWindowConfig = 'src-tauri/tauri.r5-terrain.conf.json'
-            }
+        'r5-dev' {
+            $ecoIsolated = Join-Path $ecoLocal 'r5-dev'
+            $env:MICRO_ECOSYSTEM_DATA_DIR = Join-Path $ecoIsolated 'data'
+            $env:WEBVIEW2_USER_DATA_FOLDER = Join-Path $ecoIsolated 'webview'
             Set-Location -LiteralPath $ecoDesktop
-            npm run desktop -- dev --config $ecoWindowConfig --no-watch
+            npm run desktop -- dev --config src-tauri/tauri.r5-preview.conf.json --no-watch
         }
         'build' { Set-Location -LiteralPath $ecoDesktop; npm run desktop -- build --debug --no-bundle }
         'package' { Set-Location -LiteralPath $ecoDesktop; npm run desktop -- build --ci --bundles nsis -- --locked }
