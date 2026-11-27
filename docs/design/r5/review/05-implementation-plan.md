@@ -1,5 +1,9 @@
 # R5 实施与验收方案
 
+## 安装交付与后续开发
+
+0.2.22 安装包已在 Windows 完成新装、从 0.2.21 覆盖升级和保存重开。安装版已验证世界备份导入为独立副本，以及沉木对象级生物膜和米虾摄食反馈。 [0.2.22 安装交付](../implementation/windows-release-0.2.22.md) · [0.2.21 历史验收](../implementation/windows-release-0.2.21.md) · [世界备份](../implementation/world-backup.md) · [沉木生物膜](../implementation/pond-wood-biofilm.md)
+
 ## 2026-11-27 源码收口
 
 编辑器、观赏窗和桌面组件统一使用 R5 分层素材。世界库提供六套 R5 内置预设，空存档首次启动进入 R5 林下。升级后首次遇到旧世界时，优先打开同主题的 R5 世界。旧世界的模型、进度和编辑权限继续随存档读取。

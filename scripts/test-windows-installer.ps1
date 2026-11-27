@@ -5,7 +5,8 @@ param(
     [ValidateSet('Legacy', 'R5', 'Upgrade')]
     [string]$Scenario,
     [string]$PriorInstaller,
-    [string]$PriorReleaseExe
+    [string]$PriorReleaseExe,
+    [string]$InstalledFeatureProbe
 )
 
 $ErrorActionPreference = 'Stop'
@@ -21,6 +22,20 @@ if (-not $Installer) {
 }
 $Installer = (Resolve-Path -LiteralPath $Installer).Path
 $ReleaseExe = (Resolve-Path -LiteralPath $ReleaseExe).Path
+if ($InstalledFeatureProbe) {
+    $InstalledFeatureProbe = (Resolve-Path -LiteralPath $InstalledFeatureProbe).Path
+    $localProbeRoot = (Join-Path $root '.local') + '\'
+    if (!$InstalledFeatureProbe.StartsWith($localProbeRoot, [StringComparison]::OrdinalIgnoreCase) -or
+        [IO.Path]::GetExtension($InstalledFeatureProbe) -ne '.ps1' -or
+        !(Test-Path -LiteralPath $InstalledFeatureProbe -PathType Leaf)) {
+        throw 'The optional feature probe must be a PowerShell script inside the workspace .local directory.'
+    }
+    for ($probePath = $InstalledFeatureProbe; $probePath -ne $root; $probePath = [IO.Path]::GetDirectoryName($probePath)) {
+        if ((Get-Item -LiteralPath $probePath -Force).Attributes -band [IO.FileAttributes]::ReparsePoint) {
+            throw 'The optional feature probe path must not contain links.'
+        }
+    }
+}
 if ($Scenario -eq 'Upgrade') {
     if (-not $PriorInstaller -or -not $PriorReleaseExe) { throw 'Upgrade requires explicit archived prior installer and executable paths.' }
     $PriorInstaller = (Resolve-Path -LiteralPath $PriorInstaller).Path
@@ -67,8 +82,12 @@ if ($Scenario -eq 'Upgrade') {
         $priorProbe = 'upgrade-seed-structures-litter'
     } elseif ($priorVersion -eq '0.2.19' -and $ExpectedVersion -eq '0.2.20') {
         $priorProbe = 'upgrade-seed-botany'
+    } elseif ($priorVersion -eq '0.2.20' -and $ExpectedVersion -eq '0.2.21') {
+        $priorProbe = 'upgrade-seed-current'
+    } elseif ($priorVersion -eq '0.2.21' -and $ExpectedVersion -eq '0.2.22') {
+        $priorProbe = 'upgrade-seed-wood-biofilm'
     } else {
-        throw 'Upgrade supports archived 0.1.0 to a newer release, and consecutive R5 releases between 0.2.1 and 0.2.20.'
+        throw 'Upgrade supports archived 0.1.0 to a newer release, and consecutive R5 releases between 0.2.1 and 0.2.22.'
     }
 }
 if ((Get-Item -LiteralPath $ReleaseExe).VersionInfo.ProductVersion -ne $ExpectedVersion) {
@@ -238,13 +257,45 @@ try {
         $test.upgradeKeptDataByteIdentical = $true
     }
 
-    $test.currentRun = Invoke-InstalledProbe ($Scenario.ToLowerInvariant()) 'installed'
+    $currentProbe = if ($Scenario -eq 'R5' -and $ExpectedVersion -in @('0.2.21', '0.2.22')) { 'r5-current' } else { $Scenario.ToLowerInvariant() }
+    $test.currentRun = Invoke-InstalledProbe $currentProbe 'installed'
     $test.appExitCode = $test.currentRun.exitCode
     $test.checkpointCount = $test.currentRun.checkpointCount
     $test.installedAppVerified = $true
-    if ($Scenario -eq 'R5') {
-        $test.reopen = Invoke-InstalledProbe 'r5-reopen' 'reopened'
+    $verifyOriginalCheckpoints = $priorProbe -in @('upgrade-seed-current', 'upgrade-seed-wood-biofilm')
+    if ($Scenario -eq 'R5' -or $verifyOriginalCheckpoints) {
+        $reopenProbe = if ($Scenario -eq 'R5') { 'r5-reopen' } else { 'upgrade-current-reopen' }
+        $test.reopen = Invoke-InstalledProbe $reopenProbe 'reopened'
         if ($test.reopen.processId -eq $test.currentRun.processId) { throw 'Reopen must use a new installed-app process.' }
+    }
+    if ($verifyOriginalCheckpoints) {
+        # The active-world pointer and selection marker may change at startup.
+        # Original immutable user checkpoints must survive all installed-app probes.
+        $priorCheckpoints = @{}
+        foreach ($name in $priorFiles.Keys) {
+            if ($name -match '^world-[^\\/]+[\\/]checkpoint-\d{20}\.json$') {
+                $priorCheckpoints[$name] = $priorFiles[$name]
+            }
+        }
+        $minimumCheckpoints = if ($priorProbe -eq 'upgrade-seed-wood-biofilm') { 2 } else { 4 }
+        if ($priorCheckpoints.Count -lt $minimumCheckpoints) { throw 'Expected checkpoints from all upgrade fixture worlds.' }
+        Assert-RetainedFiles $priorCheckpoints
+        $test.originalCheckpointCount = $priorCheckpoints.Count
+        $test.upgradeBootAndReopenKeptOriginalCheckpoints = $true
+    }
+    if ($InstalledFeatureProbe) {
+        $beforeFeatureProbe = Get-DataManifest
+        pwsh -NoProfile -ExecutionPolicy Bypass -File $InstalledFeatureProbe -Executable $installedExe -InstallerEvidence $evidence | Write-Host
+        if ($LASTEXITCODE -ne 0) { throw 'The isolated installed feature probe failed.' }
+        if ((Get-FileHash -LiteralPath $installedExe -Algorithm SHA256).Hash -ne $expectedPayloadSha256 -or -not (Get-OwnedRegistration)) {
+            throw 'The feature probe changed the installed payload or its registration.'
+        }
+        if (Get-Process -Name 'micro-ecosystem-desktop' -ErrorAction SilentlyContinue) {
+            throw 'An application process remained after the feature probe. It was left running.'
+        }
+        Assert-RetainedFiles $beforeFeatureProbe -Exact
+        $test.installedFeatureProbePassed = $true
+        $test.installedFeatureProbeKeptUpgradeDataByteIdentical = $true
     }
     $beforeUninstall = Get-DataManifest
     $beforeUninstall | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $evidence 'before-uninstall-data-sha256.json') -Encoding utf8NoBOM

@@ -143,7 +143,7 @@ const staticPondEditTypes = new Set<PondEdit['type']>([
   'addStone', 'moveStone', 'removeStone', 'addWood', 'moveWood', 'removeWood', 'addScenery', 'moveScenery', 'removeScenery',
   'addLeafDeposit', 'moveLeafDeposit', 'removeLeafDeposit',
   'addWaterPlant', 'placeRibbonPlant', 'moveWaterPlant', 'trimWaterPlant', 'removeWaterPlant',
-  'stockShrimp', 'removeShrimp', 'enableStoneRest', 'enableStoneBiofilm', 'addMoss', 'moveMoss', 'trimMoss', 'removeMoss',
+  'stockShrimp', 'removeShrimp', 'enableStoneRest', 'enableStoneBiofilm', 'enableWoodBiofilm', 'addMoss', 'moveMoss', 'trimMoss', 'removeMoss',
 ] satisfies PondStaticEdit['type'][]);
 
 function isPondStaticEdit(edit: PondEdit): edit is PondStaticEdit {
@@ -152,8 +152,9 @@ function isPondStaticEdit(edit: PondEdit): edit is PondStaticEdit {
 
 function projectPondStaticSection(basin: PondBasinSnapshot, section: PondStaticSection): PondBasinSnapshot {
   const { row, stones, woods, scenery, leafDeposits, waterPlantPatches = [] } = section;
-  const filmStock = (patches: PondBasinSnapshot['stoneBiofilm']) => (patches ?? []).reduce((sum, patch) => sum + patch.stockMgC, 0);
-  const otherSectionFilm = (basin.staticSections ?? []).reduce((sum, item) => item.row === row ? sum : sum + filmStock(item.stoneBiofilm), 0);
+  const filmStock = (patches?: readonly { stockMgC: number }[]) => (patches ?? []).reduce((sum, patch) => sum + patch.stockMgC, 0);
+  const otherSectionFilm = (basin.staticSections ?? []).reduce((sum, item) =>
+    item.row === row ? sum : sum + filmStock(item.stoneBiofilm) + filmStock(item.woodBiofilm), 0);
   return {
     ...basin, stones, woods, scenery,
     shape: basin.shape && { ...basin.shape, protectedRow: row },
@@ -161,8 +162,9 @@ function projectPondStaticSection(basin: PondBasinSnapshot, section: PondStaticS
     woodContactFeeding: section.woodContactFeeding, stoneRestEnabled: section.stoneRestEnabled,
     stoneAttachments: section.stoneAttachments, stoneContactFeeding: section.stoneContactFeeding,
     stoneBiofilmEnabled: section.stoneBiofilmEnabled, stoneBiofilm: section.stoneBiofilm,
+    woodBiofilmEnabled: section.woodBiofilmEnabled, woodBiofilm: section.woodBiofilm,
     biofilmDistribution: section.biofilmDistribution,
-    biofilmMgC: Math.max(0, basin.biofilmMgC - filmStock(basin.stoneBiofilm) - otherSectionFilm),
+    biofilmMgC: Math.max(0, basin.biofilmMgC - filmStock(basin.stoneBiofilm) - filmStock(basin.woodBiofilm) - otherSectionFilm),
     mossPatches: section.mossPatches ?? [], mossPresets: section.mossPresets ?? basin.mossPresets,
     waterPlantPatches, unassignedPlantMgCnp: [0, 0, 0],
     plantMgC: waterPlantPatches.reduce((total, patch) => total + patch.stockMgCnp[0], 0),
@@ -1148,6 +1150,8 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
         setNotice({ text: '当前剖面已启用主石停靠与摄食。' });
       } else if (edit.type === 'enableStoneBiofilm') {
         setNotice({ text: '当前剖面已启用石面生物膜。' });
+      } else if (edit.type === 'enableWoodBiofilm') {
+        setNotice({ text: '当前剖面已启用沉木生物膜库存。' });
       } else if (edit.type === 'addWaterPlant' || edit.type === 'placeRibbonPlant') {
         const patches = staticResult?.waterPlantPatches;
         const added = patches?.find(({ id }) => !pondWaterPlants?.some((patch) => patch.id === id));
@@ -1847,7 +1851,8 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
             </dl>
             {pondScenery && <>
               <PondBiofilmReadout basin={basin} editable={canPondEdit} localSection={Boolean(staticSection)}
-                enable={() => { void editPond({ type: 'enableStoneBiofilm', basinId: basinAuthority.id }); }} />
+                enable={() => { void editPond({ type: 'enableStoneBiofilm', basinId: basinAuthority.id }); }}
+                enableWood={() => { void editPond({ type: 'enableWoodBiofilm', basinId: basinAuthority.id }); }} />
               <PondWoodFeedingReadout basin={basin} />
               <PondStoneFeedingReadout basin={basin} editable={canPondEdit}
                 enable={() => { void editPond({ type: 'enableStoneRest', basinId: basinAuthority.id }); }} />

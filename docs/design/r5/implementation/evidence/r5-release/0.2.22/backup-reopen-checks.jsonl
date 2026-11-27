@@ -1,0 +1,2 @@
+{"case":"owned-installed-process","pid":65564,"bootGeneration":"af03dda3-f017-4c56-bca9-16027ba621df"}
+{"case":"import-and-layout-cold-reopen","previousPid":71828,"pid":65564,"activeWorldId":"world-00390a991a994efdb0e673e928ac031a","tick":"18","duplicateWorldId":"world-849adf02512b477cb93be7b372be6877","ecologicalStateExact":true,"initialImportCheckpointsUnchanged":true,"unroundedRngStatePreserved":true,"activeSolarTargetRefreshed":true,"layoutUnchanged":true}

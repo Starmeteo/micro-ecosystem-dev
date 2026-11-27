@@ -288,7 +288,17 @@ fn r5_composed_scenery_survives_trial_history_and_save_without_changing_stocks()
         basin_id: basin_id(), id: wood_id,
     }).unwrap();
     assert!(basin(&removed).scenery.unwrap().len() < basin(&moved).scenery.unwrap().len());
-    assert_eq!(runtime.pond_ledger(&trial.world_id).unwrap().unwrap(), ledger);
+    let mut removed_ledger = runtime.pond_ledger(&trial.world_id).unwrap().unwrap();
+    for (actual, before) in removed_ledger.basins.iter_mut().zip(&ledger.basins) {
+        for index in 0..3 {
+            assert!((actual.current_matter_mg_cnp[index] - before.current_matter_mg_cnp[index]).abs() < 1e-9);
+            assert!((actual.matter_residual_mg_cnp[index] - before.matter_residual_mg_cnp[index]).abs() < 1e-9);
+        }
+        // Removing wood returns its internal film to the common pool, which changes the summation order.
+        actual.current_matter_mg_cnp = before.current_matter_mg_cnp;
+        actual.matter_residual_mg_cnp = before.matter_residual_mg_cnp;
+    }
+    assert_eq!(removed_ledger, ledger);
     assert_eq!(runtime.snapshot(&start.world_id).unwrap(), start);
     let restored = history(&mut runtime, &removed, "restore-carrier", false);
     assert_eq!(basin(&restored).scenery, basin(&moved).scenery);

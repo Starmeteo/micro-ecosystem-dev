@@ -23,7 +23,7 @@ pub use forest_rocks::{
     ForestRock, ForestRockEdit, ForestRockLayout, ForestStonework, ForestStoneworkKind,
 };
 pub use forest_scenery::{ForestScenery, ForestSceneryParent};
-pub use pond::{PondBasinContactFeeding, PondBasinLedger, PondBasinObservation, PondBiofilmDistribution, PondBiofilmSurface, PondBiofilmSurfaceKind, PondStoneBiofilmObservation,
+pub use pond::{PondBasinContactFeeding, PondBasinLedger, PondBasinObservation, PondBiofilmDistribution, PondBiofilmSurface, PondBiofilmSurfaceKind, PondStoneBiofilmObservation, PondWoodBiofilmObservation,
     PondContactFeeding, PondEdit, PondLedger, PondObservation, PondStaticSectionObservation,
     PondShrimpLifeObservation, PondShrimpStage, PondShrimpStoneFeedingObservation, PondShrimpWoodFeedingObservation, POND_DEFAULT_BASIN_ID};
 pub use pond_leaf::{PondLeafDepositObservation, PondLeafDepositPreset, PondLeafDepositStage};
@@ -442,6 +442,8 @@ impl fmt::Display for CoreError {
 impl std::error::Error for CoreError {}
 
 impl WorldState {
+    pub fn has_wood_biofilm(&self) -> bool { self.pond.as_ref().is_some_and(pond::PondState::has_wood_biofilm) }
+
     pub fn new_fixture(seed: u64) -> Self {
         let mut rng = RandomState::new(seed);
         let animals = fixture_animals(&mut rng);

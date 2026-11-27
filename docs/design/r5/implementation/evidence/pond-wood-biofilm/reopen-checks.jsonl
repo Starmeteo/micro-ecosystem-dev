@@ -1,0 +1,2 @@
+{"case":"owned-installed-process","pid":61248,"bootGeneration":"b65553a6-8c52-44ad-b34b-7598e688e589"}
+{"case":"cold-reopen-canvas-and-checkpoint-match","pid":61248,"beforePid":35052,"worldId":"pond-852939d4972643da8940b708621b29a2","tick":"0","wood":[{"id":1,"x":0.26,"preset":"slope"}],"stock":[{"woodId":1,"stockMgC":8.790535649269348,"availableMgC":8.790535649269348}],"priorCheckpointSha256":"9206446c7b73c2d557021a693fd0a473f22c62f0f00e6c331641768732c68e99"}

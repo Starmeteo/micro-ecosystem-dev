@@ -31,6 +31,7 @@ const slopeChoice = { kind: 'wood', preset: 'slope' } as const;
 const caveChoice = { kind: 'stone', preset: 'flatStoneCave' } as const;
 const rootChoices = [{ kind: 'wood', preset: 'hangingRoots' }, { kind: 'wood', preset: 'rootNetwork' }] as const;
 const percent = new Intl.NumberFormat('zh-CN', { style: 'percent', maximumFractionDigits: 1 });
+const carbon = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 6, useGrouping: false });
 
 function bedDetail(choice: PondBedChoice) {
   return choice.kind === 'stone' ? stones[choice.preset] : woods[choice.preset];
@@ -86,12 +87,13 @@ export function PondBedDrawer({ hasWoods, hasSlope, editable, supplement, scener
   );
 }
 
-function PondCarrierRemoval({ kind, name, occupantCount, patchCount, decorationCount, staticSection, onRemove }: {
+function PondCarrierRemoval({ kind, name, occupantCount, patchCount, decorationCount, woodFilm, staticSection, onRemove }: {
   kind: PondBedKind;
   name: string;
   occupantCount?: number;
   patchCount: number;
   decorationCount: number;
+  woodFilm: boolean;
   staticSection: boolean;
   onRemove: () => void;
 }) {
@@ -103,6 +105,7 @@ function PondCarrierRemoval({ kind, name, occupantCount, patchCount, decorationC
         : '移除沉木会让停靠的小虾离开木面。'}</p>}
       {patchCount > 0 && <p className="editor-context__hint">移除承载物后，附着斑块的剩余碳、氮、磷将转入这片水体的碎屑库存。</p>}
       {decorationCount > 0 && <p className="editor-context__hint">这段沉木上的附着装饰将一同移除。</p>}
+      {woodFilm && <p className="editor-context__hint">这段沉木的生物膜库存将回到全池共用。</p>}
       <div className="editor-details__options">
         <button type="button" className="editor-tool" onClick={() => { setConfirm(false); onRemove(); }}>确认移除{kind === 'wood' ? '沉木' : name}</button>
         <button type="button" className="editor-tool" onClick={() => setConfirm(false)}>取消移除</button>
@@ -129,6 +132,7 @@ export function PondBedProperties({ items, selected, water, hasWoods, attachment
   const selectedName = selected ? pondBedName(selected) : '';
   const patchCount = selected ? mossPatches?.filter(({ parent }) => parent.kind === selected.kind && parent.id === selected.id).length ?? 0 : 0;
   const decorationCount = selected?.kind === 'wood' ? scenery?.filter(({ parent }) => parent?.kind === 'wood' && parent.id === selected.id).length ?? 0 : 0;
+  const woodFilm = selected?.kind === 'wood' ? water.woodBiofilm?.find(({ woodId }) => woodId === selected.id) : undefined;
   const structure = selected && pondStructureProfile(selected.preset);
   const column = stoneWaterHeight(water);
   const immersion = !structure || column <= structure.bottom ? '露出' : column >= structure.top ? '浸没' : '部分浸没';
@@ -168,6 +172,10 @@ export function PondBedProperties({ items, selected, water, hasWoods, attachment
           <h2>{selectedName} {selected.id} 的池底位置</h2>
           <dl>
             <div><dt>距池底左侧</dt><dd>{percent.format(selected.x)}</dd></div>
+            {woodFilm && <>
+              <div><dt>沉木生物膜</dt><dd data-pond-selected-wood-biofilm-stock={woodFilm.stockMgC}>{carbon.format(woodFilm.stockMgC)} mg C</dd></div>
+              <div><dt>浸水可食</dt><dd data-pond-selected-wood-biofilm-available={woodFilm.availableMgC}>{carbon.format(woodFilm.availableMgC)} mg C</dd></div>
+            </>}
             {structure && <div><dt>水线状态</dt><dd data-pond-structure-immersion={immersion}>{immersion}</dd></div>}
             {selected.kind === 'wood' && !structure && <>
               {!staticSection && <div className="editor-pond-wood-occupants" data-occupant-count={occupantCount}>
@@ -182,7 +190,7 @@ export function PondBedProperties({ items, selected, water, hasWoods, attachment
           {editable && <div className="editor-details__options">
             {selected.kind === 'wood' || patchCount > 0
               ? <PondCarrierRemoval key={`${selected.kind}:${selected.id}`} kind={selected.kind} name={selectedName}
-                  occupantCount={occupantCount} patchCount={patchCount} decorationCount={decorationCount} staticSection={staticSection}
+                  occupantCount={occupantCount} patchCount={patchCount} decorationCount={decorationCount} woodFilm={Boolean(woodFilm && woodFilm.stockMgC > 0)} staticSection={staticSection}
                   onRemove={() => onRemove(selected.id, selected.kind)} />
               : <button type="button" className="editor-tool" onClick={() => onRemove(selected.id, 'stone')}>移除{selectedName}</button>}
           </div>}

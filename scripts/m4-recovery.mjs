@@ -8,6 +8,7 @@ const data = join(evidence, phase === 'auto-reopen' ? 'auto' : phase, 'data');
 const layoutPath = (directory) => join(directory, 'workspace', 'layout.json');
 const scenarios = ['pending', 'newest-corrupt', 'write-failure', 'all-corrupt', 'future-format', 'missing-definition', 'locked'];
 const healthyCases = ['pending', 'newest-corrupt', 'write-failure'];
+const futureCheckpointVersion = 0xffff_ffff;
 const mark = (caseName, fields) => console.log(JSON.stringify({ case: caseName, ...fields }));
 const interval = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
@@ -61,7 +62,7 @@ async function prepare() {
     } else if (scenario === 'all-corrupt') {
       for (const file of files) await writeFile(join(directory, file), '{');
     } else if (scenario === 'future-format') {
-      await writeFile(latest, JSON.stringify({ ...current, formatVersion: 2 }));
+      await writeFile(latest, JSON.stringify({ ...current, formatVersion: futureCheckpointVersion }));
     } else if (scenario === 'missing-definition') {
       const payload = current.payload.replace('pond-shallow/1', 'pond-shallow/unavailable');
       assert.notEqual(payload, current.payload);
@@ -226,7 +227,7 @@ async function recover(sessions) {
     assert.equal(restored.error?.code, ({ 'all-corrupt': 'checkpoint_unusable', 'future-format': 'checkpoint_unsupported',
       'missing-definition': 'checkpoint_unsupported', locked: 'world_operation_failed' })[phase]);
     assert.equal(snapshot.pond, undefined);
-    if (phase === 'future-format') assert(bootMessage.includes('format version 2'));
+    if (phase === 'future-format') assert(bootMessage.includes('format version ' + futureCheckpointVersion));
     if (phase === 'missing-definition') assert(bootMessage.includes('pond-shallow/unavailable'));
     mark('original-preserved-during-refusal', { scenario: phase, saveError: saved.error.code, restoreError: restored.error.code });
   }

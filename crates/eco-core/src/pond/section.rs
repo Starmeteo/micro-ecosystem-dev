@@ -25,6 +25,10 @@ pub struct PondStaticSectionObservation {
     pub stone_biofilm_enabled: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stone_biofilm: Option<Vec<PondStoneBiofilmObservation>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wood_biofilm_enabled: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wood_biofilm: Option<Vec<PondWoodBiofilmObservation>>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
     pub shrimp: Vec<Animal>,
     #[serde(skip_serializing_if = "Vec::is_empty")]
@@ -126,7 +130,8 @@ impl PondStaticSection {
                 Some(patch.observe(support, column))
             }).collect()
         });
-        let enabled = self.moss_layout.is_some() || self.stone_biofilm.is_some() || !self.shrimp.is_empty();
+        let enabled = self.moss_layout.is_some() || self.stone_biofilm.is_some()
+            || self.woods.wood_biofilm.is_some() || !self.shrimp.is_empty();
         PondStaticSectionObservation {
             row: self.row,
             stones: self.stones.stones.clone(),
@@ -141,6 +146,8 @@ impl PondStaticSection {
             stone_rest_enabled: (enabled && self.stones.stone_rest_enabled).then_some(true),
             stone_biofilm_enabled: self.stone_biofilm.is_some().then_some(true),
             stone_biofilm: self.stone_biofilm_observation(column),
+            wood_biofilm_enabled: self.woods.wood_biofilm.is_some().then_some(true),
+            wood_biofilm: self.woods.wood_biofilm_observation(column),
             shrimp: self.shrimp.iter().map(|shrimp| shrimp.view.clone()).collect(),
             shrimp_life: self.shrimp.iter().map(Shrimp::observe_life).collect(),
             shrimp_attachments: (!self.woods.attachments.is_empty()).then(|| self.woods.attachments.clone()),
@@ -163,6 +170,9 @@ impl PondStaticSection {
         self.woods.attachments.clear();
         if let Some(moss) = &mut self.moss_layout { moss.reset_stocks(); }
         if self.stone_biofilm.is_some() { self.initialize_stone_biofilm(shared_biofilm); }
+        if self.woods.wood_biofilm.is_some() {
+            self.woods.seed_wood_biofilm((self.stone_biofilm.is_none()).then_some(&self.stones), shared_biofilm);
+        }
     }
 
     pub(super) fn install_primary(self, basin: &mut Basin) {
@@ -310,7 +320,7 @@ impl Basin {
                 | PondEdit::AddWaterPlant { .. } | PondEdit::PlaceRibbonPlant { .. } | PondEdit::MoveWaterPlant { .. }
                 | PondEdit::TrimWaterPlant { .. } | PondEdit::RemoveWaterPlant { .. }
                 | PondEdit::AddMoss { .. } | PondEdit::MoveMoss { .. } | PondEdit::TrimMoss { .. } | PondEdit::RemoveMoss { .. }
-                | PondEdit::EnableStoneRest { .. } | PondEdit::EnableStoneBiofilm { .. }
+                | PondEdit::EnableStoneRest { .. } | PondEdit::EnableStoneBiofilm { .. } | PondEdit::EnableWoodBiofilm { .. }
                 | PondEdit::StockShrimp { .. } | PondEdit::RemoveShrimp { .. }
         ) {
             return Err(CoreError::InvalidPondStaticSectionEdit);

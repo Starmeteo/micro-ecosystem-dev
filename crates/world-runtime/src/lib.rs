@@ -1,11 +1,13 @@
 //! World ownership and persistence, independent of any window or system clock.
 
+mod backup;
 mod checkpoint;
 mod library;
 mod observation;
 mod trial;
 pub mod solar;
 
+pub use backup::{WorldBackupImport, MAX_WORLD_BACKUP_BYTES};
 pub use checkpoint::{SaveReceipt, SaveStore};
 pub use library::{PresetEntry, PresetSource, WorldEntry, WorldEntryState, WorldTheme};
 pub use observation::ObservationHistory;
@@ -117,6 +119,10 @@ pub enum RuntimeError {
     CheckpointUnusable { world_id: String, details: String },
     CheckpointUnsupported { world_id: String, details: String },
     CheckpointIo { details: String },
+    WorldBackupInvalid,
+    WorldBackupUnsupported,
+    WorldBackupTooLarge,
+    WorldBackupIo { details: String },
 }
 
 impl fmt::Display for RuntimeError {
@@ -142,7 +148,11 @@ impl fmt::Display for RuntimeError {
             Self::ForestRockHistoryEmpty => formatter.write_str("本次暂停编辑中没有可撤销或重做的布置修改"),
             Self::Suspended => formatter.write_str("系统挂起期间不能推进或编辑世界"),
             Self::RevisionOverflow => formatter.write_str("edit revision would overflow"),
-            Self::InvalidFixtureInput { details } | Self::CheckpointIo { details } => formatter.write_str(details),
+            Self::InvalidFixtureInput { details } | Self::CheckpointIo { details }
+                | Self::WorldBackupIo { details } => formatter.write_str(details),
+            Self::WorldBackupInvalid => formatter.write_str("无法读取世界备份。请检查文件格式及完整性。"),
+            Self::WorldBackupUnsupported => formatter.write_str("当前版本不支持这份备份的文件格式或世界模型。"),
+            Self::WorldBackupTooLarge => formatter.write_str("世界备份超出当前支持的大小。"),
             Self::PondShape { issue } => formatter.write_str(match issue {
                 PondShapeError::InvalidCells => "请在水域俯视图内选择有效的方格。",
                 PondShapeError::ProtectedRow => "侧面观察剖面需要保持完整，不能擦除这一排。",

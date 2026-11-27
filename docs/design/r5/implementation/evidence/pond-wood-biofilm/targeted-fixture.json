@@ -1,0 +1,19 @@
+{
+  "activeId": "pond-852939d4972643da8940b708621b29a2",
+  "attachment": {
+    "shrimpId": "pond-main-shrimp-1",
+    "woodId": 1,
+    "offset": -0.5,
+    "restTicks": 35
+  },
+  "surface": {
+    "x": 0.2877777777777778,
+    "y": 0.5878205128205127
+  },
+  "wood": {
+    "id": 1,
+    "x": 0.26,
+    "preset": "slope"
+  },
+  "checksum": "fab3168b66ebfe22"
+}

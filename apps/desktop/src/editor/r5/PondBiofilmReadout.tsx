@@ -7,23 +7,29 @@ function carbon(mgC: number) {
 
 const precise = new Intl.NumberFormat('zh-CN', { maximumFractionDigits: 8, useGrouping: false });
 
-export function PondBiofilmReadout({ basin, editable, enable, localSection = false }: {
+export function PondBiofilmReadout({ basin, editable, enable, enableWood, localSection = false }: {
   basin: PondBasinSnapshot;
   editable: boolean;
   enable: () => void;
+  enableWood: () => void;
   localSection?: boolean;
 }) {
   const { bedMgC, inactiveMgC, surfaces } = pondBiofilmDisplay(basin);
-  const persistent = basin.stoneBiofilmEnabled === true;
+  const stonePersistent = basin.stoneBiofilmEnabled === true;
+  const woodPersistent = basin.woodBiofilmEnabled === true;
+  const persistent = stonePersistent || woodPersistent;
   const stones = basin.stoneBiofilm ?? [];
+  const woods = basin.woodBiofilm ?? [];
   return (
     <details className="editor-details editor-details--small" data-pond-biofilm-display
-      data-pond-stone-biofilm-status={persistent ? 'enabled' : undefined}>
-      <summary>{persistent ? '石面生物膜与库存' : basin.biofilmDistribution ? '当前生物膜分配' : '附着生物膜的画面分配'}</summary>
+      data-pond-stone-biofilm-status={stonePersistent ? 'enabled' : undefined}
+      data-pond-wood-biofilm-status={woodPersistent ? 'enabled' : undefined}>
+      <summary>{woodPersistent ? '石木生物膜与库存' : stonePersistent ? '石面生物膜与库存'
+        : basin.biofilmDistribution ? '当前生物膜分配' : '附着生物膜的画面分配'}</summary>
       <dl className="editor-stock">
         {basin.wet ? <>
           <div><dt>{persistent ? '池底及共用' : '池底'}</dt><dd data-pond-biofilm-bed={bedMgC}>{carbon(bedMgC)}</dd></div>
-          {surfaces.filter(({ kind }) => !persistent || kind === 'wood').map(({ kind, id, mgC }) => (
+          {surfaces.filter(({ kind }) => kind === 'stone' ? !stonePersistent : !woodPersistent).map(({ kind, id, mgC }) => (
             <div key={`${kind}:${id}`}>
               <dt>{kind === 'stone' ? '主石' : '沉木'} {id}</dt>
               <dd data-pond-biofilm-carrier={`${kind}:${id}`} data-pond-biofilm-mg-c={mgC}>{carbon(mgC)}</dd>
@@ -33,7 +39,7 @@ export function PondBiofilmReadout({ basin, editable, enable, localSection = fal
             <div><dt>离水保留量</dt><dd data-pond-biofilm-inactive={inactiveMgC}>{carbon(inactiveMgC)}</dd></div>}
         </> : <div><dt>干底保留库存</dt><dd data-pond-biofilm-inactive={inactiveMgC}>{carbon(inactiveMgC)}</dd></div>}
       </dl>
-      {persistent ? <>
+      {stonePersistent ? <>
         {stones.map(({ stoneId, stockMgC, availableMgC }) => (
           <dl className="editor-stock" key={stoneId} data-pond-stone-biofilm-id={stoneId}>
             <div><dt>主石 {stoneId} 库存</dt>
@@ -56,6 +62,23 @@ export function PondBiofilmReadout({ basin, editable, enable, localSection = fal
             onClick={enable}>启用石面生物膜</button>
           {!editable && <p className="editor-context__hint">进入环境编辑后可启用。</p>}
         </>}
+      </>}
+      {woodPersistent ? <>
+        {woods.map(({ woodId, stockMgC, availableMgC }) => (
+          <dl className="editor-stock" key={woodId} data-pond-wood-biofilm-id={woodId}>
+            <div><dt>沉木 {woodId} 库存</dt>
+              <dd data-pond-wood-biofilm-stock={stockMgC}>{precise.format(stockMgC)} mg C</dd></div>
+            <div><dt>浸水可食</dt>
+              <dd data-pond-wood-biofilm-available={availableMgC}>{precise.format(availableMgC)} mg C</dd></div>
+          </dl>
+        ))}
+        {!woods.length && <p className="editor-context__hint">放入沉木后可查看该木段的库存。</p>}
+        <p className="editor-context__hint">沉木移动时库存随木段保留，移除时回到全池共用。离水库存暂时不可取食。</p>
+      </> : <>
+        <p className="editor-context__hint">启用后，米虾停靠时会优先取食该木段的浸水库存。</p>
+        <button type="button" className="editor-tool" disabled={!editable} data-pond-wood-biofilm-enable
+          onClick={enableWood}>启用沉木生物膜</button>
+        {!editable && <p className="editor-context__hint">进入环境编辑后可启用。</p>}
       </>}
     </details>
   );

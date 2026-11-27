@@ -1,0 +1,7 @@
+{"case":"owned-installed-process","pid":35052,"bootGeneration":"dda5dc9b-1961-43bd-a7d2-783349087634"}
+{"case":"r5-default-native-detail-and-canvas","worldId":"pond-852939d4972643da8940b708621b29a2","basinId":"pond-main","wood":{"id":1,"x":0.235,"preset":"slope"},"initial":{"woodId":1,"stockMgC":8.790535649269348,"availableMgC":8.790535649269348},"checkpointVersion":3,"editorFraming":"full","panelFraming":"underwater"}
+{"case":"native-default-placement-trial","localFeedingObserved":false,"tickLimit":240,"formalUnchanged":true}
+{"case":"move-undo-preserves-bound-stock","woodId":1,"from":0.235,"to":0.26,"restored":0.235,"restoredStockMgC":8.790535649269348}
+{"case":"dry-holds-stock-and-wet-restores-availability","woodId":1,"liters":18,"dryStock":{"woodId":1,"stockMgC":8.790535649269348,"availableMgC":0},"wetStock":{"woodId":1,"stockMgC":8.790535649269348,"availableMgC":8.790535649269348}}
+{"case":"remove-ui-transfers-to-shared-and-undo-recovers-stock","woodId":1,"returnedMgC":8.790535649269348,"totalBeforeMgC":24,"totalAfterMgC":24,"restoredStockMgC":8.790535649269348}
+{"case":"durable-checkpoint","worldId":"pond-852939d4972643da8940b708621b29a2","tick":"0","checkpoint":"checkpoint-00000000000000000002.json","checkpointSha256":"9206446c7b73c2d557021a693fd0a473f22c62f0f00e6c331641768732c68e99","checkpointVersion":3}

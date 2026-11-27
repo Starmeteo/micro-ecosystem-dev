@@ -1,12 +1,13 @@
 use super::{section::PondStaticSection, Basin, Matter, PondBasinContactFeeding, MAX_SHRIMP};
 use crate::pond_stones::{PondShrimpStoneAttachment, PondStone, PondStoneLayout, PondStonePreset, BASIN_WIDTH_PX, MAX_STONES};
-use crate::pond_wood::PondWoodLayout;
+use crate::pond_wood::{MAX_WOODS, PondWoodLayout, WoodBiofilm, WOOD_BIOFILM_CAPACITY_MG_C};
 use serde::{Deserialize, Serialize};
 
 // Scale from the composed pond's existing projected bed display.
 const BED_WEIGHT: f64 = BASIN_WIDTH_PX * 36.0;
 const STONE_CAPACITY_MG_C: f64 = 12.0;
 const STONE_COLONIZATION_PER_HOUR: f64 = 0.02;
+const WOOD_COLONIZATION_PER_HOUR: f64 = 0.02;
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -33,6 +34,14 @@ pub struct PondBiofilmDistribution {
 #[serde(rename_all = "camelCase")]
 pub struct PondStoneBiofilmObservation {
     pub stone_id: u32,
+    pub stock_mg_c: f64,
+    pub available_mg_c: f64,
+}
+
+#[derive(Clone, Debug, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PondWoodBiofilmObservation {
+    pub wood_id: u32,
     pub stock_mg_c: f64,
     pub available_mg_c: f64,
 }
@@ -91,7 +100,7 @@ fn wet_fractions(stones: Option<&PondStoneLayout>, column: f64) -> [f64; MAX_STO
 fn seed_stone_biofilm(stones: Option<&PondStoneLayout>, woods: Option<&PondWoodLayout>, shared: &mut Matter) -> Vec<StoneBiofilm> {
     let stones = stones.iter().flat_map(|layout| &layout.stones).filter(|stone| stone.preset == PondStonePreset::Main);
     let full_weight = |stone: &PondStone| stone.profile().wetted_weight(f64::INFINITY);
-    let wood_weight = woods.iter().flat_map(|layout| &layout.woods)
+    let wood_weight = woods.filter(|layout| layout.wood_biofilm.is_none()).iter().flat_map(|layout| &layout.woods)
         .map(|wood| wood.profile().wetted_weight(f64::INFINITY)).sum::<f64>();
     let total_weight = BED_WEIGHT + stones.clone().map(full_weight).sum::<f64>() + wood_weight;
     let start = shared.carbon();
@@ -110,6 +119,11 @@ fn colonize_stocks(stocks: &mut [StoneBiofilm], wet: [f64; MAX_STONES], shared: 
 }
 
 impl Basin {
+    pub(super) fn has_wood_biofilm(&self) -> bool {
+        self.wood_layout.iter().chain(self.static_sections.iter().map(|section| &section.woods))
+            .any(|layout| layout.wood_biofilm.is_some())
+    }
+
     pub(super) fn initialize_stone_biofilm(&mut self) {
         self.stone_biofilm = Some(seed_stone_biofilm(self.stone_layout.as_ref(), self.wood_layout.as_ref(), &mut self.biofilm));
     }
@@ -128,6 +142,8 @@ impl Basin {
         let primary = self.biofilm.carbon() + self.stone_biofilm.iter().flatten().map(|patch| patch.stock.carbon()).sum::<f64>();
         primary + self.static_sections.iter().flat_map(|section| section.stone_biofilm.iter().flatten())
             .map(|patch| patch.stock.carbon()).sum::<f64>()
+            + self.wood_layout.iter().chain(self.static_sections.iter().map(|section| &section.woods))
+                .flat_map(PondWoodLayout::wood_biofilm_matter).map(Matter::carbon).sum::<f64>()
     }
 
     pub(super) fn colonize_stone_biofilm(&mut self, elapsed: f64) {
@@ -148,29 +164,108 @@ impl Basin {
         }
     }
 
+    pub(super) fn colonize_wood_biofilm(&mut self, elapsed: f64) {
+        let count = self.wood_layout.iter().chain(self.static_sections.iter().map(|section| &section.woods))
+            .map(|layout| layout.wood_biofilm.as_ref().map_or(0, Vec::len)).sum::<usize>();
+        if count == 0 { return; }
+        let column = self.moss_column_px();
+        let budget = self.biofilm.carbon() * WOOD_COLONIZATION_PER_HOUR * elapsed / count.max(MAX_WOODS) as f64;
+        for layout in self.wood_layout.iter_mut().chain(self.static_sections.iter_mut().map(|section| &mut section.woods)) {
+            layout.colonize_wood(column, &mut self.biofilm, budget);
+        }
+    }
+
     pub(super) fn allocate_stone_food(
         stocks: &mut [StoneBiofilm], contacts: &[Option<&PondShrimpStoneAttachment>; MAX_SHRIMP], claims: &mut [f64; MAX_SHRIMP],
         wet: [f64; MAX_STONES],
     ) -> [Matter; MAX_SHRIMP] {
-        let mut local = [Matter::default(); MAX_SHRIMP];
-        for (patch, wet) in stocks.iter_mut().zip(wet) {
-            let members = contacts.iter().map(|contact| contact.is_some_and(|contact| contact.stone_id == patch.stone_id));
-            let demand = members.clone().zip(claims.iter()).filter_map(|(member, claim)| member.then_some(claim)).sum::<f64>();
-            if demand == 0.0 { continue; }
-            let food = patch.stock.take_carbon(demand.min(patch.stock.carbon() * wet));
-            for ((parcel, claim), member) in local.iter_mut().zip(claims.iter_mut()).zip(members) {
-                if member {
-                    *parcel = food.scaled(*claim / demand);
-                    *claim = (*claim - parcel.carbon()).max(0.0);
-                }
-            }
-        }
-        local
+        allocate_contact_food(stocks.iter_mut().map(|patch| (patch.stone_id, &mut patch.stock)).zip(wet),
+            contacts.map(|contact| contact.map(|contact| contact.stone_id)), claims)
     }
 
     pub(super) fn biofilm_distribution(&self) -> PondBiofilmDistribution {
         distribute_biofilm(self.stone_layout.as_ref(), self.wood_layout.as_ref(), self.stone_biofilm.as_deref(),
             self.biofilm, self.moss_column_px())
+    }
+}
+
+fn allocate_contact_food<'a>(
+    stocks: impl Iterator<Item = ((u32, &'a mut Matter), f64)>,
+    contacts: [Option<u32>; MAX_SHRIMP], claims: &mut [f64; MAX_SHRIMP],
+) -> [Matter; MAX_SHRIMP] {
+    let mut local = [Matter::default(); MAX_SHRIMP];
+    for ((id, stock), wet) in stocks {
+        let members = contacts.iter().map(|contact| *contact == Some(id));
+        let demand = members.clone().zip(claims.iter()).filter_map(|(member, claim)| member.then_some(claim)).sum::<f64>();
+        if demand == 0.0 { continue; }
+        let food = stock.take_carbon(demand.min(stock.carbon() * wet));
+        for ((parcel, claim), member) in local.iter_mut().zip(claims.iter_mut()).zip(members) {
+            if member {
+                *parcel = food.scaled(*claim / demand);
+                *claim = (*claim - parcel.carbon()).max(0.0);
+            }
+        }
+    }
+    local
+}
+
+impl PondWoodLayout {
+    pub(super) fn seed_wood_biofilm(&mut self, stones: Option<&PondStoneLayout>, shared: &mut Matter) {
+        let weight = |wood: &crate::pond_wood::PondWood| wood.profile().wetted_weight(f64::INFINITY);
+        let stone_weight = stones.iter().flat_map(|layout| &layout.stones)
+            .filter(|stone| stone.preset == PondStonePreset::Main)
+            .map(|stone| stone.profile().wetted_weight(f64::INFINITY)).sum::<f64>();
+        let total = BED_WEIGHT + self.woods.iter().map(weight).sum::<f64>() + stone_weight;
+        let start = shared.carbon();
+        self.wood_biofilm = Some(self.woods.iter().map(|wood| WoodBiofilm {
+            wood_id: wood.id,
+            stock: shared.take_carbon((start * (weight(wood) / total)).min(WOOD_BIOFILM_CAPACITY_MG_C)),
+        }).collect());
+    }
+
+    pub(super) fn wood_biofilm_wet_fractions(&self, column: f64) -> [f64; MAX_WOODS] {
+        let mut fractions = [0.0; MAX_WOODS];
+        if self.wood_biofilm.is_some() && column > 0.0 {
+            for (fraction, wood) in fractions.iter_mut().zip(&self.woods) {
+                let profile = wood.profile();
+                *fraction = profile.wetted_weight(column) / profile.wetted_weight(f64::INFINITY);
+            }
+        }
+        fractions
+    }
+
+    pub(super) fn wood_biofilm_observation(&self, column: f64) -> Option<Vec<PondWoodBiofilmObservation>> {
+        let stocks = self.wood_biofilm.as_ref()?;
+        Some(stocks.iter().zip(self.wood_biofilm_wet_fractions(column)).map(|(patch, wet)| PondWoodBiofilmObservation {
+            wood_id: patch.wood_id, stock_mg_c: patch.stock.carbon(), available_mg_c: patch.stock.carbon() * wet,
+        }).collect())
+    }
+
+    pub(super) fn wood_biofilm_matter(&self) -> impl Iterator<Item = Matter> + '_ {
+        self.wood_biofilm.iter().flatten().map(|patch| patch.stock)
+    }
+
+    pub(super) fn colonize_wood(&mut self, column: f64, shared: &mut Matter, budget: f64) {
+        let wet = self.wood_biofilm_wet_fractions(column);
+        for (patch, wet) in self.wood_biofilm.iter_mut().flatten().zip(wet) {
+            let space = patch.vacant_mg_c();
+            let dose = budget * wet * (space / WOOD_BIOFILM_CAPACITY_MG_C);
+            patch.stock.add(shared.take_carbon(dose.min(space)));
+        }
+    }
+
+    pub(super) fn allocate_wood_food(&mut self, shrimp: &[super::Shrimp], claims: &mut [f64; MAX_SHRIMP],
+        column: f64,
+    ) -> [Matter; MAX_SHRIMP] {
+        if self.wood_biofilm.is_none() { return [Matter::default(); MAX_SHRIMP]; }
+        let mut contacts = [None; MAX_SHRIMP];
+        for (individual, contact) in shrimp.iter().zip(&mut contacts) {
+            *contact = self.attachments.iter().find(|entry| self.attachment_matches(entry, &individual.view, column))
+                .map(|entry| entry.wood_id);
+        }
+        let wet = self.wood_biofilm_wet_fractions(column);
+        allocate_contact_food(self.wood_biofilm.iter_mut().flatten().map(|patch| (patch.wood_id, &mut patch.stock)).zip(wet),
+            contacts, claims)
     }
 }
 
@@ -197,6 +292,25 @@ impl PondStaticSection {
 // Geometry and local stock describe only this view. Different views reuse the
 // same shared stock projection, so distributions must not be summed across rows.
 fn distribute_biofilm(stones: Option<&PondStoneLayout>, woods: Option<&PondWoodLayout>,
+    localized: Option<&[StoneBiofilm]>, shared: Matter, column: f64,
+) -> PondBiofilmDistribution {
+    let local_wood = woods.filter(|layout| layout.wood_biofilm.is_some());
+    let mut distribution = distribute_shared_and_stone(stones, woods.filter(|layout| layout.wood_biofilm.is_none()),
+        localized, shared, column);
+    if let Some(layout) = local_wood {
+        let wet = layout.wood_biofilm_wet_fractions(column);
+        for (patch, wet) in layout.wood_biofilm.iter().flatten().zip(wet) {
+            let mg_c = patch.stock.carbon() * wet;
+            distribution.inactive_mg_c += patch.stock.carbon() - mg_c;
+            if mg_c > 0.0 {
+                distribution.surfaces.push(PondBiofilmSurface { kind: PondBiofilmSurfaceKind::Wood, id: patch.wood_id, mg_c });
+            }
+        }
+    }
+    distribution
+}
+
+fn distribute_shared_and_stone(stones: Option<&PondStoneLayout>, woods: Option<&PondWoodLayout>,
     localized: Option<&[StoneBiofilm]>, shared: Matter, column: f64,
 ) -> PondBiofilmDistribution {
     let total = shared.carbon();
@@ -243,12 +357,12 @@ fn distribute_biofilm(stones: Option<&PondStoneLayout>, woods: Option<&PondWoodL
 impl PondBiofilmDistribution {
     /// Allocate each surface's pre-feed limit across its eligible actual intake parcels.
     /// Any unassigned part of the original debit is reported as shared food.
-    pub(super) fn attribute_contact_intake(&self, entries: &mut PondBasinContactFeeding, localized_stones: bool) {
-        self.attribute_surface_intake(
+    pub(super) fn attribute_contact_intake(&self, entries: &mut PondBasinContactFeeding, localized_stones: bool, localized_woods: bool) {
+        if !localized_woods { self.attribute_surface_intake(
             PondBiofilmSurfaceKind::Wood, &mut entries.wood,
             |entry| (entry.wood_id, entry.biofilm_mg_c),
             |entry, local, shared| { entry.wood_biofilm_mg_c = local; entry.shared_biofilm_mg_c = shared; },
-        );
+        ); }
         if !localized_stones {
             self.attribute_surface_intake(
                 PondBiofilmSurfaceKind::Stone, &mut entries.stone,

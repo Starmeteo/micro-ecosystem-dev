@@ -246,7 +246,10 @@ impl Basin {
         let stone_rest_enabled = self.stone_layout.as_ref().is_some_and(|layout| layout.stone_rest_enabled);
         self.stone_layout = Some(PondStoneLayout::new(stone_rest_enabled));
         if let Some(layout) = &mut self.stone_biofilm { layout.clear(); }
-        self.wood_layout = Some(PondWoodLayout::new());
+        let wood_film_enabled = self.wood_layout.as_ref().is_some_and(|layout| layout.wood_biofilm.is_some());
+        let mut woods = PondWoodLayout::new();
+        if wood_film_enabled { woods.wood_biofilm = Some(Vec::new()); }
+        self.wood_layout = Some(woods);
         self.moss_layout = Some(PondMossLayout::new());
         self.scenery_layout = Some(PondSceneryLayout::empty());
     }

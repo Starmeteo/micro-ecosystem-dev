@@ -9,8 +9,9 @@ use uuid::Uuid;
 
 const MAGIC: &str = "micro-ecosystem-fixture";
 const LEGACY_FORMAT_VERSION: u32 = 1;
-const FORMAT_VERSION: u32 = 2;
-const MAX_CHECKPOINT_BYTES: u64 = 256 * 1024;
+const OBSERVATION_FORMAT_VERSION: u32 = 2;
+const WOOD_BIOFILM_FORMAT_VERSION: u32 = 3;
+pub(super) const MAX_CHECKPOINT_BYTES: u64 = 256 * 1024;
 const AUTOMATIC_HISTORY: usize = 2;
 
 #[derive(Clone, Debug, PartialEq, Serialize)]
@@ -66,7 +67,7 @@ pub(super) struct LoadedCheckpoint {
     pub automatic: bool,
 }
 
-enum ReadError {
+pub(super) enum ReadError {
     Corrupt(String),
     Unsupported(String),
     Io(RuntimeError),
@@ -146,14 +147,7 @@ impl SaveStore {
             details: "checkpoint serial would overflow".to_owned(),
         })?;
 
-        let payload = serde_json::to_string(world).map_err(|err| serialization_error("serialize fixture", err))?;
-        let checkpoint = Envelope {
-            magic: MAGIC.to_owned(),
-            format_version: if world.observation_history.is_empty() { LEGACY_FORMAT_VERSION } else { FORMAT_VERSION },
-            checkpoint_serial: serial,
-            checksum: checkpoint_checksum(serial, payload.as_bytes()),
-            payload,
-        };
+        let checkpoint = checkpoint_envelope(world, serial)?;
         let candidate = directory.join(format!("pending-{}.tmp", Uuid::new_v4()));
         let destination = CheckpointFile { serial, automatic }.path(&directory);
 
@@ -217,7 +211,7 @@ impl SaveStore {
     }
 }
 
-fn checkpoint_path(directory: &Path, serial: u64) -> PathBuf {
+pub(super) fn checkpoint_path(directory: &Path, serial: u64) -> PathBuf {
     directory.join(format!("checkpoint-{serial:020}.json"))
 }
 
@@ -280,6 +274,26 @@ fn publish_checkpoint(
     Ok(())
 }
 
+fn checkpoint_envelope(world: &StoredWorld, serial: u64) -> Result<Envelope, RuntimeError> {
+    let payload = serde_json::to_string(world).map_err(|err| serialization_error("serialize fixture", err))?;
+    let format_version = if world.state.has_wood_biofilm() { WOOD_BIOFILM_FORMAT_VERSION }
+        else if world.observation_history.is_empty() { LEGACY_FORMAT_VERSION }
+        else { OBSERVATION_FORMAT_VERSION };
+    Ok(Envelope {
+        magic: MAGIC.to_owned(),
+        format_version,
+        checkpoint_serial: serial,
+        checksum: checkpoint_checksum(serial, payload.as_bytes()),
+        payload,
+    })
+}
+
+pub(super) fn fits_first_checkpoint(world: &StoredWorld) -> Result<bool, RuntimeError> {
+    let bytes = serde_json::to_vec(&checkpoint_envelope(world, 1)?)
+        .map_err(|err| serialization_error("serialize checkpoint", err))?;
+    Ok(bytes.len() as u64 <= MAX_CHECKPOINT_BYTES)
+}
+
 fn read_checkpoint(path: &Path, world_id: &str, serial: u64) -> Result<StoredWorld, ReadError> {
     let file = File::open(path).map_err(|err| ReadError::Io(io_error("open checkpoint", path, err)))?;
     let mut bytes = Vec::new();
@@ -293,26 +307,41 @@ fn read_checkpoint(path: &Path, world_id: &str, serial: u64) -> Result<StoredWor
     if header.magic != MAGIC {
         return Err(corrupt("unexpected file marker".to_owned()));
     }
-    if !matches!(header.format_version, LEGACY_FORMAT_VERSION | FORMAT_VERSION) {
+    if !matches!(header.format_version, LEGACY_FORMAT_VERSION | OBSERVATION_FORMAT_VERSION | WOOD_BIOFILM_FORMAT_VERSION) {
         return Err(ReadError::Unsupported(format!("checkpoint {serial} format version {}", header.format_version)));
     }
     let envelope: Envelope = serde_json::from_slice(&bytes).map_err(|err| corrupt(err.to_string()))?;
     if envelope.checkpoint_serial != serial || envelope.checksum != checkpoint_checksum(serial, envelope.payload.as_bytes()) {
         return Err(corrupt("checkpoint checksum or serial mismatch".to_owned()));
     }
-    let identity: PayloadHeader = serde_json::from_str(&envelope.payload)
-        .map_err(|err| corrupt(err.to_string()))?;
+    let world = read_world_payload(&envelope.payload, Some(world_id)).map_err(|error| match error {
+        ReadError::Corrupt(details) => corrupt(details),
+        ReadError::Unsupported(details) => ReadError::Unsupported(format!("checkpoint {serial} {details}")),
+        error => error,
+    })?;
+    if world.state.has_wood_biofilm() != (envelope.format_version == WOOD_BIOFILM_FORMAT_VERSION) {
+        return Err(corrupt("world features do not match the checkpoint format version".to_owned()));
+    }
+    Ok(world)
+}
+
+pub(super) fn read_world_payload(payload: &str, expected_id: Option<&str>) -> Result<StoredWorld, ReadError> {
+    let corrupt = ReadError::Corrupt;
+    let identity: PayloadHeader = serde_json::from_str(payload).map_err(|err| corrupt(err.to_string()))?;
     if !WorldState::supports_definition(identity.state.model_version, &identity.state.fixture_definition) {
         return Err(ReadError::Unsupported(format!(
-            "checkpoint {serial} model {} and definition {}",
+            "model {} and definition {}",
             identity.state.model_version, identity.state.fixture_definition,
         )));
     }
     if identity.solar_config.is_some_and(|solar| solar.model_version != SOLAR_MODEL_VERSION) {
-        return Err(ReadError::Unsupported(format!("checkpoint {serial} has an unsupported solar model version")));
+        return Err(ReadError::Unsupported("has an unsupported solar model version".to_owned()));
     }
-    let world: StoredWorld = serde_json::from_str(&envelope.payload).map_err(|err| corrupt(err.to_string()))?;
-    if world.world_id != world_id {
+    let world: StoredWorld = serde_json::from_str(payload).map_err(|err| corrupt(err.to_string()))?;
+    if validate_world_id(&world.world_id).is_err() {
+        return Err(corrupt("invalid world ID".to_owned()));
+    }
+    if expected_id.is_some_and(|id| id != world.world_id) {
         return Err(corrupt("world ID does not match the containing directory".to_owned()));
     }
     if world.solar_config.as_ref().is_some_and(|solar| !solar.location.validate()) {
@@ -323,15 +352,19 @@ fn read_checkpoint(path: &Path, world_id: &str, serial: u64) -> Result<StoredWor
     }
     match world.state.validate() {
         Ok(()) => Ok(world),
-        Err(CoreError::UnsupportedModel) => Err(ReadError::Unsupported(format!("checkpoint {serial} uses an unsupported world definition or model"))),
+        Err(CoreError::UnsupportedModel) => Err(ReadError::Unsupported("uses an unsupported world definition or model".to_owned())),
         Err(error) => Err(corrupt(error.to_string())),
     }
 }
 
 fn checkpoint_checksum(serial: u64, payload: &[u8]) -> String {
+    fnv1a_checksum(serial.to_le_bytes().into_iter().chain(payload.iter().copied()))
+}
+
+pub(super) fn fnv1a_checksum(bytes: impl IntoIterator<Item = u8>) -> String {
     // FNV-1a detects accidental corruption. This is not an authenticity check.
     let mut hash = 0xcbf2_9ce4_8422_2325_u64;
-    for byte in serial.to_le_bytes().into_iter().chain(payload.iter().copied()) {
+    for byte in bytes {
         hash ^= u64::from(byte);
         hash = hash.wrapping_mul(0x0100_0000_01b3);
     }
@@ -454,6 +487,76 @@ mod tests {
     }
 
     #[test]
+    fn checkpoints_version_independent_wood_biofilm_without_bumping_older_worlds() {
+        with_temp_store(|store| {
+            let mut runtime = WorldRuntime::new();
+            runtime.create_pond("older-pond", 2729).unwrap();
+            let current = runtime.create_pond_from_preset(2729).unwrap();
+            assert!(!runtime.world("older-pond").unwrap().saved.state.has_wood_biofilm());
+            assert!(runtime.world(&current.world_id).unwrap().saved.state.has_wood_biofilm());
+            runtime.save(&store, "older-pond").unwrap();
+            runtime.advance_ticks("older-pond", 201).unwrap();
+            runtime.save(&store, "older-pond").unwrap();
+            runtime.save(&store, &current.world_id).unwrap();
+
+            let legacy_dir = store.world_directory("older-pond");
+            let format_at = |path: &Path| {
+                serde_json::from_slice::<Envelope>(&fs::read(path).unwrap()).unwrap().format_version
+            };
+            assert_eq!(format_at(&checkpoint_path(&legacy_dir, 1)), LEGACY_FORMAT_VERSION);
+            assert_eq!(format_at(&checkpoint_path(&legacy_dir, 2)), OBSERVATION_FORMAT_VERSION);
+            let current_path = checkpoint_path(&store.world_directory(&current.world_id), 1);
+            assert_eq!(format_at(&current_path), WOOD_BIOFILM_FORMAT_VERSION);
+            let reopened = read_checkpoint(&current_path, &current.world_id, 1).ok().unwrap();
+            assert_eq!(reopened, runtime.world(&current.world_id).unwrap().saved);
+            assert!(!store.load("older-pond").ok().unwrap().world.state.has_wood_biofilm());
+
+            let mut mislabeled: Envelope = serde_json::from_slice(&fs::read(&current_path).unwrap()).unwrap();
+            mislabeled.format_version = OBSERVATION_FORMAT_VERSION;
+            fs::write(&current_path, serde_json::to_vec(&mislabeled).unwrap()).unwrap();
+            assert!(matches!(read_checkpoint(&current_path, &current.world_id, 1), Err(ReadError::Corrupt(_))));
+        });
+    }
+
+    #[test]
+    fn existing_r5_checkpoint_only_changes_format_after_explicit_wood_biofilm_enablement() {
+        with_temp_store(|store| {
+            let mut runtime = WorldRuntime::new();
+            let id = runtime.create_library_world(&store, "blank-pond-r5-composed", 2729).unwrap().world_id;
+            let mut fixture = serde_json::to_value(&runtime.world(&id).unwrap().saved).unwrap();
+            // The former blank R5 definition had this world layout without the
+            // optional inventory. No biomass changes when the empty list is removed.
+            let layout = fixture["state"]["pond"]["basins"][0]["woodLayout"].as_object_mut().unwrap();
+            assert_eq!(layout.remove("woodBiofilm"), Some(serde_json::json!([])));
+            let legacy: StoredWorld = serde_json::from_value(fixture).unwrap();
+            store.save(&legacy).unwrap();
+            let directory = store.world_directory(&id);
+            let legacy_path = checkpoint_path(&directory, 1);
+            let legacy_bytes = fs::read(&legacy_path).unwrap();
+            let saved: Envelope = serde_json::from_slice(&legacy_bytes).unwrap();
+            assert_eq!(saved.format_version, LEGACY_FORMAT_VERSION);
+
+            let loaded = runtime.load(&store, &id).unwrap().snapshot;
+            assert_eq!(runtime.world(&id).unwrap().saved, legacy);
+            runtime.set_edit_paused(&id, false).unwrap();
+            runtime.advance_ticks(&id, 201).unwrap();
+            runtime.save(&store, &id).unwrap();
+            let observed: Envelope = serde_json::from_slice(&fs::read(checkpoint_path(&directory, 2)).unwrap()).unwrap();
+            assert_eq!(observed.format_version, OBSERVATION_FORMAT_VERSION);
+
+            let editable = runtime.set_edit_paused(&id, true).unwrap();
+            let basin_id = loaded.pond.unwrap().basins[0].id.clone();
+            runtime.edit_pond_command(&id, "activate-wood", &editable.run_generation, &editable.edit_revision,
+                crate::PondEdit::EnableWoodBiofilm { basin_id }).unwrap();
+            runtime.save(&store, &id).unwrap();
+            let active: Envelope = serde_json::from_slice(&fs::read(checkpoint_path(&directory, 3)).unwrap()).unwrap();
+            assert_eq!(active.format_version, WOOD_BIOFILM_FORMAT_VERSION);
+            assert!(store.load(&id).ok().unwrap().world.state.has_wood_biofilm());
+            assert_eq!(fs::read(&legacy_path).unwrap(), legacy_bytes);
+        });
+    }
+
+    #[test]
     fn future_checkpoint_fails_without_loading_an_older_world() {
         with_temp_store(|store| {
             let mut runtime = WorldRuntime::new();
@@ -461,7 +564,9 @@ mod tests {
             runtime.save(&store, "forest").unwrap();
             let current = runtime.advance_ticks("forest", 30).unwrap();
             let future = checkpoint_path(&store.world_directory("forest"), 2);
-            fs::write(&future, br#"{"magic":"micro-ecosystem-fixture","formatVersion":3}"#).unwrap();
+            fs::write(&future, serde_json::to_vec(&serde_json::json!({
+                "magic": MAGIC, "formatVersion": WOOD_BIOFILM_FORMAT_VERSION + 1,
+            })).unwrap()).unwrap();
             assert!(matches!(runtime.load(&store, "forest"), Err(RuntimeError::CheckpointUnsupported { .. })));
             assert_eq!(runtime.snapshot("forest").unwrap(), current);
         });
@@ -477,7 +582,7 @@ mod tests {
             let payload = r#"{"state":{"modelVersion":2,"fixtureDefinition":"forest-fixture/2","futureFields":[]}}"#.to_owned();
             let future = Envelope {
                 magic: MAGIC.to_owned(),
-                format_version: FORMAT_VERSION,
+                format_version: OBSERVATION_FORMAT_VERSION,
                 checkpoint_serial: 2,
                 checksum: checkpoint_checksum(2, payload.as_bytes()),
                 payload,

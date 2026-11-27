@@ -4,9 +4,13 @@
 
 ## 安装与启动
 
-体验本次素材和预设更新，可运行 `target/debug/micro-ecosystem-desktop.exe`，或按下文步骤从源码启动。启动后从系统托盘打开「世界编辑器」，结束时选择「保存并退出」。此前发布的 Windows x64 0.2.20 安装包及校验值见历史记录。 [0.2.20 交付存档](docs/design/r5/implementation/windows-release-0.2.20.md) · [历史安装与构建步骤](docs/m4/windows-install.md)
+Windows x64 安装版为 0.2.22，包含统一 R5 素材和预设、世界备份导入及沉木生物膜。启动后从系统托盘打开「世界编辑器」，结束时选择「保存并退出」。 [0.2.22 安装包](target/release/bundle/nsis/微缩生态_0.2.22_x64-setup.exe) · [安装与升级验收](docs/design/r5/implementation/windows-release-0.2.22.md)
 
 文档中指向 `target/` 和 `.local/` 的链接是本地构建或验收路径。从 GitHub 克隆后，可按下方步骤从源码构建安装包。外部原始风格参考图随本地交接资料保管，仓库保留文字索引和项目自有素材。
+
+在「世界库 → 我的世界」可导出单世界备份，也可导入为一个暂停的独立副本。 [备份操作与验收](docs/design/r5/implementation/world-backup.md)
+
+新建 R5 浅塘默认启用独立沉木生物膜。可在沉木属性查看库存，在「生物」区查看米虾摄食来源。已有浅塘保留原状态，可在编辑时按水域启用。 [沉木库存说明](docs/design/r5/implementation/pond-wood-biofilm.md)
 
 托盘和「组件设置」均可添加生态组件，并可逐张绑定世界。右键组件可在原地调整大小。编辑器的「环境」可展开观察趋势，「生物」可定位并取出鼠妇和米虾，浅塘「属性」可取出选中的沉叶。 [首版交互补全](docs/design/r5/implementation/windows-release-0.2.20.md)
 

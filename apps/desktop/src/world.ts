@@ -158,6 +158,8 @@ export interface PondStaticSection {
   stoneContactFeeding?: readonly PondStoneContactFeeding[];
   stoneBiofilmEnabled?: boolean;
   stoneBiofilm?: readonly PondStoneBiofilm[];
+  woodBiofilmEnabled?: boolean;
+  woodBiofilm?: readonly PondWoodBiofilm[];
   biofilmDistribution?: PondBiofilmDistribution;
 }
 
@@ -181,6 +183,8 @@ export interface PondBasinSnapshot {
   biofilmDistribution?: PondBiofilmDistribution;
   stoneBiofilmEnabled?: boolean;
   stoneBiofilm?: readonly PondStoneBiofilm[];
+  woodBiofilmEnabled?: boolean;
+  woodBiofilm?: readonly PondWoodBiofilm[];
   plantMgC: number;
   detritusMgC: number;
   leafDeposits?: PondLeafDeposit[];
@@ -274,6 +278,12 @@ export interface PondBiofilmDistribution {
 
 export interface PondStoneBiofilm {
   stoneId: number;
+  stockMgC: number;
+  availableMgC: number;
+}
+
+export interface PondWoodBiofilm {
+  woodId: number;
   stockMgC: number;
   availableMgC: number;
 }
@@ -390,6 +400,7 @@ type PondStaticEditBody =
   | { type: 'removeShrimp'; id: string }
   | { type: 'enableStoneRest' }
   | { type: 'enableStoneBiofilm' }
+  | { type: 'enableWoodBiofilm' }
   | { type: 'addMoss'; parent: PondMossParent; offset: number; preset: PondMossPreset }
   | { type: 'moveMoss'; id: number; offset: number }
   | { type: 'trimMoss'; id: number; mgC: number }

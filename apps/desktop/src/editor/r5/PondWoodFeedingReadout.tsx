@@ -17,7 +17,7 @@ export function PondWoodFeedingReadout({ basin }: { basin: PondBasinSnapshot }) 
           </div>
           {sources && <>
             <div>
-              <dt>来自沉木表面</dt>
+              <dt>{basin.woodBiofilmEnabled ? '来自这段沉木的库存' : '按接触沉木归属'}</dt>
               <dd data-pond-wood-feeding-wood-mg-c={sources.woodBiofilmMgC}>{carbon.format(sources.woodBiofilmMgC)} mg C</dd>
             </div>
             <div>
@@ -28,8 +28,8 @@ export function PondWoodFeedingReadout({ basin }: { basin: PondBasinSnapshot }) 
         </Fragment>
       ))}
     </dl> : <p className="editor-context__hint">当前快照无记录。</p>}
-    <p className="editor-context__hint">{active.some(event => event.sources)
-      ? '两份摄入都来自同一份整池生物膜库存。'
-      : '显示米虾接触沉木期间从整池生物膜库存获得的食物量。'}</p>
+    <p className="editor-context__hint">{basin.woodBiofilmEnabled
+      ? '米虾停靠时优先从这段沉木的浸水膜取食，剩余食物需求由全池共用库存承担。'
+      : '米虾接触沉木时，摄入量按沉木浸水份额和池内共用份额归属，两者使用整池库存。'}</p>
   </details>;
 }

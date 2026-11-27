@@ -15,7 +15,7 @@ use tauri::{AppHandle, Emitter, EventTarget, Manager, RunEvent, State, WebviewWi
 use workspace::{PanelBounds, PanelBoundsRequest, PanelPointer, WorkspaceStore};
 use workspace_tray::{QueuedAction, TrayAction, TrayActions, WorkspaceTray};
 use world_runtime::solar::SolarLocation;
-use world_runtime::{ForestRockCommand, PondEdit, PresetEntry, TrialRate};
+use world_runtime::{ForestRockCommand, PondEdit, PresetEntry, TrialRate, WorldBackupImport};
 
 const WINDOW_IDS: [&str; 4] = ["panel", "observe", "editor", "layout"];
 const LAYOUT_EVENT: &str = "workspace-layout-changed";
@@ -162,6 +162,18 @@ fn create_world(window: WebviewWindow, state: State<'_, SharedHost>, preset_id: 
 fn copy_world(window: WebviewWindow, state: State<'_, SharedHost>, world_id: String, name: String) -> HostResult<ViewSnapshot> {
     owned_label(&window, "editor")?;
     state.lock()?.copy_world(&world_id, &name)
+}
+
+#[tauri::command]
+fn export_world_backup(window: WebviewWindow, state: State<'_, SharedHost>, world_id: String) -> HostResult<String> {
+    owned_label(&window, "editor")?;
+    state.lock()?.export_world_backup(&world_id)
+}
+
+#[tauri::command]
+fn import_world_backup(window: WebviewWindow, state: State<'_, SharedHost>, contents: String) -> HostResult<WorldBackupImport> {
+    owned_label(&window, "editor")?;
+    state.lock()?.import_world_backup(&contents)
 }
 
 #[tauri::command]
@@ -520,6 +532,7 @@ fn main() {
             subscribe_world, poll_world, unsubscribe_world, set_paused, edit_rock, edit_forest_rocks,
             set_edit_paused, set_world_location, create_forest_from_preset, create_pond_from_preset, edit_pond, edit_pond_history, add_starter_life,
             list_worlds, switch_world, create_world, copy_world, rename_world, archive_world, save_world_preset, observation_history,
+            export_world_backup, import_world_backup,
             start_forest_trial, advance_forest_trial, advance_trial_scaled, discard_forest_trial, adopt_trial, save_trial_as_world,
             save_world, restore_world, show_window, hide_window, show_windows, hide_windows,
             request_exit, get_workspace_layout, save_workspace_layout, save_workspace_idle,

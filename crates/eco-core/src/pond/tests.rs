@@ -1,5 +1,75 @@
 use super::*;
 
+fn use_pre_wood_film_fixture(world: &mut WorldState) {
+    for basin in &mut world.pond.as_mut().unwrap().basins {
+        let layout = basin.wood_layout.as_mut().unwrap();
+        for patch in layout.wood_biofilm.take().into_iter().flatten() { basin.biofilm.add(patch.stock); }
+    }
+}
+
+#[test]
+fn r5_wood_film_is_a_persisted_conservative_edit() {
+    let latest = WorldState::new_r5_composed_pond(2729);
+    assert!(latest.has_wood_biofilm());
+    assert!(basin(&latest).observe(0).wood_biofilm.unwrap()[0].stock_mg_c > 0.0);
+    let mut legacy = latest.clone();
+    use_pre_wood_film_fixture(&mut legacy);
+    let saved = serde_json::to_string(&legacy).unwrap();
+    assert!(!saved.contains("woodBiofilm"));
+    let mut reread: WorldState = serde_json::from_str(&saved).unwrap();
+    assert!(!reread.has_wood_biofilm());
+    reread.validate().unwrap();
+    let enable = PondEdit::EnableWoodBiofilm { basin_id: basin_id(0) };
+    let mut older = WorldState::new_r5_wood_pond(2729);
+    assert_eq!(older.edit_pond(&enable), Err(CoreError::WrongWorldKind));
+    reread.edit_pond(&enable).unwrap();
+    assert!(reread.has_wood_biofilm());
+    let wet = basin(&reread).observe(0);
+    let film = &wet.wood_biofilm.as_ref().unwrap()[0];
+    assert_close(wet.biofilm_mg_c, basin(&legacy).total_biofilm_carbon());
+    assert_close(film.stock_mg_c, film.available_mg_c);
+    assert_balanced(basin(&reread));
+    let enabled = reread.clone();
+    reread.edit_pond(&enable).unwrap();
+    assert_eq!(enabled, reread);
+    reread.restore_pond_edit_state(legacy.clone()).unwrap();
+    assert!(!reread.has_wood_biofilm());
+    assert_eq!(legacy, reread);
+
+    let mut world = WorldState::new_blank_r5_composed_pond(2729);
+    assert!(world.has_wood_biofilm());
+    let water = |liters| PondEdit::AddWater { basin_id: basin_id(0), liters };
+    world.edit_pond(&water(18.0)).unwrap();
+    world.edit_pond(&PondEdit::AddWood { basin_id: basin_id(0), x: 0.35, preset: PondWoodPreset::Root }).unwrap();
+    let local = &mut world.pond.as_mut().unwrap().basins[0];
+    assert_eq!(local.observe(0).wood_biofilm.unwrap()[0].stock_mg_c, 0.0);
+    local.biofilm = Matter::with_ratios(6.0, 0.077, 0.010);
+    local.balance = Balance { initial: local.inventory(), ..Balance::default() };
+    local.colonize_wood_biofilm(1.0);
+    let initial = local.observe(0).wood_biofilm.unwrap().remove(0);
+    assert!(initial.stock_mg_c > 0.0);
+    world.edit_pond(&PondEdit::MoveWood { basin_id: basin_id(0), id: initial.wood_id, x: 0.42 }).unwrap();
+    assert_eq!(basin(&world).observe(0).wood_biofilm, Some(vec![initial.clone()]));
+    world.edit_pond(&PondEdit::DrainWater { basin_id: basin_id(0), liters: 18.0 }).unwrap();
+    world.advance_steps(40).unwrap();
+    let dry = basin(&world).observe(0);
+    assert_close(dry.wood_biofilm.unwrap()[0].stock_mg_c, initial.stock_mg_c);
+    assert_eq!(dry.biofilm_distribution.unwrap().surfaces.len(), 0);
+    world.edit_pond(&water(18.0)).unwrap();
+    assert_eq!(basin(&world).observe(0).wood_biofilm, Some(vec![initial.clone()]));
+    let before_remove = world.clone();
+    world.edit_pond(&PondEdit::RemoveWood { basin_id: basin_id(0), id: initial.wood_id }).unwrap();
+    assert_close(basin(&world).biofilm.carbon(), 6.0);
+    assert_eq!(basin(&world).observe(0).wood_biofilm, Some(Vec::new()));
+    world.restore_pond_edit_state(before_remove).unwrap();
+    let mut loaded: WorldState = serde_json::from_str(&serde_json::to_string(&world).unwrap()).unwrap();
+    assert_eq!(world, loaded);
+    world.advance_steps(120).unwrap();
+    loaded.advance_steps(120).unwrap();
+    assert_eq!(world, loaded);
+    assert_balanced(basin(&world));
+}
+
 #[test]
 fn r5_take_out_daphnia_exports_the_population_share() {
     let mut world = WorldState::new_r5_composed_pond(44);
@@ -1397,6 +1467,7 @@ fn r5_empty_wood_layout_retains_the_complete_stone_pond_trajectory() {
 #[test]
 fn r5_wood_contact_reports_consumed_parcels_and_excludes_new_or_released_contacts() {
     let mut world = WorldState::new_r5_composed_dual_pond(2729);
+    use_pre_wood_film_fixture(&mut world);
     let local = &mut world.pond.as_mut().unwrap().basins[0];
     let wood = local.wood_layout.as_ref().unwrap().woods[0];
     let depth = local.column_projection_px();
@@ -1635,6 +1706,7 @@ fn r5_persistent_stone_film_spends_only_accessible_stock_and_shares_the_remainde
 #[test]
 fn r5_persistent_stone_film_recolonizes_from_real_stock_and_grows_under_shared_limits() {
     let mut world = WorldState::new_r5_composed_pond(2729);
+    use_pre_wood_film_fixture(&mut world);
     world.edit_pond(&PondEdit::EnableStoneBiofilm { basin_id: basin_id(0) }).unwrap();
     let local = &mut world.pond.as_mut().unwrap().basins[0];
     let patch = &mut local.stone_biofilm.as_mut().unwrap()[0];
@@ -1673,6 +1745,7 @@ fn r5_persistent_stone_film_recolonizes_from_real_stock_and_grows_under_shared_l
 #[test]
 fn r5_persistent_stone_film_survives_edits_dry_water_and_checkpoint_replay() {
     let mut world = WorldState::new_r5_composed_dual_pond(2729);
+    use_pre_wood_film_fixture(&mut world);
     let legacy_snapshot = world.pond_observation().unwrap();
     let legacy_durable = serde_json::to_string(&world).unwrap();
     assert!(!legacy_durable.contains("stoneBiofilm"));
@@ -1739,6 +1812,7 @@ fn r5_persistent_stone_film_survives_edits_dry_water_and_checkpoint_replay() {
 #[test]
 fn r5_biofilm_projection_uses_the_existing_visual_shares_and_keeps_one_stock() {
     let mut world = WorldState::new_r5_composed_pond(2729);
+    use_pre_wood_film_fixture(&mut world);
     let durable_before = serde_json::to_value(&world).unwrap();
     let observed = world.pond_observation().unwrap();
     let wet = observed.basins[0].biofilm_distribution.as_ref().unwrap();
@@ -1775,6 +1849,7 @@ fn r5_biofilm_projection_uses_the_existing_visual_shares_and_keeps_one_stock() {
 #[test]
 fn r5_contact_food_caps_each_typed_source_and_shares_scarcity_proportionally() {
     let mut world = WorldState::new_blank_r5_composed_pond(2729);
+    use_pre_wood_film_fixture(&mut world);
     world.edit_pond(&PondEdit::AddWater { basin_id: basin_id(0), liters: 18.0 }).unwrap();
     world.edit_pond(&PondEdit::AddWood { basin_id: basin_id(0), x: 0.27, preset: PondWoodPreset::Root }).unwrap();
     world.edit_pond(&PondEdit::AddStone { basin_id: basin_id(0), x: 0.64, preset: PondStonePreset::Main }).unwrap();

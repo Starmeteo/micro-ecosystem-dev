@@ -1,0 +1,41 @@
+{
+  "scenario": "R5",
+  "version": "0.2.22",
+  "installerSha256": "0D1773AC201AE8BDDD602599FEBAEEDE9A703B8EA3385600C3EAA4437A3606CD",
+  "installerBytes": 74229446,
+  "signature": "NotSigned",
+  "windowsBuild": "10.0.26200.0",
+  "installMode": "currentUser",
+  "noShortcuts": true,
+  "registrationVerified": true,
+  "expectedPayloadSha256": "B09C317E3B810EBC42491471756FAF873857F953E8C58C20F2876A45E2B2C204",
+  "releaseExeSha256": "F4E022C934ECF0FDA2178F83970C7E43116B26CE1EADBC64C0A45582F29A794C",
+  "payloadHashMatches": true,
+  "installedAppVerified": true,
+  "uninstalled": true,
+  "currentInstall": {
+    "exitCode": 0,
+    "version": "0.2.22",
+    "registeredVersion": "0.2.22",
+    "payloadSha256": "B09C317E3B810EBC42491471756FAF873857F953E8C58C20F2876A45E2B2C204"
+  },
+  "installExitCode": 0,
+  "installedExeSha256": "B09C317E3B810EBC42491471756FAF873857F953E8C58C20F2876A45E2B2C204",
+  "currentRun": {
+    "processId": 46900,
+    "exitCode": 0,
+    "checkpointCount": 6
+  },
+  "appExitCode": 0,
+  "checkpointCount": 6,
+  "reopen": {
+    "processId": 53332,
+    "exitCode": 0,
+    "checkpointCount": 10
+  },
+  "uninstallExitCode": 0,
+  "installDirectoryRemoved": true,
+  "vendorMetadataRemoved": true,
+  "sampleDataPreserved": true,
+  "uninstallKeptDataByteIdentical": true
+}

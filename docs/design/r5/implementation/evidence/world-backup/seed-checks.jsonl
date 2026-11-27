@@ -1,0 +1,5 @@
+{"case":"owned-installed-process","pid":50964,"bootGeneration":"0fc16628-d24a-4b38-a982-be430a4691f7"}
+{"case":"downloaded-world-backup","sourceId":"forest-understory","sourceName":"备份验收林下","activeWorldId":"pond-20768e29e72f45e89a7cfa4370b32759","bytes":44051,"sha256":"2f67095fd285640022d9bf85a4d62b835b587178f957e526392beb1816e1e24a","tick":"13","downloadProtocol":"Browser.setDownloadBehavior"}
+{"case":"bad-backups-rejected","malformed":true,"unsupported":true,"worldCount":2,"unchangedLayout":true}
+{"case":"duplicate-imports-independent","originalWorldId":"forest-understory","activeWorldId":"pond-20768e29e72f45e89a7cfa4370b32759","importedWorldIds":["world-1b9e3d15ceab4e669a7162be8e60fdef","world-53b4edc90dfa4590ad678230250532c9"],"completeStoredStatesMatch":true,"originalCheckpointsUnchanged":true,"layoutUnchanged":true}
+{"case":"import-explicitly-opened","activeWorldId":"world-1b9e3d15ceab4e669a7162be8e60fdef","tick":"13","paused":true,"r5EditorRendered":true}

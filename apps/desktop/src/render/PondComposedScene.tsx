@@ -137,6 +137,7 @@ export function PondComposedScene({
     `${shrimpId}:${stoneBiofilmMgC}:${sharedBiofilmMgC}`).join(';');
   const biofilmDistributionKey = JSON.stringify(pond.biofilmDistribution);
   const stoneBiofilmKey = JSON.stringify(pond.stoneBiofilm);
+  const woodBiofilmKey = JSON.stringify(pond.woodBiofilm);
 
   const render = useRef<() => void>(() => {});
   useLayoutEffect(() => {
@@ -156,7 +157,7 @@ export function PondComposedScene({
       const moss = rocks?.mossDraft;
       const plant = plantInput.draft;
       const frame = [target, art, width, height, dpr, simulationTick, editRevision, daylightPhase, seasonDay,
-        pond.id, pond.wet, pond.depthCm, pond.biofilmMgC, biofilmDistributionKey, stoneBiofilmKey, woodFeedingKey, woodFeedingSourceKey,
+        pond.id, pond.wet, pond.depthCm, pond.biofilmMgC, biofilmDistributionKey, stoneBiofilmKey, woodBiofilmKey, woodFeedingKey, woodFeedingSourceKey,
         stoneContactsKey, stoneFeedingKey, stoneFeedingSourceKey,
         floatingAnchors, floatingGeometry, pond.floatingCanopy?.lightTransmission, floatingSelectionId,
         sedgeAnchors, sedgeWetness, sedgeSelectionId,
@@ -279,6 +280,8 @@ export function PondComposedScene({
       data-pond-biofilm-distribution={biofilmDistributionKey}
       data-pond-stone-biofilm-enabled={pond.stoneBiofilmEnabled === true || undefined}
       data-pond-stone-biofilm={stoneBiofilmKey}
+      data-pond-wood-biofilm-enabled={pond.woodBiofilmEnabled === true || undefined}
+      data-pond-wood-biofilm={woodBiofilmKey}
       data-pond-scenery-ids={pond.scenery?.map(({ id }) => id).join(',')}
       data-pond-bed-scenery-site={sceneryInput.draft?.bedSite}
       data-pond-water-plant-anchors={pond.waterPlantPatches?.map(({ id, x }) => id + ':' + bedPoint(x).x + ',' + bedY).join(';')}

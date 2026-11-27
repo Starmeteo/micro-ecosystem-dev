@@ -55,10 +55,11 @@ pub(super) fn retain_contacts(entries: &mut PondBasinContactFeeding, woods: &Pon
 struct RowFeeding {
     claims: [f64; MAX_SHRIMP],
     stone_food: [Matter; MAX_SHRIMP],
+    wood_food: [Matter; MAX_SHRIMP],
 }
 
 impl RowFeeding {
-    fn prepare(shrimp: &[Shrimp], stones: Option<&PondStoneLayout>, stocks: Option<&mut [StoneBiofilm]>,
+    fn prepare(shrimp: &[Shrimp], woods: Option<&mut PondWoodLayout>, stones: Option<&PondStoneLayout>, stocks: Option<&mut [StoneBiofilm]>,
         wet: [f64; MAX_STONES], opportunity: f64, column: f64,
     ) -> Self {
         let mut result = Self::default();
@@ -72,6 +73,9 @@ impl RowFeeding {
                 *contact = stones.stone_attachments.iter().find(|attachment| attachment.matches(&stones.stones, &individual.view, column));
             }
             result.stone_food = Basin::allocate_stone_food(stocks, &contacts, &mut result.claims, wet);
+        }
+        if let Some(woods) = woods {
+            result.wood_food = woods.allocate_wood_food(shrimp, &mut result.claims, column);
         }
         result
     }
@@ -93,8 +97,10 @@ impl RowFeedingTargets<'_> {
         for (index, (individual, fed)) in self.shrimp.iter_mut().zip(&mut observed).enumerate() {
             let from_shared = if shared_demand > 0.0 { shared.scaled(plan.claims[index] / shared_demand) } else { Matter::default() };
             let from_stone = plan.stone_food[index];
+            let from_wood = plan.wood_food[index];
             let mut parcel = from_shared;
             if from_stone.carbon() > 0.0 { parcel.add(from_stone); }
+            if from_wood.carbon() > 0.0 { parcel.add(from_wood); }
             individual.reserve.add(parcel.scaled(0.57));
             detritus.add(parcel.scaled(0.43));
             let biofilm_mg_c = parcel.carbon();
@@ -105,7 +111,7 @@ impl RowFeedingTargets<'_> {
             if let Some(attachment) = wood_contact {
                 entries.wood.push(PondShrimpWoodFeedingObservation {
                     shrimp_id: individual.view.id.clone(), wood_id: attachment.wood_id,
-                    offset: attachment.offset, biofilm_mg_c, wood_biofilm_mg_c: 0.0, shared_biofilm_mg_c: biofilm_mg_c,
+                    offset: attachment.offset, biofilm_mg_c, wood_biofilm_mg_c: from_wood.carbon(), shared_biofilm_mg_c: from_shared.carbon(),
                 });
             } else if let Some(attachment) = self.stones.and_then(|layout| layout.stone_attachments.iter()
                 .find(|attachment| attachment.matches(&layout.stones, &individual.view, column))) {
@@ -116,7 +122,9 @@ impl RowFeedingTargets<'_> {
                 });
             }
         }
-        if let Some((entries, distribution)) = feedback { distribution.attribute_contact_intake(entries, self.localized); }
+        if let Some((entries, distribution)) = feedback {
+            distribution.attribute_contact_intake(entries, self.localized, self.woods.is_some_and(|layout| layout.wood_biofilm.is_some()));
+        }
         observed
     }
 }
@@ -143,7 +151,8 @@ impl Basin {
         let common_before = self.biofilm;
         let mut rows = [RowFeeding::default(); section::MAX_OBSERVATION_SECTIONS];
         let wet = self.stone_biofilm_wet_fractions();
-        rows[0] = RowFeeding::prepare(&self.shrimp, self.stone_layout.as_ref(), self.stone_biofilm.as_deref_mut(), wet, opportunity, column);
+        rows[0] = RowFeeding::prepare(&self.shrimp, self.wood_layout.as_mut(), self.stone_layout.as_ref(),
+            self.stone_biofilm.as_deref_mut(), wet, opportunity, column);
         let mut distributions: [_; section::MAX_OBSERVATION_SECTIONS - 1] = std::array::from_fn(|_| None);
         for ((section, row), distribution) in self.static_sections.iter_mut().zip(&mut rows[1..]).zip(&mut distributions) {
             if section.shrimp.is_empty() { continue; }
@@ -151,12 +160,14 @@ impl Basin {
                 *distribution = Some(section.biofilm_distribution(common_before, column));
             }
             let wet = section.stone_biofilm_wet_fractions(column);
-            *row = RowFeeding::prepare(&section.shrimp, Some(&section.stones), section.stone_biofilm.as_deref_mut(), wet, opportunity, column);
+            *row = RowFeeding::prepare(&section.shrimp, Some(&mut section.woods), Some(&section.stones),
+                section.stone_biofilm.as_deref_mut(), wet, opportunity, column);
         }
         let shared_demand = rows.iter().flat_map(|row| row.claims).sum::<f64>();
         let shared = self.biofilm.take_carbon(shared_demand);
-        let local = rows.iter().flat_map(|row| row.stone_food).map(Matter::carbon).sum::<f64>();
-        self.balance.shrimp_food_mg_c += shared.carbon() + local;
+        let stone = rows.iter().flat_map(|row| row.stone_food).map(Matter::carbon).sum::<f64>();
+        let wood = rows.iter().flat_map(|row| row.wood_food).map(Matter::carbon).sum::<f64>();
+        self.balance.shrimp_food_mg_c += shared.carbon() + stone + wood;
         let mut fed = [[false; MAX_SHRIMP]; section::MAX_OBSERVATION_SECTIONS];
         fed[0] = RowFeedingTargets { shrimp: &mut self.shrimp, woods: self.wood_layout.as_ref(),
             stones: self.stone_layout.as_ref(), localized: self.stone_biofilm.is_some() }
@@ -319,6 +330,70 @@ impl Basin {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn wood_film_feeding_spends_only_contacted_stocks_across_sections() {
+        let mut world = WorldState::new_blank_r5_composed_dual_pond(2729);
+        let main = POND_DEFAULT_BASIN_ID.to_owned();
+        for basin_id in [main.clone(), "pond-2".to_owned()] {
+            for edit in [
+                PondEdit::AddWater { basin_id: basin_id.clone(), liters: 12.0 },
+                PondEdit::AddWood { basin_id: basin_id.clone(), x: 0.35, preset: PondWoodPreset::Root },
+                PondEdit::StockShrimp { basin_id, position: Point { x: 0.8, y: 0.45 }, count: 2 },
+            ] { world.edit_pond(&edit).unwrap(); }
+        }
+        let merge = |mode| PondEdit::CommitTopology { basin_id: main.clone(), mode, cells: vec![29] };
+        world.edit_pond(&merge(PondShapeMode::Add)).unwrap();
+        let basin = &mut world.pond.as_mut().unwrap().basins[0];
+        let column = basin.column_projection_px();
+        let mount = |shrimp: &mut Shrimp, layout: &mut PondWoodLayout, offset| {
+            let attachment = PondShrimpAttachment { shrimp_id: shrimp.view.id.clone(), wood_id: 1, offset, rest_ticks: 20 };
+            let point = layout.attachment_point(&attachment, column).unwrap();
+            shrimp.view.x = point.x;
+            shrimp.view.y = point.y;
+            shrimp.view.activity = Activity::Resting;
+            layout.attachments.push(attachment);
+        };
+        let woods = basin.wood_layout.as_mut().unwrap();
+        mount(&mut basin.shrimp[0], woods, -0.8);
+        mount(&mut basin.shrimp[1], woods, 0.8);
+        let section = &mut basin.static_sections[0];
+        mount(&mut section.shrimp[0], &mut section.woods, 0.0);
+        let row = section.row;
+        let (main_food, side_food, common) = (0.000_004, 0.000_007, 0.000_010);
+        woods.wood_biofilm.as_mut().unwrap()[0].stock = Matter::with_ratios(main_food, 0.077, 0.010);
+        section.woods.wood_biofilm.as_mut().unwrap()[0].stock = Matter::with_ratios(side_food, 0.077, 0.010);
+        basin.biofilm = Matter::with_ratios(common, 0.077, 0.010);
+        basin.balance = Balance { initial: basin.inventory(), ..Balance::default() };
+        let mut split = world.clone();
+
+        let basin = &mut world.pond.as_mut().unwrap().basins[0];
+        let before = basin.inventory();
+        let mut control = basin.clone();
+        let mut trace = PondBasinContactFeeding::default();
+        let fed = basin.feed_all_shrimp_rows(1.0, 1.0, Some(&mut trace));
+        assert_eq!(fed, control.feed_all_shrimp_rows(1.0, 1.0, None));
+        assert_eq!(*basin, control);
+        assert!(fed[0][0] && fed[0][1] && fed[1][0] && fed[1][1]);
+        let near = |got: f64, want: f64| assert!((got - want).abs() < 1e-10, "{got} != {want}");
+        let [first, second] = trace.wood.as_slice() else { panic!("expected two primary wood contacts") };
+        let [(section_row, incoming)] = trace.sections.as_slice() else { panic!("expected one secondary row") };
+        let [third] = incoming.wood.as_slice() else { panic!("unexpected contact for free swimmer") };
+        assert_eq!(*section_row, row);
+        assert_eq!([first.wood_id, second.wood_id, third.wood_id], [1, 1, 1]);
+        near(first.wood_biofilm_mg_c + second.wood_biofilm_mg_c, main_food);
+        near(third.wood_biofilm_mg_c, side_food);
+        near(basin.balance.shrimp_food_mg_c, main_food + side_food + common);
+        for (before, after) in before.cn_p.0.into_iter().zip(basin.inventory().cn_p.0) { near(before, after); }
+        assert_eq!(basin.biofilm.carbon(), 0.0);
+        world.validate().unwrap();
+
+        split.edit_pond(&merge(PondShapeMode::Remove)).unwrap();
+        let parts = &split.pond_observation().unwrap().basins;
+        near(parts[0].wood_biofilm.as_ref().unwrap()[0].stock_mg_c, main_food);
+        near(parts[1].wood_biofilm.as_ref().unwrap()[0].stock_mg_c, side_food);
+        split.validate().unwrap();
+    }
     use crate::WorldState;
 
     #[test]

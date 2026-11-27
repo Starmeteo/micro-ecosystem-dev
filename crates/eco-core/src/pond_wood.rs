@@ -1,9 +1,12 @@
 use crate::pond_stones::{slope_profile, PondBedProfile, PondSwimRange, StructurePreset, BASIN_WIDTH_PX};
+use crate::pond::Matter;
 use crate::{Activity, Animal, CoreError, Point};
 use serde::{Deserialize, Serialize};
 use std::f64::consts::FRAC_PI_2;
 
-const MAX_WOODS: usize = 2;
+pub(super) const MAX_WOODS: usize = 2;
+// Match the stone-film engineering default until material-specific rates are calibrated.
+pub(super) const WOOD_BIOFILM_CAPACITY_MG_C: f64 = 12.0;
 const REST_TICKS: u16 = 35;
 const APPROACH_PX: f64 = 1.5;
 
@@ -101,15 +104,40 @@ pub struct PondShrimpAttachment {
 
 #[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
+pub(super) struct WoodBiofilm {
+    pub(super) wood_id: u32,
+    pub(super) stock: Matter,
+}
+
+impl WoodBiofilm {
+    fn empty(wood_id: u32) -> Self { Self { wood_id, stock: Matter::default() } }
+
+    pub(super) fn vacant_mg_c(&self) -> f64 { (WOOD_BIOFILM_CAPACITY_MG_C - self.stock.carbon()).max(0.0) }
+
+    pub(super) fn growth_demand(&self, wet: f64, opportunity: f64) -> Matter {
+        let space = self.vacant_mg_c();
+        let carbon = self.stock.carbon() * 0.037 * opportunity * wet * (space / WOOD_BIOFILM_CAPACITY_MG_C);
+        Matter::with_ratios(carbon.min(space), 0.077, 0.010)
+    }
+
+    pub(super) fn respiration_demand(&self, wet: f64, elapsed: f64) -> f64 {
+        self.stock.carbon() * 0.004 * elapsed * wet
+    }
+}
+
+#[derive(Clone, Debug, Deserialize, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub(super) struct PondWoodLayout {
     next_id: u32,
     pub(super) woods: Vec<PondWood>,
     pub(super) attachments: Vec<PondShrimpAttachment>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(super) wood_biofilm: Option<Vec<WoodBiofilm>>,
 }
 
 impl PondWoodLayout {
     pub(super) fn new() -> Self {
-        Self { next_id: 1, woods: Vec::new(), attachments: Vec::new() }
+        Self { next_id: 1, woods: Vec::new(), attachments: Vec::new(), wood_biofilm: None }
     }
 
     pub(super) fn preserve_allocations(&mut self, current: &Self) {
@@ -123,6 +151,7 @@ impl PondWoodLayout {
         debug_assert!(wood.valid_anchor() && self.woods.len() < MAX_WOODS);
         self.next_id = id.checked_add(1).expect("new slope layout has an available ID");
         self.woods.push(wood);
+        if let Some(stocks) = &mut self.wood_biofilm { stocks.push(WoodBiofilm::empty(id)); }
         id
     }
 
@@ -145,6 +174,9 @@ impl PondWoodLayout {
         self.next_id > 0 && self.woods.len() <= MAX_WOODS && self.woods.iter().enumerate().all(|(index, wood)| {
             wood.id > 0 && wood.id < self.next_id && wood.valid_anchor()
                 && !self.woods[..index].iter().any(|previous| previous.id >= wood.id || wood.profile().overlaps(previous.profile()))
+        }) && self.wood_biofilm.as_ref().is_none_or(|stocks| {
+            self.woods.iter().map(|wood| wood.id).eq(stocks.iter().map(|patch| patch.wood_id))
+                && stocks.iter().all(|patch| patch.stock.valid() && patch.stock.carbon() <= WOOD_BIOFILM_CAPACITY_MG_C + 1e-9)
         }) && self.attachments.iter().enumerate().all(|(index, attachment)| {
             (1..=REST_TICKS).contains(&attachment.rest_ticks) && (-1.0..=1.0).contains(&attachment.offset)
                 && !self.attachments[..index].iter().any(|other| other.shrimp_id == attachment.shrimp_id)
@@ -160,6 +192,7 @@ impl PondWoodLayout {
         let wood = PondWood { id: self.next_id, x, preset };
         self.validate_site(wood, column_px, animals, stone_profiles)?;
         self.woods.push(wood);
+        if let Some(stocks) = &mut self.wood_biofilm { stocks.push(WoodBiofilm::empty(wood.id)); }
         self.next_id = next_id;
         Ok(())
     }
@@ -180,11 +213,11 @@ impl PondWoodLayout {
         Ok(())
     }
 
-    pub(super) fn remove(&mut self, id: u32) -> Result<(), CoreError> {
+    pub(super) fn remove(&mut self, id: u32) -> Result<Matter, CoreError> {
         let index = self.woods.iter().position(|wood| wood.id == id).ok_or(CoreError::PondWoodMissing)?;
         self.woods.remove(index);
         self.attachments.retain(|attachment| attachment.wood_id != id);
-        Ok(())
+        Ok(self.wood_biofilm.as_mut().map_or_else(Matter::default, |stocks| stocks.remove(index).stock))
     }
 
     fn validate_site(

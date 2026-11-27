@@ -1,5 +1,5 @@
 use super::*;
-use world_runtime::{PresetEntry, WorldEntry, WorldEntryState, WorldTheme};
+use world_runtime::{PresetEntry, WorldBackupImport, WorldEntry, WorldEntryState, WorldTheme};
 
 #[derive(Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -119,6 +119,20 @@ impl Host {
         if !self.runtime.is_world_loaded(id) { self.runtime.load(&self.store, id)?; }
         let snapshot = self.runtime.copy_world(&self.store, id)?;
         self.finish_new_world(snapshot, name, "已复制当下状态，副本保持暂停", false)
+    }
+
+    pub fn export_world_backup(&self, id: &str) -> HostResult<String> {
+        self.require_library_change()?;
+        if id == self.world.world.world_id && self.save_blocked.is_some() {
+            return Err(HostError::new("save_blocked", "当前恢复画面不可作为原世界备份"));
+        }
+        let entry = self.library_entry(id)?;
+        Ok(self.runtime.export_world_backup(&self.store, id, &entry.name)?)
+    }
+
+    pub fn import_world_backup(&self, contents: &str) -> HostResult<WorldBackupImport> {
+        self.require_library_change()?;
+        Ok(self.store.import_world_backup(contents)?)
     }
 
     pub fn rename_world(&mut self, id: &str, name: &str) -> HostResult<ViewSnapshot> {

@@ -18,9 +18,13 @@ const priorReleaseBySeed = new Map([
   ['upgrade-seed-living-sections','0.2.17'],
   ['upgrade-seed-structures-litter','0.2.18'],
   ['upgrade-seed-botany','0.2.19'],
+  ['upgrade-seed-current','0.2.20'],
+  ['upgrade-seed-wood-biofilm','0.2.21'],
 ]);
 const seedRelease = priorReleaseBySeed.get(mode);
-assert(['legacy','r5','r5-reopen','upgrade'].includes(mode) || seedRelease);
+const freshCurrent = mode==='r5-current';
+const reopenCurrentUpgrade = mode==='upgrade-current-reopen';
+assert(['legacy','r5','r5-current','r5-reopen','upgrade','upgrade-current-reopen'].includes(mode) || seedRelease);
 assert(Number(port) > 0 && Number(port) <= 65535 && Number(pid) > 0);
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -210,6 +214,91 @@ function canonicalDigest(state) {
   return createHash('sha256').update(body).digest('hex');
 }
 
+async function writeUpgradeFixture(snapshots, priorRelease) {
+  const worlds=snapshots.map((world)=>{
+    const state=worldState(world);
+    return {state,runGeneration:world.runGeneration,stateSha256:canonicalDigest(state)};
+  });
+  await writeFile(join(evidence,'prior-worlds-expected.json'),JSON.stringify({
+    activeWorldId:snapshots.at(-1).worldId,priorPid:Number(pid),priorRelease,worlds,
+  },null,2));
+  return worlds;
+}
+
+async function latestUpgradeCheckpoint(worldId) {
+  const directory=join(process.env.MICRO_ECOSYSTEM_DATA_DIR,`world-${worldId}`);
+  const names=(await readdir(directory)).filter(name=>/^checkpoint-\d{20}\.json$/.test(name)).sort();
+  assert(names.length, `No checkpoint for ${worldId}`);
+  const file=join(directory,names.at(-1));
+  const bytes=await readFile(file);
+  return {file,format:JSON.parse(bytes).formatVersion,sha256:createHash('sha256').update(bytes).digest('hex')};
+}
+
+async function optInUpgradedWoodBiofilm(before) {
+  assert.equal(before.editPaused,true);
+  const basin=before.pond.basins[0];
+  assert.equal(basin.woodBiofilmEnabled,undefined);
+  assert.equal(basin.woodBiofilm,undefined);
+  const original=await latestUpgradeCheckpoint(before.worldId);
+  assert([1,2].includes(original.format));
+  await clickButton('生物','.editor-inspector-rail button');
+  await until(()=>editor(`(() => {
+    const details=document.querySelector('[data-pond-biofilm-display]');
+    if (!details) return false;
+    details.open=true;
+    return true;
+  })()`),'Archived pond did not present its biofilm controls');
+  await clickButton('启用沉木生物膜','[data-pond-wood-biofilm-enable]');
+  const enabled=await until(async()=>{
+    const current=await snapshot();
+    return current.pond.basins[0].woodBiofilmEnabled===true && current;
+  },'Archived pond did not enable wood biofilm');
+  assert.equal(enabled.simulationTick,before.simulationTick);
+  assert.equal(BigInt(enabled.editRevision),BigInt(before.editRevision)+1n);
+  const stock=enabled.pond.basins[0];
+  assert.deepEqual(stock.woods,basin.woods);
+  assert(stock.woodBiofilm.some(({stockMgC})=>stockMgC>0));
+  assert(Math.abs(stock.biofilmMgC-basin.biofilmMgC)<1e-9);
+  await until(async()=>{
+    const {scene}=await canvas('editor',`${pondCanvas}[data-pond-wood-biofilm-enabled="true"]`);
+    assert.deepEqual(JSON.parse(scene.pondWoodBiofilm),stock.woodBiofilm);
+    return true;
+  },'Upgraded pond did not display the attached stock');
+  await png('editor','upgraded-r5-wood-biofilm.png');
+  const saved=await ipc('editor','save_world');
+  const newCheckpoint=await latestUpgradeCheckpoint(saved.worldId);
+  assert.equal(newCheckpoint.format,3);
+  assert.notEqual(newCheckpoint.file,original.file);
+  assert.equal(createHash('sha256').update(await readFile(original.file)).digest('hex'),original.sha256);
+  record('upgraded-r5-explicit-wood-biofilm-opt-in',{worldId:saved.worldId,basinId:basin.id,tick:saved.simulationTick,
+    priorFormat:original.format,newFormat:newCheckpoint.format,priorCheckpointSha256:original.sha256,
+    stock:stock.woodBiofilm,totalMgC:stock.biofilmMgC});
+  return saved;
+}
+
+async function importUpgradedPondBackup(source) {
+  const contents=await ipc('editor','export_world_backup',{worldId:source.worldId});
+  const envelope=JSON.parse(contents);
+  assert.equal(envelope.magic,'micro-ecosystem-world-backup');
+  assert.equal(envelope.formatVersion,2);
+  const imported=await ipc('editor','import_world_backup',{contents});
+  assert.notEqual(imported.worldId,source.worldId);
+  assert.deepEqual(imported,{worldId:imported.worldId,name:source.worldName,modelVersion:source.modelVersion,
+    definition:source.definition,simulationTick:source.simulationTick});
+  const library=await ipc('editor','list_worlds');
+  assert.equal(library.activeWorldId,source.worldId);
+  assert(library.worlds.some(({worldId})=>worldId===imported.worldId));
+  await ipc('editor','switch_world',{worldId:imported.worldId});
+  const copy=await waitWorld(imported.worldId,source.modelVersion);
+  assert.equal(copy.simulationTick,source.simulationTick);
+  assert.equal(copy.editRevision,'0');
+  assert.equal(copy.manualPaused,true);
+  assert.deepEqual(copy.pond,source.pond);
+  record('upgraded-r5-world-backup-import',{sourceWorldId:source.worldId,importedWorldId:copy.worldId,
+    tick:copy.simulationTick,format:envelope.formatVersion,independentAndPaused:true});
+  return copy;
+}
+
 function validateDefaultSubstrate(projected, prior) {
   assert(!('substrateCells' in prior.forestRocks) && !('substratePresets' in prior.forestRocks));
   const { substrateCells, substratePresets } = projected.forestRocks;
@@ -367,7 +456,7 @@ function editContext(world, commandId) {
   return {worldId:world.worldId,commandId,expectedGeneration:world.runGeneration,expectedRevision:world.editRevision};
 }
 
-async function seedEditedForest(world) {
+async function seedEditedForest(world, prefix = 'prior') {
   assert(world.paused);
   const cells = [11,23];
   const before = world.forestRocks.substrateCells;
@@ -380,7 +469,7 @@ async function seedEditedForest(world) {
   assert.deepEqual(changed.forestRocks.substrateCells,before.map((cell)=>cells.includes(cell.cellIndex) ?
     {...cell,substrate:'fineSoil',waterCapacityMl:36,evaporationMultiplier:0.85} : cell));
   assert.deepEqual(changed.forest.waterMl,world.forest.waterMl);
-  record('prior-r5-f07-stock-preserved',{cells,substrate:'fineSoil',editRevision:changed.editRevision,waterMl:changed.forest.waterMl});
+  record(prefix+'-r5-f07-stock-preserved',{cells,substrate:'fineSoil',editRevision:changed.editRevision,waterMl:changed.forest.waterMl});
   return changed;
 }
 
@@ -667,11 +756,14 @@ try {
   await showViews();
   await revealPanel();
   const library = await ipc('editor','list_worlds');
-  const builtInIds = library.presets.filter((preset)=>preset.source!=='custom').map(({presetId})=>presetId);
-  const currentPresetsOnly = builtInIds.includes('forest-r5-composed') && !builtInIds.includes('forest');
-  if (currentPresetsOnly) assert.deepEqual(builtInIds, [
-    'forest-r5-composed','blank-forest-r5-composed','pond-r5-composed',
-    'pond-r5-dual','blank-pond-r5-composed','blank-pond-r5-dual',
+  const builtInPresets = library.presets.filter(({source})=>source!=='custom');
+  const currentPresetsOnly = builtInPresets.some(({presetId})=>presetId==='forest-r5-composed')
+    && !builtInPresets.some(({presetId})=>presetId==='forest');
+  if (currentPresetsOnly || freshCurrent || reopenCurrentUpgrade) assert.deepEqual(
+    builtInPresets.map(({presetId,modelVersion,source})=>[presetId,modelVersion,source]), [
+      ['forest-r5-composed',14,'builtIn'],['blank-forest-r5-composed',14,'blank'],
+      ['pond-r5-composed',13,'builtIn'],['pond-r5-dual',13,'builtIn'],
+      ['blank-pond-r5-composed',13,'blank'],['blank-pond-r5-dual',13,'blank'],
   ]);
 
   if (mode==='legacy'||mode==='upgrade-seed') {
@@ -685,14 +777,14 @@ try {
     record('installed-legacy-first-start',{views:[...views.keys()],rendered,modelVersion:4,presetCount:library.presets.length});
   }
 
-  if (mode==='r5'||mode==='r5-reopen'||mode==='upgrade'||(seedRelease && seedRelease!=='0.1.0')) {
+  if (mode==='r5'||freshCurrent||mode==='r5-reopen'||reopenCurrentUpgrade||mode==='upgrade'||(seedRelease && seedRelease!=='0.1.0')) {
     for (const [presetId,modelVersion] of [['forest-r5-composed',14],['blank-forest-r5-composed',14],
       ['pond-r5-composed',13],['blank-pond-r5-composed',13]]) {
       assert(library.presets.some((preset)=>preset.presetId===presetId&&preset.modelVersion===modelVersion));
     }
   }
 
-  if (mode==='r5') {
+  if (mode==='r5'||freshCurrent) {
     assert.equal(library.worlds.length,1);
     const forest = await waitWorld('forest-understory',14);
     assert.equal(forest.definition,'forest-r5-composed/1');
@@ -706,11 +798,32 @@ try {
     record('installed-r5-first-start-v14',{views:[...views.keys()],worldId:forest.worldId,definition:forest.definition,
       sceneItems:forest.forestRocks.scenery.length,component,dpr:rendered.dpr,modelVersion:14,presetCount:library.presets.length});
 
-    const frozen = await ipc('editor','set_paused',{paused:true});
+    let frozen = await ipc('editor','set_paused',{paused:true});
     assert(frozen.paused);
-    const pond = await createWorld('pond-r5-composed','安装验收 · 浅塘 V2',13);
+    if (freshCurrent) {
+      await clickButton('编辑环境');
+      const editing = await until(async()=>{
+        const state=await snapshot();
+        return state.editPaused && state;
+      },'The current forest editor did not pause for editing');
+      frozen = await seedEditedForest(editing,'installed');
+      await clickButton('保存世界');
+      await png('editor','installed-edited-forest.png');
+    }
+    let pond = await createWorld('pond-r5-composed','安装验收 · 浅塘 V2',13);
     assert.equal(pond.definition,'pond-shallow-r5-composed/1');
     assert.equal(pond.pond.basins[0].scenery.length,65);
+    if (freshCurrent) {
+      const before=pond.pond.basins[0];
+      const revision=BigInt(pond.editRevision);
+      const liters=0.15;
+      pond=await ipc('editor','edit_pond',{...editContext(pond,'installed-r5-add-water'),
+        edit:{type:'addWater',basinId:before.id,liters}});
+      assert.equal(BigInt(pond.editRevision),revision+1n);
+      assert(Math.abs(pond.pond.basins[0].waterLiters-before.waterLiters-liters)<1e-8);
+      await clickButton('保存世界');
+      record('installed-r5-pond-water-edit',{basinId:before.id,editRevision:pond.editRevision,waterLiters:pond.pond.basins[0].waterLiters});
+    }
     const widget=await canvas('panel',pondCanvas);
     const pondEditor=await canvas('editor',pondCanvas);
     assert.equal(widget.scene.pondFraming,'underwater');
@@ -724,18 +837,74 @@ try {
       pondFraming:[widget.scene.pondFraming,pondEditor.scene.pondFraming],dimensions:[widget.width,widget.height]});
   }
 
-  if(mode==='r5-reopen') {
-    const expected=JSON.parse(await readFile(join(evidence,'reopen-expected.json'),'utf8'));
+  if(mode==='r5-reopen'||reopenCurrentUpgrade) {
+    const file=reopenCurrentUpgrade ? 'upgrade-reopen-expected.json' : 'reopen-expected.json';
+    const expected=JSON.parse(await readFile(join(evidence,file),'utf8'));
     assert.equal(library.activeWorldId,expected.activeWorldId);
     assert.notEqual(Number(pid),expected.initialPid);
+    if (reopenCurrentUpgrade) {
+      const active=expected.worlds.find(({state})=>state.worldId===expected.activeWorldId).state;
+      const reopened=await waitWorld(active.worldId,active.modelVersion);
+      assert.equal(reopened.definition,active.definition);
+      const selector=active.modelVersion===13 ? pondCanvas : forestCanvas;
+      await canvas('panel',selector);
+      await canvas('editor',selector);
+      await png('editor',active.modelVersion===13 ? 'reopened-upgrade-r5-pond.png' : 'reopened-upgrade-legacy-forest.png');
+    }
     for(const item of expected.worlds) await compareSaved(item);
-    await canvas('panel',pondCanvas);
-    await backing('panel',pondCanvas,'reopened-pond-panel.png');
-    record('installed-r5-both-worlds-exact-reopen',{previousPid:expected.initialPid,pid:Number(pid),
+    if (!reopenCurrentUpgrade) {
+      await canvas('panel',pondCanvas);
+      await backing('panel',pondCanvas,'reopened-pond-panel.png');
+    }
+    record(reopenCurrentUpgrade ? 'upgraded-worlds-exact-reopen' : 'installed-r5-both-worlds-exact-reopen',{previousPid:expected.initialPid,pid:Number(pid),
       worlds:expected.worlds.map(({state})=>({worldId:state.worldId,modelVersion:state.modelVersion,tick:state.simulationTick}))});
   }
 
-  if (seedRelease) {
+  if (seedRelease==='0.2.21') {
+    assert(currentPresetsOnly);
+    assert.equal(library.worlds.length,1);
+    const initial=await waitWorld('forest-understory',14);
+    await ipc('editor','set_paused',{paused:true});
+    const editing=await ipc('editor','set_edit_paused',{paused:true});
+    assert.equal(editing.worldId,initial.worldId);
+    await seedEditedForest(editing);
+    const forest=await ipc('editor','save_world');
+    const created=await ipc('editor','create_world',{presetId:'pond-r5-composed',name:'升级验收 · R5 浅塘'});
+    assert.equal(created.modelVersion,13);
+    assert.equal(created.editPaused,true);
+    const pond=await ipc('editor','save_world');
+    const basin=pond.pond.basins[0];
+    assert(basin.woods.length>0);
+    assert.equal(basin.woodBiofilmEnabled,undefined);
+    assert.equal(basin.woodBiofilm,undefined);
+    const worlds=await writeUpgradeFixture([forest,pond],seedRelease);
+    record('prior-install-created-saved-worlds',{priorRelease:seedRelease,previouslyActiveWorldId:pond.worldId,
+      worlds:worlds.map(({state,stateSha256})=>({worldId:state.worldId,modelVersion:state.modelVersion,stateSha256}))});
+  } else if (seedRelease==='0.2.20') {
+    assert.equal(library.worlds.length,1);
+    await waitWorld('forest-understory',14);
+    const paused=await ipc('editor','set_paused',{paused:true});
+    const r5Forest=await ipc('editor','rename_world',{worldId:paused.worldId,name:'升级验收 · R5 林下'});
+    // Seed through the archived app's native command. The current installer
+    // probe separately exercises creation through the real library controls.
+    async function seedWorld(presetId,name,modelVersion) {
+      const world=await ipc('editor','create_world',{presetId,name});
+      assert.equal(world.modelVersion,modelVersion,`Archived preset ${presetId} did not produce its historical model`);
+      assert.equal(world.worldName,name);
+      return world;
+    }
+    const r5Pond=await seedWorld('pond-r5-composed','升级验收 · R5 浅塘',13);
+    const legacyPond=await seedWorld('pond','升级验收 · 旧浅塘',3);
+    const legacyForest=await seedWorld('forest','升级验收 · 旧林下',4);
+    const snapshots=[r5Forest,r5Pond,legacyPond,legacyForest];
+    assert(snapshots.every(({paused})=>paused));
+    assert.equal((await ipc('editor','list_worlds')).activeWorldId,legacyForest.worldId);
+    const worlds=await writeUpgradeFixture(snapshots,seedRelease);
+    record('prior-install-created-saved-worlds',{priorRelease:seedRelease,expectedDefaultWorldId:r5Forest.worldId,
+      previouslyActiveWorldId:legacyForest.worldId,worlds:worlds.map(({state,stateSha256})=>({
+        worldId:state.worldId,modelVersion:state.modelVersion,stateSha256,
+      }))});
+  } else if (seedRelease) {
     const r5 = seedRelease!=='0.1.0';
     const seedTerrain = seedRelease==='0.2.2';
     const seedGravel = seedRelease==='0.2.4';
@@ -854,11 +1023,7 @@ try {
     const structureWorlds=seedStructures ? await seedStructuresAndFragments(seedBotany) : [];
     const snapshots = [oldForest,oldPond,shapedPond,sectionPond,...structureWorlds].filter(Boolean);
     const priorRelease=seedRelease;
-    const worlds=snapshots.map((world)=>{
-      const state=worldState(world);
-      return {state,runGeneration:world.runGeneration,stateSha256:canonicalDigest(state)};
-    });
-    await writeFile(join(evidence,'prior-worlds-expected.json'),JSON.stringify({activeWorldId:snapshots.at(-1).worldId,priorPid:Number(pid),priorRelease,worlds},null,2));
+    const worlds=await writeUpgradeFixture(snapshots,priorRelease);
     record('prior-install-created-saved-worlds',{priorRelease,forestId:oldForest.worldId,forestVersion:oldForest.modelVersion,
       pondId:oldPond.worldId,pondVersion:oldPond.modelVersion,stateSha256:worlds.map((item)=>item.stateSha256)});
   }
@@ -868,12 +1033,26 @@ try {
     assert.notEqual(Number(pid),expected.priorPid);
     assert([...priorReleaseBySeed.values()].includes(expected.priorRelease));
     const r5=expected.priorRelease!=='0.1.0';
-    if (currentPresetsOnly && !r5) {
+    const priorCurrent=expected.priorRelease==='0.2.20';
+    const priorWoodless=expected.priorRelease==='0.2.21';
+    if (priorCurrent || priorWoodless) assert(currentPresetsOnly, 'The upgraded app must expose only the current R5 built-ins');
+    if (currentPresetsOnly && (!r5 || priorCurrent)) {
       assert.notEqual(library.activeWorldId,expected.activeWorldId);
       const prior = expected.worlds.find(({state})=>state.worldId===expected.activeWorldId);
       assert(prior);
       const version = prior.state.modelVersion===3 ? 13 : 14;
-      await waitWorld(library.activeWorldId,version);
+      const current=await waitWorld(library.activeWorldId,version);
+      if (priorCurrent) {
+        const retained = expected.worlds.find(({state})=>state.modelVersion===version);
+        assert(retained);
+        assert.equal(current.worldId,retained.state.worldId);
+        assert.equal(library.worlds.length,expected.worlds.length);
+        const scene=version===14 ? forestCanvas : pondCanvas;
+        await canvas('editor',scene);
+        await canvas('panel',scene);
+        record('upgrade-current-reuses-r5-default',{previouslyActiveWorldId:prior.state.worldId,
+          retainedR5WorldId:current.worldId,modelVersion:version,worldCount:library.worlds.length});
+      }
     } else {
       assert.equal(library.activeWorldId,expected.activeWorldId);
     }
@@ -886,9 +1065,10 @@ try {
     const priorLiving=expected.priorRelease==='0.2.3'||priorGravel||priorSand;
     if (priorLiving && !currentPresetsOnly) assert.equal(library.presets.length,priorTopology||priorSplit ? 18 : 17);
     if (priorTopology||priorSplit) assert(library.presets.some(({presetId,modelVersion})=>presetId==='blank-pond-r5-dual'&&modelVersion===13));
-    assert.deepEqual(expected.worlds.map(({state})=>state.modelVersion),priorStructures ? [14,13,13,13,14,13]
+    assert.deepEqual(expected.worlds.map(({state})=>state.modelVersion),priorCurrent ? [14,13,3,4] : priorStructures ? [14,13,13,13,14,13]
       : priorStaticSections ? [14,13,13,13] : priorSplit ? [14,13,13] : r5 ? [14,13] : [4,3]);
     const worlds=[];
+    const reopenedWorlds=[];
     for(const item of expected.worlds) {
       const {current:restored,stateSha256,verifiedDerivedFields}=await compareSaved(item,expected.priorRelease);
       const forest=restored.modelVersion===14||restored.modelVersion===4;
@@ -898,7 +1078,7 @@ try {
       const selector=forest ? (currentArt ? forestCanvas : legacyForestCanvas) : (currentArt ? pondCanvas : legacyPondCanvas);
       const split = priorSplit && restored.pond?.basins.some(({id})=>id==='pond-3');
       const storedSide=restored.pond?.basins[0].staticSections?.[0];
-      const prefix=`upgraded-${r5 ? 'r5' : 'legacy'}-v${restored.modelVersion}${split ? '-split' : storedSide ? '-sections'
+      const prefix=`upgraded-${[13,14].includes(restored.modelVersion) ? 'r5' : 'legacy'}-v${restored.modelVersion}${split ? '-split' : storedSide ? '-sections'
         : structureForest||structurePond ? '-structures' : ''}`;
       const floating=restored.pond?.basins[0].floatingCanopy;
       const canopySelector=floating ? `[data-pond-floating-canopy-coverage="${floating.coverage}"][data-pond-floating-plant-anchors]` : '';
@@ -906,8 +1086,12 @@ try {
       const rendered=await canvas('editor',editorSelector);
       await png('editor',`${prefix}-editor.png`);
       let component;
-      if (r5) {
-        const widgetSelector=forest ? selector : `${selector}[data-pond-wood-anchors=${JSON.stringify(rendered.scene.pondWoodAnchors)}]${canopySelector}`;
+      if (currentArt) {
+        const woodAnchors=rendered.scene.pondWoodAnchors;
+        const woodSelector=woodAnchors===undefined ? ':not([data-pond-wood-anchors])'
+          : `[data-pond-wood-anchors=${JSON.stringify(woodAnchors)}]`;
+        const widgetSelector=forest ? `${selector}[data-forest-terrain-anchors=${JSON.stringify(rendered.scene.forestTerrainAnchors)}]`
+          : `${selector}${woodSelector}${canopySelector}`;
         const widget=await canvas('panel',widgetSelector);
         if (forest) {
           assert.equal(widget.scene.forestTerrainAnchors,rendered.scene.forestTerrainAnchors);
@@ -915,7 +1099,7 @@ try {
             assert.equal(rendered.scene.forestBridgeIds,restored.forestRocks.barkShelters.map(({id})=>id).join(','));
             assert.equal(widget.scene.forestBridgeIds,rendered.scene.forestBridgeIds);
             assert.equal(restored.forestRocks.leafPatches.length,2);
-          } else {
+          } else if (restored.modelVersion===14) {
             assert.match(rendered.scene.forestTerrainAnchors,/\b2:88,232\b/);
           }
           if(priorLiving&&!structureForest) {
@@ -927,6 +1111,11 @@ try {
           assert.equal(rendered.scene.pondFraming,'full');
           assert.equal(widget.scene.pondFraming,'underwater');
           assert.equal(widget.scene.pondWoodAnchors,rendered.scene.pondWoodAnchors);
+          if (priorWoodless) {
+            assert(restored.pond.basins.every((basin)=>!Object.hasOwn(basin,'woodBiofilmEnabled') && !Object.hasOwn(basin,'woodBiofilm')));
+            assert.equal(rendered.scene.pondWoodBiofilmEnabled,undefined);
+            assert.equal(widget.scene.pondWoodBiofilmEnabled,undefined);
+          }
           if(structurePond) {
             assert.match(rendered.scene.pondStructureSprites,/flatStoneCave/);
             assert.equal(widget.scene.pondStructureSprites,rendered.scene.pondStructureSprites);
@@ -961,8 +1150,25 @@ try {
       if (split) record('upgraded-r5-split-shape',{worldId:restored.worldId,basins:restored.pond.basins.map(({id,waterLiters,detritusMgC,shape})=>[id,waterLiters,detritusMgC,shape.protectedRow])});
       worlds.push({worldId:restored.worldId,modelVersion:restored.modelVersion,definition:restored.definition,
         tick:restored.simulationTick,stateSha256,verifiedDerivedFields,component});
+      if (priorCurrent || priorWoodless) reopenedWorlds.push({state:worldState(restored),runGeneration:restored.runGeneration});
     }
     record('upgrade-reopens-old-worlds-exactly',{priorRelease:expected.priorRelease,priorPid:expected.priorPid,pid:Number(pid),worlds});
+    if (priorCurrent || priorWoodless) {
+      const activeWorldId=(await ipc('editor','list_worlds')).activeWorldId;
+      assert.equal(activeWorldId,expected.activeWorldId);
+      if (priorWoodless) {
+        const enabled=await optInUpgradedWoodBiofilm(await waitWorld(activeWorldId,13));
+        const imported=await importUpgradedPondBackup(enabled);
+        const index=reopenedWorlds.findIndex(({state})=>state.worldId===activeWorldId);
+        reopenedWorlds[index]={state:worldState(enabled),runGeneration:enabled.runGeneration};
+        reopenedWorlds.push({state:worldState(imported),runGeneration:imported.runGeneration});
+        await ipc('editor','switch_world',{worldId:activeWorldId});
+        await waitWorld(activeWorldId,13);
+      }
+      await writeFile(join(evidence,'upgrade-reopen-expected.json'),JSON.stringify({
+        activeWorldId,initialPid:Number(pid),worlds:reopenedWorlds,
+      },null,2));
+    }
     if (expected.priorRelease==='0.2.8') {
       const unchanged=await snapshot();
       const [selected,neighbor]=unchanged.pond.basins;

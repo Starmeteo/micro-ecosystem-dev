@@ -87,7 +87,9 @@ fn r5_topology_retains_static_layout_on_the_original_section_only() {
     assert_eq!(basins[1].id, "pond-3");
     assert_ne!(basins[1].observation_row, basins[0].observation_row);
     assert_eq!(basins[1].stone_layout, Some(PondStoneLayout::new(true)));
-    assert_eq!(basins[1].wood_layout, Some(PondWoodLayout::new()));
+    let empty = basins[1].wood_layout.as_ref().unwrap();
+    assert!(empty.woods.is_empty());
+    assert_eq!(empty.wood_biofilm, Some(Vec::new()));
     assert_eq!(basins[1].scenery_layout, Some(PondSceneryLayout::empty()));
     for basin in basins {
         assert_eq!(basin.water_liters, 6.0);

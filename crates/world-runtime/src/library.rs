@@ -11,7 +11,7 @@ use uuid::Uuid;
 const VERSION: u32 = 1;
 const MAX_ENTRY_BYTES: u64 = 2048;
 const MAX_PRESET_BYTES: u64 = 256 * 1024;
-const ENTRY_FILENAME: &str = "library-entry.json";
+pub(super) const ENTRY_FILENAME: &str = "library-entry.json";
 const DEFAULT_SELECTION_FILENAME: &str = "r5-default-selection.json";
 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Serialize)]

@@ -46,6 +46,20 @@ type NameDraft = { kind: 'copy' | 'rename'; worldId: string; name: string }
 
 const themeLabels = { forest: '林下', pond: '浅水池塘' };
 const sourceLabels = { builtIn: '内置', blank: '空白', custom: '个人' };
+const backupExtension = '.microeco-world';
+const maxBackupBytes = 258 * 1024;
+
+function downloadBackup(contents: string, worldName: string) {
+  const name = worldName.replace(/[<>:"/\\|?*\u0000-\u001f]/g, '_').slice(0, 60);
+  const url = URL.createObjectURL(new Blob([contents], { type: 'application/json' }));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = '微缩生态-' + name + '-' + Date.now() + backupExtension;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 function worldStatus(world: WorldEntry) {
   if (world.archived) return '已归档';
@@ -81,7 +95,7 @@ function presetDescription(preset: PresetEntry) {
     : '含林下土壤、遮蔽石块、鼠妇、弹尾虫和植物斑块。';
 }
 
-export function WorldLibrary({ busy, canAct, dismiss, onAction, operationError }: {
+export function WorldLibrary({ busy: editorBusy, canAct: worldCanAct, dismiss, onAction, operationError }: {
   busy: boolean;
   canAct: boolean;
   dismiss: () => void;
@@ -89,6 +103,11 @@ export function WorldLibrary({ busy, canAct, dismiss, onAction, operationError }
   operationError?: string;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
+  const backupInput = useRef<HTMLInputElement>(null);
+  const [backupBusy, setBackupBusy] = useState(false);
+  const [backupNotice, setBackupNotice] = useState<{ text: string; error?: boolean }>();
+  const busy = editorBusy || backupBusy;
+  const canAct = worldCanAct && !backupBusy;
   const [library, setLibrary] = useState<Library | null>(null);
   const [listError, setListError] = useState('');
   const [refresh, setRefresh] = useState(0);
@@ -145,6 +164,41 @@ export function WorldLibrary({ busy, canAct, dismiss, onAction, operationError }
     setShelf(next);
   }
 
+  async function exportBackup(world: WorldEntry) {
+    if (!canAct) return;
+    setBackupBusy(true);
+    setBackupNotice(undefined);
+    try {
+      const contents = await invoke<string>('export_world_backup', { worldId: world.worldId });
+      downloadBackup(contents, world.name);
+      setBackupNotice({ text: '已发起下载「' + world.name + '」的备份。' });
+    } catch (error) {
+      setBackupNotice({ text: '备份失败。' + errorText(error), error: true });
+    } finally {
+      setBackupBusy(false);
+    }
+  }
+
+  async function importBackup(file: File) {
+    if (!canAct) return;
+    setBackupBusy(true);
+    setBackupNotice(undefined);
+    try {
+      if (file.size > maxBackupBytes) throw new Error('备份文件超过大小限制。');
+      const contents = new TextDecoder('utf-8', { fatal: true }).decode(await file.arrayBuffer());
+      const entry = await invoke<{ worldId: string; name: string }>('import_world_backup', { contents });
+      setDraft(null);
+      setArchiveTarget(null);
+      setSelectedWorldId(entry.worldId);
+      setRefresh((value) => value + 1);
+      setBackupNotice({ text: '已导入「' + entry.name + '」为暂停的独立世界。' });
+    } catch (error) {
+      setBackupNotice({ text: '导入失败。' + errorText(error), error: true });
+    } finally {
+      setBackupBusy(false);
+    }
+  }
+
   function worldRow(world: WorldEntry) {
     const active = world.worldId === library?.activeWorldId;
     const status = [worldTheme(world), worldStatus(world)].filter(Boolean).join(' · ');
@@ -195,6 +249,8 @@ export function WorldLibrary({ busy, canAct, dismiss, onAction, operationError }
               setArchiveTarget(world);
             }}>归档</button>}
           </>}
+          <button type="button" className="editor-tool" disabled={!canAct || !readable}
+            onClick={() => void exportBackup(world)}>导出备份</button>
         </div>
       </section>
     );
@@ -219,12 +275,23 @@ export function WorldLibrary({ busy, canAct, dismiss, onAction, operationError }
           <p>{listError}</p><button type="button" className="editor-tool" onClick={() => setRefresh((value) => value + 1)}>重新读取</button>
         </div>}
         {library && shelf === 'worlds' && <>
-          {current && <div className="editor-library__controls">
-            <button type="button" className="editor-tool" disabled={!canAct || (current.state !== 'ready' && current.state !== 'recovered')}
+          <div className="editor-library__controls">
+            {current && <button type="button" className="editor-tool" disabled={!canAct || (current.state !== 'ready' && current.state !== 'recovered')}
               onClick={() => { setArchiveTarget(null); setDraft({ kind: 'savePreset', name: `${current.name.slice(0, 74)} 布置` }); }}>
               将当前布置存为预设
-            </button>
-          </div>}
+            </button>}
+            <button type="button" className="editor-tool" disabled={!canAct}
+              onClick={() => backupInput.current?.click()}>从备份导入</button>
+            <input ref={backupInput} hidden type="file" accept={backupExtension}
+              aria-label="选择世界备份" onChange={(event) => {
+                const file = event.currentTarget.files?.[0];
+                event.currentTarget.value = '';
+                if (file) void importBackup(file);
+              }} />
+          </div>
+          {backupBusy && <p role="status">正在处理世界备份…</p>}
+          {backupNotice && <p role={backupNotice.error ? 'alert' : 'status'}
+            className={backupNotice.error ? 'editor-library__error' : undefined}>{backupNotice.text}</p>}
           {draft && <form className="editor-library__form" onSubmit={submitName}>
             <label>{draft.kind === 'savePreset' ? '预设名称' : '世界名称'}
               <input key={draft.kind} autoFocus required maxLength={80} value={draft.name} onChange={(event) => setDraft({ ...draft, name: event.target.value })} />

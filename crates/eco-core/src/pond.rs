@@ -7,7 +7,7 @@ use crate::pond_scenery::{PondScenery, PondSceneryLayout, PondSceneryParent};
 use crate::pond_sedge::{MAX_SEDGE_PATCHES, PondSedgeObservation, PondSedgePreset, PondShoreAnchor, SedgeLayout};
 use crate::pond_shape::{self, PondShape, PondShapeError, PondShapeMode, PondShapeObservation};
 use crate::pond_stones::{self, animal_point, column_projection_px, PondBedProfile, PondShrimpStoneAttachment, PondStone, PondStoneLayout, PondStonePreset, PondSwimRange, MAX_STONES};
-use crate::pond_wood::{hold_or_release, settle, PondShrimpAttachment, PondWood, PondWoodLayout, PondWoodPreset};
+use crate::pond_wood::{hold_or_release, settle, PondShrimpAttachment, PondWood, PondWoodLayout, PondWoodPreset, MAX_WOODS};
 use crate::{Activity, Animal, CoreError, Point, RandomState, SeasonObservation, STEP_MILLIS};
 use serde::{Deserialize, Serialize};
 use std::borrow::Cow;
@@ -23,7 +23,7 @@ mod topology;
 
 use biofilm::StoneBiofilm;
 use section::PondStaticSection;
-pub use biofilm::{PondBiofilmDistribution, PondBiofilmSurface, PondBiofilmSurfaceKind, PondStoneBiofilmObservation};
+pub use biofilm::{PondBiofilmDistribution, PondBiofilmSurface, PondBiofilmSurfaceKind, PondStoneBiofilmObservation, PondWoodBiofilmObservation};
 pub use section::PondStaticSectionObservation;
 
 pub const POND_DEFAULT_BASIN_ID: &str = "pond-main";
@@ -61,6 +61,7 @@ pub enum PondEdit {
     RemoveStone { basin_id: String, id: u32 },
     EnableStoneRest { basin_id: String },
     EnableStoneBiofilm { basin_id: String },
+    EnableWoodBiofilm { basin_id: String },
     AddWood { basin_id: String, x: f64, preset: PondWoodPreset },
     MoveWood { basin_id: String, id: u32, x: f64 },
     RemoveWood { basin_id: String, id: u32 },
@@ -96,7 +97,7 @@ impl PondEdit {
             | Self::StockDaphnia { basin_id, .. } | Self::RemoveDaphnia { basin_id, .. }
             | Self::AddStone { basin_id, .. } | Self::MoveStone { basin_id, .. }
             | Self::RemoveStone { basin_id, .. } | Self::EnableStoneRest { basin_id, .. }
-            | Self::EnableStoneBiofilm { basin_id, .. }
+            | Self::EnableStoneBiofilm { basin_id, .. } | Self::EnableWoodBiofilm { basin_id, .. }
             | Self::AddWood { basin_id, .. }
             | Self::MoveWood { basin_id, .. } | Self::RemoveWood { basin_id, .. }
             | Self::AddMoss { basin_id, .. } | Self::MoveMoss { basin_id, .. }
@@ -141,6 +142,10 @@ pub struct PondBasinObservation {
     pub stone_biofilm_enabled: Option<bool>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub stone_biofilm: Option<Vec<PondStoneBiofilmObservation>>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wood_biofilm_enabled: Option<bool>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub wood_biofilm: Option<Vec<PondWoodBiofilmObservation>>,
     pub plant_mg_c: f64,
     pub detritus_mg_c: f64,
     pub daphnia_count: u32,
@@ -560,6 +565,10 @@ fn valid_section_bed(stones: &PondStoneLayout, woods: Option<&PondWoodLayout>, s
 }
 
 impl PondState {
+    pub(super) fn has_wood_biofilm(&self) -> bool {
+        self.basins.iter().any(Basin::has_wood_biofilm)
+    }
+
     pub(super) fn new(seed: u64, basin_count: usize) -> Self {
         let basins = (0..basin_count).map(|index| {
             let mixed_seed = seed.wrapping_add((index as u64).wrapping_mul(0x9e37_79b9_7f4a_7c15));
@@ -603,6 +612,7 @@ impl PondState {
             stones.stone_rest_enabled = true;
             stones.place(0.60, PondStonePreset::Main, depth, std::iter::empty(), woods.profiles())
                 .expect("the composed pond's main stone clears its seeded log");
+            woods.seed_wood_biofilm(Some(stones), &mut basin.biofilm);
             basin.clear_shrimp_after_depth_change();
         }
         pond
@@ -621,7 +631,14 @@ impl PondState {
             if let Some(stocks) = &mut basin.stone_biofilm {
                 for patch in stocks.drain(..) { basin.biofilm.add(patch.stock); }
             }
-            basin.wood_layout = Some(PondWoodLayout::new());
+            if let Some(layout) = &mut basin.wood_layout {
+                let enabled = layout.wood_biofilm.take().map(|stocks| {
+                    for patch in stocks { basin.biofilm.add(patch.stock); }
+                    Vec::new()
+                });
+                *layout = PondWoodLayout::new();
+                layout.wood_biofilm = enabled;
+            }
             basin.scenery_layout = Some(PondSceneryLayout::empty());
             basin.static_sections.clear();
         }
@@ -678,6 +695,9 @@ impl PondState {
             basin.sedge_layout = source.sedge_layout.clone();
             if let Some(layout) = &mut basin.sedge_layout { layout.reset_stocks(); }
             if source.stone_biofilm.is_some() { basin.initialize_stone_biofilm(); }
+            if let Some(woods) = basin.wood_layout.as_mut().filter(|layout| layout.wood_biofilm.is_some()) {
+                woods.seed_wood_biofilm(basin.stone_layout.as_ref().filter(|_| basin.stone_biofilm.is_none()), &mut basin.biofilm);
+            }
             for section in &mut basin.static_sections { section.reset_preset(&mut basin.biofilm); }
             basin.leaf_deposit_layout = source.leaf_deposit_layout.clone();
             for layout in basin.leaf_deposit_layout.iter_mut().chain(
@@ -773,7 +793,8 @@ impl PondState {
                 && basin.wood_layout.is_some() == permits_woods && basin.moss_layout.is_some() == permits_moss
                 && basin.scenery_layout.is_some() == permits_scenery
                 && (permits_scenery || (basin.water_plant_layout.is_none() && basin.floating_plant_layout.is_none() && basin.stone_biofilm.is_none()
-                    && basin.shape.is_none() && basin.leaf_deposit_layout.is_none() && basin.sedge_layout.is_none() && basin.static_sections.is_empty()))
+                    && !basin.has_wood_biofilm() && basin.shape.is_none() && basin.leaf_deposit_layout.is_none()
+                    && basin.sedge_layout.is_none() && basin.static_sections.is_empty()))
                 && basin.valid()
         }) {
             return Err(CoreError::InvalidPondState);
@@ -917,6 +938,14 @@ impl PondState {
                 if basin.stone_biofilm.is_none() { basin.initialize_stone_biofilm(); }
                 Ok(())
             }
+            PondEdit::EnableWoodBiofilm { .. } => {
+                if basin.scenery_layout.is_none() { return Err(CoreError::WrongWorldKind); }
+                let layout = basin.wood_layout.as_mut().ok_or(CoreError::WrongWorldKind)?;
+                if layout.wood_biofilm.is_none() {
+                    layout.seed_wood_biofilm(basin.stone_layout.as_ref().filter(|_| basin.stone_biofilm.is_none()), &mut basin.biofilm);
+                }
+                Ok(())
+            }
             PondEdit::AddWood { x, preset, .. } => {
                 if preset.requires_composed_scene() && basin.scenery_layout.is_none() {
                     return Err(CoreError::WrongWorldKind);
@@ -929,7 +958,8 @@ impl PondState {
             }
             PondEdit::MoveWood { id, x, .. } => basin.move_wood(id, x),
             PondEdit::RemoveWood { id, .. } => {
-                basin.wood_layout.as_mut().ok_or(CoreError::WrongWorldKind)?.remove(id)?;
+                let returned = basin.wood_layout.as_mut().ok_or(CoreError::WrongWorldKind)?.remove(id)?;
+                if returned != Matter::default() { basin.biofilm.add(returned); }
                 basin.drop_moss(PondMossParent::Wood { id });
                 if let Some(scenery) = &mut basin.scenery_layout {
                     scenery.remove_children(PondSceneryParent::Wood { id });
@@ -1103,6 +1133,7 @@ impl Basin {
         }
         if let Some(layout) = &mut self.wood_layout {
             layout.attachments.clear();
+            for patch in layout.wood_biofilm.iter_mut().flatten() { patch.stock = Matter::default(); }
         }
         self.next_shrimp_id = 1;
         self.daphnia = Daphnia::default();
@@ -1336,6 +1367,8 @@ impl Basin {
             biofilm_distribution: self.scenery_layout.is_some().then(|| self.biofilm_distribution()),
             stone_biofilm_enabled: self.stone_biofilm.is_some().then_some(true),
             stone_biofilm: self.stone_biofilm_observation(),
+            wood_biofilm_enabled: self.wood_layout.as_ref().and_then(|layout| layout.wood_biofilm.as_ref().map(|_| true)),
+            wood_biofilm: self.wood_layout.as_ref().and_then(|layout| layout.wood_biofilm_observation(self.moss_column_px())),
             plant_mg_c: self.plants.carbon() + self.static_sections.iter().filter_map(|section| section.water_plants.as_ref())
                 .map(|plants| plants.stock.carbon()).sum::<f64>(),
             detritus_mg_c: self.detritus.carbon(),
@@ -1381,6 +1414,7 @@ impl Basin {
         for section in &self.static_sections {
             if let Some(plants) = &section.water_plants { cn_p.add(plants.stock); }
             for patch in section.stone_biofilm.iter().flatten() { cn_p.add(patch.stock); }
+            for stock in section.woods.wood_biofilm_matter() { cn_p.add(stock); }
             for patch in section.moss_layout.iter().flat_map(|layout| &layout.patches) { cn_p.add(patch.stock_mg_cnp); }
             for shrimp in &section.shrimp {
                 cn_p.add(shrimp.body);
@@ -1388,6 +1422,7 @@ impl Basin {
             }
         }
         for patch in self.stone_biofilm.iter().flatten() { cn_p.add(patch.stock); }
+        for stock in self.wood_layout.iter().flat_map(PondWoodLayout::wood_biofilm_matter) { cn_p.add(stock); }
         for shrimp in &self.shrimp {
             cn_p.add(shrimp.body);
             cn_p.add(shrimp.reserve);
@@ -1715,7 +1750,7 @@ impl Basin {
         let supply = self.respire(thermal_metabolism);
         let concentration = self.concentration(self.oxygen_mg).unwrap_or_default();
         let healthy = (concentration / 3.0).clamp(0.0, 1.0).min(supply);
-        let feeding = if self.static_sections.iter().any(|section| !section.shrimp.is_empty()) {
+        let feeding = if self.has_wood_biofilm() || self.static_sections.iter().any(|section| !section.shrimp.is_empty()) {
             self.feed_all_shrimp_rows(healthy, thermal_metabolism, contact_feeding.as_deref_mut())
         } else {
             let mut rows = [[false; MAX_SHRIMP]; section::MAX_OBSERVATION_SECTIONS];
@@ -1723,6 +1758,7 @@ impl Basin {
             rows
         };
         self.colonize_stone_biofilm(thermal_metabolism * STEP_HOURS);
+        self.colonize_wood_biofilm(thermal_metabolism * STEP_HOURS);
         self.step_shrimp(healthy, thermal_metabolism, feeding[0]);
         self.step_secondary_shrimp(healthy, thermal_metabolism, &feeding[1..]);
         // Newly settled shrimp were not in contact at allocation. Drop observations for contacts lost this step.
@@ -1804,6 +1840,14 @@ impl Basin {
             *request = patch.growth_demand(wet, opportunity);
             total.add(*request);
         }
+        let mut wood_film_requests = [Matter::default(); MAX_WOODS];
+        if let Some(layout) = &self.wood_layout {
+            let wet = layout.wood_biofilm_wet_fractions(column_px);
+            for ((patch, wet), request) in layout.wood_biofilm.iter().flatten().zip(wet).zip(&mut wood_film_requests) {
+                *request = patch.growth_demand(wet, opportunity);
+                total.add(*request);
+            }
+        }
         let patches = self.moss_layout.as_mut().map(|layout| layout.patches.as_mut_slice()).unwrap_or_default();
         let mut moss_requests = [Matter::default(); MAX_MOSS_PATCHES];
         for ((patch, wet), request) in patches.iter().zip(submerged).zip(&mut moss_requests) {
@@ -1850,6 +1894,9 @@ impl Basin {
             patch.stock_mg_cnp.add(request.scaled(fraction));
         }
         for (patch, request) in stone_film.iter_mut().zip(stone_film_requests) {
+            patch.stock.add(request.scaled(fraction));
+        }
+        for (patch, request) in self.wood_layout.iter_mut().flat_map(|layout| layout.wood_biofilm.iter_mut().flatten()).zip(wood_film_requests) {
             patch.stock.add(request.scaled(fraction));
         }
         self.balance.inputs.cn_p.0[0] += actual.carbon();
@@ -1934,6 +1981,14 @@ impl Basin {
             *request = patch.respiration_demand(wet, elapsed);
             demanded_carbon += *request;
         }
+        let mut wood_film_requests = [0.0; MAX_WOODS];
+        if let Some(layout) = &self.wood_layout {
+            let wet = layout.wood_biofilm_wet_fractions(column_px);
+            for ((patch, wet), request) in layout.wood_biofilm.iter().flatten().zip(wet).zip(&mut wood_film_requests) {
+                *request = patch.respiration_demand(wet, elapsed);
+                demanded_carbon += *request;
+            }
+        }
         let patches = self.moss_layout.as_mut().map(|layout| layout.patches.as_mut_slice()).unwrap_or_default();
         let mut moss_requests = [0.0; MAX_MOSS_PATCHES];
         for ((patch, wet), request) in patches.iter().zip(submerged).zip(&mut moss_requests) {
@@ -1968,6 +2023,11 @@ impl Basin {
             }
         }
         for (patch, request) in stone_film.iter_mut().zip(stone_film_requests) {
+            let fuel = patch.stock.take_carbon(request * supply);
+            producer_carbon += fuel.carbon();
+            self.minerals.add(fuel.minerals());
+        }
+        for (patch, request) in self.wood_layout.iter_mut().flat_map(|layout| layout.wood_biofilm.iter_mut().flatten()).zip(wood_film_requests) {
             let fuel = patch.stock.take_carbon(request * supply);
             producer_carbon += fuel.carbon();
             self.minerals.add(fuel.minerals());
@@ -2107,7 +2167,7 @@ impl Basin {
             }
         }
         if let Some((entries, sources)) = contact_feeding.zip(food_sources) {
-            sources.attribute_contact_intake(entries, localized);
+            sources.attribute_contact_intake(entries, localized, false);
         }
         feeding
     }
