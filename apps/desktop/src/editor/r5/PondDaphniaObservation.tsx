@@ -13,6 +13,15 @@ function drawSideProfile(canvas: HTMLCanvasElement) {
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 
+  // Subtle stereomicroscope field ring & reticle ticks
+  ctx.strokeStyle = 'rgba(170, 232, 226, 0.11)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(134, 68, 60, 0, Math.PI * 2);
+  ctx.moveTo(12, 68); ctx.lineTo(22, 68);
+  ctx.moveTo(242, 68); ctx.lineTo(252, 68);
+  ctx.stroke();
+
   const shell = ctx.createLinearGradient(95, 36, 177, 105);
   shell.addColorStop(0, 'rgba(190, 251, 235, .88)');
   shell.addColorStop(1, 'rgba(75, 183, 178, .26)');

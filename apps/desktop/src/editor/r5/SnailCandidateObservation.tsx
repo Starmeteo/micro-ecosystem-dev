@@ -69,6 +69,11 @@ function SnailProfile({ theme, pose }: { theme: Theme; pose: Pose }) {
     const y = 78 - height;
     const image = new Image();
     image.onload = () => {
+      ctx.strokeStyle = theme === 'pond' ? 'rgba(170, 232, 228, 0.12)' : 'rgba(202, 224, 198, 0.12)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(14, 78.5); ctx.lineTo(drawingWidth - 14, 78.5);
+      ctx.stroke();
       ctx.imageSmoothingEnabled = false;
       // Keep both poses on the same shell scale, then fit the exposed head and foot to their pose length.
       ctx.drawImage(image, sx, sy, right - sx, sh, x, y, beforeShell, height);

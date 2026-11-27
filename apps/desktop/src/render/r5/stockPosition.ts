@@ -73,13 +73,25 @@ export function useStockPosition(tool: StockPositionTool | undefined, revision: 
 
 export function drawStockMarker(ctx: CanvasRenderingContext2D, point: Point, valid: boolean) {
   ctx.save();
-  ctx.strokeStyle = valid ? '#bbf3d9' : '#ffd096';
+  ctx.fillStyle = valid ? 'rgba(176, 244, 218, 0.16)' : 'rgba(255, 198, 132, 0.18)';
   ctx.beginPath();
-  ctx.arc(point.x, point.y, 7, 0, 2 * Math.PI);
-  ctx.moveTo(point.x - 3, point.y);
-  ctx.lineTo(point.x + 3, point.y);
-  ctx.moveTo(point.x, point.y - 3);
-  ctx.lineTo(point.x, point.y + 3);
+  ctx.arc(point.x, point.y, 9, 0, 2 * Math.PI);
+  ctx.fill();
+
+  ctx.strokeStyle = 'rgba(10, 22, 24, 0.72)';
+  ctx.lineWidth = 2.4;
+  ctx.beginPath();
+  ctx.arc(point.x, point.y, 7.2, 0, 2 * Math.PI);
+  ctx.stroke();
+
+  ctx.strokeStyle = valid ? '#c4f7e1' : '#ffd49e';
+  ctx.lineWidth = 1.2;
+  ctx.beginPath();
+  ctx.arc(point.x, point.y, 7.2, 0, 2 * Math.PI);
+  ctx.moveTo(point.x - 3.2, point.y);
+  ctx.lineTo(point.x + 3.2, point.y);
+  ctx.moveTo(point.x, point.y - 3.2);
+  ctx.lineTo(point.x, point.y + 3.2);
   ctx.stroke();
   ctx.restore();
 }
