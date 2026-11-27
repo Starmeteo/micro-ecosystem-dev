@@ -7,13 +7,15 @@
   pointer-events: none;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: #bfd3a7d4;
-  box-shadow: inset 0 0 0 1px #314b37;
+  background: radial-gradient(circle at 36% 32%, #def0be, #9dc082 85%);
+  box-shadow: inset 0 0 0 1px #2b4a32, 0 2px 6px rgba(10, 26, 20, 0.28);
 }
 .pond-floating__marker[data-selected] {
-  outline: 2px solid #f2fff7;
-  outline-offset: 1px;
+  outline: 2px solid #f4fff8;
+  outline-offset: 1.5px;
   z-index: 3;
 }
-.pond-floating__marker[data-stranded] { background: #d6b98c; }
+.pond-floating__marker[data-stranded] {
+  background: radial-gradient(circle at 36% 32%, #ebd2ab, #c49f6c 88%);
+}
 .pond-floating__remove { justify-self: start; }

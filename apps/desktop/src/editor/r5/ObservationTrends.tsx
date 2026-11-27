@@ -54,10 +54,21 @@ function simulationTime(millis: number) {
 
 function TrendPlot({ values, label }: { values: readonly TrendValue[]; label: string }) {
   const canvas = useRef<HTMLCanvasElement>(null);
+  const [themeRevision, setThemeRevision] = useState(0);
 
   useEffect(() => {
-    const ctx = canvas.current?.getContext('2d');
-    if (!ctx) return;
+    const root = canvas.current?.closest('.world-editor');
+    if (!root) return;
+    const observer = new MutationObserver(() => setThemeRevision((v) => v + 1));
+    observer.observe(root, { attributes: true, attributeFilter: ['data-appearance'] });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = canvas.current;
+    const ctx = el?.getContext('2d');
+    if (!el || !ctx) return;
+    const dark = Boolean(el.closest('[data-appearance="obsidian"]')) || !el.closest('[data-r5-forest="true"], [data-r5-pond="true"]');
     ctx.setTransform(2, 0, 0, 2, 0, 0);
     ctx.clearRect(0, 0, chartWidth, chartHeight);
     const numeric = values.flatMap(({ value }) => value === null ? [] : [value]);
@@ -66,41 +77,85 @@ function TrendPlot({ values, label }: { values: readonly TrendValue[]; label: st
     const end = values[values.length - 1].time;
     const low = Math.min(...numeric);
     const high = Math.max(...numeric);
-    const margin = 7;
-    const width = chartWidth - 2 * margin;
-    const height = chartHeight - 2 * margin;
-    const x = (time: number) => margin + (end === start ? .5 : (time - start) / (end - start)) * width;
-    const y = (value: number) => margin + (low === high ? .5 : (high - value) / (high - low)) * height;
+    const marginX = 9;
+    const marginY = 9;
+    const width = chartWidth - 2 * marginX;
+    const height = chartHeight - 2 * marginY;
+    const x = (time: number) => marginX + (end === start ? 0.5 : (time - start) / (end - start)) * width;
+    const y = (value: number) => marginY + (low === high ? 0.5 : (high - value) / (high - low)) * height;
 
-    ctx.strokeStyle = '#52768b38';
+    const strokeMain = dark ? '#7ee4c2' : '#1f6659';
+    const gridColor = dark ? 'rgba(186, 224, 218, 0.14)' : 'rgba(34, 76, 86, 0.13)';
+
+    ctx.strokeStyle = gridColor;
     ctx.lineWidth = 1;
+    ctx.setLineDash([2, 3]);
     ctx.beginPath();
-    for (const row of [margin, chartHeight / 2, chartHeight - margin]) {
-      ctx.moveTo(margin, row);
-      ctx.lineTo(chartWidth - margin, row);
+    for (const row of [marginY, chartHeight / 2, chartHeight - marginY]) {
+      ctx.moveTo(marginX, row);
+      ctx.lineTo(chartWidth - marginX, row);
     }
     ctx.stroke();
+    ctx.setLineDash([]);
 
-    ctx.strokeStyle = '#32647e';
-    ctx.fillStyle = '#32647e';
-    ctx.lineWidth = 1.5;
+    // Fill area segments under contiguous valid runs
+    const fillGrad = ctx.createLinearGradient(0, marginY, 0, chartHeight - marginY);
+    fillGrad.addColorStop(0, dark ? 'rgba(126, 228, 194, 0.28)' : 'rgba(31, 102, 89, 0.20)');
+    fillGrad.addColorStop(1, dark ? 'rgba(126, 228, 194, 0.01)' : 'rgba(31, 102, 89, 0.01)');
+    ctx.fillStyle = fillGrad;
+
+    let run: { px: number; py: number }[] = [];
+    const flushRun = () => {
+      if (run.length > 1) {
+        ctx.beginPath();
+        ctx.moveTo(run[0].px, chartHeight - marginY);
+        for (const pt of run) ctx.lineTo(pt.px, pt.py);
+        ctx.lineTo(run[run.length - 1].px, chartHeight - marginY);
+        ctx.closePath();
+        ctx.fill();
+      }
+      run = [];
+    };
+    for (const point of values) {
+      if (point.value === null) flushRun();
+      else run.push({ px: x(point.time), py: y(point.value) });
+    }
+    flushRun();
+
+    // Main curve
+    ctx.strokeStyle = strokeMain;
+    ctx.fillStyle = strokeMain;
+    ctx.lineWidth = 1.75;
     ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
     ctx.beginPath();
     let previous = false;
+    let lastValid: { px: number; py: number } | null = null;
     for (const point of values) {
       if (point.value === null) { previous = false; continue; }
-      if (previous) ctx.lineTo(x(point.time), y(point.value));
-      else ctx.moveTo(x(point.time), y(point.value));
+      const px = x(point.time);
+      const py = y(point.value);
+      lastValid = { px, py };
+      if (previous) ctx.lineTo(px, py);
+      else ctx.moveTo(px, py);
       previous = true;
     }
     ctx.stroke();
+
     for (const point of values) {
       if (point.value === null) continue;
       ctx.beginPath();
-      ctx.arc(x(point.time), y(point.value), numeric.length < 20 ? 2.3 : 1.4, 0, Math.PI * 2);
+      ctx.arc(x(point.time), y(point.value), numeric.length < 20 ? 2.2 : 1.35, 0, Math.PI * 2);
       ctx.fill();
     }
-  }, [values]);
+
+    if (lastValid) {
+      ctx.beginPath();
+      ctx.arc(lastValid.px, lastValid.py, 4.6, 0, Math.PI * 2);
+      ctx.fillStyle = dark ? 'rgba(126, 228, 194, 0.26)' : 'rgba(31, 102, 89, 0.22)';
+      ctx.fill();
+    }
+  }, [values, themeRevision]);
 
   return <canvas ref={canvas} width={2 * chartWidth} height={2 * chartHeight} role="img" aria-label={label} />;
 }

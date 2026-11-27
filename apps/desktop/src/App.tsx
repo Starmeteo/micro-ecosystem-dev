@@ -156,10 +156,11 @@ function Landscape({ snapshot, connectionError, active, idle, sharedCover, previ
 
 function EnvironmentInfo({ snapshot }: { snapshot: WorldSnapshot | null }) {
   const status = snapshot?.suspended ? '系统暂停' : snapshot?.paused ? '已暂停' : snapshot ? '运行中' : '正在连接';
+  const live = Boolean(snapshot && !snapshot.suspended && !snapshot.paused);
   const water = snapshot?.forest?.waterMl;
   const basin = snapshot?.pond?.basins[0];
   return (
-    <section className="environment-info" aria-label={`${worldName(snapshot)}环境信息`}>
+    <section className="environment-info" data-live={live || undefined} aria-label={`${worldName(snapshot)}环境信息`}>
       <div><strong>{worldName(snapshot)}</strong><span>{status}</span></div>
       {basin && <div className="environment-info__measure">
         <span>{basin.wet ? '全池溶氧' : '已干涸'}</span>

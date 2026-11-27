@@ -151,21 +151,35 @@ export function drawRuler(
   }
 
   const mm = 50;
-  const left = 12 * dpr;
-  const bottom = output.height - 13 * dpr;
+  const left = 14 * dpr;
+  const bottom = output.height - 14 * dpr;
   const ruler = sampleProjection(mm, referenceWidthMm, output.width, R5_WIDTH / viewport.width);
-  ctx.fillStyle = 'rgba(10,21,26,.75)';
-  ctx.fillRect(left - 5 * dpr, bottom - 22 * dpr, ruler + 10 * dpr, 31 * dpr);
-  ctx.strokeStyle = '#e7faf2';
-  ctx.fillStyle = '#e7faf2';
-  ctx.font = `${11 * dpr}px system-ui, sans-serif`;
-  ctx.textAlign = 'center';
-  ctx.fillText(`${mm} mm`, left + ruler / 2, bottom - 6 * dpr);
+  const padX = 8 * dpr;
+  const boxX = left - padX;
+  const boxY = bottom - 23 * dpr;
+  const boxW = ruler + padX * 2;
+  const boxH = 31 * dpr;
+  const radius = 7 * dpr;
+
+  ctx.fillStyle = 'rgba(12, 22, 26, 0.76)';
+  ctx.strokeStyle = 'rgba(220, 246, 238, 0.28)';
   ctx.beginPath();
-  ctx.moveTo(left, bottom - 3 * dpr);
+  ctx.roundRect(boxX, boxY, boxW, boxH, radius);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.strokeStyle = '#ebfaf4';
+  ctx.fillStyle = '#ebfaf4';
+  ctx.font = `600 ${10.5 * dpr}px "Segoe UI Variable Text", "Inter", system-ui, sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.fillText(`${mm} mm`, left + ruler / 2, bottom - 7 * dpr);
+  ctx.beginPath();
+  ctx.moveTo(left, bottom - 3.5 * dpr);
   ctx.lineTo(left, bottom + 2 * dpr);
   ctx.lineTo(left + ruler, bottom + 2 * dpr);
-  ctx.lineTo(left + ruler, bottom - 3 * dpr);
+  ctx.lineTo(left + ruler, bottom - 3.5 * dpr);
+  ctx.moveTo(left + ruler / 2, bottom - 1 * dpr);
+  ctx.lineTo(left + ruler / 2, bottom + 2 * dpr);
   ctx.stroke();
   ctx.restore();
 }

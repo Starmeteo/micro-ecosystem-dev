@@ -93,9 +93,9 @@ const seasonLabels = { winter: '冬', spring: '春', summer: '夏', autumn: '秋
 const presetLabels = { forest: '林下', pond: '浅塘' };
 const trialBatchSeconds: Record<TrialRate, number> = { '1x': 2, '10x': 20, '60x': 120 };
 const inspectors = [
-  { id: 'object', label: '属性' },
-  { id: 'environment', label: '环境' },
-  { id: 'biology', label: '生物' },
+  { id: 'object', label: '属性', icon: 'M4 5.5h16v13H4z M8 9.5h8 M8 14.5h5 M11 7.5v4 M14 12.5v4' },
+  { id: 'environment', label: '环境', icon: 'M3 16.5q3-2.6 6 0t6 0t6 0 M3 11.5q3-2.6 6 0t6 0t6 0 M12 4.2a2.2 2.2 0 1 0 0 4.4a2.2 2.2 0 1 0 0-4.4' },
+  { id: 'biology', label: '生物', icon: 'M19.5 4.5c-8.5 0-14 3.8-14 9.5a4.8 4.8 0 0 0 4.8 4.8c5.7 0 9.2-5.5 9.2-14.3Z M4.5 19.5l10.5-10.5' },
 ] as const;
 const terrainPlacementHints: Record<ForestTerrainKind | 'forestScenery' | 'forestAttachment' | 'forestMoss' | 'forestFern' | 'leafBrush' | 'substrateBrush' | 'stockWoodlice' | 'stockShrimp' | 'pondRock' | 'pondWood' | 'pondPlant' | 'pondScenery' | 'waterPlant' | 'pondShape' | 'floatingPlant' | 'leafDeposit', string> = {
   rock: '在地面选择落点。',
@@ -200,10 +200,11 @@ function messageFor(error: unknown) {
 
 function WorldState({ snapshot, editing, trial }: { snapshot: WorldSnapshot | null; editing: boolean; trial: boolean }) {
   const waiting = !snapshot || snapshot.suspended || snapshot.paused;
+  const mode = trial ? 'trial' : editing ? 'editing' : waiting ? 'waiting' : 'live';
   const text = !snapshot ? '连接中' : snapshot.suspended ? '系统暂停'
     : trial ? '试运行副本' : editing ? '编辑中 · 已暂停' : snapshot.paused ? '已暂停' : '生活中';
 
-  return <span className="editor-state" data-waiting={waiting}>{native ? text : '浏览器预览'}</span>;
+  return <span className="editor-state" data-waiting={waiting} data-mode={mode}>{native ? text : '浏览器预览'}</span>;
 }
 
 function ForestDiagnostics({ data, view, showSpringtails = true }: {
@@ -317,6 +318,13 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
   const [saveFailures, setSaveFailures] = useState<Record<string, string>>({});
   const [density, setDensity] = useState<1 | 2>(2);
   const [light, setLight] = useState<LightPreview>('scene');
+  const [appearance, setAppearance] = useState<'mist' | 'obsidian'>(() => {
+    try {
+      return window.localStorage.getItem('micro-eco-appearance') === 'obsidian' ? 'obsidian' : 'mist';
+    } catch {
+      return 'mist';
+    }
+  });
   const [renderer, setRenderer] = useState('');
   const [confirmRestore, setConfirmRestore] = useState(false);
   const [confirmCreate, setConfirmCreate] = useState<Preset | null>(null);
@@ -1368,6 +1376,7 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
     <main className="world-editor" data-world-id={world?.worldId} data-trial={trial ? 'true' : undefined}
       data-r5-forest={Boolean(forestRocks)} data-r5-pond={Boolean(pondStones)} data-r5-scenery={Boolean(pondScenery) || undefined}
       data-r5-forest-scenery={Boolean(forestScenery) || undefined}
+      data-appearance={appearance}
       data-task={task} onKeyDown={handleKeys}>
       <header className="editor-heading" data-tauri-drag-region>
         <div className="editor-heading__titles" data-tauri-drag-region>
@@ -1486,10 +1495,21 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
       <div className="editor-body">
         <nav className="editor-inspector-rail" aria-label="检查器">
           <button type="button" className="editor-tool editor-return-scene" aria-pressed={task === 'scene'}
-            onClick={() => setTask('scene')}>场景</button>
-          {inspectors.map(({ id, label }) => (
+            onClick={() => setTask('scene')}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" aria-hidden="true">
+              <rect x="3.5" y="5" width="17" height="14" rx="2.5" />
+              <path d="m7.5 15 3.5-4 2.8 3 2.2-2.2 2.5 3.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            场景
+          </button>
+          {inspectors.map(({ id, label, icon }) => (
             <button key={id} type="button" className="editor-tool" aria-pressed={inspector === id} aria-controls="editor-inspector"
-              onClick={() => { if (pondMapOpen) setPlacement(null); setInspector(id); setTask('inspector'); }}>{label}</button>
+              onClick={() => { if (pondMapOpen) setPlacement(null); setInspector(id); setTask('inspector'); }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" aria-hidden="true">
+                <path d={icon} strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {label}
+            </button>
           ))}
           {(forestRocks || pondStones) && (
             <button type="button" className="editor-tool editor-open-drawer" aria-expanded={drawerOpen}
@@ -1500,7 +1520,12 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
                 setDrawerOpen(open);
                 setTask(open ? 'content' : 'scene');
                 if (!open && (mossPlacement || forestAttachment)) setPlacement(null);
-              }}>内容</button>
+              }}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" aria-hidden="true">
+                <path d="M4 7.5 12 3.5l8 4-8 4-8-4Z M4 7.5v9l8 4 8-4v-9 M12 11.5v9" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              内容
+            </button>
           )}
         </nav>
         <section className="editor-scene" aria-label="生态场景" data-pond-static-section-row={staticSection?.row}>
@@ -1928,6 +1953,18 @@ export function WorldEditor({ snapshot, connectionError, viewActive }: WorldEdit
           {!trial && inspector === 'object' && <details className="editor-details">
             <summary>画面与存档</summary>
             <div className="editor-details__body">
+              {(forestRocks || pondStones) && <fieldset>
+                <legend>界面材质</legend>
+                <div className="editor-details__options">
+                  {([['mist', '朝雾浅玻'], ['obsidian', '夜林深玻']] as const).map(([id, label]) => (
+                    <button type="button" key={id} className="editor-tool" data-appearance-choice={id}
+                      aria-pressed={appearance === id} onClick={() => {
+                        setAppearance(id);
+                        try { window.localStorage.setItem('micro-eco-appearance', id); } catch { /* ignore */ }
+                      }}>{label}</button>
+                  ))}
+                </div>
+              </fieldset>}
               {!basin && !forestScenery && <fieldset>
                 <legend>像素密度</legend>
                 <div className="editor-details__options">

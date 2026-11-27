@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #121d17;
+  background: radial-gradient(ellipse at 50% 45%, #16241c, #0d1611 85%);
 }
 
 .forest-view canvas {
@@ -15,12 +15,12 @@
 }
 
 .forest-view canvas:focus-visible {
-  outline: 2px solid #d5c58d;
+  outline: 2px solid #b8eed8;
   outline-offset: -2px;
 }
 
 .forest-view__error {
   margin: 1rem;
-  color: #f0d9a7;
-  font-size: .875rem;
+  color: #f5d8a8;
+  font-size: 0.875rem;
 }

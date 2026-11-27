@@ -4,7 +4,7 @@
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #1b2830;
+  background: radial-gradient(ellipse at 50% 42%, #1a3038, #0f1d23 85%);
 }
 
 .pond-scene__canvas {
@@ -18,7 +18,7 @@
 .pond-scene__canvas[data-placement-mode="move"] { cursor: grab; }
 .pond-scene__canvas:is([data-placement-mode="add"], [data-placement-mode="stock"]) { cursor: crosshair; }
 .pond-scene__canvas[data-dragging] { cursor: grabbing; }
-.pond-scene__canvas:focus-visible { outline: 2px solid #b1f6e1; outline-offset: -2px; }
+.pond-scene__canvas:focus-visible { outline: 2px solid #b5f4e2; outline-offset: -2px; }
 
 .pond-scene__status {
   position: absolute;
@@ -26,9 +26,9 @@
   display: grid;
   place-items: center;
   margin: 0;
-  padding: 10px;
-  background: #25343b;
+  padding: 12px;
+  background: radial-gradient(ellipse at 50% 45%, #1d323a, #122127 85%);
   text-align: center;
-  color: var(--ink, #f0efe6);
+  color: var(--ink, #eef6f4);
   font-size: 13px;
 }
